@@ -56,38 +56,61 @@ async function init() {
 
 function showLogin() {
     console.log("Mostrando Login");
-    document.getElementById('login-screen').style.display = 'flex';
-    document.getElementById('dashboard-screen').style.display = 'none';
+    document.getElementById('loginPage').classList.remove('hidden');
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('header').classList.add('hidden');
+    document.getElementById('quiz-view').classList.add('hidden');
+    document.getElementById('results-view').classList.add('hidden');
 }
 
 function showDashboard(user) {
     console.log("Mostrando Dashboard para:", user.email);
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('dashboard-screen').style.display = 'block';
+    document.getElementById('loginPage').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    document.getElementById('header').classList.remove('hidden');
+    document.getElementById('quiz-view').classList.add('hidden');
+    document.getElementById('results-view').classList.add('hidden');
 
     // Update User Info
-    document.getElementById('user-name').innerText = user.email.split('@')[0];
-    document.getElementById('user-avatar').src = user.user_metadata.avatar_url || `https://ui-avatars.com/api/?name=${user.email}&background=random`;
+    document.getElementById('userName').innerText = user.email.split('@')[0];
+    document.getElementById('userEmail').innerText = user.email;
+
+    // Avatar logic
+    const avatarUrl = user.user_metadata.avatar_url;
+    if (avatarUrl) {
+        document.getElementById('user-avatar').src = avatarUrl;
+        document.getElementById('user-avatar').style.display = 'block';
+        document.getElementById('user-initials').style.display = 'none';
+    } else {
+        document.getElementById('user-initials').style.display = 'block';
+    }
 }
 
-function switchTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+// Replaced switchTab with generic switchView
+function switchView(viewId) {
+    // Hide all main views
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('docs-view').classList.add('hidden'); // Ensure docs-view exists in HTML or handle error
+    document.getElementById('quiz-view').classList.add('hidden');
 
-    document.getElementById(tabId).classList.add('active');
-
-    if (tabId === 'home-tab') document.getElementById('tab-home').classList.add('active');
-    if (tabId === 'docs-tab') document.getElementById('tab-docs').classList.add('active');
+    // Show target
+    const target = document.getElementById(viewId === 'docs' ? 'docs-view' : 'dashboard');
+    if (target) target.classList.remove('hidden');
 }
+
 
 // Bind to window to fix 'not defined' errors
 window.startQuiz = startQuiz;
-window.switchTab = switchTab;
+window.switchView = switchView;
+window.logout = logout;
+window.toggleHint = toggleHint;
+window.nextQuestion = nextQuestion;
 
 function startQuiz() {
     if (!quizData) return alert("Cargando datos...");
-    document.getElementById('start-view').style.display = 'none';
-    document.getElementById('quiz-view').style.display = 'block';
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('quiz-view').classList.remove('hidden');
+    document.getElementById('header').classList.remove('hidden'); // Ensure header stays
 
     currentQuestionIndex = 0;
     score = 0;
@@ -98,22 +121,27 @@ function updateUI() {
     const q = quizData[currentQuestionIndex];
     const qText = document.getElementById('q-text');
     const optionsContainer = document.getElementById('options');
-    const progress = document.getElementById('progress-bar');
+    // Progress bar update
+    const progressBar = document.getElementById('progress-bar');
+
     const questionCount = document.getElementById('question-count');
     const rationaleBox = document.getElementById('rationale-box');
     const nextBtn = document.getElementById('next-btn');
     const hintText = document.getElementById('hint-text');
+    const hintTrigger = document.getElementById('hint-trigger');
 
     rationaleBox.style.display = 'none';
     nextBtn.style.display = 'none';
     hintText.style.display = 'none';
-    document.getElementById('hint-trigger').style.display = q.hint ? 'block' : 'none';
+    hintTrigger.style.display = q.hint ? 'block' : 'none';
     hintText.innerText = q.hint || '';
 
     qText.innerText = `${q.question}`;
     questionCount.innerText = `Pregunta ${currentQuestionIndex + 1} de ${quizData.length}`;
-    progress.style.width = `${((currentQuestionIndex + 1) / quizData.length) * 100}%`;
-    document.getElementById('score-display').innerText = `Puntaje: ${score}`;
+
+    // Fix progress width logic
+    const pct = ((currentQuestionIndex + 1) / quizData.length) * 100;
+    progressBar.style.width = `${pct}%`;
 
     optionsContainer.innerHTML = '';
     q.answerOptions.forEach((opt, idx) => {
@@ -138,12 +166,11 @@ function selectOption(el, isCorrect, rationale) {
     if (isCorrect) {
         el.classList.add('correct');
         score++;
-        document.getElementById('score-display').innerText = `Puntaje: ${score}`;
     } else {
         el.classList.add('wrong');
         const q = quizData[currentQuestionIndex];
         const correctIdx = q.answerOptions.findIndex(o => o.isCorrect);
-        options[correctIdx].classList.add('correct');
+        if (options[correctIdx]) options[correctIdx].classList.add('correct');
     }
 
     guardarRespuesta(currentQuestionIndex, isCorrect);
@@ -165,8 +192,9 @@ function nextQuestion() {
 }
 
 function showResults() {
-    document.getElementById('quiz-view').style.display = 'none';
-    document.getElementById('results-view').style.display = 'block';
+    document.getElementById('quiz-view').classList.add('hidden');
+    document.getElementById('results-view').classList.remove('hidden');
+
     const percentage = Math.round((score / quizData.length) * 100);
     document.getElementById('final-score').innerText = `${percentage}%`;
 
@@ -231,12 +259,60 @@ async function loginWithGoogle() {
     if (error) alert("Error: " + error.message);
 }
 
-window.logout = async function () {
+async function logout() {
     await supabaseApp.auth.signOut();
     window.location.reload();
 }
 
-// PWA
+// Theme Logic
+window.setTheme = function (theme) {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    // Update active state
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick').includes(`'${theme}'`)) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'default';
+    if (savedTheme) window.setTheme(savedTheme);
+}
+
+// Handle Profile Menu Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    initTheme();
+
+    // Login Button
+    const loginBtn = document.getElementById('googleLoginBtn');
+    if (loginBtn) loginBtn.onclick = loginWithGoogle;
+
+    // Profile Menu Toggle
+    const profileBtn = document.getElementById('profileBtn');
+    const profileMenu = document.getElementById('profileMenu');
+
+    if (profileBtn && profileMenu) {
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            profileMenu.classList.remove('active');
+        });
+
+        profileMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+});
+
+// PWA: Check Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
@@ -244,9 +320,3 @@ if ('serviceWorker' in navigator) {
             .catch(err => console.log('Error al registrar Service Worker', err));
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    init();
-    const loginBtn = document.getElementById('login-btn-main');
-    if (loginBtn) loginBtn.onclick = loginWithGoogle;
-});

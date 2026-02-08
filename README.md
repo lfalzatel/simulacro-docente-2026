@@ -43,6 +43,7 @@ Si ves el error de Google con `app_domain` en la URL:
 1.  **Supabase**: Ve a Authentication > URL Configuration -> **Redirect URLs**.
     *   Asegúrate de que `http://localhost:3000` (o tu puerto actual) esté en la lista.
     *   Añade también `http://localhost:3000/**`.
+    *   **Nota:** Puedes tener múltiples URLs (ej. la de San Andrés y la de este concurso) sin problemas. Supabase usará la que la app solicite específicamente.
 2.  **Google Cloud Console**: Ve a Credentials -> OAuth 2.0 Client ID.
     *   **Authorized JavaScript origins**: Debe incluir `http://localhost:3000`.
     *   **Authorized redirect URIs**: Debe incluir `https://sqkogiitljnoaxirhrwq.supabase.co/auth/v1/callback`.
