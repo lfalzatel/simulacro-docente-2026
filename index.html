@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulacro Docente 2026 - PWA</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Quiz Data & App Logic -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="quizData.js"></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Login Screen (Default) -->
+        <div id="login-screen" class="screen active full-height-center">
+            <div class="login-card">
+                <h1>Preparación Docente 2026</h1>
+                <p>Plataforma exclusiva para el concurso de ascenso y reubicación.</p>
+                <button id="login-btn-main" class="btn google-btn">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google G">
+                    Iniciar Sesión con Google
+                </button>
+                <p class="login-dicl">Acceso seguro vía Supabase</p>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen (Protected) -->
+        <div id="dashboard-screen" class="screen" style="display: none;">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    <img id="user-avatar" src="" alt="Avatar" class="avatar">
+                    <span id="user-name">Usuario</span>
+                </div>
+                <button onclick="logout()" class="btn-small logout-btn">Cerrar Sesión</button>
+            </header>
+
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <div id="tab-home" class="tab active" onclick="switchTab('home-tab')">Simulacro</div>
+                <div id="tab-docs" class="tab" onclick="switchTab('docs-tab')">Documentación</div>
+            </div>
+
+            <!-- Tab Content: Home -->
+            <div id="home-tab" class="tab-content active">
+                <h2 id="quiz-title-display">Preparación Docente</h2>
+                <p style="text-align: center; margin-bottom: 20px; opacity: 0.8;">
+                    Simulador avanzado de 130 preguntas.
+                </p>
+
+                <div id="start-view">
+                    <button class="btn" onclick="startQuiz()">Comenzar Simulacro</button>
+                </div>
+
+                <div id="quiz-view" style="display: none;">
+                    <div class="stats">
+                        <span id="question-count">Pregunta 1</span>
+                        <span id="score-display">Puntaje: 0</span>
+                    </div>
+                    <div class="progress-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div id="question-content">
+                        <div class="question-header" id="q-text"></div>
+                        <button id="hint-trigger" class="hint-btn" onclick="toggleHint()">Ver Pista</button>
+                        <div id="hint-text"
+                            style="display:none; margin-bottom:15px; font-size: 0.85rem; color: #fdbb2d;"></div>
+                        <div class="options-grid" id="options"></div>
+                        <div class="rationale" id="rationale-box"></div>
+                    </div>
+                    <button id="next-btn" class="btn" style="display:none;" onclick="nextQuestion()">Siguiente
+                        Pregunta</button>
+                </div>
+
+                <!-- Results View -->
+                <div id="results-view" style="display: none;">
+                    <h2>Simulacro Completado</h2>
+                    <div style="text-align: center;">
+                        <div class="results-score" id="final-score">0%</div>
+                        <p class="results-summary" id="results-text"></p>
+                        <button class="btn" onclick="location.reload()">Reintentar Simulacro</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tab Content: Docs -->
+            <div id="docs-tab" class="tab-content">
+                <h2>Normativa Docente 2026</h2>
+                <div class="doc-section">
+                    <a href="https://www.mineducacion.gov.co/1621/articles-86102_archivo_pdf.pdf" target="_blank"
+                        class="doc-link">📜 Decreto 1278 de 2002 (Estatuto Docente)</a>
+                    <a href="https://www.mineducacion.gov.co/1621/articles-85906_archivo_pdf.pdf" target="_blank"
+                        class="doc-link">📚 Ley 115 de 1994 (Ley General de Educación)</a>
+                    <a href="https://www.mineducacion.gov.co/1621/articles-177745_archivo_pdf.pdf" target="_blank"
+                        class="doc-link">⚙️ Guía 34 del MEN (Mejoramiento Institucional)</a>
+                    <a href="https://www.mineducacion.gov.co/portal/normatividad/Resoluciones/415510:Resolucion-025624-de-2023"
+                        target="_blank" class="doc-link">✅ Resolución 025624 de 2023 (Prueba Pedagógica)</a>
+                    <a href="https://www.mineducacion.gov.co/1621/articles-21092_archivo_pdf.pdf" target="_blank"
+                        class="doc-link">🎯 Estándares Básicos de Competencias</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

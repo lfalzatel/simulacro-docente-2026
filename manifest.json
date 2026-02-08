@@ -1,0 +1,17 @@
+{
+    "name": "Simulacro Docente 2026",
+    "short_name": "Simulacro",
+    "description": "Simulador avanzado de preparación para el concurso docente 2026.",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#1a2a6c",
+    "theme_color": "#4CAF50",
+    "icons": [
+        {
+            "src": "pwa_icon_192.svg",
+            "sizes": "192x192 512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}
