@@ -47,12 +47,20 @@ Si ves el error de Google con `app_domain` en la URL:
     *   **Authorized JavaScript origins**: Debe incluir `http://localhost:3000`.
     *   **Authorized redirect URIs**: Debe incluir `https://sqkogiitljnoaxirhrwq.supabase.co/auth/v1/callback`.
 
-## Despliegue en Vercel
+## Despliegue en GitHub y Vercel
 
-1.  Instala Vercel CLI: `npm i -g vercel`
-2.  Ejecuta `vercel` en la carpeta del proyecto.
-3.  Sigue las instrucciones en pantalla.
-4.  Agrega la URL de tu despliegue (ej. `https://mi-proyecto.vercel.app`) a las "Redirect URLs" en Supabase.
+1.  **Subir cambios a GitHub**:
+    ```bash
+    git push -u origin main
+    ```
+2.  **Conectar con Vercel**:
+    *   Ve a [Vercel Dashboard](https://vercel.com/dashboard).
+    *   "Add New..." -> Project.
+    *   Importa el repositorio `simulacro-docente-2026`.
+    *   Deploy.
+3.  **Actualizar URLs en Supabase/Google**:
+    *   Una vez desplegado, obtén la URL de Vercel (ej. `https://simulacro-docente.vercel.app`).
+    *   Añádela a las **Redirect URLs** en Supabase y **Authorized origins** en Google Cloud.
 
 ## Estructura de Archivos
 
