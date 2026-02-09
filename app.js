@@ -221,22 +221,47 @@ async function showDashboard(user) {
 }
 
 async function updateDashboardStats() {
-    // Calcular estadísticas del progreso
+    // 🛡️ RECALCULATE SCORE from logical source of truth
+    let calculatedScore = 0;
     const answeredCount = Object.keys(userProgress).filter(k => k !== 'safeLastIndex').length;
+
+    // Iterate to count correct answers
+    Object.values(userProgress).forEach(ans => {
+        if (ans && ans.isCorrect) calculatedScore++;
+    });
+
+    // Sync global score just in case
+    score = calculatedScore;
+
     const totalQuestions = quizData ? quizData.length : 140;
     const progressPercent = Math.round((answeredCount / totalQuestions) * 100);
 
-    document.getElementById('stat-score').innerText = score > 0 ? score : '-';
-    document.getElementById('stat-questions').innerText = answeredCount;
-    document.getElementById('stat-progress').innerText = `${progressPercent}%`;
+    // Update Dashboard Elements
+    const scoreEl = document.getElementById('stat-score');
+    if (scoreEl) scoreEl.innerText = score > 0 ? score : '-';
 
-    // Actualizar texto del botón si hay progreso
-    if (answeredCount > 0 && answeredCount < totalQuestions) {
-        document.getElementById('resumeText').innerText = `Continuar Simulacro (${answeredCount}/${totalQuestions})`;
-    } else if (answeredCount >= totalQuestions) {
-        document.getElementById('resumeText').innerText = 'Reiniciar Simulacro';
-    } else {
-        document.getElementById('resumeText').innerText = 'Comenzar Simulacro';
+    const questionsEl = document.getElementById('stat-questions');
+    if (questionsEl) questionsEl.innerText = answeredCount;
+
+    const progressEl = document.getElementById('stat-progress');
+    if (progressEl) progressEl.innerText = `${progressPercent}%`;
+
+    // Actualizar texto del botón
+    const resumeText = document.getElementById('resumeText');
+    if (resumeText) {
+        if (answeredCount > 0 && answeredCount < totalQuestions) {
+            resumeText.innerText = `Continuar Simulacro (${answeredCount}/${totalQuestions})`;
+        } else if (answeredCount >= totalQuestions) {
+            resumeText.innerText = 'Reiniciar Simulacro';
+        } else {
+            resumeText.innerText = 'Comenzar Simulacro';
+        }
+    }
+
+    // Also update Profile Score if it exists
+    const profileScoreEl = document.getElementById('profile-total-score');
+    if (profileScoreEl) {
+        profileScoreEl.innerText = `${score} / ${answeredCount}`;
     }
 }
 
@@ -255,6 +280,7 @@ function switchView(viewId) {
     } else if (viewId === 'profile') {
         document.getElementById('profile-view').classList.remove('hidden');
         renderActivityCalendar();
+        updateDashboardStats(); // Update stats in profile too
     }
 }
 
@@ -580,7 +606,8 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
         if (statusEl) {
             setTimeout(() => {
                 statusEl.classList.remove('visible');
-            }, 1000);
+                statusEl.innerHTML = ""; // Clear text too
+            }, 1500);
         }
     }
 }

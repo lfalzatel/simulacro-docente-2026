@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=29">
+    <link rel="stylesheet" href="style.css?v=31">
 </head>
 
 <body>
@@ -71,7 +71,7 @@
                         <span>Cerrar Sesión</span>
                     </div>
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                        v30 (Mobile Fix)
+                        v31 (Score/Notif Fix)
                     </div>
                 </div>
             </div>
@@ -168,6 +168,23 @@
                     </div>
                     <button class="back-btn" onclick="switchView('dashboard')" title="Volver"
                         style="margin: 0;">✕</button>
+                </div>
+            </div>
+
+            <!-- Total Score Card (New) -->
+            <div class="stat-card"
+                style="margin-bottom: 2rem; background: linear-gradient(135deg, var(--surface) 0%, rgba(37, 99, 235, 0.05) 100%);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="font-size: 2.5rem;">🏆</div>
+                    <div>
+                        <div
+                            style="font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">
+                            Puntaje Actual</div>
+                        <div id="profile-total-score"
+                            style="font-size: 2rem; font-weight: 800; color: var(--text-primary);">0 / 0</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Respuestas Correctas vs
+                            Respondidas</div>
+                    </div>
                 </div>
             </div>
 
@@ -299,7 +316,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=29"></script>
+    <script src="app.js?v=31"></script>
+    </script>
     </script>
 </body>
 
