@@ -35,14 +35,19 @@
                     <span id="user-initials">👤</span>
                 </button>
                 <div class="profile-menu" id="profileMenu">
-                    <div class="profile-info">
+                    <div class="profile-info" onclick="switchView('profile')" style="cursor: pointer;">
                         <div class="profile-name" id="userName">Usuario</div>
-                        <div class="profile-email" id="userEmail">usuario@example.com</div>
+                        <div class="profile-email" id="userEmail">Ver mi perfil completo →</div>
                     </div>
 
                     <div id="installAppBtn" class="menu-item highlight">
                         <span>📲</span>
                         <span>Instalar App</span>
+                    </div>
+
+                    <div class="menu-item" onclick="switchView('profile')">
+                        <span>👤</span>
+                        <span>Mi Perfil</span>
                     </div>
 
                     <div class="menu-section-label">Tema</div>
@@ -114,7 +119,8 @@
                 <h1 class="welcome-title">¡Hola de nuevo! 👋</h1>
                 <p class="welcome-text">
                     Continúa tu preparación para el concurso docente 2026.
-                    Tu progreso se guarda automáticamente.
+                    Tu progreso se guarda automáticamente cada vez que respondes una pregunta.
+                    Sigue así para asegurar tu éxito.
                 </p>
             </div>
 
@@ -122,7 +128,7 @@
                 <div class="stat-card">
                     <div class="stat-icon">🎯</div>
                     <div class="stat-value" id="stat-score">-</div>
-                    <div class="stat-label">Último Puntaje</div>
+                    <div class="stat-label">Puntaje Total</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">📈</div>
@@ -145,6 +151,56 @@
                     <button class="start-btn" id="startExamBtn" onclick="startQuiz()">
                         <span id="resumeText">Comenzar Simulacro</span>
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile View -->
+        <div id="profile-view" class="dashboard hidden">
+            <div class="welcome-section">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <h1 class="welcome-title">Tu Perfil</h1>
+                        <p class="welcome-text">Resumen detallado de tu actividad y desempeño.</p>
+                    </div>
+                    <button class="back-btn" onclick="switchView('dashboard')" title="Volver"
+                        style="margin: 0;">✕</button>
+                </div>
+            </div>
+
+            <!-- Score Explanation Card -->
+            <div class="stat-card" style="margin-bottom: 2rem; border-left: 4px solid var(--accent-primary);">
+                <div class="stat-label" style="font-weight: 600; margin-bottom: 0.5rem; color: var(--accent-primary);">
+                    ℹ️ Sistema de Puntuación</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                    <div style="text-align: center; padding: 1rem; background: var(--success-bg); border-radius: 8px;">
+                        <span style="font-size: 1.5rem; display: block;">✅ +1</span>
+                        <span style="font-size: 0.9rem; color: var(--success-text);">Respuesta Correcta</span>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: var(--error-bg); border-radius: 8px;">
+                        <span style="font-size: 1.5rem; display: block;">❌ +0</span>
+                        <span style="font-size: 0.9rem; color: var(--error-text);">Respuesta Incorrecta</span>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary); text-align: center;">
+                    El puntaje refleja el número total de aciertos acumulados.
+                </p>
+            </div>
+
+            <!-- Activity Calendar -->
+            <div class="stat-card">
+                <h3 class="welcome-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">📅 Actividad Diaria</h3>
+                <div id="activity-calendar" class="calendar-grid">
+                    <!-- Calendar injected by JS -->
+                </div>
+                <div
+                    style="display: flex; justify-content: flex-end; align-items: center; gap: 5px; margin-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+                    <span>Menos</span>
+                    <div style="width: 10px; height: 10px; background: var(--bg-body-start); border-radius: 2px;"></div>
+                    <div style="width: 10px; height: 10px; background: var(--sage-light); border-radius: 2px;"></div>
+                    <div style="width: 10px; height: 10px; background: var(--accent-primary); border-radius: 2px;">
+                    </div>
+                    <span>Más</span>
                 </div>
             </div>
         </div>

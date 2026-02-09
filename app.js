@@ -177,6 +177,7 @@ function showLogin() {
     document.getElementById('quiz-view').classList.add('hidden');
     document.getElementById('results-view').classList.add('hidden');
     document.getElementById('docs-view').classList.add('hidden');
+    document.getElementById('profile-view').classList.add('hidden');
 }
 
 async function showDashboard(user) {
@@ -187,6 +188,7 @@ async function showDashboard(user) {
     document.getElementById('quiz-view').classList.add('hidden');
     document.getElementById('results-view').classList.add('hidden');
     document.getElementById('docs-view').classList.add('hidden');
+    document.getElementById('profile-view').classList.add('hidden');
 
     // Update User Info
     const displayName = user.user_metadata?.full_name || user.email.split('@')[0];
@@ -235,12 +237,56 @@ function switchView(viewId) {
     document.getElementById('docs-view').classList.add('hidden');
     document.getElementById('quiz-view').classList.add('hidden');
     document.getElementById('results-view').classList.add('hidden');
+    document.getElementById('profile-view').classList.add('hidden'); // Ensure profile is hidden initially
 
     if (viewId === 'docs') {
         document.getElementById('docs-view').classList.remove('hidden');
     } else if (viewId === 'dashboard') {
         document.getElementById('dashboard').classList.remove('hidden');
         updateDashboardStats();
+    } else if (viewId === 'profile') {
+        document.getElementById('profile-view').classList.remove('hidden');
+        renderActivityCalendar();
+    }
+}
+
+function renderActivityCalendar() {
+    const calendarEl = document.getElementById('activity-calendar');
+    if (!calendarEl) return;
+    calendarEl.innerHTML = '';
+
+    // Process Data
+    const activityMap = {};
+    Object.values(userProgress).forEach(entry => {
+        // Handle both new object format and old format (just in case)
+        if (entry && typeof entry === 'object' && entry.timestamp) {
+            const date = entry.timestamp.split('T')[0];
+            activityMap[date] = (activityMap[date] || 0) + 1;
+        }
+    });
+
+    // Generate last 35 days (5 weeks)
+    const today = new Date();
+    // Align end date to today
+
+    for (let i = 34; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(today.getDate() - i);
+        const dateStr = d.toISOString().split('T')[0];
+        const count = activityMap[dateStr] || 0;
+
+        let level = 0;
+        if (count > 0) level = 1;
+        if (count >= 5) level = 2;
+        if (count >= 10) level = 3;
+        if (count >= 20) level = 4;
+
+        const dayEl = document.createElement('div');
+        dayEl.className = `calendar-day level-${level}`;
+        dayEl.setAttribute('data-date', d.toLocaleDateString('es-ES', { month: 'short', day: 'numeric' }));
+        dayEl.setAttribute('data-count', count);
+
+        calendarEl.appendChild(dayEl);
     }
 }
 
@@ -294,6 +340,45 @@ function restartQuiz() {
     startQuiz();
 }
 
+function selectOption(el, isCorrect, rationale, allOptions, optionIndex) {
+    if (document.getElementById('next-btn').style.display === 'block') return;
+
+    // Bloquear todas las opciones
+    const options = document.querySelectorAll('.option');
+    options.forEach(opt => {
+        opt.style.cursor = 'default';
+        opt.onclick = null;
+    });
+
+    const rationaleBox = document.getElementById('rationale-box');
+    rationaleBox.style.display = 'block';
+    rationaleBox.innerText = rationale;
+
+    // Visual feedback
+    if (isCorrect) {
+        el.classList.add('correct');
+        score++;
+    } else {
+        el.classList.add('wrong');
+        const correctOpt = allOptions.find(o => o.isCorrect);
+        const correctIndex = allOptions.indexOf(correctOpt);
+        if (options[correctIndex]) {
+            options[correctIndex].classList.add('correct');
+        }
+    }
+
+    // Guardar respuesta con índice y timestamp
+    guardarRespuesta(currentQuestionIndex, isCorrect, optionIndex);
+
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+
+    // AUTO-SCROLL
+    setTimeout(() => {
+        nextBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+}
+
 function updateUI() {
     if (!quizData || currentQuestionIndex >= quizData.length) {
         showResults();
@@ -307,19 +392,14 @@ function updateUI() {
     const questionCount = document.getElementById('question-count');
     const rationaleBox = document.getElementById('rationale-box');
     const nextBtn = document.getElementById('next-btn');
-    const prevBtn = document.getElementById('prev-btn'); // Nuevo botón
+    const prevBtn = document.getElementById('prev-btn');
     const hintText = document.getElementById('hint-text');
     const hintTrigger = document.getElementById('hint-trigger');
 
+    // Reset default state
     rationaleBox.style.display = 'none';
     nextBtn.style.display = 'none';
-
-    // Mostrar botón anterior si no es la primera pregunta
-    if (currentQuestionIndex > 0) {
-        prevBtn.style.display = 'block';
-    } else {
-        prevBtn.style.display = 'none';
-    }
+    prevBtn.style.display = currentQuestionIndex > 0 ? 'block' : 'none';
 
     hintText.style.display = 'none';
     hintTrigger.style.display = q.hint ? 'block' : 'none';
@@ -331,89 +411,64 @@ function updateUI() {
     const pct = ((currentQuestionIndex + 1) / quizData.length) * 100;
     progressBar.style.width = `${pct}%`;
 
+    // Check if check has been answered previously
+    const savedAnswer = userProgress[currentQuestionIndex];
+    const isAnswered = savedAnswer !== undefined;
+
     optionsContainer.innerHTML = '';
     q.answerOptions.forEach((opt, idx) => {
         const optDiv = document.createElement('div');
         optDiv.className = 'option';
         optDiv.innerText = opt.text;
-        optDiv.onclick = () => selectOption(optDiv, opt.isCorrect, opt.rationale, q.answerOptions);
+
+        // If answered, apply styles immediately
+        if (isAnswered) {
+            optDiv.style.cursor = 'default';
+            // Don't attach onclick
+
+            // Re-apply visual state
+            if (savedAnswer.selectedOptionIndex === idx) {
+                optDiv.classList.add(savedAnswer.isCorrect ? 'correct' : 'wrong');
+            }
+            if (!savedAnswer.isCorrect && opt.isCorrect) {
+                optDiv.classList.add('correct');
+            }
+        } else {
+            // Normal interaction
+            optDiv.onclick = () => selectOption(optDiv, opt.isCorrect, opt.rationale, q.answerOptions, idx);
+        }
+
         optionsContainer.appendChild(optDiv);
     });
-}
 
-function selectOption(el, isCorrect, rationale, allOptions) {
-    if (document.getElementById('next-btn').style.display === 'block') return;
+    // If answered, show rationale and next button
+    if (isAnswered) {
+        // Find rationale from options if not saved explicitly (assuming implicit from question)
+        // Since we don't save rationale text, we pick it from the correct option or the selected one?
+        // Code originally passed `opt.rationale` specific to the option? 
+        // Looking at data, usually rationale is per question or correct option.
+        // Let's use the selected option's rationale logic from before.
 
-    const options = document.querySelectorAll('.option');
-    options.forEach(opt => {
-        opt.style.cursor = 'default';
-        opt.onclick = null;
-    });
-
-    const rationaleBox = document.getElementById('rationale-box');
-    rationaleBox.style.display = 'block';
-    rationaleBox.innerText = rationale;
-
-    if (isCorrect) {
-        el.classList.add('correct');
-        score++;
-    } else {
-        el.classList.add('wrong');
-        const correctOpt = allOptions.find(o => o.isCorrect);
-        const correctIndex = allOptions.indexOf(correctOpt);
-        if (options[correctIndex]) {
-            options[correctIndex].classList.add('correct');
+        // Find the option we selected to get its rationale, OR the correct one. 
+        // Original code passed `opt.rationale` on click.
+        const selectedOpt = q.answerOptions[savedAnswer.selectedOptionIndex];
+        if (selectedOpt) {
+            rationaleBox.style.display = 'block';
+            rationaleBox.innerText = selectedOpt.rationale || "Explicación no disponible.";
         }
-    }
 
-    guardarRespuesta(currentQuestionIndex, isCorrect);
-
-    const nextBtn = document.getElementById('next-btn');
-    nextBtn.style.display = 'block';
-
-    // AUTO-SCROLL: Bajar suavemente hacia la explicación y el botón siguiente
-    setTimeout(() => {
-        nextBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 100);
-}
-
-function toggleHint() {
-    const h = document.getElementById('hint-text');
-    h.style.display = h.style.display === 'none' ? 'block' : 'none';
-}
-
-function nextQuestion() {
-    currentQuestionIndex++;
-    updateUI();
-}
-
-function prevQuestion() {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        updateUI();
+        nextBtn.style.display = 'block';
+        hintTrigger.style.display = 'none'; // Hide hint if answered
     }
 }
 
-function showResults() {
-    document.getElementById('quiz-view').classList.add('hidden');
-    document.getElementById('results-view').classList.remove('hidden');
-
-    const percentage = Math.round((score / quizData.length) * 100);
-    document.getElementById('final-score').innerText = `${percentage}%`;
-
-    let message = "";
-    if (percentage >= 90) message = "¡Excelente! Estás totalmente preparado para el concurso.";
-    else if (percentage >= 70) message = "¡Buen trabajo! Tienes un conocimiento sólido.";
-    else if (percentage >= 50) message = "Aceptable. Se recomienda reforzar algunos temas.";
-    else message = "Necesitas estudiar más. No te rindas, la práctica hace al maestro.";
-
-    document.getElementById('results-text').innerText = `Lograste ${score} de ${quizData.length} puntos. ${message}`;
-
-    guardarProgresoCompleto();
-}
-
-async function guardarRespuesta(preguntaIdx, esCorrecta) {
-    userProgress[preguntaIdx] = esCorrecta;
+async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
+    // Save detailed object
+    userProgress[preguntaIdx] = {
+        isCorrect: esCorrecta,
+        selectedOptionIndex: opcionIdx,
+        timestamp: new Date().toISOString()
+    };
     userProgress.safeLastIndex = preguntaIdx;
 
     // Update Local
@@ -428,7 +483,7 @@ async function guardarRespuesta(preguntaIdx, esCorrecta) {
     const statusEl = document.getElementById('save-status');
     if (statusEl) statusEl.innerText = "💾 Guardando...";
 
-    console.log(`💾 Progreso guardado localmente: Pregunta ${preguntaIdx + 1}, Score: ${score}`);
+    console.log(`💾 Progres saved locally: Q${preguntaIdx + 1}`);
 
     if (supabaseApp) {
         try {
@@ -441,7 +496,6 @@ async function guardarRespuesta(preguntaIdx, esCorrecta) {
                     last_index: preguntaIdx,
                     updated_at: new Date().toISOString()
                 }, { onConflict: 'user_id' });
-                console.log(`☁️ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
 
                 if (statusEl) {
                     statusEl.innerText = "☁️ Guardado";
@@ -449,7 +503,7 @@ async function guardarRespuesta(preguntaIdx, esCorrecta) {
                 }
             }
         } catch (error) {
-            console.error('❌ Error al guardar en cloud:', error);
+            console.error('❌ Error saving to cloud:', error);
             if (statusEl) statusEl.innerText = "⚠️ Offline (Local OK)";
         }
     }
