@@ -41,16 +41,16 @@ async function init() {
                         window.history.replaceState(null, '', window.location.pathname);
                     }
 
-                    // BLOCK UI: Mostrar "Sincronizando..." antes de permitir nada
-                    document.getElementById('save-status').innerText = "☁️ Sincronizando...";
-                    document.getElementById('options').style.pointerEvents = 'none'; // Bloquear clicks
-
                     // Debounce: Si es el mismo usuario, ignorar
                     if (lastAuthUserId === session.user.id) {
                         console.log("🔄 Usuario ya inicializado, omitiendo recarga dashboard.");
                         return;
                     }
                     lastAuthUserId = session.user.id;
+
+                    // BLOCK UI: Mostrar "Sincronizando..." antes de permitir nada
+                    document.getElementById('save-status').innerText = "☁️ Sincronizando...";
+                    document.getElementById('options').style.pointerEvents = 'none'; // Bloquear clicks
 
                     await showDashboard(session.user);
                     await cargarProgreso();
@@ -291,9 +291,17 @@ function renderActivityCalendar() {
 
         const dayEl = document.createElement('div');
         dayEl.className = `calendar-day level-${level}`;
-        dayEl.setAttribute('data-date', d.toLocaleDateString('es-ES', { month: 'short', day: 'numeric' }));
-        dayEl.setAttribute('data-count', count);
 
+        // Show Day and Count
+        const dayNum = d.getDate();
+        const monthShort = d.toLocaleDateString('es-ES', { month: 'short' }).replace('.', '');
+
+        dayEl.innerHTML = `
+            <div class="cal-date">${dayNum} <small>${monthShort}</small></div>
+            <div class="cal-count">${count > 0 ? count : '-'}</div>
+        `;
+
+        dayEl.title = `${d.toLocaleDateString()} - ${count} respuestas`;
         calendarEl.appendChild(dayEl);
     }
 }
