@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v1';
+const CACHE_NAME = 'simulacro-docente-v2-earth-sage';
 const ASSETS = [
     './',
     './index.html',
@@ -9,31 +9,37 @@ const ASSETS = [
     'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap'
 ];
 
-// Install Event
 self.addEventListener('install', event => {
+    // Force new SW to take control immediately
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => cache.addAll(ASSETS))
     );
 });
 
-// Activate Event
 self.addEventListener('activate', event => {
+    // Become available to all pages immediately
     event.waitUntil(
-        caches.keys().then(keys => {
-            return Promise.all(keys
-                .filter(key => key !== CACHE_NAME)
-                .map(key => caches.delete(key))
-            );
-        })
+        Promise.all([
+            clients.claim(),
+            caches.keys().then(keys => {
+                return Promise.all(keys
+                    .filter(key => key !== CACHE_NAME)
+                    .map(key => caches.delete(key))
+                );
+            })
+        ])
     );
 });
 
-// Fetch Event (Offline support)
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
             .then(response => {
+                // Network-first strategy for HTML to ensure updates? 
+                // Alternatively, stick to Cache-First for assets but handle navigation separately?
+                // For this simple app, Cache-falling-back-to-network is fine, as long as version bump clears old cache.
                 return response || fetch(event.request);
             })
     );
