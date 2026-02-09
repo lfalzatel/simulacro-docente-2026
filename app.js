@@ -339,9 +339,11 @@ function startTimer() {
         if (!userProgress.totalTime) userProgress.totalTime = 0;
         userProgress.totalTime++;
 
-        // Optional: Update UI every second if we wanted a live counter in quiz view,
-        // but currently it's only on dashboard. 
-        // We could add a live timer in quiz header if requested.
+        // Save every 30 seconds to cloud/local to prevent data loss
+        if (userProgress.totalTime % 30 === 0) {
+            console.log("⏱️ Auto-guardando tiempo...");
+            guardarProgresoCompleto(true); // true = silent/background save
+        }
     }, 1000);
     console.log("⏱️ Timer iniciado");
 }
@@ -355,6 +357,13 @@ function stopTimer() {
         guardarProgresoCompleto();
     }
 }
+
+// Save on close
+window.addEventListener('beforeunload', () => {
+    if (studyTimer) {
+        guardarProgresoCompleto();
+    }
+});
 
 function restartQuiz() {
     currentQuestionIndex = 0;
