@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v5-swal';
+const CACHE_NAME = 'simulacro-docente-v6-manifest-fix';
 const ASSETS = [
     './',
     './index.html',
