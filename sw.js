@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v16-new-credentials';
+const CACHE_NAME = 'simulacro-docente-v17-fix-quiz-loading';
 const ASSETS = [
     './',
     './index.html',

@@ -14,6 +14,15 @@ async function init() {
     try {
         console.log("🚀 Iniciando aplicación...");
 
+        // Load quiz data FIRST
+        if (typeof RAW_QUIZ_DATA !== 'undefined') {
+            quizData = RAW_QUIZ_DATA.questions;
+            document.getElementById('quiz-title-display').innerText = RAW_QUIZ_DATA.quizTitle || 'Simulador Docente';
+            console.log(`✓ ${quizData.length} preguntas cargadas`);
+        } else {
+            console.error("❌ RAW_QUIZ_DATA no definido");
+        }
+
         // Init Supabase
         if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
             const { createClient } = window.supabase;
@@ -136,14 +145,7 @@ async function init() {
             showLogin();
         }
 
-        // Load quiz data
-        if (typeof RAW_QUIZ_DATA !== 'undefined') {
-            quizData = RAW_QUIZ_DATA.questions;
-            document.getElementById('quiz-title-display').innerText = RAW_QUIZ_DATA.quizTitle || 'Simulador Docente';
-            console.log(`✓ ${quizData.length} preguntas cargadas`);
-        } else {
-            console.error("❌ RAW_QUIZ_DATA no definido");
-        }
+
     } catch (error) {
         console.error('❌ Error init:', error);
         showLogin();
