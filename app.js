@@ -596,16 +596,17 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
     }
 }
 
-async function guardarProgresoCompleto() {
+async function guardarProgresoCompleto(silent = false) {
     const progressData = {
         lastIndex: currentQuestionIndex,
         score: score,
         answers: userProgress,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        totalTime: userProgress.totalTime || 0 // Explicitly save at top level too for backup
     };
 
     localStorage.setItem('progresoUsuario', JSON.stringify(progressData));
-    console.log(`💾 Progreso completo guardado localmente`);
+    if (!silent) console.log(`💾 Progreso completo guardado localmente`);
 
     if (supabaseApp) {
         try {
@@ -613,7 +614,7 @@ async function guardarProgresoCompleto() {
             if (user) {
                 const { error } = await supabaseApp.from('simulacro_progress').upsert({
                     user_id: user.id,
-                    progress_data: userProgress,
+                    progress_data: userProgress, // totalTime is inside here
                     score: score,
                     last_index: currentQuestionIndex,
                     updated_at: new Date().toISOString()
@@ -622,7 +623,7 @@ async function guardarProgresoCompleto() {
                 if (error) {
                     console.error('❌ Error al guardar progreso:', error);
                 } else {
-                    console.log(`☁️ Progreso completo sincronizado`);
+                    if (!silent) console.log(`☁️ Progreso completo sincronizado`);
                 }
             }
         } catch (error) {
