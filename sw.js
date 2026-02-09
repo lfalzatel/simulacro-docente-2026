@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v8-smooth-logout';
+const CACHE_NAME = 'simulacro-docente-v9-oauth-fix';
 const ASSETS = [
     './',
     './index.html',

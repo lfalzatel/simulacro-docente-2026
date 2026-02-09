@@ -20,46 +20,25 @@ async function init() {
             supabaseApp = createClient(SUPABASE_URL, SUPABASE_KEY);
             console.log("✓ Supabase inicializado");
 
-            // CRÍTICO: Esperar a que Supabase procese el hash de OAuth
+            // CRÍTICO: Detectar si hay callback OAuth
             const hash = window.location.hash;
             if (hash && hash.includes('access_token')) {
-                console.log("🔐 Detectado callback de OAuth, procesando...");
+                console.log("🔐 Detectado callback de OAuth, esperando procesamiento...");
                 isProcessingAuth = true;
-                
-                // Esperar un momento para que Supabase procese el hash
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                // Limpiar el hash de la URL
-                window.history.replaceState(null, '', window.location.pathname);
+                // NO llamar getSession aquí - dejar que onAuthStateChange lo maneje
             }
 
-            // Check Session DESPUÉS de procesar el hash
-            const { data: { session }, error } = await supabaseApp.auth.getSession();
-            
-            if (error) {
-                console.error("❌ Error al verificar sesión:", error);
-                showLogin();
-                return;
-            }
-
-            if (session) {
-                console.log("✓ Sesión activa:", session.user.email);
-                await showDashboard(session.user);
-                await cargarProgreso();
-                isProcessingAuth = false;
-            } else {
-                console.log("→ No hay sesión activa");
-                if (!isProcessingAuth) {
-                    showLogin();
-                }
-            }
-
-            // Listen for auth changes
+            // Listen for auth changes PRIMERO
             supabaseApp.auth.onAuthStateChange(async (event, session) => {
                 console.log(`🔔 Evento Auth: ${event}`);
-                
+
                 if (event === 'SIGNED_IN' && session) {
                     console.log("✓ Usuario autenticado:", session.user.email);
+                    isProcessingAuth = false;
+                    // Limpiar hash después de login exitoso
+                    if (window.location.hash) {
+                        window.history.replaceState(null, '', window.location.pathname);
+                    }
                     await showDashboard(session.user);
                     await cargarProgreso();
                 } else if (event === 'SIGNED_OUT') {
@@ -67,8 +46,32 @@ async function init() {
                     showLogin();
                 } else if (event === 'TOKEN_REFRESHED') {
                     console.log("✓ Token refrescado");
+                } else if (event === 'INITIAL_SESSION' && session) {
+                    console.log("✓ Sesión inicial encontrada:", session.user.email);
+                    await showDashboard(session.user);
+                    await cargarProgreso();
                 }
             });
+
+            // Check Session solo si NO es callback OAuth
+            if (!isProcessingAuth) {
+                const { data: { session }, error } = await supabaseApp.auth.getSession();
+
+                if (error) {
+                    console.error("❌ Error al verificar sesión:", error);
+                    showLogin();
+                    return;
+                }
+
+                if (session) {
+                    console.log("✓ Sesión activa:", session.user.email);
+                    await showDashboard(session.user);
+                    await cargarProgreso();
+                } else {
+                    console.log("→ No hay sesión activa");
+                    showLogin();
+                }
+            }
 
         } else {
             console.warn("⚠ Supabase SDK no cargado. Usando modo local.");
@@ -125,7 +128,7 @@ async function showDashboard(user) {
         document.getElementById('user-initials').style.display = 'block';
         document.getElementById('user-avatar').style.display = 'none';
     }
-    
+
     // Update dashboard stats
     await updateDashboardStats();
 }
@@ -135,11 +138,11 @@ async function updateDashboardStats() {
     const answeredCount = Object.keys(userProgress).filter(k => k !== 'safeLastIndex').length;
     const totalQuestions = quizData ? quizData.length : 140;
     const progressPercent = Math.round((answeredCount / totalQuestions) * 100);
-    
+
     document.getElementById('stat-score').innerText = score > 0 ? score : '-';
     document.getElementById('stat-questions').innerText = answeredCount;
     document.getElementById('stat-progress').innerText = `${progressPercent}%`;
-    
+
     // Actualizar texto del botón si hay progreso
     if (answeredCount > 0 && answeredCount < totalQuestions) {
         document.getElementById('resumeText').innerText = `Continuar Simulacro (${answeredCount}/${totalQuestions})`;
@@ -177,7 +180,7 @@ function startQuiz() {
         alert("Cargando datos del cuestionario...");
         return;
     }
-    
+
     document.getElementById('dashboard').classList.add('hidden');
     document.getElementById('quiz-view').classList.remove('hidden');
     document.getElementById('header').classList.remove('hidden');
@@ -205,11 +208,11 @@ function restartQuiz() {
     score = 0;
     userProgress = {};
     localStorage.removeItem('progresoUsuario');
-    
+
     if (supabaseApp) {
         guardarProgresoCompleto();
     }
-    
+
     startQuiz();
 }
 
@@ -304,14 +307,14 @@ function showResults() {
     else message = "Necesitas estudiar más. No te rindas, la práctica hace al maestro.";
 
     document.getElementById('results-text').innerText = `Lograste ${score} de ${quizData.length} puntos. ${message}`;
-    
+
     guardarProgresoCompleto();
 }
 
 async function guardarRespuesta(preguntaIdx, esCorrecta) {
     userProgress[preguntaIdx] = esCorrecta;
     userProgress.safeLastIndex = preguntaIdx;
-    
+
     localStorage.setItem('progresoUsuario', JSON.stringify({
         lastIndex: preguntaIdx,
         score: score,
@@ -347,7 +350,7 @@ async function guardarProgresoCompleto() {
         answers: userProgress,
         timestamp: new Date().toISOString()
     };
-    
+
     localStorage.setItem('progresoUsuario', JSON.stringify(progressData));
     console.log(`💾 Progreso completo guardado localmente`);
 
@@ -362,7 +365,7 @@ async function guardarProgresoCompleto() {
                     last_index: currentQuestionIndex,
                     updated_at: new Date().toISOString()
                 }, { onConflict: 'user_id' });
-                
+
                 if (error) {
                     console.error('❌ Error al guardar progreso:', error);
                 } else {
@@ -377,7 +380,7 @@ async function guardarProgresoCompleto() {
 
 async function cargarProgreso() {
     console.log("📂 Cargando progreso...");
-    
+
     const saved = localStorage.getItem('progresoUsuario');
     if (saved) {
         try {
@@ -400,24 +403,24 @@ async function cargarProgreso() {
                     .select('*')
                     .eq('user_id', user.id)
                     .single();
-                
+
                 if (data && !error) {
                     const cloudTimestamp = new Date(data.updated_at);
                     const localData = saved ? JSON.parse(saved) : null;
                     const localTimestamp = localData ? new Date(localData.timestamp) : new Date(0);
-                    
+
                     if (cloudTimestamp > localTimestamp) {
                         userProgress = data.progress_data || {};
                         score = data.score || 0;
                         userProgress.safeLastIndex = data.last_index || 0;
-                        
+
                         localStorage.setItem('progresoUsuario', JSON.stringify({
                             lastIndex: data.last_index,
                             score: data.score,
                             answers: data.progress_data,
                             timestamp: data.updated_at
                         }));
-                        
+
                         console.log(`☁️ Progreso cloud (más reciente): ${Object.keys(userProgress).length - 1} respuestas`);
                     } else {
                         console.log(`✓ Usando progreso local (más reciente)`);
@@ -428,7 +431,7 @@ async function cargarProgreso() {
             console.error('❌ Error al cargar de cloud:', error);
         }
     }
-    
+
     await updateDashboardStats();
 }
 
@@ -438,17 +441,17 @@ async function loginWithGoogle() {
         alert("Sistema de autenticación no disponible. Por favor recarga la página.");
         return;
     }
-    
+
     console.log("🔐 Iniciando login con Google...");
-    
+
     try {
         // Usar la URL actual sin parámetros extra
         const redirectUrl = `${window.location.origin}${window.location.pathname}`;
         console.log("🔗 Redirect URL:", redirectUrl);
-        
+
         const { data, error } = await supabaseApp.auth.signInWithOAuth({
             provider: 'google',
-            options: { 
+            options: {
                 redirectTo: redirectUrl,
                 queryParams: {
                     access_type: 'offline',
@@ -456,7 +459,7 @@ async function loginWithGoogle() {
                 }
             }
         });
-        
+
         if (error) {
             console.error("❌ Error de login:", error);
             alert("Error al iniciar sesión: " + error.message);
@@ -471,7 +474,7 @@ async function loginWithGoogle() {
 
 async function logout() {
     console.log("🚪 Cerrando sesión...");
-    
+
     try {
         if (supabaseApp) {
             const { error } = await supabaseApp.auth.signOut();
@@ -479,12 +482,12 @@ async function logout() {
                 console.error("❌ Error al cerrar sesión:", error);
             }
         }
-        
+
         localStorage.removeItem('progresoUsuario');
         userProgress = {};
         score = 0;
         currentQuestionIndex = 0;
-        
+
         showLogin();
         console.log("✓ Sesión cerrada correctamente");
     } catch (error) {
@@ -501,7 +504,7 @@ window.setTheme = function (theme) {
     document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-    
+
     const themeMap = { 'default': 0, 'deep': 1, 'night': 2, 'desktop': 3 };
     const themeButtons = document.querySelectorAll('.theme-btn');
     if (themeButtons[themeMap[theme]]) {
