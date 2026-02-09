@@ -233,6 +233,7 @@ window.switchView = switchView;
 window.logout = logout;
 window.toggleHint = toggleHint;
 window.nextQuestion = nextQuestion;
+window.prevQuestion = prevQuestion; // Nueva función
 window.restartQuiz = restartQuiz;
 
 function startQuiz() {
@@ -289,11 +290,20 @@ function updateUI() {
     const questionCount = document.getElementById('question-count');
     const rationaleBox = document.getElementById('rationale-box');
     const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn'); // Nuevo botón
     const hintText = document.getElementById('hint-text');
     const hintTrigger = document.getElementById('hint-trigger');
 
     rationaleBox.style.display = 'none';
     nextBtn.style.display = 'none';
+
+    // Mostrar botón anterior si no es la primera pregunta
+    if (currentQuestionIndex > 0) {
+        prevBtn.style.display = 'block';
+    } else {
+        prevBtn.style.display = 'none';
+    }
+
     hintText.style.display = 'none';
     hintTrigger.style.display = q.hint ? 'block' : 'none';
     hintText.innerText = q.hint || '';
@@ -340,7 +350,14 @@ function selectOption(el, isCorrect, rationale, allOptions) {
     }
 
     guardarRespuesta(currentQuestionIndex, isCorrect);
-    document.getElementById('next-btn').style.display = 'block';
+
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+
+    // AUTO-SCROLL: Bajar suavemente hacia la explicación y el botón siguiente
+    setTimeout(() => {
+        nextBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
 }
 
 function toggleHint() {
@@ -351,6 +368,13 @@ function toggleHint() {
 function nextQuestion() {
     currentQuestionIndex++;
     updateUI();
+}
+
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        updateUI();
+    }
 }
 
 function showResults() {

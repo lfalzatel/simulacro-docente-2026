@@ -175,6 +175,10 @@
             <div id="hint-text" class="hint-box" style="display: none;"></div>
 
             <div class="action-row">
+                <button id="prev-btn" class="prev-btn" onclick="prevQuestion()"
+                    style="display: none; background: var(--surface); color: var(--text-secondary); border: 1px solid var(--border);">
+                    ← Anterior
+                </button>
                 <button id="hint-trigger" class="hint-trigger" onclick="toggleHint()" style="display: none;">
                     💡 Ver Pista
                 </button>
@@ -233,7 +237,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=19"></script>
+    <script src="app.js?v=20"></script>
 </body>
 
 </html>
