@@ -465,6 +465,15 @@ function updateUI() {
     }
 }
 
+function toggleHint() {
+    const hintText = document.getElementById('hint-text');
+    if (hintText.style.display === 'none') {
+        hintText.style.display = 'block';
+    } else {
+        hintText.style.display = 'none';
+    }
+}
+
 async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
     // Save detailed object
     userProgress[preguntaIdx] = {
