@@ -381,7 +381,29 @@ if (installBtn) {
             });
         } else {
             // Manual instructions if prompt not available
-            alert("Para instalar la App:\n\n🤖 Android (Chrome): Menú (⋮) -> Instalar aplicación.\n🍎 iOS (Safari): Botón Compartir -> Agregar a pantalla de inicio.");
+            Swal.fire({
+                title: 'Instalar Aplicación',
+                html: `
+                    <div style="text-align: left; font-size: 0.95rem;">
+                        <p style="margin-bottom: 10px;">Para instalar la App y usarla sin internet:</p>
+                        
+                        <div style="margin-bottom: 10px;">
+                            <strong>🤖 Android (Chrome):</strong><br>
+                            1. Toca el menú del navegador (tres puntos ⋮).<br>
+                            2. Selecciona <span style="color: var(--accent-primary); font-weight: bold;">"Instalar aplicación"</span>.
+                        </div>
+
+                        <div>
+                            <strong>🍎 iOS (Safari):</strong><br>
+                            1. Toca el botón <strong>Compartir</strong> (cuadrado con flecha).<br>
+                            2. Busca y selecciona <span style="color: var(--accent-primary); font-weight: bold;">"Agregar a inicio"</span>.
+                        </div>
+                    </div>
+                `,
+                icon: 'info',
+                confirmButtonText: 'Entendido',
+                confirmButtonColor: '#8B9A7E'
+            });
         }
     });
 }
