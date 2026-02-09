@@ -4,6 +4,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let userProgress = {};
 let supabaseApp = null;
+let isProcessingAuth = false; // Flag to prevent loops
 
 const SUPABASE_URL = 'https://sqkogiitljnoaxirhrwq.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxa29naWl0bGpub2F4aXJocndxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY2NDc5ODQsImV4cCI6MjA1MjIyMzk4NH0.vgZl5nBARlE19FJvB8J-7YrE6KdugV0pAqlzDJ9dSe4';
@@ -11,7 +12,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 // Initialize App
 async function init() {
     try {
-        console.log("Iniciando aplicación...");
+        console.log("🚀 Iniciando aplicación...");
 
         // Init Supabase
         if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
@@ -19,35 +20,53 @@ async function init() {
             supabaseApp = createClient(SUPABASE_URL, SUPABASE_KEY);
             console.log("✓ Supabase inicializado");
 
-            // Check Session
-            const { data: { session }, error } = await supabaseApp.auth.getSession();
-
-            if (error) {
-                console.error("Error al verificar sesión:", error);
+            // CRÍTICO: Esperar a que Supabase procese el hash de OAuth
+            const hash = window.location.hash;
+            if (hash && hash.includes('access_token')) {
+                console.log("🔐 Detectado callback de OAuth, procesando...");
+                isProcessingAuth = true;
+                
+                // Esperar un momento para que Supabase procese el hash
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Limpiar el hash de la URL
+                window.history.replaceState(null, '', window.location.pathname);
             }
 
-            const isAuthCallback = window.location.hash && window.location.hash.includes('access_token');
+            // Check Session DESPUÉS de procesar el hash
+            const { data: { session }, error } = await supabaseApp.auth.getSession();
+            
+            if (error) {
+                console.error("❌ Error al verificar sesión:", error);
+                showLogin();
+                return;
+            }
 
             if (session) {
-                console.log("✓ Sesión encontrada:", session.user.email);
+                console.log("✓ Sesión activa:", session.user.email);
                 await showDashboard(session.user);
                 await cargarProgreso();
-            } else if (!isAuthCallback) {
-                console.log("→ Mostrando login (no hay sesión activa)");
-                showLogin();
+                isProcessingAuth = false;
             } else {
-                console.log("→ Procesando callback de Auth...");
+                console.log("→ No hay sesión activa");
+                if (!isProcessingAuth) {
+                    showLogin();
+                }
             }
 
             // Listen for auth changes
             supabaseApp.auth.onAuthStateChange(async (event, session) => {
-                console.log("Evento Auth:", event);
-                if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session) {
+                console.log(`🔔 Evento Auth: ${event}`);
+                
+                if (event === 'SIGNED_IN' && session) {
+                    console.log("✓ Usuario autenticado:", session.user.email);
                     await showDashboard(session.user);
                     await cargarProgreso();
-                }
-                if (event === 'SIGNED_OUT') {
+                } else if (event === 'SIGNED_OUT') {
+                    console.log("→ Sesión cerrada");
                     showLogin();
+                } else if (event === 'TOKEN_REFRESHED') {
+                    console.log("✓ Token refrescado");
                 }
             });
 
@@ -66,11 +85,12 @@ async function init() {
         }
     } catch (error) {
         console.error('❌ Error init:', error);
+        showLogin();
     }
 }
 
 function showLogin() {
-    console.log("→ Mostrando Login");
+    console.log("📱 Mostrando Login");
     document.getElementById('loginPage').classList.remove('hidden');
     document.getElementById('dashboard').classList.add('hidden');
     document.getElementById('header').classList.add('hidden');
@@ -80,7 +100,7 @@ function showLogin() {
 }
 
 async function showDashboard(user) {
-    console.log("→ Mostrando Dashboard para:", user.email);
+    console.log("📊 Mostrando Dashboard para:", user.email);
     document.getElementById('loginPage').classList.add('hidden');
     document.getElementById('dashboard').classList.remove('hidden');
     document.getElementById('header').classList.remove('hidden');
@@ -105,7 +125,7 @@ async function showDashboard(user) {
         document.getElementById('user-initials').style.display = 'block';
         document.getElementById('user-avatar').style.display = 'none';
     }
-
+    
     // Update dashboard stats
     await updateDashboardStats();
 }
@@ -115,11 +135,11 @@ async function updateDashboardStats() {
     const answeredCount = Object.keys(userProgress).filter(k => k !== 'safeLastIndex').length;
     const totalQuestions = quizData ? quizData.length : 140;
     const progressPercent = Math.round((answeredCount / totalQuestions) * 100);
-
+    
     document.getElementById('stat-score').innerText = score > 0 ? score : '-';
     document.getElementById('stat-questions').innerText = answeredCount;
     document.getElementById('stat-progress').innerText = `${progressPercent}%`;
-
+    
     // Actualizar texto del botón si hay progreso
     if (answeredCount > 0 && answeredCount < totalQuestions) {
         document.getElementById('resumeText').innerText = `Continuar Simulacro (${answeredCount}/${totalQuestions})`;
@@ -131,13 +151,11 @@ async function updateDashboardStats() {
 }
 
 function switchView(viewId) {
-    // Hide all main views
     document.getElementById('dashboard').classList.add('hidden');
     document.getElementById('docs-view').classList.add('hidden');
     document.getElementById('quiz-view').classList.add('hidden');
     document.getElementById('results-view').classList.add('hidden');
 
-    // Show target
     if (viewId === 'docs') {
         document.getElementById('docs-view').classList.remove('hidden');
     } else if (viewId === 'dashboard') {
@@ -159,15 +177,13 @@ function startQuiz() {
         alert("Cargando datos del cuestionario...");
         return;
     }
-
+    
     document.getElementById('dashboard').classList.add('hidden');
     document.getElementById('quiz-view').classList.remove('hidden');
     document.getElementById('header').classList.remove('hidden');
 
-    // Resume Logic
     if (userProgress && typeof userProgress.safeLastIndex !== 'undefined' && userProgress.safeLastIndex >= 0) {
         const lastIndex = userProgress.safeLastIndex;
-        // Si ya completó todo, preguntar si quiere reiniciar
         if (lastIndex >= quizData.length - 1) {
             if (confirm('¿Deseas reiniciar el simulacro desde el inicio?')) {
                 restartQuiz();
@@ -189,12 +205,11 @@ function restartQuiz() {
     score = 0;
     userProgress = {};
     localStorage.removeItem('progresoUsuario');
-
-    // Reset database if online
+    
     if (supabaseApp) {
         guardarProgresoCompleto();
     }
-
+    
     startQuiz();
 }
 
@@ -254,7 +269,6 @@ function selectOption(el, isCorrect, rationale, allOptions) {
         score++;
     } else {
         el.classList.add('wrong');
-        // Mostrar la respuesta correcta
         const correctOpt = allOptions.find(o => o.isCorrect);
         const correctIndex = allOptions.indexOf(correctOpt);
         if (options[correctIndex]) {
@@ -262,9 +276,7 @@ function selectOption(el, isCorrect, rationale, allOptions) {
         }
     }
 
-    // Guardar respuesta
     guardarRespuesta(currentQuestionIndex, isCorrect);
-
     document.getElementById('next-btn').style.display = 'block';
 }
 
@@ -292,17 +304,14 @@ function showResults() {
     else message = "Necesitas estudiar más. No te rindas, la práctica hace al maestro.";
 
     document.getElementById('results-text').innerText = `Lograste ${score} de ${quizData.length} puntos. ${message}`;
-
-    // Guardar resultados finales
+    
     guardarProgresoCompleto();
 }
 
-// Guardar respuesta individual
 async function guardarRespuesta(preguntaIdx, esCorrecta) {
     userProgress[preguntaIdx] = esCorrecta;
     userProgress.safeLastIndex = preguntaIdx;
-
-    // Guardar local inmediatamente
+    
     localStorage.setItem('progresoUsuario', JSON.stringify({
         lastIndex: preguntaIdx,
         score: score,
@@ -310,9 +319,8 @@ async function guardarRespuesta(preguntaIdx, esCorrecta) {
         timestamp: new Date().toISOString()
     }));
 
-    console.log(`✓ Progreso guardado localmente: Pregunta ${preguntaIdx + 1}, Score: ${score}`);
+    console.log(`💾 Progreso guardado localmente: Pregunta ${preguntaIdx + 1}, Score: ${score}`);
 
-    // Guardar en cloud (debounced para no saturar)
     if (supabaseApp) {
         try {
             const { data: { user } } = await supabaseApp.auth.getUser();
@@ -324,15 +332,14 @@ async function guardarRespuesta(preguntaIdx, esCorrecta) {
                     last_index: preguntaIdx,
                     updated_at: new Date().toISOString()
                 }, { onConflict: 'user_id' });
-                console.log(`✓ Progreso sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
+                console.log(`☁️ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
             }
         } catch (error) {
-            console.error('Error al guardar en cloud:', error);
+            console.error('❌ Error al guardar en cloud:', error);
         }
     }
 }
 
-// Guardar progreso completo
 async function guardarProgresoCompleto() {
     const progressData = {
         lastIndex: currentQuestionIndex,
@@ -340,9 +347,9 @@ async function guardarProgresoCompleto() {
         answers: userProgress,
         timestamp: new Date().toISOString()
     };
-
+    
     localStorage.setItem('progresoUsuario', JSON.stringify(progressData));
-    console.log(`✓ Progreso completo guardado localmente`);
+    console.log(`💾 Progreso completo guardado localmente`);
 
     if (supabaseApp) {
         try {
@@ -355,24 +362,22 @@ async function guardarProgresoCompleto() {
                     last_index: currentQuestionIndex,
                     updated_at: new Date().toISOString()
                 }, { onConflict: 'user_id' });
-
+                
                 if (error) {
-                    console.error('Error al guardar progreso:', error);
+                    console.error('❌ Error al guardar progreso:', error);
                 } else {
-                    console.log(`✓ Progreso completo sincronizado a la nube`);
+                    console.log(`☁️ Progreso completo sincronizado`);
                 }
             }
         } catch (error) {
-            console.error('Error al sincronizar:', error);
+            console.error('❌ Error al sincronizar:', error);
         }
     }
 }
 
-// Cargar progreso
 async function cargarProgreso() {
-    console.log("→ Cargando progreso...");
-
-    // Primero intentar desde localStorage
+    console.log("📂 Cargando progreso...");
+    
     const saved = localStorage.getItem('progresoUsuario');
     if (saved) {
         try {
@@ -380,13 +385,12 @@ async function cargarProgreso() {
             userProgress = data.answers || {};
             score = data.score || 0;
             userProgress.safeLastIndex = data.lastIndex || 0;
-            console.log(`✓ Progreso local cargado: ${Object.keys(userProgress).length - 1} respuestas, Score: ${score}`);
+            console.log(`✓ Progreso local: ${Object.keys(userProgress).length - 1} respuestas, Score: ${score}`);
         } catch (e) {
-            console.error('Error al parsear progreso local:', e);
+            console.error('❌ Error al parsear progreso local:', e);
         }
     }
 
-    // Luego intentar desde Supabase (más reciente prevalece)
     if (supabaseApp) {
         try {
             const { data: { user } } = await supabaseApp.auth.getUser();
@@ -396,94 +400,95 @@ async function cargarProgreso() {
                     .select('*')
                     .eq('user_id', user.id)
                     .single();
-
+                
                 if (data && !error) {
                     const cloudTimestamp = new Date(data.updated_at);
                     const localData = saved ? JSON.parse(saved) : null;
                     const localTimestamp = localData ? new Date(localData.timestamp) : new Date(0);
-
-                    // Usar el más reciente
+                    
                     if (cloudTimestamp > localTimestamp) {
                         userProgress = data.progress_data || {};
                         score = data.score || 0;
                         userProgress.safeLastIndex = data.last_index || 0;
-
-                        // Actualizar localStorage con datos de cloud
+                        
                         localStorage.setItem('progresoUsuario', JSON.stringify({
                             lastIndex: data.last_index,
                             score: data.score,
                             answers: data.progress_data,
                             timestamp: data.updated_at
                         }));
-
-                        console.log(`✓ Progreso cloud cargado (más reciente): ${Object.keys(userProgress).length - 1} respuestas, Score: ${score}`);
+                        
+                        console.log(`☁️ Progreso cloud (más reciente): ${Object.keys(userProgress).length - 1} respuestas`);
                     } else {
                         console.log(`✓ Usando progreso local (más reciente)`);
                     }
                 }
             }
         } catch (error) {
-            console.error('Error al cargar progreso de cloud:', error);
+            console.error('❌ Error al cargar de cloud:', error);
         }
     }
-
+    
     await updateDashboardStats();
 }
 
-// Login con Google
+// Login con Google - CORREGIDO
 async function loginWithGoogle() {
     if (!supabaseApp) {
         alert("Sistema de autenticación no disponible. Por favor recarga la página.");
         return;
     }
-
+    
+    console.log("🔐 Iniciando login con Google...");
+    
     try {
-        const { error } = await supabaseApp.auth.signInWithOAuth({
+        // Usar la URL actual sin parámetros extra
+        const redirectUrl = `${window.location.origin}${window.location.pathname}`;
+        console.log("🔗 Redirect URL:", redirectUrl);
+        
+        const { data, error } = await supabaseApp.auth.signInWithOAuth({
             provider: 'google',
-            options: {
-                redirectTo: window.location.origin + window.location.pathname,
+            options: { 
+                redirectTo: redirectUrl,
                 queryParams: {
                     access_type: 'offline',
                     prompt: 'consent',
                 }
             }
         });
-
+        
         if (error) {
-            console.error("Error de login:", error);
+            console.error("❌ Error de login:", error);
             alert("Error al iniciar sesión: " + error.message);
+        } else {
+            console.log("✓ Redirigiendo a Google...");
         }
     } catch (error) {
-        console.error("Error inesperado:", error);
-        alert("Error inesperado al iniciar sesión. Por favor intenta de nuevo.");
+        console.error("❌ Error inesperado:", error);
+        alert("Error inesperado. Por favor intenta de nuevo.");
     }
 }
 
-// Logout CORREGIDO - sin doble recarga
 async function logout() {
-    console.log("→ Cerrando sesión...");
-
+    console.log("🚪 Cerrando sesión...");
+    
     try {
         if (supabaseApp) {
             const { error } = await supabaseApp.auth.signOut();
             if (error) {
-                console.error("Error al cerrar sesión:", error);
+                console.error("❌ Error al cerrar sesión:", error);
             }
         }
-
-        // Limpiar datos locales
+        
         localStorage.removeItem('progresoUsuario');
         userProgress = {};
         score = 0;
         currentQuestionIndex = 0;
-
-        // Mostrar login SIN recargar ✅
+        
         showLogin();
-
         console.log("✓ Sesión cerrada correctamente");
     } catch (error) {
-        console.error("Error al cerrar sesión:", error);
-        // Aún así mostrar login
+        console.error("❌ Error al cerrar sesión:", error);
         showLogin();
     }
 }
@@ -496,14 +501,8 @@ window.setTheme = function (theme) {
     document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-
-    const themeMap = {
-        'default': 0,
-        'deep': 1,
-        'night': 2,
-        'desktop': 3
-    };
-
+    
+    const themeMap = { 'default': 0, 'deep': 1, 'night': 2, 'desktop': 3 };
     const themeButtons = document.querySelectorAll('.theme-btn');
     if (themeButtons[themeMap[theme]]) {
         themeButtons[themeMap[theme]].classList.add('active');
@@ -515,16 +514,13 @@ function initTheme() {
     window.setTheme(savedTheme);
 }
 
-// Handle Profile Menu Toggle
 document.addEventListener('DOMContentLoaded', () => {
     init();
     initTheme();
 
-    // Login Button
     const loginBtn = document.getElementById('googleLoginBtn');
     if (loginBtn) loginBtn.onclick = loginWithGoogle;
 
-    // Profile Menu Toggle
     const profileBtn = document.getElementById('profileBtn');
     const profileMenu = document.getElementById('profileMenu');
 
@@ -544,16 +540,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// PWA: Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
             .then(reg => console.log('✓ Service Worker registrado'))
-            .catch(err => console.log('❌ Error al registrar Service Worker', err));
+            .catch(err => console.log('❌ Error SW:', err));
     });
 }
 
-// PWA: Install Prompt
 let deferredPrompt;
 const installBtn = document.getElementById('installAppBtn');
 
@@ -569,11 +563,11 @@ if (installBtn) {
     installBtn.addEventListener('click', () => {
         if (deferredPrompt) {
             deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((result) => {
+            deferredPrompt.userChoice.then(() => {
                 deferredPrompt = null;
             });
         } else {
-            alert('Para instalar: En Chrome/Edge: Menú > Instalar app. En Safari: Compartir > Agregar a inicio.');
+            alert('Para instalar: Chrome/Edge: Menú > Instalar app. Safari: Compartir > Agregar a inicio.');
         }
     });
 }
