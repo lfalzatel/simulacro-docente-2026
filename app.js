@@ -7,7 +7,7 @@ let supabaseApp = null;
 let isProcessingAuth = false; // Flag to prevent loops
 
 const SUPABASE_URL = 'https://sqkogiitljnoaxirhrwq.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxa29naWl0bGpub2F4aXJocndxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY2NDc5ODQsImV4cCI6MjA1MjIyMzk4NH0.vgZl5nBARlE19FJvB8J-7YrE6KdugV0pAqlzDJ9dSe4';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxa29naWl0bGpub2F4aXJocndxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgyMzI1ODksImV4cCI6MjA4MzgwODU4OX0.jeuxanmdeXuSiTiEJ6HYpqmnyIWzDLp9tvrpC_4BDZM';
 
 // Initialize App
 async function init() {
