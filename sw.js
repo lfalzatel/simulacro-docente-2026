@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v12-oauth-timing-fix';
+const CACHE_NAME = 'simulacro-docente-v13-auth-fallback';
 const ASSETS = [
     './',
     './index.html',

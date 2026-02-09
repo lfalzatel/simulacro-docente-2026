@@ -20,14 +20,7 @@ async function init() {
             supabaseApp = createClient(SUPABASE_URL, SUPABASE_KEY);
             console.log("✓ Supabase inicializado");
 
-            // CRÍTICO: Detectar si hay callback OAuth
-            const hash = window.location.hash;
-            if (hash && hash.includes('access_token')) {
-                console.log("🔐 Detectado callback de OAuth, esperando procesamiento...");
-                isProcessingAuth = true;
-                // Esperar 500ms para que Supabase procese el hash internamente
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
+
 
             // Listen for auth changes PRIMERO
             supabaseApp.auth.onAuthStateChange(async (event, session) => {
