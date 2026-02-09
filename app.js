@@ -44,7 +44,7 @@ async function init() {
                     document.getElementById('save-status').innerText = "☁️ Sincronizando...";
                     document.getElementById('options').style.pointerEvents = 'none'; // Bloquear clicks
 
-                    await showDashboard(data.session.user);
+                    await showDashboard(session.user);
                     await cargarProgreso();
 
                     // UNBLOCK UI
