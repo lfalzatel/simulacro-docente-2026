@@ -465,6 +465,25 @@ function updateUI() {
     }
 }
 
+// Navigation Functions
+function nextQuestion() {
+    if (currentQuestionIndex < quizData.length - 1) {
+        currentQuestionIndex++;
+        updateUI();
+        window.scrollTo(0, 0); // Scroll to top
+    } else {
+        showResults();
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        updateUI();
+        window.scrollTo(0, 0); // Scroll to top
+    }
+}
+
 function toggleHint() {
     const hintText = document.getElementById('hint-text');
     if (hintText.style.display === 'none') {
