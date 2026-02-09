@@ -61,7 +61,38 @@ async function init() {
                 console.log("🔐 Detectado callback de OAuth");
                 isProcessingAuth = true;
 
-                // Fallback loop agresivo: Intentar 10 veces (10 segundos)
+                // INTENTO 1: Establecer sesión MANUALMENTE parseando el hash
+                try {
+                    const params = new URLSearchParams(hash.substring(1)); // quitar #
+                    const access_token = params.get('access_token');
+                    const refresh_token = params.get('refresh_token');
+
+                    if (access_token && refresh_token) {
+                        console.log("🛠️ Intentando establecer sesión manual...");
+                        const { data, error } = await supabaseApp.auth.setSession({
+                            access_token,
+                            refresh_token,
+                        });
+
+                        if (!error && data?.session) {
+                            console.log("✅ Sesión manual establecida:", data.session.user.email);
+                            isProcessingAuth = false;
+
+                            // Limpiar URL inmediatamente
+                            window.history.replaceState(null, '', window.location.pathname);
+
+                            await showDashboard(data.session.user);
+                            await cargarProgreso();
+                            return; // Éxito total, salir
+                        } else {
+                            console.warn("⚠️ Falló setSession manual:", error?.message);
+                        }
+                    }
+                } catch (e) {
+                    console.error("⚠️ Error parseando hash:", e);
+                }
+
+                // INTENTO 2: Fallback loop agresivo (si lo manual falló)
                 let attempts = 0;
                 const checkInterval = setInterval(async () => {
                     attempts++;
@@ -73,7 +104,6 @@ async function init() {
                         clearInterval(checkInterval);
                         isProcessingAuth = false;
 
-                        // Limpiar hash
                         if (window.location.hash) {
                             window.history.replaceState(null, '', window.location.pathname);
                         }
