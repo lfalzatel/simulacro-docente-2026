@@ -89,87 +89,22 @@ async function init() {
                 }
             });
 
-            // CRÍTICO: Detectar si hay callback OAuth
-            const hash = window.location.hash;
-            if (hash && hash.includes('access_token')) {
-                console.log("🔐 Detectado callback de OAuth");
-                isProcessingAuth = true;
+            // Check session normally (Supabase handles hash automatically)
+            const { data: { session }, error } = await supabaseApp.auth.getSession();
 
-                // INTENTO 1: Establecer sesión MANUALMENTE parseando el hash
-                try {
-                    const params = new URLSearchParams(hash.substring(1)); // quitar #
-                    const access_token = params.get('access_token');
-                    const refresh_token = params.get('refresh_token');
-
-                    if (access_token && refresh_token) {
-                        console.log("🛠️ Intentando establecer sesión manual...");
-                        const { data, error } = await supabaseApp.auth.setSession({
-                            access_token,
-                            refresh_token,
-                        });
-
-                        if (!error && data?.session) {
-                            console.log("✅ Sesión manual establecida:", data.session.user.email);
-                            isProcessingAuth = false;
-
-                            // Limpiar URL inmediatamente
-                            window.history.replaceState(null, '', window.location.pathname);
-
-                            await showDashboard(data.session.user);
-                            await cargarProgreso();
-                            return; // Éxito total, salir
-                        } else {
-                            console.warn("⚠️ Falló setSession manual:", error?.message);
-                        }
-                    }
-                } catch (e) {
-                    console.error("⚠️ Error parseando hash:", e);
-                }
-
-                // INTENTO 2: Fallback loop agresivo (si lo manual falló)
-                let attempts = 0;
-                const checkInterval = setInterval(async () => {
-                    attempts++;
-                    console.log(`🔄 Verificando sesión (${attempts}/10)...`);
-
-                    const { data } = await supabaseApp.auth.getSession();
-                    if (data?.session) {
-                        console.log("✓ Sesión recuperada en intento " + attempts);
-                        clearInterval(checkInterval);
-                        isProcessingAuth = false;
-
-                        if (window.location.hash) {
-                            window.history.replaceState(null, '', window.location.pathname);
-                        }
-
-                        await showDashboard(data.session.user);
-                        await cargarProgreso();
-                    } else if (attempts >= 10) {
-                        console.error("❌ Timeout esperando sesión OAuth");
-                        clearInterval(checkInterval);
-                        isProcessingAuth = false;
-                        showLogin();
-                    }
-                }, 1000);
-
+            if (session) {
+                console.log("✓ Sesión activa:", session.user.email);
+                await showDashboard(session.user);
+                await cargarProgreso();
             } else {
-                // Check normal si no hay hash
-                const { data: { session }, error } = await supabaseApp.auth.getSession();
-
-                if (session) {
-                    console.log("✓ Sesión activa:", session.user.email);
-                    await showDashboard(session.user);
-                    await cargarProgreso();
-                } else {
-                    if (!isProcessingAuth) showLogin();
-                }
+                console.log("→ No hay sesión activa inicial");
+                if (!isProcessingAuth) showLogin();
             }
 
         } else {
             console.warn("⚠ Supabase SDK no cargado. Usando modo local.");
             showLogin();
         }
-
 
     } catch (error) {
         console.error('❌ Error init:', error);
