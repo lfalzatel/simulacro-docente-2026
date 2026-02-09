@@ -36,13 +36,21 @@ async function init() {
 
                 if (event === 'SIGNED_IN' && session) {
                     console.log("✓ Usuario autenticado:", session.user.email);
-                    isProcessingAuth = false;
-                    // Limpiar hash después de login exitoso
                     if (window.location.hash) {
                         window.history.replaceState(null, '', window.location.pathname);
                     }
-                    await showDashboard(session.user);
+
+                    // BLOCK UI: Mostrar "Sincronizando..." antes de permitir nada
+                    document.getElementById('save-status').innerText = "☁️ Sincronizando...";
+                    document.getElementById('options').style.pointerEvents = 'none'; // Bloquear clicks
+
+                    await showDashboard(data.session.user);
                     await cargarProgreso();
+
+                    // UNBLOCK UI
+                    document.getElementById('save-status').innerText = "";
+                    document.getElementById('options').style.pointerEvents = 'auto';
+
                 } else if (event === 'SIGNED_OUT') {
                     console.log("→ Sesión cerrada");
                     showLogin();
@@ -55,8 +63,17 @@ async function init() {
 
                     if (session) {
                         console.log("✓ Sesión inicial:", session.user.email);
+
+                        // BLOCK UI
+                        document.getElementById('save-status').innerText = "☁️ Sincronizando...";
+                        document.getElementById('options').style.pointerEvents = 'none';
+
                         await showDashboard(session.user);
                         await cargarProgreso();
+
+                        // UNBLOCK UI
+                        document.getElementById('save-status').innerText = "";
+                        document.getElementById('options').style.pointerEvents = 'auto';
                     } else {
                         console.log("→ No hay sesión inicial");
                         showLogin();
@@ -489,6 +506,9 @@ async function cargarProgreso() {
         }
     }
 
+    // Update UI Status
+    const statusEl = document.getElementById('save-status');
+
     if (supabaseApp) {
         try {
             const { data: { user } } = await supabaseApp.auth.getUser();
@@ -502,13 +522,15 @@ async function cargarProgreso() {
                 if (data && !error) {
                     const cloudTimestamp = new Date(data.updated_at);
                     const localData = saved ? JSON.parse(saved) : null;
-                    const localTimestamp = localData ? new Date(localData.timestamp) : new Date(0);
+                    const localTimestamp = localData ? new Date(localData.timestamp) : new Date(0); // 1970 si no hay local
 
                     if (cloudTimestamp > localTimestamp) {
                         userProgress = data.progress_data || {};
                         score = data.score || 0;
                         userProgress.safeLastIndex = data.last_index || 0;
+                        currentQuestionIndex = userProgress.safeLastIndex; // Restaurar posición
 
+                        // FORCE LOCAL UPDATE
                         localStorage.setItem('progresoUsuario', JSON.stringify({
                             lastIndex: data.last_index,
                             score: data.score,
@@ -516,10 +538,17 @@ async function cargarProgreso() {
                             timestamp: data.updated_at
                         }));
 
-                        console.log(`☁️ Progreso cloud (más reciente): ${Object.keys(userProgress).length - 1} respuestas`);
+                        console.log(`☁️ RESTAURADO DE LA NUBE: ${Object.keys(userProgress).length} respuestas`);
+                        if (statusEl) {
+                            statusEl.innerText = "☁️ Progreso Restaurado";
+                            // Mantener el mensaje visible unos segundos
+                            setTimeout(() => { if (statusEl) statusEl.innerText = ""; }, 3000);
+                        }
                     } else {
-                        console.log(`✓ Usando progreso local (más reciente)`);
+                        console.log(`✓ Progreso local es más reciente (o igual)`);
                     }
+                } else if (error && error.code !== 'PGRST116') {
+                    console.warn("⚠️ Error obteniendo progreso nube (puede ser usuario nuevo)", error.message);
                 }
             }
         } catch (error) {

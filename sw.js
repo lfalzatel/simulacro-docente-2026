@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v21-save-indicator';
+const CACHE_NAME = 'simulacro-docente-v22-sync-lock';
 const ASSETS = [
     './',
     './index.html',
