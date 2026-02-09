@@ -365,7 +365,7 @@ header {
 .login-card {
     background: var(--bg-card);
     border-radius: 24px;
-    padding: 3rem;
+    padding: 2rem 2.5rem;
     max-width: 480px;
     width: 100%;
     box-shadow: 0 20px 60px var(--shadow-color);
@@ -390,16 +390,16 @@ header {
 
 .login-title {
     font-family: 'Crimson Pro', serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .login-subtitle {
     color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
 }
 
 .google-btn {
@@ -432,7 +432,7 @@ header {
 }
 
 .divider {
-    margin: 2rem 0;
+    margin: 1.2rem 0;
     text-align: center;
     position: relative;
 }
@@ -965,25 +965,26 @@ header {
         font-size: 1rem;
     }
 }
+
 /* Additions for improved login page */
 .app-logo {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
     animation: float 3s ease-in-out infinite;
 }
 
 .features-list {
     background: var(--bg-body-start);
     border-radius: 12px;
-    padding: 1.5rem;
-    margin: 2rem 0;
+    padding: 1rem 1.2rem;
+    margin: 0;
     text-align: left;
 }
 
 .feature-item {
-    padding: 0.8rem 0;
+    padding: 0.5rem 0;
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     border-bottom: 1px solid var(--border-color);
 }

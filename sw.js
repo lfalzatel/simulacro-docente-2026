@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v10-initial-session-fix';
+const CACHE_NAME = 'simulacro-docente-v11-compact-login';
 const ASSETS = [
     './',
     './index.html',
