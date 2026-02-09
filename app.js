@@ -196,12 +196,7 @@ function selectOption(el, isCorrect, rationale) {
 
     // Explicitly save progress to DB/Local immediately
     if (typeof userProgress === 'object') {
-        userProgress.safeLastIndex = currentQuestionIndex;
-        // We might want to save the *next* index or current? 
-        // If they answer, they are *done* with this one. 
-        // But safeLastIndex usually implies "where to resume". 
-        // If they leave now, they should resume at currentQuestionIndex (to see result?) or next?
-        // Let's save current for now.
+        userProgress.safeLastIndex = currentQuestionIndex; // Save the ones we just answered
 
         localStorage.setItem('progresoUsuario', JSON.stringify({
             lastIndex: currentQuestionIndex,
@@ -210,8 +205,7 @@ function selectOption(el, isCorrect, rationale) {
         }));
 
         // Trigger DB update if possible (debounced or immediate)
-        // For now, we rely on 'guardarRespuesta' if it does DB calls?
-        // Let's check guardarRespuesta source.
+        // guardarRespuesta handles the DB upsert, so we are good.
     }
 
     document.getElementById('next-btn').style.display = 'block';
@@ -304,6 +298,8 @@ async function loginWithGoogle() {
 
 async function logout() {
     await supabaseApp.auth.signOut();
+    localStorage.removeItem('progresoUsuario'); // Clear user progress
+    localStorage.removeItem('sb-' + SUPABASE_KEY + '-auth-token'); // Attempt to clear supbase token if stored standardly
     window.location.reload();
 }
 
@@ -364,9 +360,21 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// PWA: Install Prompt
+// PWA: Install Prompt logic
 let deferredPrompt;
 const installBtn = document.getElementById('installAppBtn');
+
+// Hide install button if already in standalone mode (Installed)
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+    if (installBtn) installBtn.style.display = 'none';
+    console.log("App is running in standalone mode");
+}
+
+window.addEventListener('appinstalled', () => {
+    if (installBtn) installBtn.style.display = 'none';
+    console.log("App installed");
+});
+
 
 // Add click listener initially (doesn't wait for event)
 if (installBtn) {
@@ -385,6 +393,7 @@ if (installBtn) {
                 title: 'Instalar Aplicación',
                 html: `
                     <div style="text-align: left; font-size: 0.95rem;">
+                        <img src="icon-192.png" style="width: 64px; height: 64px; border-radius: 12px; display: block; margin: 0 auto 15px auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                         <p style="margin-bottom: 10px;">Para instalar la App y usarla sin internet:</p>
                         
                         <div style="margin-bottom: 10px;">
@@ -401,6 +410,7 @@ if (installBtn) {
                     </div>
                 `,
                 icon: 'info',
+                showConfirmButton: true,
                 confirmButtonText: 'Entendido',
                 confirmButtonColor: '#8B9A7E'
             });
@@ -411,6 +421,5 @@ if (installBtn) {
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    // Button is already visible, just updating the variable
     console.log("Evento install prompt capturado");
 });
