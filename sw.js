@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v2-earth-sage';
+const CACHE_NAME = 'simulacro-docente-v3-clean-icon';
 const ASSETS = [
     './',
     './index.html',
