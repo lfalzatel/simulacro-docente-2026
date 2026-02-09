@@ -965,3 +965,64 @@ header {
         font-size: 1rem;
     }
 }
+/* Additions for improved login page */
+.app-logo {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.features-list {
+    background: var(--bg-body-start);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.feature-item {
+    padding: 0.8rem 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.feature-item:last-child {
+    border-bottom: none;
+}
+
+.feature-item::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    margin-right: 0.8rem;
+}
+
+/* Updated login button */
+.google-btn {
+    margin-top: 1.5rem;
+}
+
+/* Info text styling */
+.info-text {
+    background: var(--bg-body-start);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-primary);
+}
+
+.menu-item.highlight {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    margin: 0.5rem;
+    border-radius: 8px;
+}
+
+.menu-item.highlight:hover {
+    filter: brightness(1.1);
+    transform: translateX(2px);
+}
