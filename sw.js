@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v20-ux-improvements';
+const CACHE_NAME = 'simulacro-docente-v21-save-indicator';
 const ASSETS = [
     './',
     './index.html',

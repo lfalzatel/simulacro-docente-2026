@@ -399,12 +399,17 @@ async function guardarRespuesta(preguntaIdx, esCorrecta) {
     userProgress[preguntaIdx] = esCorrecta;
     userProgress.safeLastIndex = preguntaIdx;
 
+    // Update Local
     localStorage.setItem('progresoUsuario', JSON.stringify({
         lastIndex: preguntaIdx,
         score: score,
         answers: userProgress,
         timestamp: new Date().toISOString()
     }));
+
+    // Update UI Status
+    const statusEl = document.getElementById('save-status');
+    if (statusEl) statusEl.innerText = "💾 Guardando...";
 
     console.log(`💾 Progreso guardado localmente: Pregunta ${preguntaIdx + 1}, Score: ${score}`);
 
@@ -420,9 +425,15 @@ async function guardarRespuesta(preguntaIdx, esCorrecta) {
                     updated_at: new Date().toISOString()
                 }, { onConflict: 'user_id' });
                 console.log(`☁️ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
+
+                if (statusEl) {
+                    statusEl.innerText = "☁️ Guardado";
+                    setTimeout(() => { if (statusEl) statusEl.innerText = ""; }, 2000);
+                }
             }
         } catch (error) {
             console.error('❌ Error al guardar en cloud:', error);
+            if (statusEl) statusEl.innerText = "⚠️ Offline (Local OK)";
         }
     }
 }
