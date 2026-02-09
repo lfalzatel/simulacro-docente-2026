@@ -5,6 +5,7 @@ let score = 0;
 let userProgress = {};
 let supabaseApp = null;
 let isProcessingAuth = false; // Flag to prevent loops
+let lastAuthUserId = null; // Debounce for auth events
 
 const SUPABASE_URL = 'https://sqkogiitljnoaxirhrwq.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxa29naWl0bGpub2F4aXJocndxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgyMzI1ODksImV4cCI6MjA4MzgwODU4OX0.jeuxanmdeXuSiTiEJ6HYpqmnyIWzDLp9tvrpC_4BDZM';
@@ -43,6 +44,13 @@ async function init() {
                     // BLOCK UI: Mostrar "Sincronizando..." antes de permitir nada
                     document.getElementById('save-status').innerText = "☁️ Sincronizando...";
                     document.getElementById('options').style.pointerEvents = 'none'; // Bloquear clicks
+
+                    // Debounce: Si es el mismo usuario, ignorar
+                    if (lastAuthUserId === session.user.id) {
+                        console.log("🔄 Usuario ya inicializado, omitiendo recarga dashboard.");
+                        return;
+                    }
+                    lastAuthUserId = session.user.id;
 
                     await showDashboard(session.user);
                     await cargarProgreso();
@@ -519,7 +527,13 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
 
     console.log(`💾 Progreso guardado localmente: Pregunta ${preguntaIdx + 1}, Score: ${score}`);
 
+    // Flag to track if we are already syncing
+    let isSyncing = false;
+
     if (supabaseApp) {
+        // Prevent concurrent syncs for the same question index if needed, 
+        // but here we just want to ensure UI clears.
+
         try {
             const { data: { user } } = await supabaseApp.auth.getUser();
             if (user) {
@@ -534,19 +548,28 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
 
                 if (statusEl) {
                     statusEl.innerHTML = "☁️ Guardado";
-                    setTimeout(() => {
-                        if (statusEl) statusEl.classList.remove('visible');
-                    }, 2000);
                 }
             }
         } catch (error) {
             console.error('❌ Error al guardar en cloud:', error);
             if (statusEl) {
                 statusEl.innerHTML = "⚠️ Offline (Local OK)";
-                setTimeout(() => {
-                    if (statusEl) statusEl.classList.remove('visible');
-                }, 3000);
             }
+        } finally {
+            // ALWAYS Clear Status after delay
+            if (statusEl) {
+                setTimeout(() => {
+                    statusEl.classList.remove('visible');
+                    // Optional: clear text after hidden transition
+                }, 2000);
+            }
+        }
+    } else {
+        // If no supabase, clear immediately after short delay
+        if (statusEl) {
+            setTimeout(() => {
+                statusEl.classList.remove('visible');
+            }, 1000);
         }
     }
 }
