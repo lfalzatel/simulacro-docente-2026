@@ -793,7 +793,7 @@ async function cargarProgreso() {
     updateDashboardStats();
 }
 
-// Login con Google - CORREGIDO
+// Login con Google - CORREGIDO para PWA
 async function loginWithGoogle() {
     if (!supabaseApp) {
         alert("Sistema de autenticación no disponible. Por favor recarga la página.");
@@ -803,7 +803,14 @@ async function loginWithGoogle() {
     console.log("🔐 Iniciando login con Google...");
 
     try {
-        // Usar la URL actual sin parámetros extra
+        // Detect if running as installed PWA
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+            window.navigator.standalone ||
+            document.referrer.includes('android-app://');
+
+        console.log(`📱 Modo: ${isStandalone ? 'PWA Instalada' : 'Navegador'}`);
+
+        // Use full page redirect for PWA, popup for browser
         const redirectUrl = `${window.location.origin}${window.location.pathname}`;
         console.log("🔗 Redirect URL:", redirectUrl);
 
@@ -811,6 +818,7 @@ async function loginWithGoogle() {
             provider: 'google',
             options: {
                 redirectTo: redirectUrl,
+                skipBrowserRedirect: false, // Always use browser redirect (works in PWA)
                 queryParams: {
                     access_type: 'offline',
                     prompt: 'consent',
@@ -823,6 +831,7 @@ async function loginWithGoogle() {
             alert("Error al iniciar sesión: " + error.message);
         } else {
             console.log("✓ Redirigiendo a Google...");
+            // The redirect happens automatically
         }
     } catch (error) {
         console.error("❌ Error inesperado:", error);
