@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v22-sync-lock';
+const CACHE_NAME = 'simulacro-docente-v30-mobile-fix';
 const ASSETS = [
     './',
     './index.html',
