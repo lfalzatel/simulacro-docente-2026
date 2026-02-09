@@ -533,26 +533,31 @@ async function loginWithGoogle() {
 }
 
 async function logout() {
-    console.log("🖱️ Logout click! Iniciando proceso...");
-    try {
-        if (supabaseApp) {
-            console.log("📡 Enviando signOut a Supabase...");
-            const { error } = await supabaseApp.auth.signOut();
-            if (error) {
-                console.error("❌ Error al cerrar sesión:", error);
-            }
-        }
+    console.log("🖱️ Logout click! Forzando salida local...");
 
+    try {
+        // 1. LIMPIEZA LOCAL INMEDIATA (Prioridad Usuario)
         localStorage.removeItem('progresoUsuario');
         userProgress = {};
         score = 0;
         currentQuestionIndex = 0;
 
+        // 2. Mostrar Login YA MISMO
         showLogin();
-        console.log("✓ Sesión cerrada correctamente");
+        console.log("✓ UI limpia y reseteada");
+
+        // 3. Intentar cerrar sesión en servidor (Background - No bloqueante)
+        if (supabaseApp) {
+            console.log("📡 Enviando signOut a Supabase (Background)...");
+            supabaseApp.auth.signOut().then(({ error }) => {
+                if (error) console.warn("⚠️ Error en signOut servidor:", error.message);
+                else console.log("✓ Sesión cerrada en servidor");
+            });
+        }
     } catch (error) {
-        console.error("❌ Error al cerrar sesión:", error);
-        showLogin();
+        console.error("❌ Error crítico en logout:", error);
+        // Fallback final: Recargar página para asegurar limpieza
+        window.location.reload();
     }
 }
 
