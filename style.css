@@ -946,14 +946,14 @@ header {
     }
 
     .stats-grid {
-        grid-template-columns: repeat(3, 1fr);
-        /* 3 columns for compact view */
-        gap: 0.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
     }
 
     .stat-card {
-        padding: 0.8rem 0.5rem;
+        padding: 1rem;
         text-align: center;
+        border-radius: 12px;
     }
 
     .welcome-card {
@@ -994,16 +994,18 @@ header {
     }
 
     .stat-icon {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 0.2rem;
     }
 
     .stat-value {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+        margin-bottom: 0;
     }
 
     .stat-label {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        line-height: 1.1;
     }
 
     .quiz-container {
