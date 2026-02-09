@@ -22,19 +22,25 @@ async function init() {
 
             // Check Session
             const { data: { session } } = await supabaseApp.auth.getSession();
+
+            // Fix: Only redirect if NO session and NOT handling an auth callback
+            const isAuthCallback = window.location.hash && window.location.hash.includes('access_token');
+
             if (session) {
                 console.log("Sesión encontrada:", session.user.email);
                 showDashboard(session.user);
                 cargarProgreso();
-            } else {
-                console.log("No hay sesión activa");
+            } else if (!isAuthCallback) {
+                console.log("No hay sesión activa y no es callback");
                 showLogin();
+            } else {
+                console.log("Procesando callback de Auth...");
             }
 
             // Listen for auth changes
             supabaseApp.auth.onAuthStateChange((event, session) => {
                 console.log("Evento Auth:", event);
-                if (event === 'SIGNED_IN') showDashboard(session.user);
+                if (event === 'SIGNED_IN' && session) showDashboard(session.user);
                 if (event === 'SIGNED_OUT') showLogin();
             });
 
@@ -112,8 +118,16 @@ function startQuiz() {
     document.getElementById('quiz-view').classList.remove('hidden');
     document.getElementById('header').classList.remove('hidden'); // Ensure header stays
 
-    currentQuestionIndex = 0;
-    score = 0;
+    // Resume Logic
+    if (userProgress && typeof userProgress.safeLastIndex !== 'undefined') {
+        currentQuestionIndex = userProgress.safeLastIndex;
+        // If finished, reset? No, let them see results or reset manually?
+        // For now, resume. If >= length, it will trigger results.
+    } else {
+        currentQuestionIndex = 0;
+        score = 0;
+    }
+
     updateUI();
 }
 
@@ -234,6 +248,7 @@ async function cargarProgreso() {
         const data = JSON.parse(saved);
         userProgress = data.answers || {};
         score = data.score || 0;
+        userProgress.safeLastIndex = data.lastIndex || 0;
     }
 
     if (supabaseApp) {
@@ -243,6 +258,8 @@ async function cargarProgreso() {
             if (data) {
                 userProgress = data.progress_data || {};
                 score = data.score || 0;
+                userProgress.safeLastIndex = data.last_index || 0; // Store for resume
+
                 localStorage.setItem('progresoUsuario', JSON.stringify({
                     lastIndex: data.last_index, score: score, answers: userProgress
                 }));
@@ -320,3 +337,24 @@ if ('serviceWorker' in navigator) {
             .catch(err => console.log('Error al registrar Service Worker', err));
     });
 }
+
+// PWA: Install Prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBtn = document.getElementById('installAppBtn');
+    if (installBtn) {
+        installBtn.classList.remove('hidden');
+        installBtn.onclick = () => {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((result) => {
+                if (result.outcome === 'accepted') {
+                    console.log('Usuario aceptó instalar');
+                }
+                deferredPrompt = null;
+                installBtn.classList.add('hidden');
+            });
+        };
+    }
+});

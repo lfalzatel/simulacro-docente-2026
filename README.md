@@ -10,6 +10,11 @@ Este proyecto es una aplicación web progresiva (PWA) diseñada para ayudar a lo
 *   **Simulacro**: Cuestionario interactivo con retroalimentación inmediata.
 *   **Recursos**: Enlaces a normativa vigente (Decreto 1278, Ley 115, etc.).
 
+## Novedades (V2.0)
+- **Diseño Premium**: Interfaz moderna "Earth & Sage" diseñada para reducir la fatiga visual.
+- **Modo PWA (Móvil)**: Instálala en tu celular para practicar sin conexión.
+- **Temas Personalizables**: Día, Noche, Deep Focus y Escritorio.
+
 ## Configuración Local
 
 1.  Clona este repositorio o descarga los archivos.

@@ -847,23 +847,56 @@ header {
     }
 
     .dashboard {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .welcome-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns for compact view */
+        gap: 0.8rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+        font-size: 1.4rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
     }
 
     .quiz-container {
-        margin: 1rem;
-        padding: 1.5rem;
+        margin: 0.5rem;
+        padding: 1.2rem;
+        border-width: 1px;
     }
 
     .question-text {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .quiz-header {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .back-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
     }
 }
