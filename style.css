@@ -1108,3 +1108,29 @@ header {
     filter: brightness(1.1);
     transform: translateX(2px);
 }
+
+/* Floating Notification */
+#save-status {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--earth-dark);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#save-status.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

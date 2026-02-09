@@ -341,6 +341,9 @@ function restartQuiz() {
 }
 
 function selectOption(el, isCorrect, rationale, allOptions, optionIndex) {
+    // 🔒 GUARD: Prevent re-answering if already answered
+    if (userProgress[currentQuestionIndex] !== undefined) return;
+
     if (document.getElementById('next-btn').style.display === 'block') return;
 
     // Bloquear todas las opciones
@@ -481,9 +484,12 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
 
     // Update UI Status
     const statusEl = document.getElementById('save-status');
-    if (statusEl) statusEl.innerText = "💾 Guardando...";
+    if (statusEl) {
+        statusEl.innerHTML = "💾 Guardando...";
+        statusEl.classList.add('visible');
+    }
 
-    console.log(`💾 Progres saved locally: Q${preguntaIdx + 1}`);
+    console.log(`💾 Progreso guardado localmente: Pregunta ${preguntaIdx + 1}, Score: ${score}`);
 
     if (supabaseApp) {
         try {
@@ -496,15 +502,23 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
                     last_index: preguntaIdx,
                     updated_at: new Date().toISOString()
                 }, { onConflict: 'user_id' });
+                console.log(`☁️ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
 
                 if (statusEl) {
-                    statusEl.innerText = "☁️ Guardado";
-                    setTimeout(() => { if (statusEl) statusEl.innerText = ""; }, 2000);
+                    statusEl.innerHTML = "☁️ Guardado";
+                    setTimeout(() => {
+                        if (statusEl) statusEl.classList.remove('visible');
+                    }, 2000);
                 }
             }
         } catch (error) {
-            console.error('❌ Error saving to cloud:', error);
-            if (statusEl) statusEl.innerText = "⚠️ Offline (Local OK)";
+            console.error('❌ Error al guardar en cloud:', error);
+            if (statusEl) {
+                statusEl.innerHTML = "⚠️ Offline (Local OK)";
+                setTimeout(() => {
+                    if (statusEl) statusEl.classList.remove('visible');
+                }, 3000);
+            }
         }
     }
 }
