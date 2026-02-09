@@ -30,7 +30,7 @@ async function init() {
 
             // Listen for auth changes PRIMERO
             supabaseApp.auth.onAuthStateChange(async (event, session) => {
-                console.log(`🔔 Evento Auth: ${event}`);
+                console.log(`🔔 Evento Auth: ${event}`, session ? `(${session.user.email})` : '(sin sesión)');
 
                 if (event === 'SIGNED_IN' && session) {
                     console.log("✓ Usuario autenticado:", session.user.email);
@@ -46,10 +46,20 @@ async function init() {
                     showLogin();
                 } else if (event === 'TOKEN_REFRESHED') {
                     console.log("✓ Token refrescado");
-                } else if (event === 'INITIAL_SESSION' && session) {
-                    console.log("✓ Sesión inicial encontrada:", session.user.email);
-                    await showDashboard(session.user);
-                    await cargarProgreso();
+                } else if (event === 'INITIAL_SESSION') {
+                    // CRÍTICO: Ignorar INITIAL_SESSION si estamos procesando OAuth
+                    if (isProcessingAuth) {
+                        console.log("⏭️ Ignorando INITIAL_SESSION (esperando SIGNED_IN del OAuth)");
+                        return;
+                    }
+                    if (session) {
+                        console.log("✓ Sesión inicial encontrada:", session.user.email);
+                        await showDashboard(session.user);
+                        await cargarProgreso();
+                    } else {
+                        console.log("→ No hay sesión inicial");
+                        showLogin();
+                    }
                 }
             });
 
