@@ -25,7 +25,8 @@ async function init() {
             if (hash && hash.includes('access_token')) {
                 console.log("🔐 Detectado callback de OAuth, esperando procesamiento...");
                 isProcessingAuth = true;
-                // NO llamar getSession aquí - dejar que onAuthStateChange lo maneje
+                // Esperar 500ms para que Supabase procese el hash internamente
+                await new Promise(resolve => setTimeout(resolve, 500));
             }
 
             // Listen for auth changes PRIMERO
