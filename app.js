@@ -721,13 +721,38 @@ async function cargarProgreso() {
                     .single();
 
                 if (data && !error) {
-                    const cloudTimestamp = new Date(data.updated_at);
-                    const localData = saved ? JSON.parse(saved) : null;
-                    const localTimestamp = localData ? new Date(localData.timestamp) : new Date(0); // 1970 si no hay local
+                    // SMART SYNC: Compare actual progress, not just timestamps
+                    const cloudProgress = data.progress_data || {};
+                    const cloudAnswerCount = Object.keys(cloudProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
 
-                    if (cloudTimestamp > localTimestamp) {
-                        userProgress = data.progress_data || {};
-                        // RECALCULATE SCORE
+                    const localData = saved ? JSON.parse(saved) : null;
+                    const localProgress = localData ? (localData.answers || {}) : {};
+                    const localAnswerCount = Object.keys(localProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
+
+                    const cloudTimestamp = new Date(data.updated_at);
+                    const localTimestamp = localData ? new Date(localData.timestamp) : new Date(0);
+
+                    let useCloud = false;
+                    let syncReason = '';
+
+                    // Decision logic: prioritize progress over timestamp
+                    if (cloudAnswerCount > localAnswerCount) {
+                        useCloud = true;
+                        syncReason = `nube tiene más respuestas (${cloudAnswerCount} vs ${localAnswerCount})`;
+                    } else if (localAnswerCount > cloudAnswerCount) {
+                        useCloud = false;
+                        syncReason = `local tiene más respuestas (${localAnswerCount} vs ${cloudAnswerCount})`;
+                    } else if (cloudTimestamp > localTimestamp) {
+                        useCloud = true;
+                        syncReason = 'timestamps iguales pero nube más reciente';
+                    } else {
+                        syncReason = 'local más reciente o igual';
+                    }
+
+                    console.log(`🔄 Decisión de sincronización: ${syncReason}`);
+
+                    if (useCloud) {
+                        userProgress = cloudProgress;
                         score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
                         userProgress.safeLastIndex = data.last_index || 0;
                         currentQuestionIndex = userProgress.safeLastIndex;
@@ -735,24 +760,22 @@ async function cargarProgreso() {
                         // FORCE LOCAL UPDATE
                         localStorage.setItem('progresoUsuario', JSON.stringify({
                             lastIndex: data.last_index,
-                            score: data.score,
-                            answers: data.progress_data,
+                            score: score,
+                            answers: cloudProgress,
                             timestamp: data.updated_at,
-                            totalTime: userProgress.totalTime // Ensure time is saved
+                            totalTime: cloudProgress.totalTime || 0
                         }));
 
-                        console.log(`☁️ RESTAURADO DE LA NUBE: ${Object.keys(userProgress).length} respuestas`);
+                        console.log(`☁️ RESTAURADO DE LA NUBE: ${cloudAnswerCount} respuestas, Score: ${score}`);
                         if (statusEl) {
-                            statusEl.innerText = "☁️ Progreso Restaurado";
+                            statusEl.innerHTML = "☁️ Progreso Restaurado";
                             statusEl.classList.add('visible');
                             setTimeout(() => {
-                                statusEl.classList.remove('visible');
+                                if (statusEl) statusEl.classList.remove('visible');
                             }, 3000);
                         }
-
-                        updateDashboardStats(); // Force UI update
                     } else {
-                        console.log(`✓ Progreso local es más reciente (o igual)`);
+                        console.log(`✓ Usando progreso local: ${localAnswerCount} respuestas`);
                     }
                 } else if (error && error.code !== 'PGRST116') {
                     console.warn("⚠️ Error obteniendo progreso nube (puede ser usuario nuevo)", error.message);
@@ -760,10 +783,14 @@ async function cargarProgreso() {
             }
         } catch (error) {
             console.error('❌ Error al cargar de cloud:', error);
+            if (statusEl) {
+                statusEl.classList.remove('visible'); // Clear stuck notification
+            }
         }
     }
 
-    await updateDashboardStats();
+    // Force dashboard update after load completes
+    updateDashboardStats();
 }
 
 // Login con Google - CORREGIDO
