@@ -645,9 +645,33 @@ header {
 .quiz-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 1.5rem;
     color: var(--text-secondary);
     font-weight: 500;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s;
+    margin-right: 1rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.back-btn:hover {
+    background: var(--bg-body-end);
+    color: var(--accent-primary);
+    transform: translateX(-3px);
 }
 
 .progress-track {
