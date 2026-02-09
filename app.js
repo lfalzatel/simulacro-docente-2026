@@ -40,7 +40,10 @@ async function init() {
             // Listen for auth changes
             supabaseApp.auth.onAuthStateChange((event, session) => {
                 console.log("Evento Auth:", event);
-                if (event === 'SIGNED_IN' && session) showDashboard(session.user);
+                if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session) {
+                    showDashboard(session.user);
+                    cargarProgreso(); // Ensure progress loads too
+                }
                 if (event === 'SIGNED_OUT') showLogin();
             });
 
