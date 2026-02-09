@@ -533,10 +533,10 @@ async function loginWithGoogle() {
 }
 
 async function logout() {
-    console.log("🚪 Cerrando sesión...");
-
+    console.log("🖱️ Logout click! Iniciando proceso...");
     try {
         if (supabaseApp) {
+            console.log("📡 Enviando signOut a Supabase...");
             const { error } = await supabaseApp.auth.signOut();
             if (error) {
                 console.error("❌ Error al cerrar sesión:", error);
