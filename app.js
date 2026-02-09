@@ -343,21 +343,29 @@ if ('serviceWorker' in navigator) {
 
 // PWA: Install Prompt
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    const installBtn = document.getElementById('installAppBtn');
-    if (installBtn) {
-        installBtn.classList.remove('hidden');
-        installBtn.onclick = () => {
+const installBtn = document.getElementById('installAppBtn');
+
+// Add click listener initially (doesn't wait for event)
+if (installBtn) {
+    installBtn.addEventListener('click', () => {
+        if (deferredPrompt) {
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then((result) => {
                 if (result.outcome === 'accepted') {
                     console.log('Usuario aceptó instalar');
                 }
                 deferredPrompt = null;
-                installBtn.classList.add('hidden');
             });
-        };
-    }
+        } else {
+            // Manual instructions if prompt not available
+            alert("Para instalar la App:\n\n🤖 Android (Chrome): Menú (⋮) -> Instalar aplicación.\n🍎 iOS (Safari): Botón Compartir -> Agregar a pantalla de inicio.");
+        }
+    });
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Button is already visible, just updating the variable
+    console.log("Evento install prompt capturado");
 });
