@@ -3,6 +3,8 @@ let quizData = null;
 let currentQuestionIndex = 0;
 let score = 0;
 let userProgress = {};
+let totalTime = 0; // State for time tracking
+let studyTimer = null; // Timer reference
 let supabaseApp = null;
 let isProcessingAuth = false; // Flag to prevent loops
 let lastAuthUserId = null; // Debounce for auth events
@@ -158,7 +160,8 @@ async function showDashboard(user) {
 async function updateDashboardStats() {
     // 🛡️ RECALCULATE SCORE from logical source of truth
     let calculatedScore = 0;
-    const answeredCount = Object.keys(userProgress).filter(k => k !== 'safeLastIndex').length;
+    // Filter out metadata keys like safeLastIndex and totalTime
+    const answeredCount = Object.keys(userProgress).filter(k => k !== 'safeLastIndex' && k !== 'totalTime').length;
 
     // Iterate to count correct answers
     Object.values(userProgress).forEach(ans => {
@@ -180,6 +183,16 @@ async function updateDashboardStats() {
 
     const progressEl = document.getElementById('stat-progress');
     if (progressEl) progressEl.innerText = `${progressPercent}%`;
+
+    // Update Time Stat
+    const timeEl = document.getElementById('stat-time');
+    if (timeEl) {
+        let seconds = userProgress.totalTime || 0;
+        const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+        const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+        const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+        timeEl.innerText = `${h}:${m}:${s}`;
+    }
 
     // Actualizar texto del botón
     const resumeText = document.getElementById('resumeText');
@@ -216,6 +229,18 @@ function switchView(viewId) {
         document.getElementById('profile-view').classList.remove('hidden');
         renderActivityCalendar();
         updateDashboardStats(); // Update stats in profile too
+    }
+
+
+    // Always close profile menu when switching views
+    const profileMenu = document.getElementById('profileMenu');
+    if (profileMenu) profileMenu.classList.remove('active');
+
+    // Handle Timer
+    if (viewId === 'quiz-view') {
+        startTimer();
+    } else {
+        stopTimer();
     }
 }
 
@@ -305,6 +330,30 @@ function startQuiz() {
     }
 
     updateUI();
+    startTimer(); // Ensure timer starts
+}
+
+function startTimer() {
+    stopTimer(); // Clear existing
+    studyTimer = setInterval(() => {
+        if (!userProgress.totalTime) userProgress.totalTime = 0;
+        userProgress.totalTime++;
+
+        // Optional: Update UI every second if we wanted a live counter in quiz view,
+        // but currently it's only on dashboard. 
+        // We could add a live timer in quiz header if requested.
+    }, 1000);
+    console.log("⏱️ Timer iniciado");
+}
+
+function stopTimer() {
+    if (studyTimer) {
+        clearInterval(studyTimer);
+        studyTimer = null;
+        console.log("⏱️ Timer detenido. Tiempo total:", userProgress.totalTime);
+        // Save time when stopping (changing view)
+        guardarProgresoCompleto();
+    }
 }
 
 function restartQuiz() {
@@ -590,6 +639,14 @@ async function cargarProgreso() {
         try {
             const data = JSON.parse(saved);
             userProgress = data.answers || {};
+            // Ensure totalTime is restored
+            if (data.answers && data.answers.totalTime) {
+                userProgress.totalTime = data.answers.totalTime;
+            } else if (data.totalTime) {
+                // Legacy support just in case
+                userProgress.totalTime = data.totalTime;
+            }
+
             // RECALCULATE SCORE to ensure consistency
             score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
             userProgress.safeLastIndex = data.lastIndex || 0;
@@ -761,7 +818,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         profileMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
+            // Allow clicks to bubble up so document listener closes menu if needed,
+            // OR if valid link is clicked, it works.
+            // e.stopPropagation(); // REMOVED to fix "menu stays open"
         });
     }
 });

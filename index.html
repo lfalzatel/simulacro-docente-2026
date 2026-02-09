@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=33">
+    <link rel="stylesheet" href="style.css?v=34">
 </head>
 
 <body>
@@ -76,7 +76,7 @@
                         <span>Recargar App</span>
                     </div>
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                        v33 (Auth Fix)
+                        v34 (Time Tracker & Fixes)
                     </div>
                 </div>
             </div>
@@ -145,6 +145,11 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">⏱️</div>
+                    <div class="stat-value" id="stat-time">00:00</div>
+                    <div class="stat-label">Tiempo Estudiado</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
                     <div class="stat-value" id="stat-progress">0%</div>
                     <div class="stat-label">Progreso Total</div>
                 </div>
@@ -321,7 +326,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=33"></script>
+    <script src="app.js?v=34"></script>
 </body>
 
 </html>

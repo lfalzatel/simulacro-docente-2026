@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v32-aggressive';
+const CACHE_NAME = 'simulacro-docente-v34-aggressive';
 const ASSETS = [
     './',
     './index.html',
