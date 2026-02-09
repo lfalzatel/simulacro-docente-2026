@@ -20,11 +20,10 @@ async function init() {
             supabaseApp = createClient(SUPABASE_URL, SUPABASE_KEY);
             console.log("✓ Supabase inicializado");
 
-
-
             // Listen for auth changes PRIMERO
             supabaseApp.auth.onAuthStateChange(async (event, session) => {
-                console.log(`🔔 Evento Auth: ${event}`, session ? `(${session.user.email})` : '(sin sesión)');
+                const email = session?.user?.email || '(sin sesión)';
+                console.log(`🔔 Evento Auth: ${event} ${email}`);
 
                 if (event === 'SIGNED_IN' && session) {
                     console.log("✓ Usuario autenticado:", session.user.email);
@@ -38,16 +37,15 @@ async function init() {
                 } else if (event === 'SIGNED_OUT') {
                     console.log("→ Sesión cerrada");
                     showLogin();
-                } else if (event === 'TOKEN_REFRESHED') {
-                    console.log("✓ Token refrescado");
                 } else if (event === 'INITIAL_SESSION') {
-                    // CRÍTICO: Ignorar INITIAL_SESSION si estamos procesando OAuth
+                    // Si estamos procesando auth, NO mostrar login inmediatamente
                     if (isProcessingAuth) {
-                        console.log("⏭️ Ignorando INITIAL_SESSION (esperando SIGNED_IN del OAuth)");
+                        console.log("⏳ Ignorando INITIAL_SESSION vacía (esperando OAuth)...");
                         return;
                     }
+
                     if (session) {
-                        console.log("✓ Sesión inicial encontrada:", session.user.email);
+                        console.log("✓ Sesión inicial:", session.user.email);
                         await showDashboard(session.user);
                         await cargarProgreso();
                     } else {
@@ -57,23 +55,49 @@ async function init() {
                 }
             });
 
-            // Check Session solo si NO es callback OAuth
-            if (!isProcessingAuth) {
-                const { data: { session }, error } = await supabaseApp.auth.getSession();
+            // CRÍTICO: Detectar si hay callback OAuth
+            const hash = window.location.hash;
+            if (hash && hash.includes('access_token')) {
+                console.log("🔐 Detectado callback de OAuth");
+                isProcessingAuth = true;
 
-                if (error) {
-                    console.error("❌ Error al verificar sesión:", error);
-                    showLogin();
-                    return;
-                }
+                // Fallback loop agresivo: Intentar 10 veces (10 segundos)
+                let attempts = 0;
+                const checkInterval = setInterval(async () => {
+                    attempts++;
+                    console.log(`🔄 Verificando sesión (${attempts}/10)...`);
+
+                    const { data } = await supabaseApp.auth.getSession();
+                    if (data?.session) {
+                        console.log("✓ Sesión recuperada en intento " + attempts);
+                        clearInterval(checkInterval);
+                        isProcessingAuth = false;
+
+                        // Limpiar hash
+                        if (window.location.hash) {
+                            window.history.replaceState(null, '', window.location.pathname);
+                        }
+
+                        await showDashboard(data.session.user);
+                        await cargarProgreso();
+                    } else if (attempts >= 10) {
+                        console.error("❌ Timeout esperando sesión OAuth");
+                        clearInterval(checkInterval);
+                        isProcessingAuth = false;
+                        showLogin();
+                    }
+                }, 1000);
+
+            } else {
+                // Check normal si no hay hash
+                const { data: { session }, error } = await supabaseApp.auth.getSession();
 
                 if (session) {
                     console.log("✓ Sesión activa:", session.user.email);
                     await showDashboard(session.user);
                     await cargarProgreso();
                 } else {
-                    console.log("→ No hay sesión activa");
-                    showLogin();
+                    if (!isProcessingAuth) showLogin();
                 }
             }
 
