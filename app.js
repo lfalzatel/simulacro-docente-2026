@@ -606,12 +606,18 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
 }
 
 async function guardarProgresoCompleto(silent = false) {
+    const statusEl = document.getElementById('save-status');
+    if (!silent && statusEl) {
+        statusEl.innerHTML = "💾 Guardando...";
+        statusEl.classList.add('visible');
+    }
+
     const progressData = {
         lastIndex: currentQuestionIndex,
         score: score,
         answers: userProgress,
         timestamp: new Date().toISOString(),
-        totalTime: userProgress.totalTime || 0 // Explicitly save at top level too for backup
+        totalTime: userProgress.totalTime || 0
     };
 
     localStorage.setItem('progresoUsuario', JSON.stringify(progressData));
@@ -623,7 +629,7 @@ async function guardarProgresoCompleto(silent = false) {
             if (user) {
                 const { error } = await supabaseApp.from('simulacro_progress').upsert({
                     user_id: user.id,
-                    progress_data: userProgress, // totalTime is inside here
+                    progress_data: userProgress,
                     score: score,
                     last_index: currentQuestionIndex,
                     updated_at: new Date().toISOString()
@@ -631,15 +637,50 @@ async function guardarProgresoCompleto(silent = false) {
 
                 if (error) {
                     console.error('❌ Error al guardar progreso:', error);
+                    if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Sync";
                 } else {
-                    if (!silent) console.log(`☁️ Progreso completo sincronizado`);
+                    if (!silent) {
+                        console.log(`☁️ Progreso completo sincronizado`);
+                        if (statusEl) statusEl.innerHTML = "☁️ Sincronizado";
+                    }
                 }
             }
         } catch (error) {
             console.error('❌ Error al sincronizar:', error);
+            if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Red";
+        } finally {
+            // ALWAYS Clear Status after delay if interaction was not silent
+            if (!silent && statusEl) {
+                setTimeout(() => {
+                    statusEl.classList.remove('visible');
+                    // Optional: clear text after hidden transition
+                }, 2000);
+            }
         }
     }
 }
+
+// Nueva función para sincronizar manualmente
+async function sincronizarDatos() {
+    const statusEl = document.getElementById('save-status');
+    if (statusEl) {
+        statusEl.innerHTML = "🔄 Sincronizando...";
+        statusEl.classList.add('visible');
+    }
+
+    await cargarProgreso();
+    updateDashboardStats(); // Refresh UI with new data
+
+    if (statusEl) {
+        statusEl.innerHTML = "✅ Datos actualizados";
+        setTimeout(() => {
+            statusEl.classList.remove('visible');
+        }, 2000);
+    }
+}
+
+// Bind to window
+window.sincronizarDatos = sincronizarDatos;
 
 async function cargarProgreso() {
     console.log("📂 Cargando progreso...");
