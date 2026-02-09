@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v13-auth-fallback';
+const CACHE_NAME = 'simulacro-docente-v14-aggressive-loop';
 const ASSETS = [
     './',
     './index.html',
