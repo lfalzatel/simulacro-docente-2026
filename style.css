@@ -937,4 +937,31 @@ header {
         height: 32px;
         font-size: 1.2rem;
     }
+
+    /* Compact Action/Start Section for Mobile */
+    .action-section {
+        padding: 1.5rem 1rem;
+        /* Drastically reduced from 3rem */
+        border-radius: 16px;
+        margin-top: 1rem;
+    }
+
+    .action-title {
+        font-size: 1.4rem;
+        /* Reduced from 2rem */
+        margin-bottom: 0.5rem;
+    }
+
+    .action-description {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        /* Reduced from 2rem */
+        line-height: 1.4;
+    }
+
+    .start-btn {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
 }

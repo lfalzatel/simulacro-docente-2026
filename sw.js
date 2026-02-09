@@ -1,4 +1,4 @@
-const CACHE_NAME = 'simulacro-docente-v3-clean-icon';
+const CACHE_NAME = 'simulacro-docente-v4-compact-ui';
 const ASSETS = [
     './',
     './index.html',
