@@ -325,6 +325,9 @@ function startQuiz() {
     document.getElementById('quiz-view').classList.remove('hidden');
     document.getElementById('header').classList.remove('hidden');
 
+    // SAFETY UNLOCK: Ensure options are clickable
+    document.getElementById('options').style.pointerEvents = 'auto';
+
     if (userProgress && typeof userProgress.safeLastIndex !== 'undefined' && userProgress.safeLastIndex >= 0) {
         const lastIndex = userProgress.safeLastIndex;
         if (lastIndex >= quizData.length - 1) {
@@ -625,7 +628,8 @@ async function cargarProgreso() {
         try {
             const data = JSON.parse(saved);
             userProgress = data.answers || {};
-            score = data.score || 0;
+            // RECALCULATE SCORE to ensure consistency
+            score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
             userProgress.safeLastIndex = data.lastIndex || 0;
             console.log(`✓ Progreso local: ${Object.keys(userProgress).length - 1} respuestas, Score: ${score}`);
         } catch (e) {
@@ -653,7 +657,8 @@ async function cargarProgreso() {
 
                     if (cloudTimestamp > localTimestamp) {
                         userProgress = data.progress_data || {};
-                        score = data.score || 0;
+                        // RECALCULATE SCORE
+                        score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
                         userProgress.safeLastIndex = data.last_index || 0;
                         currentQuestionIndex = userProgress.safeLastIndex; // Restaurar posición
 
