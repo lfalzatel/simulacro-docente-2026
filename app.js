@@ -730,22 +730,27 @@ async function cargarProgreso() {
                         // RECALCULATE SCORE
                         score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
                         userProgress.safeLastIndex = data.last_index || 0;
-                        currentQuestionIndex = userProgress.safeLastIndex; // Restaurar posición
+                        currentQuestionIndex = userProgress.safeLastIndex;
 
                         // FORCE LOCAL UPDATE
                         localStorage.setItem('progresoUsuario', JSON.stringify({
                             lastIndex: data.last_index,
                             score: data.score,
                             answers: data.progress_data,
-                            timestamp: data.updated_at
+                            timestamp: data.updated_at,
+                            totalTime: userProgress.totalTime // Ensure time is saved
                         }));
 
                         console.log(`☁️ RESTAURADO DE LA NUBE: ${Object.keys(userProgress).length} respuestas`);
                         if (statusEl) {
                             statusEl.innerText = "☁️ Progreso Restaurado";
-                            // Mantener el mensaje visible unos segundos
-                            setTimeout(() => { if (statusEl) statusEl.innerText = ""; }, 3000);
+                            statusEl.classList.add('visible');
+                            setTimeout(() => {
+                                statusEl.classList.remove('visible');
+                            }, 3000);
                         }
+
+                        updateDashboardStats(); // Force UI update
                     } else {
                         console.log(`✓ Progreso local es más reciente (o igual)`);
                     }

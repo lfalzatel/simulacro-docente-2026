@@ -1123,8 +1123,12 @@ header {
 /* Floating Notification */
 #save-status {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 20px;
+    /* Move to top to avoid blocking bottom buttons */
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    right: auto;
+    bottom: auto;
     background: var(--earth-dark);
     color: var(--white);
     padding: 10px 20px;
@@ -1133,7 +1137,6 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 2000;
     opacity: 0;
-    transform: translateY(20px);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     pointer-events: none;
     display: flex;
@@ -1143,5 +1146,5 @@ header {
 
 #save-status.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
