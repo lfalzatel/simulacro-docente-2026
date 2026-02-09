@@ -121,14 +121,16 @@ function startQuiz() {
     document.getElementById('quiz-view').classList.remove('hidden');
     document.getElementById('header').classList.remove('hidden'); // Ensure header stays
 
-    // Resume Logic
-    if (userProgress && typeof userProgress.safeLastIndex !== 'undefined') {
+    // Resume Logic: Prioritize safeLastIndex from loaded progress
+    if (userProgress && typeof userProgress.safeLastIndex !== 'undefined' && userProgress.safeLastIndex > 0) {
+        console.log("Resuming quiz from index:", userProgress.safeLastIndex);
         currentQuestionIndex = userProgress.safeLastIndex;
-        // If finished, reset? No, let them see results or reset manually?
-        // For now, resume. If >= length, it will trigger results.
     } else {
+        console.log("Starting new quiz");
         currentQuestionIndex = 0;
-        score = 0;
+        // Do NOT reset score/userProgress here if we want to keep history? 
+        // Actually, if index is 0, we might want to reset if it's a "Restart".
+        // But for now, let's assume if safeLastIndex is missing, it's a fresh start.
     }
 
     updateUI();
@@ -191,6 +193,27 @@ function selectOption(el, isCorrect, rationale) {
     }
 
     guardarRespuesta(currentQuestionIndex, isCorrect);
+
+    // Explicitly save progress to DB/Local immediately
+    if (typeof userProgress === 'object') {
+        userProgress.safeLastIndex = currentQuestionIndex;
+        // We might want to save the *next* index or current? 
+        // If they answer, they are *done* with this one. 
+        // But safeLastIndex usually implies "where to resume". 
+        // If they leave now, they should resume at currentQuestionIndex (to see result?) or next?
+        // Let's save current for now.
+
+        localStorage.setItem('progresoUsuario', JSON.stringify({
+            lastIndex: currentQuestionIndex,
+            score: score,
+            answers: userProgress
+        }));
+
+        // Trigger DB update if possible (debounced or immediate)
+        // For now, we rely on 'guardarRespuesta' if it does DB calls?
+        // Let's check guardarRespuesta source.
+    }
+
     document.getElementById('next-btn').style.display = 'block';
 }
 
