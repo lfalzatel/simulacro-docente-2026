@@ -1,9 +1,9 @@
-const CACHE_NAME = 'quiz-app-v68';
+const CACHE_NAME = 'quiz-app-v70';
 const ASSETS = [
     './',
     './index.html',
-    './style.css',
-    './app.js?v=68',
+    './style.css?v=70',
+    './app.js?v=70',
     './quizData.js',
     './quizData2.js',
     './pwa_icon_192.svg',

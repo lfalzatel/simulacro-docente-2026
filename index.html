@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=50">
+    <link rel="stylesheet" href="style.css?v=70">
 </head>
 
 <body>
@@ -66,11 +66,10 @@
                         <span>📚</span>
                         <span>Documentación</span>
                     </div>
-                    <div class="menu-item" onclick="switchView('profile'); console.log('Going to profile reports');">
+                    <div class="menu-item" onclick="showReports()" style="margin-bottom: 20px;">
                         <span>📊</span>
                         <span>Ver Reportes</span>
                     </div>
-
                     <div class="menu-item logout" id="logoutBtn" onclick="logout()">
                         <span>🚪</span>
                         <span>Cerrar Sesión</span>
@@ -343,24 +342,15 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=68"></script>
+    <script src="app.js?v=70"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=68')
+                navigator.serviceWorker.register('./sw.js?v=70')
                     .then(reg => {
-                        console.log('✓ SW v68 registrado');
-                        reg.onupdatefound = () => {
-                            const installingWorker = reg.installing;
-                            installingWorker.onstatechange = () => {
-                                if (installingWorker.state === 'installed') {
-                                    if (navigator.serviceWorker.controller) {
-                                        console.log('🔄 Nueva versión disponible. Recargando...');
-                                        window.location.reload();
-                                    }
-                                }
-                            };
-                        };
+                        console.log('✓ SW v70 registrado');
+                        // Removed auto-reload login to prevent loops.
+                        // Updates will happen naturally via sw.js skipWaiting()
                     })
                     .catch(err => console.log('❌ Error SW:', err));
             });

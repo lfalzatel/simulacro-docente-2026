@@ -426,6 +426,13 @@ async function startSimulacro(simulacro) {
     console.log('🔄 Cargando progreso para simulacro:', simulacro.numero);
     cargarProgresoLocal();
 
+    // Add version to menu
+    const menuFooter = document.querySelector('.profile-menu .menu-section-label').parentElement;
+    const versionDiv = document.createElement('div');
+    versionDiv.style.cssText = 'font-size: 0.7rem; color: #666; text-align: center; padding: 10px;';
+    versionDiv.innerHTML = 'v70 (Stable Deployment)';
+    menuFooter.appendChild(versionDiv);
+
     // Iniciar quiz con datos cargados
     startQuiz();
 }
@@ -518,6 +525,29 @@ function showUpgradeModal() {
     });
 }
 
+
+function showReports() {
+    switchView('profile');
+    setTimeout(() => {
+        const statsSection = document.getElementById('dashboard-container');
+        // Note: 'dashboard-container' is inside profile view (it's the stats cards)
+        // If not, we look for the profile cards container.
+        // Actually, looking at index.html, dashboard view is separate. 
+        // But user said "Reports is same as Profile".
+        // Let's scroll to the stats part of the profile or dashboard.
+        // In profile view there is user info and stats.
+
+        // Let's target the stats container in Profile view if existing, or just scroll down.
+        const stats = document.querySelector('.profile-container .stats-grid') || document.querySelector('.stats-container');
+        if (stats) {
+            stats.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            stats.style.transition = 'transform 0.5s ease';
+            stats.style.transform = 'scale(1.02)';
+            setTimeout(() => stats.style.transform = 'scale(1)', 500);
+        }
+    }, 100);
+    toggleMenu();
+}
 
 function switchView(viewId) {
     document.getElementById('dashboard').classList.add('hidden');
@@ -1475,13 +1505,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log('✓ Service Worker registrado'))
-            .catch(err => console.log('❌ Error SW:', err));
-    });
-}
+// SW registration is handled in index.html with versioning
+// Removed duplicate registration to prevent loops
 
 let deferredPrompt;
 const installBtn = document.getElementById('installAppBtn');
