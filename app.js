@@ -51,7 +51,7 @@ async function init() {
                     lastAuthUserId = session.user.id;
 
                     await showDashboard(session.user);
-                    await cargarProgreso(); // This now updates dashboard internally
+                    await cargarProgreso(session.user); // Pass user from session
 
                 } else if (event === 'SIGNED_OUT') {
                     console.log("→ Sesión cerrada");
@@ -60,7 +60,7 @@ async function init() {
                     if (session) {
                         console.log("✓ Sesión inicial:", session.user.email);
                         await showDashboard(session.user);
-                        await cargarProgreso(); // This now updates dashboard internally
+                        await cargarProgreso(session.user); // Pass user from session
                     } else {
                         console.log("→ No hay sesión inicial");
                         showLogin();
@@ -650,113 +650,104 @@ async function sincronizarDatos() {
 // Bind to window
 window.sincronizarDatos = sincronizarDatos;
 
-async function cargarProgreso() {
-    console.log("📂 Cargando progreso...");
+async function cargarProgreso(user = null) {
+    console.log("📂 Cargando progreso...", user ? `(user: ${user.email})` : "(sin user)");
     const statusEl = document.getElementById('save-status');
 
     // ALWAYS fetch from cloud FIRST if authenticated
-    if (supabaseApp) {
+    if (supabaseApp && user) {
         try {
-            console.log("🔐 Intentando obtener usuario de Supabase...");
-            const { data: { user } } = await supabaseApp.auth.getUser();
-            console.log("📥 getUser() completado:", { hasUser: !!user, userId: user?.id });
+            console.log("✓ Usuario provisto desde auth listener:", user.email);
+            console.log("✓ Consultando progreso en Supabase...");
+            const { data, error } = await supabaseApp
+                .from('simulacro_progress')
+                .select('*')
+                .eq('user_id', user.id)
+                .single();
 
-            if (user) {
-                console.log("✓ Usuario encontrado, consultando progreso...");
-                const { data, error } = await supabaseApp
-                    .from('simulacro_progress')
-                    .select('*')
-                    .eq('user_id', user.id)
-                    .single();
+            console.log("📦 Respuesta Supabase:", { hasData: !!data, hasError: !!error, errorCode: error?.code });
 
-                console.log("📦 Respuesta Supabase:", { hasData: !!data, hasError: !!error, errorCode: error?.code });
+            if (data && !error) {
+                console.log("☁️ Datos de nube encontrados:", {
+                    respuestas: Object.keys(data.progress_data || {}).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length,
+                    timestamp: data.updated_at
+                });
 
-                if (data && !error) {
-                    console.log("☁️ Datos de nube encontrados:", {
-                        respuestas: Object.keys(data.progress_data || {}).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length,
-                        timestamp: data.updated_at
-                    });
+                // Get local data for comparison
+                const saved = localStorage.getItem('progresoUsuario');
+                const localData = saved ? JSON.parse(saved) : null;
+                const localProgress = localData ? (localData.answers || {}) : {};
 
-                    // Get local data for comparison
-                    const saved = localStorage.getItem('progresoUsuario');
-                    const localData = saved ? JSON.parse(saved) : null;
-                    const localProgress = localData ? (localData.answers || {}) : {};
+                const cloudProgress = data.progress_data || {};
+                const cloudAnswerCount = Object.keys(cloudProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
+                const localAnswerCount = Object.keys(localProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
 
-                    const cloudProgress = data.progress_data || {};
-                    const cloudAnswerCount = Object.keys(cloudProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
-                    const localAnswerCount = Object.keys(localProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
+                console.log("🔍 Comparando:", {
+                    nube: cloudAnswerCount,
+                    local: localAnswerCount
+                });
 
-                    console.log("🔍 Comparando:", {
-                        nube: cloudAnswerCount,
-                        local: localAnswerCount
-                    });
+                // ALWAYS USE CLOUD if it has more or equal answers
+                // Only use local if it definitively has MORE progress
+                let useCloud = true;
+                let syncReason = '';
 
-                    // ALWAYS USE CLOUD if it has more or equal answers
-                    // Only use local if it definitively has MORE progress
-                    let useCloud = true;
-                    let syncReason = '';
-
-                    if (cloudAnswerCount > localAnswerCount) {
-                        useCloud = true;
-                        syncReason = `nube tiene más respuestas (${cloudAnswerCount} vs ${localAnswerCount})`;
-                    } else if (localAnswerCount > cloudAnswerCount) {
-                        // CRITICAL: Only use local if it has MORE answers
-                        useCloud = false;
-                        syncReason = `local tiene más respuestas (${localAnswerCount} vs ${cloudAnswerCount})`;
-                    } else {
-                        // Equal count: use cloud (it's the source of truth)
-                        useCloud = true;
-                        syncReason = 'misma cantidad, usando nube como fuente de verdad';
-                    }
-
-                    console.log(`🔄 Decisión: ${syncReason}`);
-
-                    if (useCloud) {
-                        // USE CLOUD DATA
-                        userProgress = { ...cloudProgress };
-                        score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
-                        userProgress.safeLastIndex = data.last_index || 0;
-                        currentQuestionIndex = userProgress.safeLastIndex;
-
-                        // Update localStorage with cloud data
-                        localStorage.setItem('progresoUsuario', JSON.stringify({
-                            lastIndex: data.last_index,
-                            score: score,
-                            answers: cloudProgress,
-                            timestamp: data.updated_at,
-                            totalTime: cloudProgress.totalTime || 0
-                        }));
-
-                        console.log(`☁️ USANDO NUBE: ${cloudAnswerCount} respuestas, Score: ${score}`);
-                        if (statusEl) {
-                            statusEl.innerHTML = "☁️ Progreso Sincronizado";
-                            statusEl.classList.add('visible');
-                            setTimeout(() => {
-                                if (statusEl) statusEl.classList.remove('visible');
-                            }, 2000);
-                        }
-                    } else {
-                        // USE LOCAL DATA (it has more)
-                        const localData = JSON.parse(saved);
-                        userProgress = localData.answers || {};
-                        score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
-                        userProgress.safeLastIndex = localData.lastIndex || 0;
-                        currentQuestionIndex = userProgress.safeLastIndex;
-                        console.log(`💾 USANDO LOCAL: ${localAnswerCount} respuestas, Score: ${score}`);
-                    }
-
-                } else if (error && error.code !== 'PGRST116') {
-                    console.warn("⚠️ Error obteniendo progreso nube", error.message);
-                    // Fallback to local
-                    cargarProgresoLocal();
+                if (cloudAnswerCount > localAnswerCount) {
+                    useCloud = true;
+                    syncReason = `nube tiene más respuestas (${cloudAnswerCount} vs ${localAnswerCount})`;
+                } else if (localAnswerCount > cloudAnswerCount) {
+                    // CRITICAL: Only use local if it has MORE answers
+                    useCloud = false;
+                    syncReason = `local tiene más respuestas (${localAnswerCount} vs ${cloudAnswerCount})`;
                 } else {
-                    // No cloud data, use local
-                    console.log("🆕 Sin datos en nube, usando local");
-                    cargarProgresoLocal();
+                    // Equal count: use cloud (it's the source of truth)
+                    useCloud = true;
+                    syncReason = 'misma cantidad, usando nube como fuente de verdad';
                 }
+
+                console.log(`🔄 Decisión: ${syncReason}`);
+
+                if (useCloud) {
+                    // USE CLOUD DATA
+                    userProgress = { ...cloudProgress };
+                    score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
+                    userProgress.safeLastIndex = data.last_index || 0;
+                    currentQuestionIndex = userProgress.safeLastIndex;
+
+                    // Update localStorage with cloud data
+                    localStorage.setItem('progresoUsuario', JSON.stringify({
+                        lastIndex: data.last_index,
+                        score: score,
+                        answers: cloudProgress,
+                        timestamp: data.updated_at,
+                        totalTime: cloudProgress.totalTime || 0
+                    }));
+
+                    console.log(`☁️ USANDO NUBE: ${cloudAnswerCount} respuestas, Score: ${score}`);
+                    if (statusEl) {
+                        statusEl.innerHTML = "☁️ Progreso Sincronizado";
+                        statusEl.classList.add('visible');
+                        setTimeout(() => {
+                            if (statusEl) statusEl.classList.remove('visible');
+                        }, 2000);
+                    }
+                } else {
+                    // USE LOCAL DATA (it has more)
+                    const localData = JSON.parse(saved);
+                    userProgress = localData.answers || {};
+                    score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
+                    userProgress.safeLastIndex = localData.lastIndex || 0;
+                    currentQuestionIndex = userProgress.safeLastIndex;
+                    console.log(`💾 USANDO LOCAL: ${localAnswerCount} respuestas, Score: ${score}`);
+                }
+
+            } else if (error && error.code !== 'PGRST116') {
+                console.warn("⚠️ Error obteniendo progreso nube", error.message);
+                // Fallback to local
+                cargarProgresoLocal();
             } else {
-                // Not authenticated, use local only
-                console.log("⚠️ getUser() devolvió null - usando solo datos locales");
+                // No cloud data, use local
+                console.log("🆕 Sin datos en nube, usando local");
                 cargarProgresoLocal();
             }
         } catch (error) {
@@ -766,8 +757,13 @@ async function cargarProgreso() {
                 statusEl.classList.remove('visible');
             }
         }
+    } else if (supabaseApp && !user) {
+        // No user provided, fallback to local
+        console.log("⚠️ cargarProgreso() sin usuario - usando solo datos locales");
+        cargarProgresoLocal();
     } else {
         // No Supabase, use local only
+        console.log("⚠️ Supabase no disponible - usando solo datos locales");
         cargarProgresoLocal();
     }
 
