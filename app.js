@@ -667,12 +667,16 @@ async function cargarProgreso() {
     if (supabaseApp) {
         try {
             const { data: { user } } = await supabaseApp.auth.getUser();
+            console.log("🔐 Usuario autenticado, consultando Supabase...");
             if (user) {
+                console.log("✓ user.id:", user.id);
                 const { data, error } = await supabaseApp
                     .from('simulacro_progress')
                     .select('*')
                     .eq('user_id', user.id)
                     .single();
+
+                console.log("📦 Respuesta Supabase:", { hasData: !!data, hasError: !!error, errorCode: error?.code });
 
                 if (data && !error) {
                     console.log("☁️ Datos de nube encontrados:", {
