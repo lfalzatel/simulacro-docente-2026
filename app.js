@@ -50,8 +50,9 @@ async function init() {
                     }
                     lastAuthUserId = session.user.id;
 
+                    // Solo mostrar dashboard, INITIAL_SESSION cargará los datos
+                    console.log("→ Mostrando dashboard, esperando INITIAL_SESSION para datos...");
                     await showDashboard(session.user);
-                    await cargarProgreso(session.user); // Pass user from session
 
                 } else if (event === 'SIGNED_OUT') {
                     console.log("→ Sesión cerrada");
