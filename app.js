@@ -238,11 +238,20 @@ async function loadSimulacros() {
     try {
         let data = null;
         if (supabaseApp) {
-            const res = await supabaseApp
+            // Timeout promise
+            const timeoutPromise = new Promise((_, reject) =>
+                setTimeout(() => reject(new Error('Timeout loading simulacros')), 3000)
+            );
+
+            // Fetch promise
+            const fetchPromise = supabaseApp
                 .from('simulacros')
                 .select('*')
                 .eq('activo', true)
                 .order('numero', { ascending: true });
+
+            const res = await Promise.race([fetchPromise, timeoutPromise]);
+
             data = res.data;
             if (res.error) console.error('⚠️ Supabase error loadSimulacros:', res.error);
         }
