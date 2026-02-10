@@ -10,6 +10,11 @@ let isProcessingAuth = false; // Flag to prevent loops
 let lastAuthUserId = null; // Debounce for auth events
 let realtimeChannel = null; // Supabase realtime channel for cross-device sync
 
+// Multi-Simulator System Variables
+let userRole = 'free'; // Default role: 'admin', 'free', or 'premium'
+let currentSimulacroId = null; // Currently selected simulacro UUID
+let simulacrosCatalog = []; // List of available simulacros from database
+
 const SUPABASE_URL = 'https://sqkogiitljnoaxirhrwq.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxa29naWl0bGpub2F4aXJocndxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgyMzI1ODksImV4cCI6MjA4MzgwODU4OX0.jeuxanmdeXuSiTiEJ6HYpqmnyIWzDLp9tvrpC_4BDZM';
 
@@ -132,6 +137,11 @@ async function showDashboard(user) {
         document.getElementById('user-avatar').style.display = 'none';
     }
 
+    // Load user role and render simulator selector
+    userRole = await getUserRole(user);
+    console.log(`✓ Rol asignado: ${userRole}`);
+    await renderSimulacroCards();
+
     // NOTE: Dashboard stats will be updated by cargarProgreso() after data loads
     // Do NOT call updateDashboardStats() here - userProgress is still empty!
 }
@@ -191,6 +201,233 @@ async function updateDashboardStats() {
         profileScoreEl.innerText = `${score} / ${answeredCount}`;
     }
 }
+
+// ==================== MULTI-SIMULATOR SYSTEM ====================
+
+async function getUserRole(user) {
+    if (!user) return 'free';
+
+    try {
+        const { data, error } = await supabaseApp
+            .from('user_roles')
+            .select('role')
+            .eq('user_id', user.id)
+            .single();
+
+        if (error) {
+            console.warn('⚠️ No role found, creating free role:', error.message);
+            // Auto-create free role for new users
+            await supabaseApp.from('user_roles').insert({
+                user_id: user.id,
+                role: 'free'
+            });
+            return 'free';
+        }
+
+        return data?.role || 'free';
+    } catch (err) {
+        console.error('❌ Error getting user role:', err);
+        return 'free';
+    }
+}
+
+async function loadSimulacros() {
+    try {
+        const { data, error } = await supabaseApp
+            .from('simulacros')
+            .select('*')
+            .eq('activo', true)
+            .order('numero', { ascending: true });
+
+        if (error) throw error;
+
+        simulacrosCatalog = data || [];
+        console.log('✓ Simulacros cargados:', simulacrosCatalog.length);
+        return simulacrosCatalog;
+    } catch (err) {
+        console.error('❌ Error loading simulacros:', err);
+        return [];
+    }
+}
+
+function canAccessSimulacro(simulacro) {
+    if (userRole === 'admin') return true; // Admin access all
+    if (!simulacro.es_premium) return true; // Free simulacro
+    return userRole === 'premium'; // Premium required
+}
+
+async function renderSimulacroCards() {
+    const container = document.getElementById('simulacro-selector');
+    if (!container) return;
+
+    if (simulacrosCatalog.length === 0) {
+        await loadSimulacros();
+    }
+
+    container.innerHTML = '';
+
+    simulacrosCatalog.forEach(sim => {
+        const canAccess = canAccessSimulacro(sim);
+        const card = document.createElement('div');
+        card.className = 'simulacro-card';
+        card.style.cssText = `
+            position: relative;
+            background: var(--surface);
+            border: 2px solid ${canAccess ? 'var(--accent-primary)' : 'var(--text-secondary)'};
+            border-radius: 16px;
+            padding: 1.5rem;
+            cursor: ${canAccess ? 'pointer' : 'not-allowed'};
+            transition: all 0.3s ease;
+            opacity: ${canAccess ? '1' : '0.6'};
+        `;
+
+        if (canAccess) {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 8px 24px rgba(37, 99, 235, 0.2)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        }
+
+        card.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">
+                    ${sim.titulo}
+                </h3>
+                ${!canAccess ? '<div style="font-size: 1.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔒</div>' : ''}
+                ${sim.es_premium ? '<span style="background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%); color: #78350F; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700;">PREMIUM</span>' : '<span style="background: var(--success-bg); color: var(--success-text); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700;">GRATIS</span>'}
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">
+                ${sim.descripcion || 'Prepárate con preguntas de alta calidad'}
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">
+                    📝 ${sim.total_preguntas} preguntas
+                </span>
+                <button class="start-btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;" ${!canAccess ? 'disabled' : ''}>
+                    ${canAccess ? 'Iniciar' : 'Bloqueado'}
+                </button>
+            </div>
+        `;
+
+        if (canAccess) {
+            card.addEventListener('click', () => startSimulacro(sim));
+        } else {
+            card.addEventListener('click', () => showUpgradeModal());
+        }
+
+        container.appendChild(card);
+    });
+}
+
+async function startSimulacro(simulacro) {
+    console.log('🚀 Iniciando simulacro:', simulacro.titulo);
+    currentSimulacroId = simulacro.id;
+
+    // TODO: Load correct quiz data based on simulacro number
+    // For now, Simulacro 1 uses existing quizData
+    // Simulacro 2 will use quizData2.js (pending generation)
+
+    if (simulacro.numero === 1) {
+        // Use existing logic
+        startQuiz();
+    } else {
+        // Future: load different quiz data
+        alert(`Simulacro ${simulacro.numero} en desarrollo. Próximamente se agregarán ${simulacro.total_preguntas} preguntas.`);
+    }
+}
+
+function showUpgradeModal() {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+    `;
+
+    modal.innerHTML = `
+        <div style="
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        ">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🔒</div>
+                <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+                    Contenido Premium
+                </h2>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+                    Este simulacro está disponible solo para usuarios premium. Contáctanos para obtener acceso completo a todos los simulacros.
+                </p>
+            </div>
+            
+            <div style="background: var(--bg-body-start); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">
+                    ¿Qué incluye Premium?
+                </h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
+                        ✅ Acceso a todos los simulacros
+                    </li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
+                        ✅ 500+ preguntas de alta dificultad
+                    </li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
+                        ✅ Reportes detallados por categoría
+                    </li>
+                    <li style="padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
+                        ✅ Actualizaciones mensuales
+                    </li>
+                </ul>
+            </div>
+            
+            <div style="display: flex; gap: 1rem;">
+                <button onclick="this.closest('div[style*=fixed]').remove()" style="
+                    flex: 1;
+                    padding: 0.75rem 1.5rem;
+                    border: 2px solid var(--text-secondary);
+                    background: transparent;
+                    color: var(--text-primary);
+                    border-radius: 12px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                ">Cerrar</button>
+                <button onclick="window.open('https://wa.me/573174856070?text=Hola!%20Estoy%20interesado%20en%20acceso%20premium%20al%20Simulacro%20Docente', '_blank')" style="
+                    flex: 1;
+                    padding: 0.75rem 1.5rem;
+                    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+                    color: white;
+                    border: none;
+                    border-radius: 12px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+                ">Contactar</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+}
+
 
 function switchView(viewId) {
     document.getElementById('dashboard').classList.add('hidden');

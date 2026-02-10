@@ -160,15 +160,12 @@
                 </div>
             </div>
 
+            <!-- Simulator Selector -->
             <div class="action-section">
-                <div class="action-content">
-                    <h2 class="action-title">Iniciar Nuevo Simulacro</h2>
-                    <p class="action-description">
-                        Pon a prueba tus conocimientos con preguntas actualizadas y simulaciones realistas.
-                    </p>
-                    <button class="start-btn" id="startExamBtn" onclick="startQuiz()">
-                        <span id="resumeText">Comenzar Simulacro</span>
-                    </button>
+                <h2 class="action-title" style="margin-bottom: 1.5rem;">Selecciona un Simulacro</h2>
+                <div id="simulacro-selector"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <!-- Simulacro cards will be injected here by JS -->
                 </div>
             </div>
         </div>
