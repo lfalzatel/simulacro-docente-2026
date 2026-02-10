@@ -200,6 +200,9 @@ async function updateDashboardStats() {
     if (profileScoreEl) {
         profileScoreEl.innerText = `${score} / ${answeredCount}`;
     }
+
+    // Render Category Stats
+    renderCategoryStats();
 }
 
 // ==================== MULTI-SIMULATOR SYSTEM ====================
@@ -358,6 +361,7 @@ async function renderSimulacroCards() {
 async function startSimulacro(simulacro) {
     console.log('🚀 Iniciando simulacro:', simulacro.titulo);
     currentSimulacroId = simulacro.id;
+    window.currentSimulacroNum = simulacro.numero; // Track number for sync logic
 
     // Cargar datos del quiz correspondiente
     if (simulacro.numero === 1) {
@@ -903,10 +907,11 @@ async function guardarProgresoCompleto(silent = false) {
     localStorage.setItem(key, JSON.stringify(progressData));
     if (!silent) console.log(`💾 Progreso completo guardado localmente en ${key}`);
 
-    // CLOUD SYNC: For now, only for default simulator (simulacro 1 or null)
+    // CLOUD SYNC: Only for default simulator (Simon 1)
     // to avoid mixing data in the single-row database table.
-    // TODO: Update DB schema to support multiple simulacros per user
-    if (supabaseApp && !currentSimulacroId) {
+    const isDefaultSim = !currentSimulacroId || (window.currentSimulacroNum === 1);
+
+    if (supabaseApp && isDefaultSim) {
         try {
             const { data: { user } } = await supabaseApp.auth.getUser();
             if (user) {
@@ -977,7 +982,9 @@ async function cargarProgreso(user = null) {
 
     // ALWAYS fetch from cloud FIRST if authenticated AND if we are in main simulacro
     // Cloud sync currently only supports single progress (main exam)
-    if (supabaseApp && user && !currentSimulacroId) {
+    const isDefaultSim = !currentSimulacroId || (window.currentSimulacroNum === 1);
+
+    if (supabaseApp && user && isDefaultSim) {
         try {
             console.log("✓ Usuario provisto desde auth listener:", user.email);
             console.log("✓ Consultando progreso en Supabase...");
@@ -1110,6 +1117,96 @@ async function cargarProgreso(user = null) {
     await updateDashboardStats();
     console.log("✓ Dashboard actualizado");
 }
+
+/* -------------------------------------------------------------------------- */
+/*                        Category Reports Logic                              */
+/* -------------------------------------------------------------------------- */
+
+function renderCategoryStats() {
+    const container = document.getElementById('category-stats-container');
+    if (!container) return;
+
+    // Use current data or fallbacks
+    const activeQuizData = window.currentQuizData ? window.currentQuizData.questions : (quizData || []);
+
+    if (!activeQuizData || activeQuizData.length === 0) {
+        container.innerHTML = '<div style="text-align: center; padding: 1rem;">No hay datos disponibles.</div>';
+        return;
+    }
+
+    // 1. Calculate Stats by Category
+    const stats = {};
+    const defaultCategory = "General";
+
+    activeQuizData.forEach((q, index) => {
+        // Normalize category
+        let cat = q.category || defaultCategory;
+        if (!cat || cat.trim() === '') cat = defaultCategory;
+
+        if (!stats[cat]) {
+            stats[cat] = { total: 0, correct: 0, incorrect: 0, unanswered: 0 };
+        }
+
+        stats[cat].total++;
+
+        // Check user progress for this question index
+        // userProgress is global object { index: { isCorrect: bool, ... } }
+        const answer = userProgress[index];
+
+        if (answer) {
+            if (answer.isCorrect) {
+                stats[cat].correct++;
+            } else {
+                stats[cat].incorrect++;
+            }
+        } else {
+            stats[cat].unanswered++;
+        }
+    });
+
+    // 2. Sort categories (optional: by name or by activity volume)
+    // Let's sort by name for consistency
+    const categories = Object.keys(stats).sort();
+
+    // 3. Render HTML
+    container.innerHTML = '';
+
+    categories.forEach(cat => {
+        const data = stats[cat];
+        const correctPct = (data.correct / data.total) * 100;
+        const incorrectPct = (data.incorrect / data.total) * 100;
+        // Unanswered is the remaining space automatically due to flex/width logic
+
+        const html = `
+            <div class="category-stat-item">
+                <div class="cat-header">
+                    <span>${cat}</span>
+                    <span>${data.correct + data.incorrect} / ${data.total}</span>
+                </div>
+                <div class="cat-progress-track">
+                    <div class="cat-bar-correct" style="width: ${correctPct}%" title="Correctas: ${data.correct}"></div>
+                    <div class="cat-bar-incorrect" style="width: ${incorrectPct}%" title="Incorrectas: ${data.incorrect}"></div>
+                </div>
+                <div class="cat-legend">
+                    <span class="cat-legend-item">
+                        <span class="cat-legend-dot" style="background: var(--success-text);"></span> ${data.correct} Correctas
+                    </span>
+                    <span class="cat-legend-item">
+                        <span class="cat-legend-dot" style="background: var(--error-text);"></span> ${data.incorrect} Incorrectas
+                    </span>
+                     <span class="cat-legend-item">
+                        <span class="cat-legend-dot" style="background: #e5e7eb;"></span> ${data.unanswered} Pendientes
+                    </span>
+                </div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', html);
+    });
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Helpers                                  */
+/* -------------------------------------------------------------------------- */
 
 // Helper to get storage key based on current simulator
 function getStorageKey() {
