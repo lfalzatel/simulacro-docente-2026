@@ -1053,30 +1053,42 @@ async function cargarProgreso(user = null) {
                 const cloudAnswerCount = Object.keys(cloudProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
                 const localAnswerCount = Object.keys(localProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
 
+                const cloudTime = new Date(data.updated_at || 0).getTime();
+                const localTime = new Date(localData ? (localData.timestamp || 0) : 0).getTime();
+
                 console.log("🔍 Comparando:", {
-                    nube: cloudAnswerCount,
-                    local: localAnswerCount
+                    nube: { count: cloudAnswerCount, time: new Date(cloudTime).toLocaleTimeString() },
+                    local: { count: localAnswerCount, time: new Date(localTime).toLocaleTimeString() }
                 });
 
-                // ALWAYS USE CLOUD if it has more or equal answers
-                // Only use local if it definitively has MORE progress
+                // DECISION LOGIC: 
+                // 1. Prioritize Valid Timestamps (if difference > 10 seconds)
+                // 2. Fallback to Quantity if time is close/invalid
+
                 let useCloud = true;
                 let syncReason = '';
 
-                if (cloudAnswerCount > localAnswerCount) {
+                // Threshold to ignore minor clock skew (10 seconds)
+                const TIME_THRESHOLD = 10000;
+
+                if (cloudTime > localTime + TIME_THRESHOLD) {
                     useCloud = true;
-                    syncReason = `nube tiene más respuestas (${cloudAnswerCount} vs ${localAnswerCount})`;
-                } else if (localAnswerCount > cloudAnswerCount) {
-                    // CRITICAL: Only use local if it has MORE answers
+                    syncReason = 'nube es más reciente (Timestamp)';
+                } else if (localTime > cloudTime + TIME_THRESHOLD) {
                     useCloud = false;
-                    syncReason = `local tiene más respuestas (${localAnswerCount} vs ${cloudAnswerCount})`;
+                    syncReason = 'local es más reciente (Timestamp)';
                 } else {
-                    // Equal count: use cloud (it's the source of truth)
-                    useCloud = true;
-                    syncReason = 'misma cantidad, usando nube como fuente de verdad';
+                    // Timestamps close or invalid: Use Quantity
+                    if (cloudAnswerCount >= localAnswerCount) {
+                        useCloud = true;
+                        syncReason = 'nube tiene igual o más respuestas (Cantidad)';
+                    } else {
+                        useCloud = false;
+                        syncReason = 'local tiene más respuestas (Cantidad)';
+                    }
                 }
 
-                console.log(`🔄 Decisión: ${syncReason}`);
+                console.log(`🔄 Decisión final: ${useCloud ? 'NUBE ☁️' : 'LOCAL 💾'} (${syncReason})`);
 
                 if (useCloud) {
                     // USE CLOUD DATA
