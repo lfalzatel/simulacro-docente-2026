@@ -307,12 +307,10 @@ async function loadSimulacros() {
 function canAccessSimulacro(simulacro) {
     if (userRole === 'admin') return true; // Admin access all
 
-    // RESTRICTION: "Solo el administrador tiene acceso"
-    // Disabling free access logic for now based on user request.
-    // if (!simulacro.es_premium) return true; 
+    // RESTORED: Simulacro 1 (Free/Trial) is accessible to everyone
+    if (!simulacro.es_premium) return true;
 
-    return false; // Lock everything else
-    // return userRole === 'premium'; // Uncomment if Premium users should access
+    return false; // Lock everything else (Sim 2+)
 }
 
 async function renderSimulacroCards() {
