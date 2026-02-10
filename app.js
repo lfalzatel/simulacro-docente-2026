@@ -657,10 +657,12 @@ async function cargarProgreso() {
     // ALWAYS fetch from cloud FIRST if authenticated
     if (supabaseApp) {
         try {
+            console.log("🔐 Intentando obtener usuario de Supabase...");
             const { data: { user } } = await supabaseApp.auth.getUser();
-            console.log("🔐 Usuario autenticado, consultando Supabase...");
+            console.log("📥 getUser() completado:", { hasUser: !!user, userId: user?.id });
+
             if (user) {
-                console.log("✓ user.id:", user.id);
+                console.log("✓ Usuario encontrado, consultando progreso...");
                 const { data, error } = await supabaseApp
                     .from('simulacro_progress')
                     .select('*')
@@ -754,6 +756,7 @@ async function cargarProgreso() {
                 }
             } else {
                 // Not authenticated, use local only
+                console.log("⚠️ getUser() devolvió null - usando solo datos locales");
                 cargarProgresoLocal();
             }
         } catch (error) {
