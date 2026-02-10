@@ -8,6 +8,7 @@ let studyTimer = null; // Timer reference
 let supabaseApp = null;
 let isProcessingAuth = false; // Flag to prevent loops
 let lastAuthUserId = null; // Debounce for auth events
+let realtimeChannel = null; // Supabase realtime channel for cross-device sync
 
 const SUPABASE_URL = 'https://sqkogiitljnoaxirhrwq.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxa29naWl0bGpub2F4aXJocndxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgyMzI1ODksImV4cCI6MjA4MzgwODU4OX0.jeuxanmdeXuSiTiEJ6HYpqmnyIWzDLp9tvrpC_4BDZM';
@@ -56,12 +57,21 @@ async function init() {
 
                 } else if (event === 'SIGNED_OUT') {
                     console.log("→ Sesión cerrada");
+
+                    // Cleanup realtime channel
+                    if (realtimeChannel) {
+                        console.log("🔌 Desconectando sincronización en tiempo real...");
+                        await supabaseApp.removeChannel(realtimeChannel);
+                        realtimeChannel = null;
+                    }
+
                     showLogin();
                 } else if (event === 'INITIAL_SESSION') {
                     if (session) {
                         console.log("✓ Sesión inicial:", session.user.email);
                         await showDashboard(session.user);
                         await cargarProgreso(session.user); // Pass user from session
+                        await setupRealtimeSync(session.user); // Enable cross-device sync
                     } else {
                         console.log("→ No hay sesión inicial");
                         showLogin();
@@ -812,6 +822,47 @@ function cargarProgresoLocal() {
             console.error('❌ Error al parsear progreso local:', e);
         }
     }
+}
+
+// Real-Time Sync - Listen for changes from other devices
+async function setupRealtimeSync(user) {
+    if (!supabaseApp || !user) {
+        console.log("⚠️ No se puede configurar realtime: falta Supabase o usuario");
+        return;
+    }
+
+    // Cleanup existing channel if any
+    if (realtimeChannel) {
+        console.log("🔌 Desconectando canal anterior...");
+        await supabaseApp.removeChannel(realtimeChannel);
+        realtimeChannel = null;
+    }
+
+    // Subscribe to changes on this user's progress
+    console.log("📡 Configurando sincronización en tiempo real...");
+    realtimeChannel = supabaseApp
+        .channel(`progress-${user.id}`)
+        .on('postgres_changes', {
+            event: '*', // INSERT, UPDATE, DELETE
+            schema: 'public',
+            table: 'simulacro_progress',
+            filter: `user_id=eq.${user.id}`
+        }, async (payload) => {
+            console.log('✨ Cambio detectado desde otro dispositivo');
+            console.log('   Tipo:', payload.eventType);
+
+            // Reload progress silently
+            await cargarProgreso(user);
+        })
+        .subscribe((status) => {
+            if (status === 'SUBSCRIBED') {
+                console.log('🔔 Sincronización en tiempo real activada');
+            } else if (status === 'CHANNEL_ERROR') {
+                console.error('❌ Error en canal de sincronización');
+            } else if (status === 'TIMED_OUT') {
+                console.warn('⏱️ Timeout en canal de sincronización');
+            }
+        });
 }
 
 // Login con Google - CORREGIDO para PWA
