@@ -1,4 +1,4 @@
-const CACHE_NAME = 'quiz-app-v70';
+const CACHE_NAME = 'quiz-app-v71'; // Updated for categories and reports view
 const ASSETS = [
     './',
     './index.html',

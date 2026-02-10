@@ -3,6 +3,7 @@ const RAW_QUIZ_DATA = {
   "questions": [
     {
       "questionNumber": 1,
+      "category": "Evaluación y Retroalimentación",
       "question": "Un docente observa que sus estudiantes tienen dificultades para aplicar un nuevo concepto. ¿Cuál es la acción más apropiada según los principios de la **Evaluación Formativa**?",
       "answerOptions": [
         {
@@ -30,6 +31,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 2,
+      "category": "Estrategias Pedagógicas",
       "question": "¿Cuál es el principal objetivo del **Enfoque por Competencias** en el currículo educativo?",
       "answerOptions": [
         {
@@ -57,6 +59,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 3,
+      "category": "Estrategias Pedagógicas",
       "question": "En el marco del **Constructivismo Social** (basado en autores como Vygotsky), ¿cuál es el rol principal del docente en el proceso de enseñanza-aprendizaje?",
       "answerOptions": [
         {
@@ -84,6 +87,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 4,
+      "category": "Inclusión y Diversidad",
       "question": "Para fomentar un clima de aula positivo y de **convivencia democrática**, ¿qué estrategia debe priorizar el docente?",
       "answerOptions": [
         {
@@ -111,6 +115,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 5,
+      "category": "Convivencia y Valores",
       "question": "Al realizar la **planificación curricular**, ¿cuál de los siguientes elementos debe ser el punto de partida para garantizar la pertinencia?",
       "answerOptions": [
         {
@@ -138,6 +143,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 6,
+      "category": "Competencias Específicas",
       "question": "Un estudiante con necesidades educativas especiales (NEE) presenta dificultades en la comprensión lectora. ¿Qué acción de **adaptación curricular** sería la más adecuada?",
       "answerOptions": [
         {
@@ -165,6 +171,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 7,
+      "category": "Estrategias Pedagógicas",
       "question": "¿Qué característica define a la **retroalimentación por descubrimiento** o reflexiva?",
       "answerOptions": [
         {
@@ -192,6 +199,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 8,
+      "category": "Competencias Específicas",
       "question": "¿Cuál es el principal beneficio del **trabajo colegiado** entre docentes?",
       "answerOptions": [
         {
@@ -219,6 +227,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 9,
+      "category": "Competencias Específicas",
       "question": "Dos estudiantes discuten acaloradamente. ¿Cuál es el enfoque más efectivo para la **resolución de conflictos** formativa?",
       "answerOptions": [
         {
@@ -246,6 +255,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 10,
+      "category": "Competencias Específicas",
       "question": "Según David Ausubel, el **Aprendizaje Significativo** ocurre cuando:",
       "answerOptions": [
         {
@@ -273,6 +283,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 11,
+      "category": "Competencias Específicas",
       "question": "Al planificar una unidad didáctica, ¿cuál es la función principal de los **Estándares de Aprendizaje**?",
       "answerOptions": [
         {
@@ -300,6 +311,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 12,
+      "category": "Competencias Específicas",
       "question": "En Ciencias Sociales, ¿cuál situación representa mejor el desarrollo de una competencia de **Ciudadanía Activa**?",
       "answerOptions": [
         {
@@ -327,6 +339,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 13,
+      "category": "Competencias Específicas",
       "question": "Si los estudiantes cometen errores sistemáticos en Matemáticas, ¿cuál es la mejor acción según la **Pedagogía de la Reflexión**?",
       "answerOptions": [
         {
@@ -354,6 +367,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 14,
+      "category": "Planificación Curricular",
       "question": "¿Cuál es la principal función del **PEI** en la autonomía pedagógica del colegio?",
       "answerOptions": [
         {
@@ -381,6 +395,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 15,
+      "category": "Competencias Específicas",
       "question": "Desde la **Neurociencia**, ¿qué factor afectivo debe priorizar el docente para reactivar la motivación intrínseca?",
       "answerOptions": [
         {
@@ -408,6 +423,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 16,
+      "category": "Competencias Específicas",
       "question": "Identificar la intención del autor y el propósito comunicativo pertenece a qué etapa del **Proceso de Comprensión Lectora**?",
       "answerOptions": [
         {
@@ -435,6 +451,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 17,
+      "category": "Inclusión y Diversidad",
       "question": "En el uso de **andamiaje cognitivo** en Álgebra, ¿cuál es la secuencia más efectiva?",
       "answerOptions": [
         {
@@ -462,6 +479,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 18,
+      "category": "Evaluación y Retroalimentación",
       "question": "Según la **Ética Docente**, ¿cuál es el deber fundamental frente a los resultados de evaluación?",
       "answerOptions": [
         {
@@ -489,6 +507,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 19,
+      "category": "Estrategias Pedagógicas",
       "question": "En la **programación curricular a corto plazo**, ¿qué se define inmediatamente después de la situación significativa?",
       "answerOptions": [
         {
@@ -516,6 +535,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 20,
+      "category": "Planificación Curricular",
       "question": "¿Cuál es el propósito de la **observación sistemática** durante una sesión de aprendizaje?",
       "answerOptions": [
         {
@@ -543,6 +563,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 21,
+      "category": "Convivencia y Valores",
       "question": "¿Cuál es el riesgo de abordar un **tema transversal** (ej. ambiental) solo como contenido temático?",
       "answerOptions": [
         {
@@ -570,6 +591,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 22,
+      "category": "Estrategias Pedagógicas",
       "question": "¿Por qué priorizar los **Círculos de Interaprendizaje Profesional (CIP)** como estrategia de desarrollo?",
       "answerOptions": [
         {
@@ -597,6 +619,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 23,
+      "category": "Competencias Específicas",
       "question": "En Matemáticas, pedir a los estudiantes resolver con sus propias estrategias antes de formalizar es:",
       "answerOptions": [
         {
@@ -624,6 +647,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 24,
+      "category": "Competencias Específicas",
       "question": "¿Cómo se garantiza la **coherencia vertical** del currículo en una institución?",
       "answerOptions": [
         {
@@ -651,6 +675,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 25,
+      "category": "Competencias Específicas",
       "question": "En Ciencia y Tecnología, ¿cuál es la justificación pedagógica de diseñar y construir un prototipo?",
       "answerOptions": [
         {
@@ -678,6 +703,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 26,
+      "category": "Competencias Específicas",
       "question": "¿Qué pregunta orienta mejor la **Reflexión sobre la Práctica** hacia una mejora sistémica?",
       "answerOptions": [
         {
@@ -705,6 +731,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 27,
+      "category": "Competencias Específicas",
       "question": "En un enfoque **EIB** (Intercultural Bilingüe), ¿cuál es la función principal del docente?",
       "answerOptions": [
         {
@@ -732,6 +759,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 28,
+      "category": "Planificación Curricular",
       "question": "¿Qué capacidad fomenta la retroalimentación descriptiva: 'revisa el párrafo 3 e incluye la referencia'?",
       "answerOptions": [
         {
@@ -759,6 +787,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 29,
+      "category": "Competencias Específicas",
       "question": "¿Cuál es la ventaja pedagógica de organizar el currículo en **Ciclos**?",
       "answerOptions": [
         {
@@ -786,6 +815,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 30,
+      "category": "Competencias Específicas",
       "question": "En **Personal Social**, para reconocerse como sujeto de derechos, ¿qué proceso debe priorizar el docente?",
       "answerOptions": [
         {
@@ -813,6 +843,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 31,
+      "category": "Convivencia y Valores",
       "question": "¿Qué estrategia debe EVITAR un docente en un conflicto de valores desde una perspectiva formativa?",
       "answerOptions": [
         {
@@ -840,6 +871,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 32,
+      "category": "Planificación Curricular",
       "question": "¿Cuál es el principal indicador de que el **PEI** es efectivo y pertinente?",
       "answerOptions": [
         {
@@ -867,6 +899,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 33,
+      "category": "Competencias Específicas",
       "question": "¿Cuál es el propósito de la **Textualización** en la producción de textos?",
       "answerOptions": [
         {
@@ -894,6 +927,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 34,
+      "category": "Inclusión y Diversidad",
       "question": "Ante un estudiante con ritmo de aprendizaje más rápido, ¿cuál es la acción más inclusiva?",
       "answerOptions": [
         {
@@ -921,6 +955,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 35,
+      "category": "Competencias Específicas",
       "question": "En Educación Física, para desarrollar 'Interactúa a través de habilidades sociomotrices', el docente prioriza:",
       "answerOptions": [
         {
@@ -948,6 +983,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 36,
+      "category": "Evaluación y Retroalimentación",
       "question": "¿Cuál dato es la evidencia más potente para decidir la necesidad de un refuerzo pedagógico?",
       "answerOptions": [
         {
@@ -975,6 +1011,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 37,
+      "category": "Evaluación y Retroalimentación",
       "question": "¿Cuál es la forma más efectiva de realizar **Rendición de Cuentas** sobre el aprendizaje?",
       "answerOptions": [
         {
@@ -1002,6 +1039,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 38,
+      "category": "Planificación Curricular",
       "question": "En la **Planificación Inversa (Backward Design)**, ¿cuál es el segundo paso tras identificar resultados?",
       "answerOptions": [
         {
@@ -1029,6 +1067,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 39,
+      "category": "Inclusión y Diversidad",
       "question": "Para un estudiante con **TDAH**, ¿cuál es la mejor medida de soporte en el aula?",
       "answerOptions": [
         {
@@ -1056,6 +1095,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 40,
+      "category": "Competencias Específicas",
       "question": "Tras formular hipótesis y diseñar experimento en **Indagación Científica**, ¿cuál es el paso siguiente?",
       "answerOptions": [
         {
@@ -1083,6 +1123,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 41,
+      "category": "Planificación Curricular",
       "question": "¿Cuál es el principal aporte del **PCI** a la coordinación horizontal entre docentes?",
       "answerOptions": [
         {
@@ -1110,6 +1151,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 42,
+      "category": "Evaluación y Retroalimentación",
       "question": "¿Ventaja de compartir la **Rúbrica** con estudiantes ANTES del proyecto?",
       "answerOptions": [
         {
@@ -1137,6 +1179,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 43,
+      "category": "Desarrollo Cognitivo",
       "question": "Desde Vygotsky, ¿beneficio de tareas complejas en grupos de niveles mixtos?",
       "answerOptions": [
         {
@@ -1164,6 +1207,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 44,
+      "category": "Competencias Específicas",
       "question": "¿Cuál es el rol de la **apreciación crítica** en Arte y Cultura?",
       "answerOptions": [
         {
@@ -1191,6 +1235,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 45,
+      "category": "Competencias Específicas",
       "question": "En Gestión de Riesgos, ¿qué estrategia es más pertinente para Personal Social?",
       "answerOptions": [
         {
@@ -1218,6 +1263,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 46,
+      "category": "Convivencia y Valores",
       "question": "Ante un patrón de bullying, ¿intervención más formativa para el agresor?",
       "answerOptions": [
         {
@@ -1245,6 +1291,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 47,
+      "category": "Competencias Específicas",
       "question": "Evaluar claridad, volumen y postura en una exposición oral desarrolla:",
       "answerOptions": [
         {
@@ -1272,6 +1319,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 48,
+      "category": "Gestión Institucional",
       "question": "El fin principal del **Monitoreo de la Práctica Docente** es:",
       "answerOptions": [
         {
@@ -1299,6 +1347,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 49,
+      "category": "Desarrollo Cognitivo",
       "question": "En Primaria (Piaget), pedir abstracción compleja sin casos reales vulnera:",
       "answerOptions": [
         {
@@ -1326,6 +1375,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 50,
+      "category": "Estrategias Pedagógicas",
       "question": "Para **Gestionar el Aprendizaje Autónomo**, ¿qué preguntas promover?",
       "answerOptions": [
         {
@@ -1353,6 +1403,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 51,
+      "category": "Competencias Específicas",
       "question": "En EPT (Emprendimiento), el rol docente en 'Generación de Ideas' es:",
       "answerOptions": [
         {
@@ -1380,6 +1431,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 52,
+      "category": "Planificación Curricular",
       "question": "¿Qué elementos articula la **Matriz de Coherencia** en la Unidad Didáctica?",
       "answerOptions": [
         {
@@ -1407,6 +1459,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 53,
+      "category": "Evaluación y Retroalimentación",
       "question": "¿Valor del **Portafolio** frente a pruebas aisladas?",
       "answerOptions": [
         {
@@ -1434,6 +1487,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 54,
+      "category": "Gestión Institucional",
       "question": "¿Rol de la **UGEL** en la autonomía pedagógica de las escuelas?",
       "answerOptions": [
         {
@@ -1461,6 +1515,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 55,
+      "category": "Competencias Específicas",
       "question": "En Ciencias Sociales, ¿fase que vincula investigación con acción transformadora?",
       "answerOptions": [
         {
@@ -1488,6 +1543,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 56,
+      "category": "Marco Legal y Normativo",
       "question": "¿Qué principio sustenta evaluación periódica y ascenso docente?",
       "answerOptions": [
         {
@@ -1515,6 +1571,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 57,
+      "category": "Convivencia y Valores",
       "question": "Estrategia efectiva para 'Convive y participa democráticamente' en aula:",
       "answerOptions": [
         {
@@ -1542,6 +1599,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 58,
+      "category": "Competencias Específicas",
       "question": "¿Propósito del **Discernimiento** en Educación Religiosa?",
       "answerOptions": [
         {
@@ -1569,6 +1627,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 59,
+      "category": "Competencias Específicas",
       "question": "Justificación de **Mentoría Inversa** (joven asesora a experto en TIC):",
       "answerOptions": [
         {
@@ -1596,6 +1655,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 60,
+      "category": "Evaluación y Retroalimentación",
       "question": "En evaluación por competencias, el término **Desempeño** describe:",
       "answerOptions": [
         {
@@ -1623,6 +1683,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 61,
+      "category": "Competencias Específicas",
       "question": "Pedir usar conectores y revisar concordancia en borrador prioriza:",
       "answerOptions": [
         {
@@ -1650,6 +1711,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 62,
+      "category": "Competencias Específicas",
       "question": "Orden formativo de la **Escalera de Retroalimentación**:",
       "answerOptions": [
         {
@@ -1677,6 +1739,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 63,
+      "category": "Competencias Específicas",
       "question": "Riesgo de basar planificación solo en el **Libro de Texto**:",
       "answerOptions": [
         {
@@ -1704,6 +1767,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 64,
+      "category": "Competencias Específicas",
       "question": "Contrastar dos métodos y justificar eficiencia prioriza:",
       "answerOptions": [
         {
@@ -1731,6 +1795,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 65,
+      "category": "Competencias Específicas",
       "question": "Propósito de identificar **Necesidades e Intereses** de alumnos:",
       "answerOptions": [
         {
@@ -1758,6 +1823,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 66,
+      "category": "Competencias Específicas",
       "question": "¿Beneficio de presentar contenido mediante situaciones problemáticas?",
       "answerOptions": [
         {
@@ -1785,6 +1851,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 67,
+      "category": "Competencias Específicas",
       "question": "Proceso central para 'Construye interpretaciones históricas':",
       "answerOptions": [
         {
@@ -1812,6 +1879,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 68,
+      "category": "Competencias Específicas",
       "question": "¿Objetivo principal de **Instrumentos de Recojo de Evidencias** docente?",
       "answerOptions": [
         {
@@ -1839,6 +1907,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 69,
+      "category": "Competencias Específicas",
       "question": "Rol docente al aplicar **Design Thinking** en el aula:",
       "answerOptions": [
         {
@@ -1866,6 +1935,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 70,
+      "category": "Competencias Específicas",
       "question": "Evidencia más significativa de 'Gestiona su salud y bienestar físico':",
       "answerOptions": [
         {
@@ -1893,6 +1963,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 71,
+      "category": "Competencias Específicas",
       "question": "La **Formación Ética** se logra principalmente cuando el docente:",
       "answerOptions": [
         {
@@ -1920,6 +1991,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 72,
+      "category": "Competencias Específicas",
       "question": "Acción docente que promueve la **Lectura Crítica**:",
       "answerOptions": [
         {
@@ -1947,6 +2019,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 73,
+      "category": "Competencias Específicas",
       "question": "¿Documento que garantiza contextualización a nivel institucional?",
       "answerOptions": [
         {
@@ -1974,6 +2047,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 74,
+      "category": "Competencias Específicas",
       "question": "Identificar estructuras gramaticales en un texto fuente es:",
       "answerOptions": [
         {
@@ -2001,6 +2075,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 75,
+      "category": "Estrategias Pedagógicas",
       "question": "Estrategia efectiva para prevenir el **Burnout** docente:",
       "answerOptions": [
         {
@@ -2028,6 +2103,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 76,
+      "category": "Estrategias Pedagógicas",
       "question": "Identificar contaminación en un río cercano es fase de:",
       "answerOptions": [
         {
@@ -2055,6 +2131,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 77,
+      "category": "Competencias Específicas",
       "question": "Estrategia clave para 'Explica el Mundo Físico' en Ciencia:",
       "answerOptions": [
         {
@@ -2082,6 +2159,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 78,
+      "category": "Gestión Institucional",
       "question": "Condición fundamental para trabajo colegiado productivo:",
       "answerOptions": [
         {
@@ -2109,6 +2187,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 79,
+      "category": "Evaluación y Retroalimentación",
       "question": "Nivel de Logro **Destacado (AD)** se asigna cuando:",
       "answerOptions": [
         {
@@ -2136,6 +2215,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 80,
+      "category": "Competencias Específicas",
       "question": "¿Qué estrategia EVITAR en 'Gestiona espacio y ambiente'?",
       "answerOptions": [
         {
@@ -2163,6 +2243,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 81,
+      "category": "Competencias Específicas",
       "question": "Objetivo pedagógico de **Alfabetización Mediática**:",
       "answerOptions": [
         {
@@ -2190,6 +2271,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 82,
+      "category": "Evaluación y Retroalimentación",
       "question": "Riesgo de retroalimentación solo con nota (A, B, C) sin comentarios:",
       "answerOptions": [
         {
@@ -2217,6 +2299,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 83,
+      "category": "Competencias Específicas",
       "question": "Fase de **Evaluación** en emprendimiento EPT se centra en:",
       "answerOptions": [
         {
@@ -2244,6 +2327,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 84,
+      "category": "Convivencia y Valores",
       "question": "Enfoque apropiado de **ESI** ante diversidad sexual:",
       "answerOptions": [
         {
@@ -2271,6 +2355,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 85,
+      "category": "Competencias Específicas",
       "question": "Fase de **Revisión y Ajuste** en traducción se centra en:",
       "answerOptions": [
         {
@@ -2298,6 +2383,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 86,
+      "category": "Marco Legal y Normativo",
       "question": "¿ODS más directo con concursos de ascenso docente?",
       "answerOptions": [
         {
@@ -2325,6 +2411,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 87,
+      "category": "Estrategias Pedagógicas",
       "question": "Criterio para que un reto sea **desafiante y motivador**:",
       "answerOptions": [
         {
@@ -2352,6 +2439,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 88,
+      "category": "Evaluación y Retroalimentación",
       "question": "Limitación de **observación no participante** en evaluación formativa:",
       "answerOptions": [
         {
@@ -2379,6 +2467,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 89,
+      "category": "Evaluación y Retroalimentación",
       "question": "Selección de **Desempeños** en unidad se realiza basada en:",
       "answerOptions": [
         {
@@ -2406,6 +2495,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 90,
+      "category": "Estrategias Pedagógicas",
       "question": "Enfoque más pedagógico del uso de **TIC**:",
       "answerOptions": [
         {
@@ -2433,6 +2523,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 91,
+      "category": "Convivencia y Valores",
       "question": "Enfoque de prevención de **Convivencia Escolar**:",
       "answerOptions": [
         {
@@ -2460,6 +2551,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 92,
+      "category": "Competencias Específicas",
       "question": "Objetivo de **Investigación de Mercado** en EPT:",
       "answerOptions": [
         {
@@ -2487,6 +2579,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 93,
+      "category": "Evaluación y Retroalimentación",
       "question": "Utilidad de **Evaluación Diagnóstica** inicial:",
       "answerOptions": [
         {
@@ -2514,6 +2607,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 94,
+      "category": "Marco Legal y Normativo",
       "question": "Responsabilidad docente ante **Deserción Escolar** (Derecho a Educación):",
       "answerOptions": [
         {
@@ -2541,6 +2635,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 95,
+      "category": "Estrategias Pedagógicas",
       "question": "Propósito principal del **Conflicto Cognitivo**:",
       "answerOptions": [
         {
@@ -2568,6 +2663,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 96,
+      "category": "Competencias Específicas",
       "question": "Promover **Lectura Intertextual** prioriza:",
       "answerOptions": [
         {
@@ -2595,6 +2691,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 97,
+      "category": "Convivencia y Valores",
       "question": "La **Articulación de Áreas** se logra mejor cuando:",
       "answerOptions": [
         {
@@ -2622,6 +2719,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 98,
+      "category": "Estrategias Pedagógicas",
       "question": "Análisis Crítico de la **Reflexión sobre la Práctica** se centra en:",
       "answerOptions": [
         {
@@ -2649,6 +2747,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 99,
+      "category": "Competencias Específicas",
       "question": "Buscar significado de modismo sin traducción literal es:",
       "answerOptions": [
         {
@@ -2676,6 +2775,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 100,
+      "category": "Convivencia y Valores",
       "question": "Instrumento para **Transferencia de Conocimiento** entre docentes:",
       "answerOptions": [
         {
@@ -2703,6 +2803,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 101,
+      "category": "Razonamiento Lógico",
       "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el día sube 3 metros y en la noche resbala un metro. ¿El día que llegará el caracol a la cima del muro es el?",
       "answerOptions": [
         {
@@ -2730,6 +2831,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 102,
+      "category": "Evaluación y Retroalimentación",
       "question": "¿Cuál es el propósito de la observación sistemática durante una sesión de aprendizaje?",
       "answerOptions": [
         {
@@ -2757,6 +2859,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 103,
+      "category": "Razonamiento Lógico",
       "question": "NUBE : EVAPORACIÓN",
       "answerOptions": [
         {
@@ -2784,6 +2887,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 104,
+      "category": "Convivencia y Valores",
       "question": "Un docente recibe una carta de una estudiante expresando tristeza por comentarios ofensivos de un compañero sobre su origen y género. Otros compañeros empiezan a imitar la conducta. ¿Cuál es la acción pedagógica prioritaria?",
       "answerOptions": [
         {
@@ -2811,6 +2915,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 105,
+      "category": "Razonamiento Lógico",
       "question": "Si dentro de 20 años tendré el triple de la edad que tenía hace 20 años, entonces tengo:",
       "answerOptions": [
         {
@@ -2838,6 +2943,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 106,
+      "category": "Razonamiento Lógico",
       "question": "En una institución educativa se identifica la necesidad de integrar estrategias para estudiantes con discapacidad. ¿Qué acción cumple con la normativa de inclusión?",
       "answerOptions": [
         {
@@ -2865,6 +2971,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 107,
+      "category": "Razonamiento Lógico",
       "question": "Ordene las siguientes frases sobre 'La investigación cualitativa': 1. es altamente interpretativa 2. pero puede ser una rica fuente 3. se reúnen datos y se examinan 4. no puede arrojar conclusiones generales 5. toma una ruta exploratoria 6. en lugar de generar hipótesis previas.",
       "answerOptions": [
         {
@@ -2892,6 +2999,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 108,
+      "category": "Razonamiento Lógico",
       "question": "4 obreros trabajando 7 horas diarias construyen un muro en 3 días. ¿Cuántos días tardarán 2 obreros trabajando 6 horas diarias en construir un muro igual?",
       "answerOptions": [
         {
@@ -2919,6 +3027,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 109,
+      "category": "Razonamiento Lógico",
       "question": "En Ciencias Sociales, para reconocerse como sujeto de derechos, ¿qué proceso debe priorizar el docente?",
       "answerOptions": [
         {
@@ -2946,6 +3055,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 110,
+      "category": "Razonamiento Lógico",
       "question": "Ante la indisciplina por consumo de sustancias, la coordinadora María busca aprovechar el talento de los docentes. ¿Cuál es la mejor estrategia?",
       "answerOptions": [
         {
@@ -2973,6 +3083,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 111,
+      "category": "Razonamiento Lógico",
       "question": "En una granja nacen 8 palomas por cada ternero, 3 gatos por cada 2 terneros y un perro por cada 5 gatos. Si nacieron 3 perros, ¿cuántos animales nacieron en total?",
       "answerOptions": [
         {
@@ -3000,6 +3111,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 112,
+      "category": "Razonamiento Lógico",
       "question": "La investigación cualitativa toma una ruta ________ más flexible, en lugar de generar hipótesis a partir de la investigación ________.",
       "answerOptions": [
         {
@@ -3027,6 +3139,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 113,
+      "category": "Planificación Curricular",
       "question": "¿Qué se define inmediatamente después de la situación significativa en la programación curricular?",
       "answerOptions": [
         {
@@ -3054,6 +3167,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 114,
+      "category": "Razonamiento Lógico",
       "question": "Ana va a la biblioteca cada 5 días y Miguel cada 3 días. Si hoy coincidieron, ¿en cuántos días volverán a coincidir?",
       "answerOptions": [
         {
@@ -3081,6 +3195,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 115,
+      "category": "Marco Legal y Normativo",
       "question": "¿Cuál es la ley general que rige los fines de la educación en Colombia?",
       "answerOptions": [
         {
@@ -3108,6 +3223,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 116,
+      "category": "Razonamiento Lógico",
       "question": "Si un ladrillo pesa 4 kg, el peso de un ladrillito del mismo material cuyas dimensiones son 4 veces menores es:",
       "answerOptions": [
         {
@@ -3135,6 +3251,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 117,
+      "category": "Inclusión y Diversidad",
       "question": "Un estudiante con NEE tiene dificultades en lectura. ¿Cuál es la adaptación curricular adecuada?",
       "answerOptions": [
         {
@@ -3162,6 +3279,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 118,
+      "category": "Razonamiento Lógico",
       "question": "BAQUIANO",
       "answerOptions": [
         {
@@ -3189,6 +3307,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 119,
+      "category": "Razonamiento Lógico",
       "question": "En una reunión, la mitad son mujeres, la sexta parte de las mujeres son altas y la tercera parte de los hombres son bajos. Si hay 36 personas, ¿cuántos hombres NO son bajos?",
       "answerOptions": [
         {
@@ -3216,6 +3335,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 120,
+      "category": "Gestión Institucional",
       "question": "Un rector decide dar recursos solo a los cursos con mejores resultados en pruebas Saber. La coordinadora se opone. ¿Qué debe proponer ella?",
       "answerOptions": [
         {
@@ -3243,6 +3363,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 121,
+      "category": "Razonamiento Lógico",
       "question": "¿Qué hora es cuando el reloj marca los 5/6 de la mitad del triple de las 8:00 am?",
       "answerOptions": [
         {
@@ -3270,6 +3391,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 122,
+      "category": "Razonamiento Lógico",
       "question": "Para que una conferencia sobre Inteligencia Artificial sea pedagógicamente productiva en el colegio, es fundamental que:",
       "answerOptions": [
         {
@@ -3297,6 +3419,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 123,
+      "category": "Razonamiento Lógico",
       "question": "Mario debe 5/8 de $16.000.000 y paga los 3/4 de la deuda. ¿Cuánto debe aún?",
       "answerOptions": [
         {
@@ -3324,6 +3447,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 124,
+      "category": "Razonamiento Lógico",
       "question": "DILAPIDAR",
       "answerOptions": [
         {
@@ -3351,6 +3475,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 125,
+      "category": "Convivencia y Valores",
       "question": "Ante un conflicto de agresión física repetida en primaria donde los padres usan castigo físico en casa sin éxito, ¿qué debe hacer la institución?",
       "answerOptions": [
         {
@@ -3378,6 +3503,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 126,
+      "category": "Razonamiento Lógico",
       "question": "Patricia es mayor que Claudia, y menor que Cristina, quien tiene la misma edad de Gloria. ¿Quién es la menor?",
       "answerOptions": [
         {
@@ -3405,6 +3531,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 127,
+      "category": "Estrategias Pedagógicas",
       "question": "Para gestionar el aprendizaje autónomo, ¿qué tipo de preguntas debe promover el docente?",
       "answerOptions": [
         {
@@ -3432,6 +3559,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 128,
+      "category": "Razonamiento Lógico",
       "question": "Si por 12 camisetas pago 96 euros, ¿cuánto pagaré por 57 camisetas?",
       "answerOptions": [
         {
@@ -3459,6 +3587,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 129,
+      "category": "Planificación Curricular",
       "question": "El PEI de una escuela no refleja las condiciones culturales de la comunidad. La directora decide:",
       "answerOptions": [
         {
@@ -3486,6 +3615,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 130,
+      "category": "Razonamiento Lógico",
       "question": "Una fábrica debe enviar 900 cuadernos. Tiene cajas grandes (40 u) y pequeñas (20 u). Ya empacó 500. Para empacar los 400 restantes usando máxima capacidad, requiere:",
       "answerOptions": [
         {
@@ -3513,6 +3643,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 131,
+      "category": "Razonamiento Lógico",
       "question": "Si dentro de 20 años tendré el triple de la edad que tenía hace 20 años, ¿qué edad tengo actualmente?",
       "answerOptions": [
         {
@@ -3540,6 +3671,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 132,
+      "category": "Razonamiento Lógico",
       "question": "Si una caja contiene A cajas pequeñas y estas a su vez B cajas más pequeñas. El número total de cajas es:",
       "answerOptions": [
         {
@@ -3567,6 +3699,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 133,
+      "category": "Razonamiento Lógico",
       "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el día sube 3 metros y en la noche resbala un metro. ¿El día que llegará el caracol a la cima del muro es el?",
       "answerOptions": [
         {
@@ -3594,6 +3727,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 134,
+      "category": "Razonamiento Lógico",
       "question": "Complete la oración: El desarrollo ______ de los medios de comunicación nos ha advertido no solo de la sociedad de la información en que vivimos, sino de la _____ real que ejerce sobre ella.",
       "answerOptions": [
         {
@@ -3621,6 +3755,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 135,
+      "category": "Razonamiento Lógico",
       "question": "Seleccione el ANTÓNIMO de: DULCE",
       "answerOptions": [
         {
@@ -3648,6 +3783,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 136,
+      "category": "Razonamiento Lógico",
       "question": "Seleccione el SINÓNIMO de: DILAPIDAR",
       "answerOptions": [
         {
@@ -3675,6 +3811,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 137,
+      "category": "Estrategias Pedagógicas",
       "question": "El modelo pedagógico que contempla que la educación es un conjunto de experiencias que contribuyen al engrandecimiento del ser humano favorece principalmente:",
       "answerOptions": [
         {
@@ -3702,6 +3839,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 138,
+      "category": "Estrategias Pedagógicas",
       "question": "El sociólogo Edgar Morin plantea favorecer la aptitud natural del espíritu para plantear y resolver problemas. Usted utilizaría este planteamiento para:",
       "answerOptions": [
         {
@@ -3729,6 +3867,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 139,
+      "category": "Estrategias Pedagógicas",
       "question": "Como docente interesado en promover el pensamiento crítico, su objetivo sería:",
       "answerOptions": [
         {
@@ -3756,6 +3895,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 140,
+      "category": "Estrategias Pedagógicas",
       "question": "Para Gardner existen diferentes capacidades independientes (Inteligencias Múltiples). Esto compromete a la escuela a:",
       "answerOptions": [
         {

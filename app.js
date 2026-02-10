@@ -527,25 +527,8 @@ function showUpgradeModal() {
 
 
 function showReports() {
-    switchView('profile');
-    setTimeout(() => {
-        const statsSection = document.getElementById('dashboard-container');
-        // Note: 'dashboard-container' is inside profile view (it's the stats cards)
-        // If not, we look for the profile cards container.
-        // Actually, looking at index.html, dashboard view is separate. 
-        // But user said "Reports is same as Profile".
-        // Let's scroll to the stats part of the profile or dashboard.
-        // In profile view there is user info and stats.
-
-        // Let's target the stats container in Profile view if existing, or just scroll down.
-        const stats = document.querySelector('.profile-container .stats-grid') || document.querySelector('.stats-container');
-        if (stats) {
-            stats.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            stats.style.transition = 'transform 0.5s ease';
-            stats.style.transform = 'scale(1.02)';
-            setTimeout(() => stats.style.transform = 'scale(1)', 500);
-        }
-    }, 100);
+    switchView('reports');
+    renderReportsView();
     toggleMenu();
 }
 
@@ -554,7 +537,8 @@ function switchView(viewId) {
     document.getElementById('docs-view').classList.add('hidden');
     document.getElementById('quiz-view').classList.add('hidden');
     document.getElementById('results-view').classList.add('hidden');
-    document.getElementById('profile-view').classList.add('hidden'); // Ensure profile is hidden initially
+    document.getElementById('profile-view').classList.add('hidden');
+    document.getElementById('reports-view').classList.add('hidden'); // New reports view
 
     if (viewId === 'docs') {
         document.getElementById('docs-view').classList.remove('hidden');
@@ -565,8 +549,9 @@ function switchView(viewId) {
         document.getElementById('profile-view').classList.remove('hidden');
         renderActivityCalendar();
         updateDashboardStats(); // Update stats in profile too
+    } else if (viewId === 'reports') {
+        document.getElementById('reports-view').classList.remove('hidden');
     }
-
 
     // Always close profile menu when switching views
     const profileMenu = document.getElementById('profileMenu');
@@ -1271,6 +1256,108 @@ function renderCategoryStats() {
         container.insertAdjacentHTML('beforeend', html);
     });
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                              Reports View Logic                            */
+/* -------------------------------------------------------------------------- */
+
+function renderReportsView() {
+    const activeQuizData = window.currentQuizData ? window.currentQuizData.questions : (quizData || []);
+    if (!activeQuizData || activeQuizData.length === 0) return;
+
+    // Calculate overall statistics
+    let totalQuestions = 0, correctAnswers = 0, incorrectAnswers = 0;
+    Object.values(userProgress).forEach(answer => {
+        totalQuestions++;
+        answer.isCorrect ? correctAnswers++ : incorrectAnswers++;
+    });
+    const accuracy = totalQuestions > 0 ? ((correctAnswers / totalQuestions) * 100).toFixed(1) : 0;
+
+    // Update overall stats
+    document.getElementById('report-total-questions').textContent = totalQuestions;
+    document.getElementById('report-correct').textContent = correctAnswers;
+    document.getElementById('report-incorrect').textContent = incorrectAnswers;
+    document.getElementById('report-accuracy').textContent = accuracy + '%';
+
+    // Calculate stats by category
+    const stats = {}, defaultCategory = "General";
+    activeQuizData.forEach((q, index) => {
+        let cat = q.category || defaultCategory;
+        if (!cat || cat.trim() === '') cat = defaultCategory;
+        if (!stats[cat]) stats[cat] = { total: 0, correct: 0, incorrect: 0, unanswered: 0, accuracy: 0 };
+        stats[cat].total++;
+        const answer = userProgress[index];
+        if (answer) answer.isCorrect ? stats[cat].correct++ : stats[cat].incorrect++;
+        else stats[cat].unanswered++;
+    });
+
+    // Calculate accuracy for each category
+    Object.keys(stats).forEach(cat => {
+        const data = stats[cat], answered = data.correct + data.incorrect;
+        data.accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(1) : 0;
+    });
+
+    // Sort categories by accuracy (lowest first)
+    const categories = Object.keys(stats).sort((a, b) => stats[a].accuracy - stats[b].accuracy);
+
+    // Render category stats
+    const categoryContainer = document.getElementById('reports-category-stats-container');
+    if (categoryContainer) {
+        categoryContainer.innerHTML = '';
+        categories.forEach(cat => {
+            const data = stats[cat], answered = data.correct + data.incorrect;
+            const correctPct = answered > 0 ? (data.correct / answered) * 100 : 0;
+            const incorrectPct = answered > 0 ? (data.incorrect / answered) * 100 : 0;
+            const html = `
+                <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border: 1px solid var(--border);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <div style="font-weight: 600; color: var(--text-primary);">${cat}</div>
+                        <div style="display: flex; gap: 1rem; font-size: 0.9rem;">
+                            <span style="color: var(--text-secondary);">${answered} / ${data.total} respondidas</span>
+                            <span style="color: ${data.accuracy >= 70 ? 'var(--success-text)' : data.accuracy >= 50 ? 'var(--accent-secondary)' : 'var(--error-text)'}; font-weight: bold;">${data.accuracy}%</span>
+                        </div>
+                    </div>
+                    <div style="height: 10px; background: var(--bg-body-start); border-radius: 5px; overflow: hidden; display: flex;">
+                        <div style="width: ${correctPct}%; background: var(--success-text);" title="Correctas: ${data.correct}"></div>
+                        <div style="width: ${incorrectPct}%; background: var(--error-text);" title="Incorrectas: ${data.incorrect}"></div>
+                    </div>
+                    <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+                        <span>✅ ${data.correct}</span><span>❌ ${data.incorrect}</span><span>⏳ ${data.unanswered}</span>
+                    </div>
+                </div>
+            `;
+            categoryContainer.insertAdjacentHTML('beforeend', html);
+        });
+    }
+
+    // Generate recommendations
+    const recommendationsContainer = document.getElementById('recommendations-container');
+    if (recommendationsContainer) {
+        recommendationsContainer.innerHTML = '';
+        const weakCategories = categories.filter(cat => {
+            const data = stats[cat], answered = data.correct + data.incorrect;
+            return answered > 0 && data.accuracy < 70;
+        }).slice(0, 5);
+
+        if (weakCategories.length === 0) {
+            recommendationsContainer.innerHTML = '<div style="padding: 1rem; background: var(--success-bg); border-radius: 8px; color: var(--success-text); text-align: center;">🎉 ¡Excelente trabajo! Tienes un rendimiento sólido en todas las categorías.</div>';
+        } else {
+            weakCategories.forEach(cat => {
+                const data = stats[cat];
+                recommendationsContainer.insertAdjacentHTML('beforeend', `
+                    <div style="padding: 0.75rem; background: var(--bg-body-start); border-left: 3px solid var(--accent-secondary); border-radius: 4px;">
+                        <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem;">${cat}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                            Precisión: ${data.accuracy}% - Refuerza este tema con preguntas adicionales y repaso de conceptos clave.
+                        </div>
+                    </div>
+                `);
+            });
+        }
+    }
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                                   Helpers                                  */

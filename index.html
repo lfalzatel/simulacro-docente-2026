@@ -250,6 +250,69 @@
             </div>
         </div>
 
+        <!-- Reports View (New - Separate from Profile) -->
+        <div id="reports-view" class="dashboard hidden">
+            <div class="welcome-section">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <h1 class="welcome-title">📊 Reportes Detallados</h1>
+                        <p class="welcome-text">Análisis completo de tu rendimiento por categoría temática.</p>
+                    </div>
+                    <button class="back-btn" onclick="switchView('dashboard')" title="Volver"
+                        style="margin: 0;">✕</button>
+                </div>
+            </div>
+
+            <!-- Overall Performance Summary -->
+            <div class="stat-card"
+                style="margin-bottom: 2rem; background: linear-gradient(135deg, var(--surface) 0%, rgba(139, 154, 126, 0.1) 100%);">
+                <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-primary);">🎯 Resumen General
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: var(--accent-primary);"
+                            id="report-total-questions">0</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">Preguntas Respondidas</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: var(--success-text);"
+                            id="report-correct">0</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">Respuestas Correctas</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: var(--error-text);"
+                            id="report-incorrect">0</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">Respuestas Incorrectas</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold; color: var(--accent-secondary);"
+                            id="report-accuracy">0%</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">Precisión Global</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Performance Section -->
+            <div class="stat-card" style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-primary);">📚 Rendimiento por
+                    Categoría</h3>
+                <div id="reports-category-stats-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                        Cargando estadísticas por categoría...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations Section -->
+            <div class="stat-card" style="border-left: 4px solid var(--accent-primary);">
+                <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent-primary);">💡 Recomendaciones
+                    de Estudio</h3>
+                <div id="recommendations-container" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <!-- Recommendations will be injected here -->
+                </div>
+            </div>
+        </div>
+
         <!-- Quiz View -->
         <div id="quiz-view" class="quiz-container hidden">
             <div class="quiz-header">
