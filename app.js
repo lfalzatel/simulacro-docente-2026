@@ -331,17 +331,38 @@ async function startSimulacro(simulacro) {
     console.log('🚀 Iniciando simulacro:', simulacro.titulo);
     currentSimulacroId = simulacro.id;
 
-    // TODO: Load correct quiz data based on simulacro number
-    // For now, Simulacro 1 uses existing quizData
-    // Simulacro 2 will use quizData2.js (pending generation)
-
+    // Cargar datos del quiz correspondiente
     if (simulacro.numero === 1) {
-        // Use existing logic
-        startQuiz();
+        // Simulacro 1: usa quizData original (360 preguntas)
+        window.currentQuizData = window.RAW_QUIZ_DATA;
+    } else if (simulacro.numero === 2) {
+        // Simulacro 2: usa quizData2 (premium - 35 preguntas)
+        if (!window.RAW_QUIZ_DATA_2) {
+            alert('Error: No se pudo cargar el simulacro 2. Por favor, recarga la página.');
+            console.error('RAW_QUIZ_DATA_2 no está definido');
+            return;
+        }
+        window.currentQuizData = window.RAW_QUIZ_DATA_2;
     } else {
-        // Future: load different quiz data
-        alert(`Simulacro ${simulacro.numero} en desarrollo. Próximamente se agregarán ${simulacro.total_preguntas} preguntas.`);
+        alert(`Simulacro ${simulacro.numero} próximamente disponible.`);
+        return;
     }
+
+    console.log('✅ Quiz data cargado:', window.currentQuizData.questions.length, 'preguntas');
+
+    // Reset global variables for new context
+    quizData = window.currentQuizData.questions;
+    score = 0;
+    currentQuestionIndex = 0;
+    userProgress = {}; // Clear previous progress
+
+    // Load progress for this specific simulator
+    // For Sim 2, this will load from local storage using the specific key
+    console.log('🔄 Cargando progreso para simulacro:', simulacro.numero);
+    cargarProgresoLocal();
+
+    // Iniciar quiz con datos cargados
+    startQuiz();
 }
 
 function showUpgradeModal() {
@@ -761,7 +782,8 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
     userProgress.safeLastIndex = preguntaIdx;
 
     // Update Local
-    localStorage.setItem('progresoUsuario', JSON.stringify({
+    const key = getStorageKey();
+    localStorage.setItem(key, JSON.stringify({
         lastIndex: preguntaIdx,
         score: score,
         answers: userProgress,
@@ -775,12 +797,13 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
         statusEl.classList.add('visible');
     }
 
-    console.log(`💾 Progreso guardado localmente: Pregunta ${preguntaIdx + 1}, Score: ${score}`);
+    console.log(`💾 Progreso guardado localmente (${key}): Pregunta ${preguntaIdx + 1}, Score: ${score}`);
 
     // Flag to track if we are already syncing
     let isSyncing = false;
 
-    if (supabaseApp) {
+    // CLOUD SYNC: Only for main simulacro for now
+    if (supabaseApp && !currentSimulacroId) {
         // Prevent concurrent syncs for the same question index if needed, 
         // but here we just want to ensure UI clears.
 
@@ -815,8 +838,9 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
             }
         }
     } else {
-        // If no supabase, clear immediately after short delay
+        // If no supabase or secondary sim, clear immediately after short delay
         if (statusEl) {
+            if (currentSimulacroId) statusEl.innerHTML = "💾 Local OK";
             setTimeout(() => {
                 statusEl.classList.remove('visible');
                 statusEl.innerHTML = ""; // Clear text too
@@ -840,10 +864,14 @@ async function guardarProgresoCompleto(silent = false) {
         totalTime: userProgress.totalTime || 0
     };
 
-    localStorage.setItem('progresoUsuario', JSON.stringify(progressData));
-    if (!silent) console.log(`💾 Progreso completo guardado localmente`);
+    const key = getStorageKey();
+    localStorage.setItem(key, JSON.stringify(progressData));
+    if (!silent) console.log(`💾 Progreso completo guardado localmente en ${key}`);
 
-    if (supabaseApp) {
+    // CLOUD SYNC: For now, only for default simulator (simulacro 1 or null)
+    // to avoid mixing data in the single-row database table.
+    // TODO: Update DB schema to support multiple simulacros per user
+    if (supabaseApp && !currentSimulacroId) {
         try {
             const { data: { user } } = await supabaseApp.auth.getUser();
             if (user) {
@@ -877,6 +905,12 @@ async function guardarProgresoCompleto(silent = false) {
                 }, 2000);
             }
         }
+    } else if (currentSimulacroId) {
+        // For other simulacros, just local save for now
+        if (!silent && statusEl) {
+            statusEl.innerHTML = "💾 Guardado (Local)";
+            setTimeout(() => { statusEl.classList.remove('visible'); }, 2000);
+        }
     }
 }
 
@@ -906,8 +940,9 @@ async function cargarProgreso(user = null) {
     console.log("📂 Cargando progreso...", user ? `(user: ${user.email})` : "(sin user)");
     const statusEl = document.getElementById('save-status');
 
-    // ALWAYS fetch from cloud FIRST if authenticated
-    if (supabaseApp && user) {
+    // ALWAYS fetch from cloud FIRST if authenticated AND if we are in main simulacro
+    // Cloud sync currently only supports single progress (main exam)
+    if (supabaseApp && user && !currentSimulacroId) {
         try {
             console.log("✓ Usuario provisto desde auth listener:", user.email);
             console.log("✓ Consultando progreso en Supabase...");
@@ -941,7 +976,8 @@ async function cargarProgreso(user = null) {
                 });
 
                 // Get local data for comparison
-                const saved = localStorage.getItem('progresoUsuario');
+                const key = getStorageKey();
+                const saved = localStorage.getItem(key);
                 const localData = saved ? JSON.parse(saved) : null;
                 const localProgress = localData ? (localData.answers || {}) : {};
 
@@ -982,7 +1018,7 @@ async function cargarProgreso(user = null) {
                     currentQuestionIndex = userProgress.safeLastIndex;
 
                     // Update localStorage with cloud data
-                    localStorage.setItem('progresoUsuario', JSON.stringify({
+                    localStorage.setItem(key, JSON.stringify({
                         lastIndex: data.last_index,
                         score: score,
                         answers: cloudProgress,
@@ -1040,9 +1076,27 @@ async function cargarProgreso(user = null) {
     console.log("✓ Dashboard actualizado");
 }
 
+// Helper to get storage key based on current simulator
+function getStorageKey() {
+    // If no specific simulator selected, or it's the default one (1), use legacy key
+    // We need to know which one is Sim 1. Usually strict "progresoUsuario" was for the main one.
+    // If currentSimulacroId is set, use specific key.
+    // BUT we need to handle the case where Sim 1 (legacy) interacts with new system.
+    if (!currentSimulacroId) return 'progresoUsuario';
+    return `progresoUsuario_${currentSimulacroId}`;
+}
+
 // Helper function to load from localStorage only
 function cargarProgresoLocal() {
-    const saved = localStorage.getItem('progresoUsuario');
+    const key = getStorageKey();
+    console.log(`📂 Cargando local desde: ${key}`);
+    const saved = localStorage.getItem(key);
+
+    // If not found and we are in default/null state, try legacy
+    if (!saved && !currentSimulacroId) {
+        // Fallback is already 'progresoUsuario'
+    }
+
     if (saved) {
         try {
             const data = JSON.parse(saved);
@@ -1058,9 +1112,18 @@ function cargarProgresoLocal() {
             }
 
             const answerCount = Object.keys(userProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
-            console.log(`✓ Progreso local: ${answerCount} respuestas, Score: ${score}`);
+            console.log(`✓ Progreso local (${key}): ${answerCount} respuestas, Score: ${score}`);
         } catch (e) {
             console.error('❌ Error al parsear progreso local:', e);
+        }
+    } else {
+        console.log(`ℹ️ No hay progreso local en ${key}`);
+        // Reset if starting fresh simulator
+        if (currentSimulacroId) {
+            userProgress = {};
+            score = 0;
+            currentQuestionIndex = 0;
+            userProgress.totalTime = 0;
         }
     }
 }
