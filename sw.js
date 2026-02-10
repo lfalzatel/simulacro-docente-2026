@@ -1,10 +1,11 @@
-const CACHE_NAME = 'quiz-app-v55';
+const CACHE_NAME = 'quiz-app-v56';
 const ASSETS = [
     './',
     './index.html',
     './style.css',
     './app.js',
     './quizData.js',
+    './quizData2.js',
     './pwa_icon_192.svg',
     'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap'
 ];
