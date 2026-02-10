@@ -1247,13 +1247,25 @@ function renderCategoryStats() {
 /* -------------------------------------------------------------------------- */
 
 // Helper to get storage key based on current simulator
+// Helper to get storage key based on current simulator
 function getStorageKey() {
-    // If no specific simulator selected, or it's the default one (1), use legacy key
-    // We need to know which one is Sim 1. Usually strict "progresoUsuario" was for the main one.
-    // If currentSimulacroId is set, use specific key.
-    // BUT we need to handle the case where Sim 1 (legacy) interacts with new system.
-    if (!currentSimulacroId) return 'progresoUsuario';
-    return `progresoUsuario_${currentSimulacroId}`;
+    // v67: SECURITY FIX - Isolate data per user
+    // If we have an authenticated user, append their ID to the key.
+    // This prevents "User B" from seeing "User A's" local data.
+
+    let baseKey = 'progresoUsuario';
+
+    // If we are in a specific simulator (not the default one), append its ID
+    if (currentSimulacroId) {
+        baseKey += `_${currentSimulacroId}`;
+    }
+
+    // CRITICAL: Append User ID if logged in
+    if (lastAuthUserId) {
+        baseKey += `_${lastAuthUserId}`;
+    }
+
+    return baseKey;
 }
 
 // Helper function to load from localStorage only

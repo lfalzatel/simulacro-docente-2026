@@ -66,22 +66,24 @@
                         <span>📚</span>
                         <span>Documentación</span>
                     </div>
+                    <div class="menu-item" onclick="switchView('profile'); console.log('Going to profile reports');">
+                        <span>📊</span>
+                        <span>Ver Reportes</span>
+                    </div>
+
                     <div class="menu-item logout" id="logoutBtn" onclick="logout()">
                         <span>🚪</span>
                         <span>Cerrar Sesión</span>
                     </div>
+                    <!-- 
                     <div class="menu-item logout" onclick="sincronizarDatos()" style="color: var(--accent-secondary);">
                         <span>🔄</span>
                         <span>Sincronizar</span>
                     </div>
-                    <div class="menu-item logout" onclick="window.location.reload(true)"
-                        style="color: var(--accent-primary);">
-                        <span>↻</span>
-                        <span>Recargar App</span>
-                    </div>
+                     -->
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
                         <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                            v50 (Real-Time Sync)
+                            v68 (Fix Aislamiento Datos)
                         </div>
                     </div>
                 </div>
@@ -341,7 +343,29 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=66"></script>
+    <script src="app.js?v=68"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js?v=68')
+                    .then(reg => {
+                        console.log('✓ SW v68 registrado');
+                        reg.onupdatefound = () => {
+                            const installingWorker = reg.installing;
+                            installingWorker.onstatechange = () => {
+                                if (installingWorker.state === 'installed') {
+                                    if (navigator.serviceWorker.controller) {
+                                        console.log('🔄 Nueva versión disponible. Recargando...');
+                                        window.location.reload();
+                                    }
+                                }
+                            };
+                        };
+                    })
+                    .catch(err => console.log('❌ Error SW:', err));
+            });
+        }
+    </script>
 </body>
 
 </html>
