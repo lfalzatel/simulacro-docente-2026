@@ -529,7 +529,9 @@ function showUpgradeModal() {
 function showReports() {
     switchView('reports');
     renderReportsView();
-    toggleMenu();
+    // Close profile menu
+    const profileMenu = document.getElementById('profileMenu');
+    if (profileMenu) profileMenu.classList.remove('active');
 }
 
 function switchView(viewId) {
