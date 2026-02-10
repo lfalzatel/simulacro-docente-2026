@@ -233,13 +233,41 @@ async function getUserRole(user) {
 
 async function loadSimulacros() {
     try {
-        const { data, error } = await supabaseApp
-            .from('simulacros')
-            .select('*')
-            .eq('activo', true)
-            .order('numero', { ascending: true });
+        let data = null;
+        if (supabaseApp) {
+            const res = await supabaseApp
+                .from('simulacros')
+                .select('*')
+                .eq('activo', true)
+                .order('numero', { ascending: true });
+            data = res.data;
+            if (res.error) console.error('⚠️ Supabase error loadSimulacros:', res.error);
+        }
 
-        if (error) throw error;
+        // Fallback if data is missing or empty (Offline support)
+        if (!data || data.length === 0) {
+            console.warn("⚠️ Usando catálogo local de respaldo (Offline/Error)");
+            data = [
+                {
+                    id: 'fixed_sim_1', // Dummy ID for fallback
+                    numero: 1,
+                    titulo: 'Simulacro General',
+                    descripcion: 'Evaluación completa de competencias para el concurso docente.',
+                    total_preguntas: 360,
+                    es_premium: false,
+                    activo: true
+                },
+                {
+                    id: 'fixed_sim_2',
+                    numero: 2,
+                    titulo: 'Simulacro Premium',
+                    descripcion: 'Preguntas avanzadas y casos de estudio específicos.',
+                    total_preguntas: 35, // Updated to match actual available
+                    es_premium: true,
+                    activo: true
+                }
+            ];
+        }
 
         simulacrosCatalog = data || [];
         console.log('✓ Simulacros cargados:', simulacrosCatalog.length);
