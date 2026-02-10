@@ -272,23 +272,27 @@ async function renderSimulacroCards() {
         card.className = 'simulacro-card';
         card.style.cssText = `
             position: relative;
-            background: var(--surface);
-            border: 2px solid ${canAccess ? 'var(--accent-primary)' : 'var(--text-secondary)'};
+            background: ${canAccess ? 'linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%)' : 'rgba(100, 116, 139, 0.05)'};
+            border: 2px solid ${canAccess ? 'var(--accent-primary)' : 'rgba(100, 116, 139, 0.3)'};
             border-radius: 16px;
             padding: 1.5rem;
             cursor: ${canAccess ? 'pointer' : 'not-allowed'};
             transition: all 0.3s ease;
-            opacity: ${canAccess ? '1' : '0.6'};
+            opacity: ${canAccess ? '1' : '0.7'};
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         `;
 
         if (canAccess) {
             card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-5px)';
-                card.style.boxShadow = '0 8px 24px rgba(37, 99, 235, 0.2)';
+                card.style.transform = 'translateY(-8px)';
+                card.style.boxShadow = '0 12px 32px rgba(37, 99, 235, 0.25)';
+                card.style.borderColor = 'var(--accent-secondary)';
             });
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'translateY(0)';
-                card.style.boxShadow = 'none';
+                card.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                card.style.borderColor = 'var(--accent-primary)';
             });
         }
 
