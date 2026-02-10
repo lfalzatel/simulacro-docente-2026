@@ -68,17 +68,8 @@ async function init() {
                 }
             });
 
-            // Check session normally (Supabase handles hash automatically)
-            const { data: { session }, error } = await supabaseApp.auth.getSession();
-
-            if (session) {
-                console.log("✓ Sesión activa:", session.user.email);
-                await showDashboard(session.user);
-                await cargarProgreso();
-            } else {
-                console.log("→ No hay sesión activa inicial");
-                if (!isProcessingAuth) showLogin();
-            }
+            // NOTE: Don't manually check session here - onAuthStateChange will fire INITIAL_SESSION
+            // Doing both causes race conditions on reload where session might not be ready yet
 
         } else {
             console.warn("⚠ Supabase SDK no cargado. Usando modo local.");
