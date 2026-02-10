@@ -50,40 +50,17 @@ async function init() {
                     }
                     lastAuthUserId = session.user.id;
 
-                    // BLOCK UI: Mostrar "Sincronizando..." antes de permitir nada
-                    document.getElementById('save-status').innerText = "☁️ Sincronizando...";
-                    document.getElementById('options').style.pointerEvents = 'none'; // Bloquear clicks
-
                     await showDashboard(session.user);
-                    await cargarProgreso();
-
-                    // UNBLOCK UI
-                    document.getElementById('save-status').innerText = "";
-                    document.getElementById('options').style.pointerEvents = 'auto';
+                    await cargarProgreso(); // This now updates dashboard internally
 
                 } else if (event === 'SIGNED_OUT') {
                     console.log("→ Sesión cerrada");
                     showLogin();
                 } else if (event === 'INITIAL_SESSION') {
-                    // Si estamos procesando auth, NO mostrar login inmediatamente
-                    if (isProcessingAuth) {
-                        console.log("⏳ Ignorando INITIAL_SESSION vacía (esperando OAuth)...");
-                        return;
-                    }
-
                     if (session) {
                         console.log("✓ Sesión inicial:", session.user.email);
-
-                        // BLOCK UI
-                        document.getElementById('save-status').innerText = "☁️ Sincronizando...";
-                        document.getElementById('options').style.pointerEvents = 'none';
-
                         await showDashboard(session.user);
-                        await cargarProgreso();
-
-                        // UNBLOCK UI
-                        document.getElementById('save-status').innerText = "";
-                        document.getElementById('options').style.pointerEvents = 'auto';
+                        await cargarProgreso(); // This now updates dashboard internally
                     } else {
                         console.log("→ No hay sesión inicial");
                         showLogin();
@@ -789,8 +766,10 @@ async function cargarProgreso() {
         }
     }
 
-    // Force dashboard update after load completes
-    updateDashboardStats();
+    // CRITICAL: Force dashboard update after load completes
+    console.log("📈 Actualizando dashboard con datos cargados...");
+    await updateDashboardStats();
+    console.log("✓ Dashboard actualizado");
 }
 
 // Login con Google - CORREGIDO para PWA
