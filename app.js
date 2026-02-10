@@ -211,11 +211,19 @@ async function getUserRole(user) {
     if (!user) return 'free';
 
     try {
-        const { data, error } = await supabaseApp
+        // Timeout promise
+        const timeoutPromise = new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Timeout getting user role')), 3000)
+        );
+
+        // Fetch promise
+        const fetchPromise = supabaseApp
             .from('user_roles')
             .select('role')
             .eq('user_id', user.id)
             .single();
+
+        const { data, error } = await Promise.race([fetchPromise, timeoutPromise]);
 
         if (error) {
             console.warn('⚠️ No role found, creating free role:', error.message);
