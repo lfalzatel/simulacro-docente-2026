@@ -210,6 +210,12 @@ async function updateDashboardStats() {
 async function getUserRole(user) {
     if (!user) return 'free';
 
+    // 🛡️ SUPER ADMIN BYPASS: Always admin for owner
+    if (user.email === 'lfalzatel@gmail.com') {
+        console.log("👑 Super Admin detectado (Hardcoded)");
+        return 'admin';
+    }
+
     try {
         // Timeout promise
         const timeoutPromise = new Promise((_, reject) =>
@@ -300,8 +306,13 @@ async function loadSimulacros() {
 
 function canAccessSimulacro(simulacro) {
     if (userRole === 'admin') return true; // Admin access all
-    if (!simulacro.es_premium) return true; // Free simulacro
-    return userRole === 'premium'; // Premium required
+
+    // RESTRICTION: "Solo el administrador tiene acceso"
+    // Disabling free access logic for now based on user request.
+    // if (!simulacro.es_premium) return true; 
+
+    return false; // Lock everything else
+    // return userRole === 'premium'; // Uncomment if Premium users should access
 }
 
 async function renderSimulacroCards() {
