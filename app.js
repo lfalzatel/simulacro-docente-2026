@@ -659,13 +659,28 @@ async function cargarProgreso(user = null) {
         try {
             console.log("✓ Usuario provisto desde auth listener:", user.email);
             console.log("✓ Consultando progreso en Supabase...");
-            const { data, error } = await supabaseApp
+            console.log("   - user_id:", user.id);
+            console.log("   - tabla: simulacro_progress");
+
+            // Add timeout to prevent hanging
+            const timeoutPromise = new Promise((_, reject) =>
+                setTimeout(() => reject(new Error('Supabase query timeout (5s)')), 5000)
+            );
+
+            const queryPromise = supabaseApp
                 .from('simulacro_progress')
                 .select('*')
                 .eq('user_id', user.id)
                 .single();
 
-            console.log("📦 Respuesta Supabase:", { hasData: !!data, hasError: !!error, errorCode: error?.code });
+            console.log("⏳ Esperando respuesta de Supabase...");
+            const { data, error } = await Promise.race([queryPromise, timeoutPromise])
+                .catch(err => {
+                    console.error("❌ Error en consulta Supabase:", err.message);
+                    return { data: null, error: err };
+                });
+
+            console.log("📦 Respuesta Supabase:", { hasData: !!data, hasError: !!error, errorCode: error?.code, errorMsg: error?.message });
 
             if (data && !error) {
                 console.log("☁️ Datos de nube encontrados:", {
