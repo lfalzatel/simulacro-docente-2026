@@ -130,8 +130,8 @@ async function showDashboard(user) {
         document.getElementById('user-avatar').style.display = 'none';
     }
 
-    // Update dashboard stats
-    await updateDashboardStats();
+    // NOTE: Dashboard stats will be updated by cargarProgreso() after data loads
+    // Do NOT call updateDashboardStats() here - userProgress is still empty!
 }
 
 async function updateDashboardStats() {
