@@ -376,6 +376,13 @@ async function startSimulacro(simulacro) {
         return;
     }
 
+    // Validation
+    if (!window.currentQuizData || !window.currentQuizData.questions) {
+        console.error('❌ Error crítico: Datos del quiz no encontrados', window.currentQuizData);
+        alert('Error crítico: No se pudieron cargar los datos del simulacro. Por favor, intenta de nuevo o recarga la página.');
+        return;
+    }
+
     console.log('✅ Quiz data cargado:', window.currentQuizData.questions.length, 'preguntas');
 
     // Reset global variables for new context

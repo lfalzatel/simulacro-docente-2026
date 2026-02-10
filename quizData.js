@@ -3779,7 +3779,11 @@ const RAW_QUIZ_DATA = {
           "isCorrect": false
         }
       ],
-      "hint": "La escuela debe adaptarse a la diversidad de formas de aprender."
     }
   ]
 };
+
+// Make accessible globally
+if (typeof window !== 'undefined') {
+  window.RAW_QUIZ_DATA = RAW_QUIZ_DATA;
+}
