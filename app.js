@@ -418,12 +418,17 @@ async function startSimulacro(simulacro) {
     quizData = window.currentQuizData.questions;
     score = 0;
     currentQuestionIndex = 0;
-    userProgress = {}; // Clear previous progress
 
-    // Load progress for this specific simulator
-    // For Sim 2, this will load from local storage using the specific key
-    console.log('🔄 Cargando progreso para simulacro:', simulacro.numero);
-    cargarProgresoLocal();
+    // SMART LOAD: If Sim 1 and dashboard already loaded valid data, reuse it!
+    if (simulacro.numero === 1 && userProgress && Object.keys(userProgress).length > 0) {
+        console.log("♻️ Reusando progreso cargado en dashboard para Sim 1");
+        // Update score just in case
+        score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
+    } else {
+        userProgress = {}; // Clear previous progress for other sims or clean state
+        console.log('🔄 Cargando progreso local para simulacro:', simulacro.numero);
+        cargarProgresoLocal();
+    }
 
     // Add version to menu
     const menuFooter = document.querySelector('.profile-menu .menu-section-label').parentElement;
@@ -894,7 +899,15 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
     let isSyncing = false;
 
     // CLOUD SYNC: Only for main simulacro for now
-    if (supabaseApp && !currentSimulacroId) {
+    // Allow logic if no specific ID OR if it is explicitly Sim 1
+    const isDefaultSim = !currentSimulacroId || (window.currentSimulacroNum === 1);
+
+    if (supabaseApp && isDefaultSim) {
+        if (statusEl) {
+            statusEl.innerHTML = "☁️ Sincronizando...";
+            statusEl.classList.add('visible');
+        }
+
         // Prevent concurrent syncs for the same question index if needed, 
         // but here we just want to ensure UI clears.
 
@@ -1180,6 +1193,28 @@ async function cargarProgreso(user = null) {
     console.log("📈 Actualizando dashboard con datos cargados...");
     await updateDashboardStats();
     console.log("✓ Dashboard actualizado");
+
+    // FIX: If we are already in the quiz view (race condition where user clicked start before load finished)
+    // Update the question index if we are still at the beginning and have better data
+    if (!document.getElementById('quiz-view').classList.contains('hidden') && userProgress && userProgress.safeLastIndex > 0) {
+        console.log("⚠️ Datos llegaron tarde - Sincronizando Quiz en tiempo real");
+
+        // Only jump if we are at Q1 (don't disrupt if user already answered Q1)
+        // But allow jump if Q1 hasn't been answered yet (just viewed)
+        if (currentQuestionIndex === 0 && !userProgress[0]) {
+            console.log("→ Saltando a pregunta guardada:", userProgress.safeLastIndex + 1);
+            currentQuestionIndex = userProgress.safeLastIndex;
+            updateUI();
+
+            // Show toast
+            const statusEl = document.getElementById('save-status');
+            if (statusEl) {
+                statusEl.innerHTML = "🔄 Progreso restaurado";
+                statusEl.classList.add('visible');
+                setTimeout(() => statusEl.classList.remove('visible'), 2000);
+            }
+        }
+    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1309,8 +1344,13 @@ function renderReportsView() {
         data.accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(1) : 0;
     });
 
-    // Sort categories by accuracy (lowest first)
-    const categories = Object.keys(stats).sort((a, b) => stats[a].accuracy - stats[b].accuracy);
+    // Sort categories by accuracy (lowest first) - Changed to sort by score (lowest coverage first)
+    // To prioritize weak areas where score is low (either low accuracy or low participation)
+    const categories = Object.keys(stats).sort((a, b) => {
+        const scoreA = (stats[a].correct / stats[a].total);
+        const scoreB = (stats[b].correct / stats[b].total);
+        return scoreA - scoreB;
+    });
 
     // Render category stats
     const categoryContainer = document.getElementById('reports-category-stats-container');
@@ -1318,23 +1358,41 @@ function renderReportsView() {
         categoryContainer.innerHTML = '';
         categories.forEach(cat => {
             const data = stats[cat], answered = data.correct + data.incorrect;
-            const correctPct = answered > 0 ? (data.correct / answered) * 100 : 0;
-            const incorrectPct = answered > 0 ? (data.incorrect / answered) * 100 : 0;
+
+            // Percentage of TOTAL questions (Coverage/Score)
+            const correctPct = (data.correct / data.total) * 100;
+            const incorrectPct = (data.incorrect / data.total) * 100;
+            const unansweredPct = 100 - correctPct - incorrectPct;
+
+            // Accuracy of answered questions (Qualitative)
+            const accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(0) : 0;
+            const score = ((data.correct / data.total) * 100).toFixed(0);
+
             const html = `
-                <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border: 1px solid var(--border);">
+                <div style="padding: 1rem; background: var(--success-bg); border-radius: 8px; border: 1px solid var(--border); background-color: var(--bg-card);">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <div style="font-weight: 600; color: var(--text-primary);">${cat}</div>
-                        <div style="display: flex; gap: 1rem; font-size: 0.9rem;">
-                            <span style="color: var(--text-secondary);">${answered} / ${data.total} respondidas</span>
-                            <span style="color: ${data.accuracy >= 70 ? 'var(--success-text)' : data.accuracy >= 50 ? 'var(--accent-secondary)' : 'var(--error-text)'}; font-weight: bold;">${data.accuracy}%</span>
+                        <div style="font-weight: 600; color: var(--text-primary); max-width: 60%;">${cat}</div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                            <span style="font-size: 1.1rem; font-weight: bold; color: ${score >= 70 ? 'var(--success-text)' : score >= 50 ? 'var(--accent-secondary)' : 'var(--error-text)'};">${score}%</span>
+                            <span style="font-size: 0.75rem; color: var(--text-secondary);">Puntaje Global</span>
                         </div>
                     </div>
-                    <div style="height: 10px; background: var(--bg-body-start); border-radius: 5px; overflow: hidden; display: flex;">
+                    
+                    <div style="height: 12px; background: var(--bg-body-start); border-radius: 6px; overflow: hidden; display: flex; margin-bottom: 0.5rem; border: 1px solid var(--border-color);">
                         <div style="width: ${correctPct}%; background: var(--success-text);" title="Correctas: ${data.correct}"></div>
                         <div style="width: ${incorrectPct}%; background: var(--error-text);" title="Incorrectas: ${data.incorrect}"></div>
+                         <!-- Implicit gray space for unanswered -->
                     </div>
-                    <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
-                        <span>✅ ${data.correct}</span><span>❌ ${data.incorrect}</span><span>⏳ ${data.unanswered}</span>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-secondary);">
+                        <div style="display: flex; gap: 1rem;">
+                            <span>✅ ${data.correct}</span>
+                            <span>❌ ${data.incorrect}</span>
+                            <span>⏳ ${data.unanswered}</span>
+                        </div>
+                        <div>
+                             ${answered > 0 ? `Precisión: <b>${accuracy}%</b>` : 'Sin actividad'}
+                        </div>
                     </div>
                 </div>
             `;
@@ -1383,8 +1441,9 @@ function getStorageKey() {
 
     let baseKey = 'progresoUsuario';
 
-    // If we are in a specific simulator (not the default one), append its ID
-    if (currentSimulacroId) {
+    // Compatibilidad: Si es el simulacro 1, NO agregar ID para mantener compatibilidad con datos viejos
+    // Si estamos en otro simulacro (2, 3, etc), sí usamos el ID único
+    if (currentSimulacroId && window.currentSimulacroNum !== 1) {
         baseKey += `_${currentSimulacroId}`;
     }
 
