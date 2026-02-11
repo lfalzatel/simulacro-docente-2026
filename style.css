@@ -571,12 +571,32 @@ header {
 }
 
 .simulacro-card {
-    background: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    border: 2px solid var(--border-color);
-    transition: all 0.3s ease;
+    /* Premium gradient background - Blue-green spectrum for concentration */
+    background: linear-gradient(135deg,
+            rgba(79, 172, 254, 0.08) 0%,
+            /* Soft blue - calm & focus */
+            rgba(99, 205, 218, 0.12) 50%,
+            /* Aqua - clarity */
+            rgba(129, 199, 132, 0.08) 100%
+            /* Sage green - balance */
+        );
+    backdrop-filter: blur(10px);
+
+    padding: 1.8rem;
+    border-radius: 20px;
+
+    /* Enhanced shadow for depth */
+    box-shadow:
+        0 8px 20px rgba(79, 172, 254, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    /* Subtle border with gradient */
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -584,10 +604,71 @@ header {
     height: 100%;
 }
 
+/* Gradient border effect */
+.simulacro-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg,
+            rgba(79, 172, 254, 0.4),
+            rgba(129, 199, 132, 0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
 .simulacro-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px var(--shadow-color);
-    border-color: var(--accent-primary);
+    transform: translateY(-8px) scale(1.02);
+
+    /* Stronger glow on hover */
+    box-shadow:
+        0 16px 36px rgba(79, 172, 254, 0.25),
+        0 8px 16px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+    /* Enhance gradient on hover */
+    background: linear-gradient(135deg,
+            rgba(79, 172, 254, 0.15) 0%,
+            rgba(99, 205, 218, 0.2) 50%,
+            rgba(129, 199, 132, 0.15) 100%);
+}
+
+/* Add subtle animation on card appearance */
+.simulacro-card {
+    animation: cardFadeIn 0.6s ease-out backwards;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for multiple cards */
+.simulacro-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.simulacro-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.simulacro-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.simulacro-card:nth-child(4) {
+    animation-delay: 0.4s;
 }
 
 .action-section::before {
