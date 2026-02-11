@@ -580,26 +580,44 @@ header {
 
 .simulacro-card {
     /* Pure white background for maximum contrast */
-    background: #FFFFFF;
-
+    background: var(--bg-card); /* Use theme variable, defaults to white */
+    
     padding: 1.8rem;
     border-radius: 20px;
-
+    
     /* Softer shadow for depth */
-    box-shadow:
+    box-shadow: 
         0 4px 12px rgba(0, 0, 0, 0.08),
         0 2px 4px rgba(0, 0, 0, 0.06);
 
     /* Solid border for differentiation */
     border: 2px solid rgba(0, 0, 0, 0.06);
     position: relative;
-
+    
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    cursor: pointer;
+}
+
+.simulacro-card.locked {
+    background: rgba(255, 255, 255, 0.9); /* Slightly more opaque background for readability */
+    border-color: rgba(100, 116, 139, 0.3);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+[data-theme="night"] .simulacro-card {
+    background: var(--bg-card); /* Dark background in night mode */
+    border-color: var(--border-color);
+}
+
+[data-theme="night"] .simulacro-card.locked {
+    background: rgba(30, 30, 30, 0.8);
+    opacity: 0.6;
 }
 
 /* Remove gradient border effect - no longer needed */
@@ -608,17 +626,17 @@ header {
 }
 
 /* Ensure text is above the border effect */
-.simulacro-card>* {
+.simulacro-card > * {
     position: relative;
     z-index: 2;
 }
 
-.simulacro-card:hover {
+.simulacro-card:not(.locked):hover {
     transform: translateY(-4px);
     border-color: var(--accent-primary);
-
+    
     /* Elevated shadow on hover */
-    box-shadow:
+    box-shadow: 
         0 8px 24px rgba(0, 0, 0, 0.12),
         0 4px 8px rgba(0, 0, 0, 0.08);
 }
