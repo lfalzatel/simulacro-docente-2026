@@ -579,36 +579,19 @@ header {
 }
 
 .simulacro-card {
-    /* Solid background for readability */
-    background:
-        linear-gradient(135deg,
-            rgba(79, 172, 254, 0.08) 0%,
-            /* Soft blue overlay */
-            rgba(99, 205, 218, 0.12) 50%,
-            /* Aqua overlay */
-            rgba(129, 199, 132, 0.08) 100%
-            /* Sage overlay */
-        ),
-        linear-gradient(to bottom,
-            #FFFFFF 0%,
-            /* Pure white base */
-            #FAFBFC 100%
-            /* Very subtle cream */
-        );
+    /* Pure white background for maximum contrast */
+    background: #FFFFFF;
 
     padding: 1.8rem;
     border-radius: 20px;
 
-    /* Enhanced shadow for depth */
+    /* Softer shadow for depth */
     box-shadow:
-        0 8px 20px rgba(79, 172, 254, 0.15),
-        0 2px 8px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 2px 4px rgba(0, 0, 0, 0.06);
 
-    /* Gradient border */
-    border: 2px solid transparent;
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    /* Solid border for differentiation */
+    border: 2px solid rgba(0, 0, 0, 0.06);
     position: relative;
 
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -619,22 +602,9 @@ header {
     height: 100%;
 }
 
-/* Gradient border effect */
+/* Remove gradient border effect - no longer needed */
 .simulacro-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    padding: 2px;
-    background: linear-gradient(135deg,
-            rgba(79, 172, 254, 0.6),
-            rgba(129, 199, 132, 0.6));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 1;
+    display: none;
 }
 
 /* Ensure text is above the border effect */
@@ -644,23 +614,13 @@ header {
 }
 
 .simulacro-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
 
-    /* Stronger glow on hover */
+    /* Elevated shadow on hover */
     box-shadow:
-        0 16px 36px rgba(79, 172, 254, 0.3),
-        0 8px 16px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-
-    /* Brighten on hover */
-    background:
-        linear-gradient(135deg,
-            rgba(79, 172, 254, 0.12) 0%,
-            rgba(99, 205, 218, 0.18) 50%,
-            rgba(129, 199, 132, 0.12) 100%),
-        linear-gradient(to bottom,
-            #FFFFFF 0%,
-            #F8F9FA 100%);
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Add subtle animation on card appearance */
@@ -695,6 +655,47 @@ header {
 
 .simulacro-card:nth-child(4) {
     animation-delay: 0.4s;
+}
+
+/* Card Text Styling - Dark and Readable */
+.simulacro-card h3 {
+    color: #1F2937;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.simulacro-card p {
+    color: #4B5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Mobile responsive text */
+@media (max-width: 640px) {
+    .simulacro-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .simulacro-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Fix reports overflow on mobile */
+    .welcome-title {
+        font-size: 1.6rem;
+        word-break: break-word;
+    }
+
+    .welcome-text {
+        font-size: 0.95rem;
+        word-break: break-word;
+    }
 }
 
 .action-section::before {

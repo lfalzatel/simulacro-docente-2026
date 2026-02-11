@@ -561,7 +561,7 @@ function switchView(viewId) {
     document.getElementById('quiz-view').classList.add('hidden');
     document.getElementById('results-view').classList.add('hidden');
     document.getElementById('profile-view').classList.add('hidden');
-    document.getElementById('reports-view').classList.add('hidden'); // New reports view
+    document.getElementById('reports-view').classList.add('hidden');
 
     if (viewId === 'docs') {
         document.getElementById('docs-view').classList.remove('hidden');
@@ -574,6 +574,16 @@ function switchView(viewId) {
         updateDashboardStats(); // Update stats in profile too
     } else if (viewId === 'reports') {
         document.getElementById('reports-view').classList.remove('hidden');
+    }
+
+    // Show/hide back arrow in header
+    const backBtn = document.getElementById('header-back-btn');
+    if (backBtn) {
+        if (viewId === 'profile' || viewId === 'reports') {
+            backBtn.style.display = 'flex';
+        } else {
+            backBtn.style.display = 'none';
+        }
     }
 
     // Always close profile menu when switching views
