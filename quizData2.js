@@ -926,6 +926,1867 @@ const RAW_QUIZ_DATA_2 = {
             "rationale": "Tara Yosso (2005) propone 'Community Cultural Wealth' como alternativa a teorías de déficit cultural. En lugar de medir estudiantes marginalizados contra capital cultural dominante (clase media, blanco) y concluir 'déficits', identifica 6 formas de capital que POSEEN: aspiracional (mantener esperanza pese adversidad), familiar (conocimientos de comunidad/familia), social (redes y recursos comunitarios), lingüísico (multilingüismo), navegacional (maniobrar instituciones), resistencia (oponerse inequidad). Pedagogía asset-based construye desde estas fortalezas reales, no 'compensa carencias'. Esto no niega injusticia estructural sino que afirma que estudiantes no son 'déficits ambulantes'.",
             "hint": "Yosso: pedagogía asset-based reconoce CAPITAL CULTURAL comunitario real (aspiracional, familiar, social, resistencia), no 'compensa' déficits comparados con clase media."
         }
+        ,
+        {
+            "questionNumber": 36,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el d\u00eda sube 3 metros y en la noche resbala un metro. \u00bfEl d\u00eda que llegar\u00e1 el caracol a la cima del muro es el?",
+            "answerOptions": [
+                {
+                    "text": "4\u00b0",
+                    "rationale": "An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "5\u00b0",
+                    "rationale": "Esta no es la respuesta correcta. An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "6\u00b0",
+                    "rationale": "Esta no es la respuesta correcta. An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "7\u00b0",
+                    "rationale": "Esta no es la respuesta correcta. An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 37,
+            "category": "Pedag\u00f3gica - Evaluaci\u00f3n",
+            "difficulty": "expert",
+            "question": "Un docente observa que sus estudiantes tienen dificultades para aplicar un nuevo concepto. \u00bfCu\u00e1l es la acci\u00f3n m\u00e1s apropiada seg\u00fan los principios de la Evaluaci\u00f3n Formativa?",
+            "answerOptions": [
+                {
+                    "text": "Asignarles m\u00e1s tarea para la casa como castigo por no comprender.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Realizar una retroalimentaci\u00f3n reflexiva para identificar el error y ajustar la ense\u00f1anza.",
+                    "rationale": "La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ignorar el error y continuar con el siguiente tema para no atrasarse.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Bajarles puntos en la nota final para que estudien m\u00e1s.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 38,
+            "category": "Aptitud Verbal - Analog\u00edas",
+            "difficulty": "hard",
+            "question": "NUBE : EVAPORACI\u00d3N ::",
+            "answerOptions": [
+                {
+                    "text": "mar : r\u00edo",
+                    "rationale": "Esta no es la respuesta correcta. Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "desempleo : recesi\u00f3n",
+                    "rationale": "Esta no es la respuesta correcta. Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "sue\u00f1o : cansancio",
+                    "rationale": "Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "oxidaci\u00f3n : \u00f3xido",
+                    "rationale": "Esta no es la respuesta correcta. Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+            "hint": "Fuente: Prueba APTITUD VERBAL 2016"
+        }        ,
+        {
+            "questionNumber": 39,
+            "category": "Situacional - Convivencia",
+            "difficulty": "expert",
+            "question": "En una escuela, la coincidencia del horario de descanso entre primaria y bachillerato genera agresiones. \u00bfCu\u00e1l es la medida m\u00e1s adecuada para abordar la situaci\u00f3n integralmente?",
+            "answerOptions": [
+                {
+                    "text": "Implementar campa\u00f1as educativas sobre buen comportamiento.",
+                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Redistribuir el horario de descansos para que salgan a horas diferentes.",
+                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Establecer zonas espec\u00edficas de descanso para cada nivel con supervisi\u00f3n docente.",
+                    "rationale": "Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Crear grupos de mediaci\u00f3n donde los grandes ayuden a los peque\u00f1os.",
+                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAG\u00d3GICA GENERAL"
+        }        ,
+        {
+            "questionNumber": 40,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Si dentro de 20 a\u00f1os tendr\u00e9 el triple de la edad que ten\u00eda hace 20 a\u00f1os, entonces tengo:",
+            "answerOptions": [
+                {
+                    "text": "20 a\u00f1os",
+                    "rationale": "Esta no es la respuesta correcta. Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "40 a\u00f1os",
+                    "rationale": "Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "60 a\u00f1os",
+                    "rationale": "Esta no es la respuesta correcta. Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "80 a\u00f1os",
+                    "rationale": "Esta no es la respuesta correcta. Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+            "hint": "Fuente: Prueba Aptitud Num\u00e9rica Final"
+        }        ,
+        {
+            "questionNumber": 41,
+            "category": "Gesti\u00f3n Educativa - Inclusi\u00f3n",
+            "difficulty": "hard",
+            "question": "En una instituci\u00f3n educativa se identifica la necesidad de integrar estrategias para estudiantes con discapacidad. \u00bfQu\u00e9 acci\u00f3n cumple con la normativa de inclusi\u00f3n?",
+            "answerOptions": [
+                {
+                    "text": "Crear un aula exclusiva para estudiantes con discapacidad.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Implementar el Plan Individual de Ajustes Razonables (PIAR) y el DUA.",
+                    "rationale": "El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Sugerir a las familias buscar instituciones especializadas.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Eximir a estos estudiantes de las evaluaciones estandarizadas.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+            "hint": "Fuente: Simulacro de Referencia - Grufae"
+        }        ,
+        {
+            "questionNumber": 42,
+            "category": "Aptitud Verbal - Ordenamiento",
+            "difficulty": "hard",
+            "question": "Ordene las frases sobre 'La investigaci\u00f3n cualitativa': 1. es altamente interpretativa 2. pero puede ser una rica fuente 3. se re\u00fanen datos y se examinan 4. no puede arrojar conclusiones generales 5. toma una ruta exploratoria 6. en lugar de generar hip\u00f3tesis previas.",
+            "answerOptions": [
+                {
+                    "text": "3, 6, 1, 2, 5, 4",
+                    "rationale": "Esta no es la respuesta correcta. Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "5, 6, 3, 1, 4, 2",
+                    "rationale": "Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "6, 1, 2, 5, 4, 3",
+                    "rationale": "Esta no es la respuesta correcta. Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "1, 4, 2, 3, 6, 5",
+                    "rationale": "Esta no es la respuesta correcta. Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+            "hint": "Fuente: Prueba APTITUD VERBAL 2016"
+        }        ,
+        {
+            "questionNumber": 43,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "4 obreros trabajando 7 horas diarias construyen un muro en 3 d\u00edas. \u00bfCu\u00e1ntos d\u00edas tardar\u00e1n 2 obreros trabajando 6 horas diarias en construir un muro igual?",
+            "answerOptions": [
+                {
+                    "text": "4 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "7 d\u00edas",
+                    "rationale": "Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "9 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "12 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 44,
+            "category": "Pedag\u00f3gica - Ciudadan\u00eda",
+            "difficulty": "expert",
+            "question": "En Ciencias Sociales, para reconocerse como sujeto de derechos, \u00bfqu\u00e9 proceso debe priorizar el docente?",
+            "answerOptions": [
+                {
+                    "text": "La memorizaci\u00f3n de las leyes internacionales.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "El dise\u00f1o de un mapa mental de las estructuras de gobierno.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La deliberaci\u00f3n, el an\u00e1lisis de dilemas \u00e9ticos y la toma de postura.",
+                    "rationale": "La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "La realizaci\u00f3n de actividades f\u00edsicas para el autocuidado.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 45,
+            "category": "Psicot\u00e9cnica - Liderazgo",
+            "difficulty": "hard",
+            "question": "Ante la indisciplina por consumo de sustancias, la coordinadora busca aprovechar el talento docente. \u00bfCu\u00e1l es la mejor estrategia?",
+            "answerOptions": [
+                {
+                    "text": "Evaluar cada aporte con criterios objetivos y decidir ella misma.",
+                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Priorizar las ideas de los docentes dispuestos a asumir la implementaci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Implementar grupos peque\u00f1os para discutir y desarrollar las ideas m\u00e1s viables.",
+                    "rationale": "El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Delegar el problema al orientador escolar exclusivamente.",
+                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
+        }        ,
+        {
+            "questionNumber": 46,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Si por 12 camisetas pago 96 euros, \u00bfcu\u00e1nto pagar\u00e9 por 57 camisetas?",
+            "answerOptions": [
+                {
+                    "text": "400",
+                    "rationale": "Esta no es la respuesta correcta. Proporcionalidad directa. Costo unitario = 96 / 12 = 8 euros. Costo total = 57 * 8 = 456 euros.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "456",
+                    "rationale": "Proporcionalidad directa. Costo unitario = 96 / 12 = 8 euros. Costo total = 57 * 8 = 456 euros.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "500",
+                    "rationale": "Esta no es la respuesta correcta. Proporcionalidad directa. Costo unitario = 96 / 12 = 8 euros. Costo total = 57 * 8 = 456 euros.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "570",
+                    "rationale": "Esta no es la respuesta correcta. Proporcionalidad directa. Costo unitario = 96 / 12 = 8 euros. Costo total = 57 * 8 = 456 euros.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Proporcionalidad directa. Costo unitario = 96 / 12 = 8 euros. Costo total = 57 * 8 = 456 euros.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 47,
+            "category": "Aptitud Verbal - Oraciones Incompletas",
+            "difficulty": "hard",
+            "question": "La investigaci\u00f3n cualitativa toma una ruta ________ m\u00e1s flexible, en lugar de generar hip\u00f3tesis a partir de la investigaci\u00f3n ________.",
+            "answerOptions": [
+                {
+                    "text": "exploratoria - previa",
+                    "rationale": "El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "r\u00edgida - futura",
+                    "rationale": "Esta no es la respuesta correcta. El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "matem\u00e1tica - actual",
+                    "rationale": "Esta no es la respuesta correcta. El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "subjetiva - experimental",
+                    "rationale": "Esta no es la respuesta correcta. El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+            "hint": "Fuente: Prueba APTITUD VERBAL 2016"
+        }        ,
+        {
+            "questionNumber": 48,
+            "category": "Pedag\u00f3gica - Planificaci\u00f3n",
+            "difficulty": "expert",
+            "question": "\u00bfQu\u00e9 se define inmediatamente despu\u00e9s de la situaci\u00f3n significativa en la programaci\u00f3n curricular?",
+            "answerOptions": [
+                {
+                    "text": "Las actividades l\u00fadicas.",
+                    "rationale": "Esta no es la respuesta correcta. En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Los recursos y materiales.",
+                    "rationale": "Esta no es la respuesta correcta. En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Seleccionar las Competencias, Capacidades y Desempe\u00f1os a movilizar.",
+                    "rationale": "En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "La evaluaci\u00f3n sumativa final.",
+                    "rationale": "Esta no es la respuesta correcta. En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 49,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Ana va a la biblioteca cada 5 d\u00edas y Miguel cada 3 d\u00edas. Si hoy coincidieron, \u00bfen cu\u00e1ntos d\u00edas volver\u00e1n a coincidir?",
+            "answerOptions": [
+                {
+                    "text": "10 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "12 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "15 d\u00edas",
+                    "rationale": "M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "20 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 50,
+            "category": "Legislaci\u00f3n Educativa",
+            "difficulty": "hard",
+            "question": "\u00bfCu\u00e1l es la ley general que rige los fines de la educaci\u00f3n en Colombia?",
+            "answerOptions": [
+                {
+                    "text": "Ley 1620",
+                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Decreto 1278",
+                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ley 115 de 1994",
+                    "rationale": "La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ley 715",
+                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+            "hint": "Fuente: Manual de Funciones - MEN"
+        }        ,
+        {
+            "questionNumber": 51,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Si un ladrillo pesa 4 kg, el peso de un ladrillito del mismo material cuyas dimensiones son 4 veces menores es:",
+            "answerOptions": [
+                {
+                    "text": "62.5 g",
+                    "rationale": "El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "125 g",
+                    "rationale": "Esta no es la respuesta correcta. El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "250 g",
+                    "rationale": "Esta no es la respuesta correcta. El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "500 g",
+                    "rationale": "Esta no es la respuesta correcta. El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+        }        ,
+        {
+            "questionNumber": 52,
+            "category": "Pedag\u00f3gica - NEE",
+            "difficulty": "expert",
+            "question": "Un estudiante con NEE tiene dificultades en lectura. \u00bfCu\u00e1l es la adaptaci\u00f3n curricular adecuada?",
+            "answerOptions": [
+                {
+                    "text": "Eximirlo de las evaluaciones de lectura.",
+                    "rationale": "Esta no es la respuesta correcta. La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Reducir la cantidad de texto sin modificar complejidad.",
+                    "rationale": "Esta no es la respuesta correcta. La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Proporcionar textos con apoyo visual y simplificaci\u00f3n del vocabulario.",
+                    "rationale": "La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Hacer que repita el a\u00f1o para que madure.",
+                    "rationale": "Esta no es la respuesta correcta. La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 53,
+            "category": "Aptitud Verbal - Ant\u00f3nimos",
+            "difficulty": "hard",
+            "question": "BAQUIANO",
+            "answerOptions": [
+                {
+                    "text": "Primerizo",
+                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Novato",
+                    "rationale": "Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Torpe",
+                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Incapaz",
+                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC"
+        }        ,
+        {
+            "questionNumber": 54,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Juan vende limonada ganando $180 por vaso. Si vende 20 vasos por d\u00eda, para ganar $12.600 tardar\u00e1:",
+            "answerOptions": [
+                {
+                    "text": "3 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "3.5 d\u00edas",
+                    "rationale": "Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "4 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "4.5 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 55,
+            "category": "Situacional - Gesti\u00f3n",
+            "difficulty": "expert",
+            "question": "Un colegio no ha establecido el gobierno escolar obligatorio. La directora teme sanciones. \u00bfQu\u00e9 debe hacer?",
+            "answerOptions": [
+                {
+                    "text": "Delegar a un peque\u00f1o grupo la organizaci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Convocar a elecciones democr\u00e1ticas asegurando la participaci\u00f3n de todos los estamentos.",
+                    "rationale": "El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Posponer la creaci\u00f3n hasta recibir directrices.",
+                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Contratar una entidad externa.",
+                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
+        }        ,
+        {
+            "questionNumber": 56,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "\u00bfQu\u00e9 hora es cuando el reloj marca los 5/6 de la mitad del triple de las 8:00 am?",
+            "answerOptions": [
+                {
+                    "text": "6:00 am",
+                    "rationale": "Esta no es la respuesta correcta. Triple de 8 = 24. Mitad de 24 = 12. 5/6 de 12 = 10. Son las 10:00 am.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "8:00 am",
+                    "rationale": "Esta no es la respuesta correcta. Triple de 8 = 24. Mitad de 24 = 12. 5/6 de 12 = 10. Son las 10:00 am.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "10:00 am",
+                    "rationale": "Triple de 8 = 24. Mitad de 24 = 12. 5/6 de 12 = 10. Son las 10:00 am.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "12:00 am",
+                    "rationale": "Esta no es la respuesta correcta. Triple de 8 = 24. Mitad de 24 = 12. 5/6 de 12 = 10. Son las 10:00 am.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Triple de 8 = 24. Mitad de 24 = 12. 5/6 de 12 = 10. Son las 10:00 am.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 57,
+            "category": "Pedag\u00f3gica - Metacognici\u00f3n",
+            "difficulty": "expert",
+            "question": "Para gestionar el aprendizaje aut\u00f3nomo, \u00bfqu\u00e9 tipo de preguntas debe promover el docente?",
+            "answerOptions": [
+                {
+                    "text": "Preguntas cerradas de memoria.",
+                    "rationale": "Esta no es la respuesta correcta. La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Preguntas metacognitivas: \u00bfC\u00f3mo aprendiste? \u00bfQu\u00e9 dificultades tuviste?",
+                    "rationale": "La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Preguntas sobre la vida privada del autor.",
+                    "rationale": "Esta no es la respuesta correcta. La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Preguntas que exigen repetici\u00f3n literal.",
+                    "rationale": "Esta no es la respuesta correcta. La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 58,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Mario debe 5/8 de $16.000.000 y paga los 3/4 de la deuda. \u00bfCu\u00e1nto debe a\u00fan?",
+            "answerOptions": [
+                {
+                    "text": "$2.500.000",
+                    "rationale": "Deuda: 5/8 * 16m = 10m. Paga: 3/4 * 10m = 7.5m. Debe: 10m - 7.5m = 2.5 millones.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "$6.000.000",
+                    "rationale": "Esta no es la respuesta correcta. Deuda: 5/8 * 16m = 10m. Paga: 3/4 * 10m = 7.5m. Debe: 10m - 7.5m = 2.5 millones.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "$7.500.000",
+                    "rationale": "Esta no es la respuesta correcta. Deuda: 5/8 * 16m = 10m. Paga: 3/4 * 10m = 7.5m. Debe: 10m - 7.5m = 2.5 millones.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "$10.000.000",
+                    "rationale": "Esta no es la respuesta correcta. Deuda: 5/8 * 16m = 10m. Paga: 3/4 * 10m = 7.5m. Debe: 10m - 7.5m = 2.5 millones.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "Deuda: 5/8 * 16m = 10m. Paga: 3/4 * 10m = 7.5m. Debe: 10m - 7.5m = 2.5 millones.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 59,
+            "category": "Aptitud Verbal - Sin\u00f3nimos",
+            "difficulty": "hard",
+            "question": "DILAPIDAR",
+            "answerOptions": [
+                {
+                    "text": "Ahorrar",
+                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Poseer",
+                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Despilfarrar",
+                    "rationale": "Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ganar",
+                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+        }        ,
+        {
+            "questionNumber": 60,
+            "category": "Psicot\u00e9cnica - Orientaci\u00f3n",
+            "difficulty": "hard",
+            "question": "Ante un conflicto de agresi\u00f3n f\u00edsica repetida donde los padres usan castigo f\u00edsico en casa sin \u00e9xito, \u00bfqu\u00e9 debe hacer la instituci\u00f3n?",
+            "answerOptions": [
+                {
+                    "text": "Expulsar a los estudiantes.",
+                    "rationale": "Esta no es la respuesta correcta. Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Activar rutas de apoyo interinstitucional (ICBF/Comisar\u00eda) por posible vulneraci\u00f3n de derechos.",
+                    "rationale": "Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Aplicar castigos m\u00e1s severos en el colegio.",
+                    "rationale": "Esta no es la respuesta correcta. Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ignorar la situaci\u00f3n familiar.",
+                    "rationale": "Esta no es la respuesta correcta. Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC"
+        }        ,
+        {
+            "questionNumber": 61,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Patricia es mayor que Claudia, y menor que Cristina, quien tiene la misma edad de Gloria. \u00bfQui\u00e9n es la menor?",
+            "answerOptions": [
+                {
+                    "text": "Patricia",
+                    "rationale": "Esta no es la respuesta correcta. Cristina = Gloria > Patricia > Claudia. La menor es Claudia.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Claudia",
+                    "rationale": "Cristina = Gloria > Patricia > Claudia. La menor es Claudia.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Cristina",
+                    "rationale": "Esta no es la respuesta correcta. Cristina = Gloria > Patricia > Claudia. La menor es Claudia.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Gloria",
+                    "rationale": "Esta no es la respuesta correcta. Cristina = Gloria > Patricia > Claudia. La menor es Claudia.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Cristina = Gloria > Patricia > Claudia. La menor es Claudia.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 62,
+            "category": "Situacional - PEI",
+            "difficulty": "expert",
+            "question": "El PEI de una escuela no refleja las condiciones culturales de la comunidad. La directora decide:",
+            "answerOptions": [
+                {
+                    "text": "Contratar un experto externo.",
+                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Copiar el PEI de una escuela cercana.",
+                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Revisar y actualizar el PEI con la participaci\u00f3n activa de toda la comunidad educativa.",
+                    "rationale": "El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Dejarlo as\u00ed para evitar tr\u00e1mites.",
+                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
+        }        ,
+        {
+            "questionNumber": 63,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Ayer 2 camiones transportaron mercanc\u00eda. Hoy 3 camiones iguales har\u00e1n 6 viajes para mover la misma cantidad. \u00bfCu\u00e1ntos viajes hicieron ayer los 2 camiones?",
+            "answerOptions": [
+                {
+                    "text": "6",
+                    "rationale": "Esta no es la respuesta correcta. Total carga = 3 camiones * 6 viajes = 18 unidades de carga. Ayer: 18 unidades / 2 camiones = 9 viajes.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "9",
+                    "rationale": "Total carga = 3 camiones * 6 viajes = 18 unidades de carga. Ayer: 18 unidades / 2 camiones = 9 viajes.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "4",
+                    "rationale": "Esta no es la respuesta correcta. Total carga = 3 camiones * 6 viajes = 18 unidades de carga. Ayer: 18 unidades / 2 camiones = 9 viajes.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "12",
+                    "rationale": "Esta no es la respuesta correcta. Total carga = 3 camiones * 6 viajes = 18 unidades de carga. Ayer: 18 unidades / 2 camiones = 9 viajes.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Total carga = 3 camiones * 6 viajes = 18 unidades de carga. Ayer: 18 unidades / 2 camiones = 9 viajes.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 64,
+            "category": "Pedag\u00f3gica - TIC",
+            "difficulty": "expert",
+            "question": "El enfoque m\u00e1s pedag\u00f3gico del uso de TIC en el aula es:",
+            "answerOptions": [
+                {
+                    "text": "Reemplazar al docente con videos.",
+                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Usarlas como herramientas cognitivas para colaboraci\u00f3n e indagaci\u00f3n.",
+                    "rationale": "Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Restringir su uso a diapositivas.",
+                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Usarlas solo para premios.",
+                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 65,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Si 10 autos consumen 10 galones en 10 horas, \u00bfcu\u00e1ntos galones consume 1 auto en 1 hora?",
+            "answerOptions": [
+                {
+                    "text": "1/100",
+                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "1/10",
+                    "rationale": "10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "1",
+                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "10",
+                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 66,
+            "category": "Aptitud Verbal - Oraciones Incompletas",
+            "difficulty": "hard",
+            "question": "Los perros, gatos y otras plagas _____ tambi\u00e9n los animales de granja, son especies que dependen para su supervivencia de la especie humana _____ por su alto grado de domesticaci\u00f3n.",
+            "answerOptions": [
+                {
+                    "text": "y / ;",
+                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+                    "isCorrect": false
+                },
+                {
+                    "text": ", y / ,",
+                    "rationale": "La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+                    "isCorrect": true
+                },
+                {
+                    "text": ", o / ,",
+                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "; / y",
+                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+            "hint": "Fuente: Prueba APTITUD VERBAL 2016"
+        }        ,
+        {
+            "questionNumber": 67,
+            "category": "Situacional - Convivencia",
+            "difficulty": "expert",
+            "question": "Un estudiante consumi\u00f3 licor dentro del colegio. El manual estipula expulsi\u00f3n. El docente decide:",
+            "answerOptions": [
+                {
+                    "text": "Hacerle firmar un compromiso para no delatarlo.",
+                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Dialogar con el psic\u00f3logo e investigar qu\u00e9 anda mal en su vida privada (Debido Proceso).",
+                    "rationale": "Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Expulsarlo inmediatamente.",
+                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Castigarlo f\u00edsicamente.",
+                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+            "hint": "Fuente: 60 preguntas para concurso de reubicaci\u00f3n docente"
+        }        ,
+        {
+            "questionNumber": 68,
+            "category": "Razonamiento Cuantitat ivo",
+            "difficulty": "hard",
+            "question": "Se sabe que tres obreros tardan 8, 6 y 4 horas en pintar una casa individualmente. \u00bfCu\u00e1nto tiempo tardan juntos?",
+            "answerOptions": [
+                {
+                    "text": "Entre 1 y 2 horas",
+                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "6 horas",
+                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "18 horas",
+                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "1.84 horas",
+                    "rationale": "Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+                    "isCorrect": true
+                }
+            ],
+            "correctAnswer": "d",
+            "rationale": "Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+        }        ,
+        {
+            "questionNumber": 69,
+            "category": "Pedag\u00f3gica - Inclusi\u00f3n",
+            "difficulty": "expert",
+            "question": "En un aula hay dos grupos de rendimiento muy diferenciado. \u00bfQu\u00e9 est rategia es pertinente?",
+            "answerOptions": [
+                {
+                    "text": "Ense\u00f1ar solo al nivel promedio.",
+                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Separarlos en dos aulas distintas.",
+                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Reconocer la diversidad y brindar acompa\u00f1amiento diferenciado (andamiaje) a quienes tienen dificultades mientras reta a los avanzados.",
+                    "rationale": "La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ignorar a los de bajo rendimiento.",
+                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+            "hint": "Fuente: 60 preguntas para concurso de reubicaci\u00f3n docente"
+        }        ,
+        {
+            "questionNumber": 70,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "El 20% del 40% de una cantidad equivale al:",
+            "answerOptions": [
+                {
+                    "text": "60%",
+                    "rationale": "Esta no es la respuesta correcta. 0.20 * 0.40 = 0.08, que equivale al 8%.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "20%",
+                    "rationale": "Esta no es la respuesta correcta. 0.20 * 0.40 = 0.08, que equivale al 8%.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "30%",
+                    "rationale": "Esta no es la respuesta correcta. 0.20 * 0.40 = 0.08, que equivale al 8%.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "8%",
+                    "rationale": "0.20 * 0.40 = 0.08, que equivale al 8%.",
+                    "isCorrect": true
+                }
+            ],
+            "correctAnswer": "d",
+            "rationale": "0.20 * 0.40 = 0.08, que equivale al 8%.",
+            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+        }        ,
+        {
+            "questionNumber": 71,
+            "category": "Gesti\u00f3n - PEI",
+            "difficulty": "hard",
+            "question": "\u00bfCu\u00e1l es el principal indicador de que el PEI es efectivo?",
+            "answerOptions": [
+                {
+                    "text": "El n\u00famero de reuniones realizadas.",
+                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Que los resultados de aprendizaje se alineen con la visi\u00f3n y objetivos del PEI.",
+                    "rationale": "La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "La cantidad de dinero invertido en infraestructura.",
+                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "El cumplimiento estricto de horarios.",
+                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 72,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Un padre tiene 3 veces la edad de su hijo. Hace 10 a\u00f1os ten\u00eda 5 veces la edad. \u00bfEdad del hijo?",
+            "answerOptions": [
+                {
+                    "text": "20",
+                    "rationale": "P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "30",
+                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "40",
+                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "50",
+                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 73,
+            "category": "Pedag\u00f3gica - Did\u00e1ctica",
+            "difficulty": "expert",
+            "question": "\u00bfQu\u00e9 proceso es central para la competencia 'Construye interpretaciones hist\u00f3ricas'?",
+            "answerOptions": [
+                {
+                    "text": "Memorizar fechas.",
+                    "rationale": "Esta no es la respuesta correcta. La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Lectura y contraste cr\u00edtico de diversas fuentes.",
+                    "rationale": "La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Hacer res\u00famenes de un solo libro.",
+                    "rationale": "Esta no es la respuesta correcta. La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ver pel\u00edculas de \u00e9poca.",
+                    "rationale": "Esta no es la respuesta correcta. La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 74,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Pedro usa 1/4 del d\u00eda en tareas, 1/6 en deporte y 1/9 con amigos. \u00bfQu\u00e9 parte le queda libre?",
+            "answerOptions": [
+                {
+                    "text": "17/36",
+                    "rationale": "Suma de gastos: 1/4 + 1/6 + 1/9 = (9+6+4)/36 = 19/36. Libre = 1 - 19/36 = 17/36.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "12/25",
+                    "rationale": "Esta no es la respuesta correcta. Suma de gastos: 1/4 + 1/6 + 1/9 = (9+6+4)/36 = 19/36. Libre = 1 - 19/36 = 17/36.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "18/36",
+                    "rationale": "Esta no es la respuesta correcta. Suma de gastos: 1/4 + 1/6 + 1/9 = (9+6+4)/36 = 19/36. Libre = 1 - 19/36 = 17/36.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "19/36",
+                    "rationale": "Esta no es la respuesta correcta. Suma de gastos: 1/4 + 1/6 + 1/9 = (9+6+4)/36 = 19/36. Libre = 1 - 19/36 = 17/36.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "Suma de gastos: 1/4 + 1/6 + 1/9 = (9+6+4)/36 = 19/36. Libre = 1 - 19/36 = 17/36.",
+            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+        }        ,
+        {
+            "questionNumber": 75,
+            "category": "Legislaci\u00f3n - Evaluaci\u00f3n",
+            "difficulty": "hard",
+            "question": "Seg\u00fan la normativa colombiana, la evaluaci\u00f3n de los estudiantes en los niveles de b\u00e1sica y media debe ser:",
+            "answerOptions": [
+                {
+                    "text": "Cualitativa, integral y continua.",
+                    "rationale": "El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Solo sumativa y final.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Exclusivamente memor\u00edstica.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Dependiente del pago de pensi\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+            "hint": "Fuente: Manual de Funciones - MEN"
+        }        ,
+        {
+            "questionNumber": 76,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Tres anuncios se encienden a intervalos de 12, 15 y 18 minutos. Si coinciden a las 2:00 pm, \u00bfa qu\u00e9 hora repiten?",
+            "answerOptions": [
+                {
+                    "text": "5:00 pm",
+                    "rationale": "MCM(12, 15, 18) = 180 minutos. 180 min = 3 horas. 2:00 pm + 3 horas = 5:00 pm.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "4:00 pm",
+                    "rationale": "Esta no es la respuesta correcta. MCM(12, 15, 18) = 180 minutos. 180 min = 3 horas. 2:00 pm + 3 horas = 5:00 pm.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "3:30 pm",
+                    "rationale": "Esta no es la respuesta correcta. MCM(12, 15, 18) = 180 minutos. 180 min = 3 horas. 2:00 pm + 3 horas = 5:00 pm.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "6:00 pm",
+                    "rationale": "Esta no es la respuesta correcta. MCM(12, 15, 18) = 180 minutos. 180 min = 3 horas. 2:00 pm + 3 horas = 5:00 pm.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "MCM(12, 15, 18) = 180 minutos. 180 min = 3 horas. 2:00 pm + 3 horas = 5:00 pm.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 77,
+            "category": "Pedag\u00f3gica - Planificaci\u00f3n",
+            "difficulty": "expert",
+            "question": "Al planificar una unidad did\u00e1ctica, el docente debe considerar primero:",
+            "answerOptions": [
+                {
+                    "text": "El libro de texto.",
+                    "rationale": "Esta no es la respuesta correcta. El aprendizaje significativo parte de conectar los nuevos saberes con el contexto y los conocimientos previos del estudiante.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Los intereses, necesidades y saberes previos de los estudiantes.",
+                    "rationale": "El aprendizaje significativo parte de conectar los nuevos saberes con el contexto y los conocimientos previos del estudiante.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "La decoraci\u00f3n del aula.",
+                    "rationale": "Esta no es la respuesta correcta. El aprendizaje significativo parte de conectar los nuevos saberes con el contexto y los conocimientos previos del estudiante.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Las fechas de vacaciones.",
+                    "rationale": "Esta no es la respuesta correcta. El aprendizaje significativo parte de conectar los nuevos saberes con el contexto y los conocimientos previos del estudiante.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El aprendizaje significativo parte de conectar los nuevos saberes con el contexto y los conocimientos previos del estudiante.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 78,
+            "category": "Aptitud Verbal - Comprensi\u00f3n",
+            "difficulty": "hard",
+            "question": "Si un texto argumentativo defiende la eutanasia, una idea contraria ser\u00eda:",
+            "answerOptions": [
+                {
+                    "text": "El derecho a morir dignamente.",
+                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La autonom\u00eda del paciente.",
+                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La sacralidad de la vida por encima de la libertad individual.",
+                    "rationale": "La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "El alivio del sufrimiento.",
+                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+            "hint": "Fuente: Inferido de textos de Aptitud Verbal"
+        }        ,
+        {
+            "questionNumber": 79,
+            "category": "Psicot\u00e9cnica - Trabajo en Equipo",
+            "difficulty": "hard",
+            "question": "Un docente critica constantemente a sus colegas en reuniones. Como coordinador, usted debe:",
+            "answerOptions": [
+                {
+                    "text": "Ignorarlo para no crear conflicto.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Abordarlo en privado para retroalimentar sobre comunicaci\u00f3n asertiva y respeto.",
+                    "rationale": "La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Criticarlo p\u00fablicamente para que aprenda.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Expulsarlo de las reuniones.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+            "hint": "Fuente: Manual de Funciones - Competencias Comportamentales"
+        }        ,
+        {
+            "questionNumber": 80,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Una familia de 6 adultos tiene comida para 15 d\u00edas. Llegan 3  adultos m\u00e1s. \u00bfPara cu\u00e1ntos d\u00edas alcanza ahora?",
+            "answerOptions": [
+                {
+                    "text": "10 d\u00edas",
+                    "rationale": "Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "12 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "9 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "8 d\u00edas",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 81,
+            "category": "Pedag\u00f3gica - Ambiente de Aula",
+            "difficulty": "expert",
+            "question": "Para fomentar un clima de aula democr\u00e1tico, el docente debe:",
+            "answerOptions": [
+                {
+                    "text": "Imponer normas estrictas sin discusi\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Permitir que los estudiantes participen en la construcci\u00f3n de los acuerdos de convivencia.",
+                    "rationale": "La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Dejar que los estudiantes hagan lo que quieran (Laissez-faire).",
+                    "rationale": "Esta no es la respuesta correcta. La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Elegir un delegado que mande a los dem\u00e1s.",
+                    "rationale": "Esta no es la respuesta correcta. La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 82,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "El largo del puente A es 3 veces el largo del puente B. Si suman 120 metros, el puente m\u00e1s largo mide:",
+            "answerOptions": [
+                {
+                    "text": "30 m",
+                    "rationale": "Esta no es la respuesta correcta. A + B = 120. A = 3B. Entonces 3B + B = 120 -> 4B = 120 -> B = 30. A = 3(30) = 90m.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "40 m",
+                    "rationale": "Esta no es la respuesta correcta. A + B = 120. A = 3B. Entonces 3B + B = 120 -> 4B = 120 -> B = 30. A = 3(30) = 90m.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "80 m",
+                    "rationale": "Esta no es la respuesta correcta. A + B = 120. A = 3B. Entonces 3B + B = 120 -> 4B = 120 -> B = 30. A = 3(30) = 90m.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "90 m",
+                    "rationale": "A + B = 120. A = 3B. Entonces 3B + B = 120 -> 4B = 120 -> B = 30. A = 3(30) = 90m.",
+                    "isCorrect": true
+                }
+            ],
+            "correctAnswer": "d",
+            "rationale": "A + B = 120. A = 3B. Entonces 3B + B = 120 -> 4B = 120 -> B = 30. A = 3(30) = 90m.",
+            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Num\u00e9rica"
+        }        ,
+        {
+            "questionNumber": 83,
+            "category": "Pedag\u00f3gica - EIB",
+            "difficulty": "expert",
+            "question": "En un contexto de educaci\u00f3n intercultural (EIB), el docente debe:",
+            "answerOptions": [
+                {
+                    "text": "Prohibir la lengua materna.",
+                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Utilizar la lengua materna como puente para el aprendizaje y valorar la cultura local.",
+                    "rationale": "El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ense\u00f1ar solo la cultura occidental.",
+                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ignorar el contexto cultural.",
+                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 84,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Un tanque de 1200 cm3 est\u00e1 lleno 3/4 en invierno y 2/3 en verano. La diferencia es:",
+            "answerOptions": [
+                {
+                    "text": "100 cm3",
+                    "rationale": "Invierno: 3/4 de 1200 = 900. Verano: 2/3 de 1200 = 800. Diferencia: 900 - 800 = 100 cm3.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "200 cm3",
+                    "rationale": "Esta no es la respuesta correcta. Invierno: 3/4 de 1200 = 900. Verano: 2/3 de 1200 = 800. Diferencia: 900 - 800 = 100 cm3.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "300 cm3",
+                    "rationale": "Esta no es la respuesta correcta. Invierno: 3/4 de 1200 = 900. Verano: 2/3 de 1200 = 800. Diferencia: 900 - 800 = 100 cm3.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "120 cm3",
+                    "rationale": "Esta no es la respuesta correcta. Invierno: 3/4 de 1200 = 900. Verano: 2/3 de 1200 = 800. Diferencia: 900 - 800 = 100 cm3.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "Invierno: 3/4 de 1200 = 900. Verano: 2/3 de 1200 = 800. Diferencia: 900 - 800 = 100 cm3.",
+            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Num\u00e9rica"
+        }        ,
+        {
+            "questionNumber": 85,
+            "category": "Aptitud Verbal - Ordenamiento",
+            "difficulty": "hard",
+            "question": "Ordene la oraci\u00f3n: 1. lleva 2. esa 3. alegre 4. mu\u00f1eca 5. a 6. su 7. infancia 8. la",
+            "answerOptions": [
+                {
+                    "text": "2, 4, 8, 1, 5, 6, 3, 7",
+                    "rationale": "'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "6, 3, 4, 8, 1, 5, 2, 7",
+                    "rationale": "Esta no es la respuesta correcta. 'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "2, 3, 7, 8, 1, 5, 6, 4",
+                    "rationale": "Esta no es la respuesta correcta. 'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "6, 7, 8, 1, 5, 2, 3, 4",
+                    "rationale": "Esta no es la respuesta correcta. 'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Verbal"
+        }        ,
+        {
+            "questionNumber": 86,
+            "category": "Pedag\u00f3gica - \u00c9tica",
+            "difficulty": "expert",
+            "question": "Seg\u00fan la \u00e9tica docente, frente a los resultados de evaluaci\u00f3n, el deber es:",
+            "answerOptions": [
+                {
+                    "text": "Ocultarlos hasta el final.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Usarlos para clasificar a los alumnos.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Comunicarlos y usarlos para la mejora continua (retroalimentaci\u00f3n).",
+                    "rationale": "La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ignorar los.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+            "hint": "Fuente: Material de estudio Concurso docente 2026"
+        }        ,
+        {
+            "questionNumber": 87,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Si un c\u00edrculo tiene radio 10 cm, su \u00e1rea es (pi = 3.14):",
+            "answerOptions": [
+                {
+                    "text": "31.4",
+                    "rationale": "Esta no es la respuesta correcta. \u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "314",
+                    "rationale": "\u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "100",
+                    "rationale": "Esta no es la respuesta correcta. \u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "62.8",
+                    "rationale": "Esta no es la respuesta correcta. \u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "\u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+            "hint": "Fuente: Conocimiento General Matem\u00e1tico"
+        }        ,
+        {
+            "questionNumber": 88,
+            "category": "Situacional - Rector\u00eda",
+            "difficulty": "expert",
+            "question": "El rector debe decidir entre construir una piscina o una pista de patinaje. \u00bfQu\u00e9 debe hacer?",
+            "answerOptions": [
+                {
+                    "text": "Decidir seg\u00fan su gusto personal.",
+                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Realizar un estudio t\u00e9cnico y consultar las necesidades e intereses de la comunidad educativa.",
+                    "rationale": "La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Hacer una rifa.",
+                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Preguntar solo a los padres.",
+                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAG\u00d3GICA GENERAL"
+        }        ,
+        {
+            "questionNumber": 89,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "En una reuni\u00f3n, la mitad son mujeres, de ellas 1/6 son altas. Si hay 36 personas, \u00bfcu\u00e1ntas mujeres NO son altas?",
+            "answerOptions": [
+                {
+                    "text": "12",
+                    "rationale": "Esta no es la respuesta correcta. Total 36. Mujeres = 18. Altas = 1/6 de 18 = 3. No altas = 18 - 3 = 15.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "15",
+                    "rationale": "Total 36. Mujeres = 18. Altas = 1/6 de 18 = 3. No altas = 18 - 3 = 15.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "3",
+                    "rationale": "Esta no es la respuesta correcta. Total 36. Mujeres = 18. Altas = 1/6 de 18 = 3. No altas = 18 - 3 = 15.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "18",
+                    "rationale": "Esta no es la respuesta correcta. Total 36. Mujeres = 18. Altas = 1/6 de 18 = 3. No altas = 18 - 3 = 15.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Total 36. Mujeres = 18. Altas = 1/6 de 18 = 3. No altas = 18 - 3 = 15.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 90,
+            "category": "Pedag\u00f3gica - Evaluaci\u00f3n",
+            "difficulty": "expert",
+            "question": "El uso de r\u00fabricas detalladas compartidas previamente con los estudiantes favorece:",
+            "answerOptions": [
+                {
+                    "text": "Que el docente trabaje menos.",
+                    "rationale": "Esta no es la respuesta correcta. La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La autoevaluaci\u00f3n y la claridad sobre los objetivos de aprendizaje.",
+                    "rationale": "La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Que todos saquen la misma nota.",
+                    "rationale": "Esta no es la respuesta correcta. La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La memorizaci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+            "hint": "Fuente: 02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
+        }        ,
+        {
+            "questionNumber": 91,
+            "category": "Aptitud Verbal - Comprensi\u00f3n",
+            "difficulty": "hard",
+            "question": "En un texto sobre 'El futuro del libro', si el autor dice que el libro es una extensi\u00f3n de la memoria, implica que:",
+            "answerOptions": [
+                {
+                    "text": "Los libros ocupan mucho espacio.",
+                    "rationale": "Esta no es la respuesta correcta. La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Los libros permiten preservar el conocimiento humano a trav\u00e9s del tiempo.",
+                    "rationale": "La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "La memoria humana es infinita.",
+                    "rationale": "Esta no es la respuesta correcta. La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Los libros son obsoletos.",
+                    "rationale": "Esta no es la respuesta correcta. La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+        }        ,
+        {
+            "questionNumber": 92,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Si a/b = 2/3 y b/c = 3/5, entonces a/c es:",
+            "answerOptions": [
+                {
+                    "text": "2/5",
+                    "rationale": "(a/b) * (b/c) = a/c. (2/3) * (3/5) = 6/15 = 2/5.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "5/2",
+                    "rationale": "Esta no es la respuesta correcta. (a/b) * (b/c) = a/c. (2/3) * (3/5) = 6/15 = 2/5.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "6/15",
+                    "rationale": "Esta no es la respuesta correcta. (a/b) * (b/c) = a/c. (2/3) * (3/5) = 6/15 = 2/5.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "1/3",
+                    "rationale": "Esta no es la respuesta correcta. (a/b) * (b/c) = a/c. (2/3) * (3/5) = 6/15 = 2/5.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "(a/b) * (b/c) = a/c. (2/3) * (3/5) = 6/15 = 2/5.",
+            "hint": "Fuente: Conocimiento General Matem\u00e1tico"
+        }        ,
+        {
+            "questionNumber": 93,
+            "category": "Legislaci\u00f3n - Manual de Convivencia",
+            "difficulty": "hard",
+            "question": "Seg\u00fan la Ley 1620, el Manual de Convivencia debe:",
+            "answerOptions": [
+                {
+                    "text": "Ser un listado de castigos.",
+                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Construirse participativamente y definir la ruta de atenci\u00f3n integral.",
+                    "rationale": "El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Copiar el c\u00f3digo de polic\u00eda.",
+                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ser redactado solo por el rector.",
+                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+            "hint": "Fuente: Manual de Funciones - MEN"
+        }        ,
+        {
+            "questionNumber": 94,
+            "category": "Razonamiento Cuantitativo",
+            "difficulty": "hard",
+            "question": "Un vendedor recibe un sueldo base m\u00e1s 10% de comisi\u00f3n. Si vendi\u00f3 10 millones y recibi\u00f3 2 millones en total, su sueldo base es:",
+            "answerOptions": [
+                {
+                    "text": "1 mill\u00f3n",
+                    "rationale": "Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "800 mil",
+                    "rationale": "Esta no es la respuesta correcta. Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "1.2 millones",
+                    "rationale": "Esta no es la respuesta correcta. Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "500 mil",
+                    "rationale": "Esta no es la respuesta correcta. Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+        }        ,
+        {
+            "questionNumber": 95,
+            "category": "Pedag\u00f3gica - Motivaci\u00f3n",
+            "difficulty": "expert",
+            "question": "Un estudiante no participa en clase por miedo a equivocarse. El docente debe:",
+            "answerOptions": [
+                {
+                    "text": "No preguntarle nunca para no incomodarlo.",
+                    "rationale": "Esta no es la respuesta correcta. La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Crear un clima de confianza donde el error sea visto como parte del aprendizaje.",
+                    "rationale": "La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Oblig arlo a participar para que pierda el miedo.",
+                    "rationale": "Esta no es la respuesta correcta. La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Bajarle puntos por no participar.",
+                    "rationale": "Esta no es la respuesta correcta. La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+            "hint": "Fuente: 60 preguntas para concurso de reubicaci\u00f3n docente"
+        }
     ]
 };
 
