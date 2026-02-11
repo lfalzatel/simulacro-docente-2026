@@ -553,28 +553,32 @@ header {
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px var(--shadow-color);
-    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--shadow-color);
 }
 
 .stat-icon {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+    /* Remove bottom margin */
+    /* background: var(--bg-body-start); Optional: add background to icon? */
+    /* padding: 0.5rem; */
+    /* border-radius: 50%; */
 }
 
 .stat-value {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.2rem;
+    line-height: 1.2;
 }
 
 .stat-label {
     color: var(--text-secondary);
     font-size: 0.85rem;
     line-height: 1.2;
+    margin-top: 0.2rem;
 }
 
 .action-section {
