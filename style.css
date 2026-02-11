@@ -517,6 +517,9 @@ header {
     word-wrap: break-word;
     /* Break long words if needed */
     overflow-wrap: break-word;
+    /* Standard property */
+    min-width: 0;
+    /* Help flexbox shrinking */
 }
 
 .stats-grid {
@@ -1163,9 +1166,9 @@ header {
 
     .welcome-text {
         display: block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        /* Allow wrapping on mobile */
+        white-space: normal;
+        overflow: visible;
     }
 
     /* Actually, let's just make the container smaller */
