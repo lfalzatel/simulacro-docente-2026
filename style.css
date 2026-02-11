@@ -44,22 +44,27 @@
 
 /* Deep Focus Theme */
 [data-theme="deep"] {
-    --bg-body-start: #F4F7F6;
-    --bg-body-end: #E0E6E6;
-    --bg-card: #FFFFFF;
-    --bg-header: rgba(255, 255, 255, 0.95);
-    --bg-overlay-Start: rgba(44, 62, 80, 0.05);
-    --bg-overlay-End: rgba(39, 174, 96, 0.05);
+    --bg-body-start: #E6ECEB;
+    --bg-body-end: #D3DCDB;
+    --bg-card: #FAFBFC;
+    --bg-header: rgba(250, 251, 252, 0.95);
+    --bg-overlay-Start: rgba(44, 62, 80, 0.08);
+    --bg-overlay-End: rgba(5, 150, 105, 0.08);
 
-    --text-primary: #2C3E50;
-    /* Midnight Blue */
-    --text-secondary: #7F8C8D;
+    --text-primary: #1F2937;
+    /* Darker gray for better contrast */
+    --text-secondary: #6B7280;
 
-    --accent-primary: #27AE60;
-    /* Nephritis */
-    --accent-secondary: #2ECC71;
-    --highlight: #F39C12;
-    --border-color: #BDC3C7;
+    --accent-primary: #059669;
+    /* Emerald green for concentration */
+    --accent-secondary: #0891B2;
+    /* Vibrant cyan */
+    --highlight: #F59E0B;
+    --border-color: #D1D5DB;
+
+    /* Surface and shadows for better depth */
+    --surface: #FFFFFF;
+    --shadow-color: rgba(0, 0, 0, 0.12);
 }
 
 /* Night Mode */
@@ -483,8 +488,8 @@ header {
 .welcome-section {
     background: var(--bg-card);
     border-radius: 20px;
-    padding: 2.5rem;
-    margin-bottom: 2.5rem;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
     border: 2px solid var(--border-color);
     box-shadow: 0 10px 30px var(--shadow-color);
     animation: fadeInUp 0.8s ease-out 0.2s both;
@@ -492,16 +497,19 @@ header {
 
 .welcome-title {
     font-family: 'Crimson Pro', serif;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .welcome-text {
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .stats-grid {
@@ -799,6 +807,30 @@ header {
     background: var(--bg-body-end);
     color: var(--accent-primary);
     transform: translateX(-3px);
+}
+
+/* Close Button for Profile and Reports */
+.close-btn {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.close-btn:hover {
+    background: var(--error-bg);
+    border-color: var(--error-text);
+    color: var(--error-text);
+    transform: rotate(90deg) scale(1.1);
 }
 
 .progress-track {

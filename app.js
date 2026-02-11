@@ -144,6 +144,27 @@ async function showDashboard(user) {
 
     // NOTE: Dashboard stats will be updated by cargarProgreso() after data loads
     // Do NOT call updateDashboardStats() here - userProgress is still empty!
+
+    // Update welcome message based on visit count
+    updateWelcomeMessage();
+}
+
+// Dynamic welcome message for first-time vs returning users
+async function updateWelcomeMessage() {
+    const welcomeEl = document.getElementById('welcome-message');
+    if (!welcomeEl) return;
+
+    // Scope visit count to current user to prevent cross-user data issues
+    const user = supabaseApp?.auth?.getUser ? (await supabaseApp.auth.getUser()).data.user : null;
+    const userId = user?.id || 'guest';
+    const storageKey = `visitCount_${userId}`;
+
+    const visitCount = parseInt(localStorage.getItem(storageKey) || '0');
+    const message = visitCount === 0 ? '¡Bienvenido! 👋' : '¡Hola de nuevo! 👋';
+    welcomeEl.textContent = message;
+
+    // Increment visit count
+    localStorage.setItem(storageKey, (visitCount + 1).toString());
 }
 
 async function updateDashboardStats() {

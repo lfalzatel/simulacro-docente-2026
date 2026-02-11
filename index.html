@@ -130,7 +130,7 @@
         <!-- Dashboard -->
         <div class="dashboard hidden" id="dashboard">
             <div class="welcome-section">
-                <h1 class="welcome-title">¡Hola de nuevo! 👋</h1>
+                <h1 class="welcome-title" id="welcome-message">¡Hola de nuevo! 👋</h1>
                 <p class="welcome-text">
                     Continúa tu preparación para el concurso docente 2026.
                     Tu progreso se guarda automáticamente cada vez que respondes una pregunta.
@@ -179,8 +179,7 @@
                         <h1 class="welcome-title">Tu Perfil</h1>
                         <p class="welcome-text">Resumen detallado de tu actividad y desempeño.</p>
                     </div>
-                    <button class="back-btn" onclick="switchView('dashboard')" title="Volver"
-                        style="margin: 0;">✕</button>
+                    <button class="close-btn" onclick="switchView('dashboard')" title="Volver al Dashboard">✕</button>
                 </div>
             </div>
 
@@ -258,8 +257,7 @@
                         <h1 class="welcome-title">📊 Reportes Detallados</h1>
                         <p class="welcome-text">Análisis completo de tu rendimiento por categoría temática.</p>
                     </div>
-                    <button class="back-btn" onclick="switchView('dashboard')" title="Volver"
-                        style="margin: 0;">✕</button>
+                    <button class="close-btn" onclick="switchView('dashboard')" title="Volver al Dashboard">✕</button>
                 </div>
             </div>
 
