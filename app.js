@@ -1168,9 +1168,58 @@ async function cargarProgreso(user = null) {
                 // Fallback to local
                 cargarProgresoLocal();
             } else {
-                // No cloud data, use local
-                console.log("🆕 Sin datos en nube, usando local");
-                cargarProgresoLocal();
+                // No cloud data.
+                console.log("🆕 Sin datos en nube.");
+
+                // ---------------------------------------------------------
+                // MIGRATION LOGIC (Fix Reset Issue)
+                // ---------------------------------------------------------
+                // If user has NO cloud data and NO specific local data,
+                // check if they have "Legacy/Anonymous" data and import it.
+
+                const newKey = getStorageKey();
+                const existingNewData = localStorage.getItem(newKey);
+
+                let migrated = false;
+
+                if (!existingNewData) {
+                    const legacyKey = 'progresoUsuario';
+                    const legacyData = localStorage.getItem(legacyKey);
+
+                    if (legacyData) {
+                        try {
+                            console.log("♻️ Detectado progreso anónimo antiguo. Migrando a perfil de usuario...");
+                            const parsedLegacy = JSON.parse(legacyData);
+
+                            // Validate it has meaningful data
+                            if (parsedLegacy.answers && Object.keys(parsedLegacy.answers).length > 0) {
+                                userProgress = parsedLegacy.answers || {};
+                                score = parsedLegacy.score || 0;
+                                userProgress.safeLastIndex = parsedLegacy.lastIndex || 0;
+
+                                if (parsedLegacy.totalTime) userProgress.totalTime = parsedLegacy.totalTime;
+                                else if (parsedLegacy.answers?.totalTime) userProgress.totalTime = parsedLegacy.answers.totalTime;
+
+                                currentQuestionIndex = userProgress.safeLastIndex;
+
+                                console.log(`✅ Migración exitosa: ${Object.keys(userProgress).length} respuestas recuperadas.`);
+
+                                // Save immediately to New Key and Cloud
+                                await guardarProgresoCompleto();
+
+                                migrated = true;
+                            }
+                        } catch (err) {
+                            console.error("❌ Error en migración:", err);
+                        }
+                    }
+                }
+
+                if (!migrated) {
+                    // Fallback standard
+                    console.log("🆕 No hubo migración, cargando local estándar.");
+                    cargarProgresoLocal();
+                }
             }
         } catch (error) {
             console.error('❌ Error al cargar de cloud:', error);
@@ -1589,7 +1638,7 @@ async function logout() {
 
     try {
         // 1. LIMPIEZA LOCAL INMEDIATA (Prioridad Usuario)
-        localStorage.removeItem('progresoUsuario');
+        // localStorage.removeItem('progresoUsuario'); // ⚠️ DISABLED to prevent data loss of legacy data
         userProgress = {};
         score = 0;
         currentQuestionIndex = 0;
