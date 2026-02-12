@@ -150,6 +150,17 @@
                 </p>
             </div>
 
+            <!-- SIMULATOR SELECTOR (DASHBOARD) - MOVED HERE -->
+            <div style="margin-bottom: 2rem;">
+                <label
+                    style="display: block; color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">Analizar
+                    progreso de:</label>
+                <select id="dashboard-sim-selector" class="sim-selector" onchange="handleSimulatorChange(this.value)"
+                    style="width: 100%; padding: 0.75rem; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-size: 1rem;">
+                    <option value="" disabled selected>Cargando simulacros...</option>
+                </select>
+            </div>
+
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon">🎯</div>
