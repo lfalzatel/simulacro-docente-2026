@@ -1015,89 +1015,60 @@ async function guardarProgresoCompleto(silent = false) {
     localStorage.setItem(key, JSON.stringify(progressData));
     if (!silent) console.log(`💾 Progreso completo guardado localmente en ${key}`);
 
-    // CLOUD SYNC: Only for default simulator (Simon 1)
-    // to avoid mixing data in the single-row database table.
+    // CLOUD SYNC: Unified V2 for ALL simulators
+    // Legacy simulacro_progress is deprecated for writes.
     const isDefaultSim = !currentSimulacroId || (window.currentSimulacroNum === 1);
 
-    if (supabaseApp && isDefaultSim) {
+    // Force Sim 1 ID for Save
+    if (isDefaultSim && !currentSimulacroId) {
+        currentSimulacroId = 'd15c2a06-b97f-4349-817b-14e07377a0e6';
+    }
+
+    if (supabaseApp) {
         try {
             const { data: { user } } = await supabaseApp.auth.getUser();
             if (user) {
-                const { error } = await supabaseApp.from('simulacro_progress').upsert({
+                // Upsert to V2 table including simulacro_id
+                const { error } = await supabaseApp.from('simulacro_progress_v2').upsert({
                     user_id: user.id,
+                    simulacro_id: currentSimulacroId, // Critical: Distinguish exams
                     progress_data: userProgress,
                     score: score,
                     last_index: currentQuestionIndex,
+                    total_correctas: Object.values(userProgress).filter(a => a.isCorrect).length, // Add explicit counters
+                    total_incorrectas: Object.values(userProgress).filter(a => !a.isCorrect).length,
+                    total_respondidas: Object.values(userProgress).length,
                     updated_at: new Date().toISOString()
-                }, { onConflict: 'user_id' });
+                }, { onConflict: 'user_id, simulacro_id' }); // Relies on unique constraint
 
                 if (error) {
-                    console.error('❌ Error al guardar progreso:', error);
-                    if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Sync";
+                    console.error('❌ Error al guardar progreso V2:', error);
+                    if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Sync V2";
                 } else {
                     if (!silent) {
-                        console.log(`☁️ Progreso completo sincronizado`);
+                        console.log(`☁️ Progreso V2 (${currentSimulacroId}) sincronizado`);
                         if (statusEl) statusEl.innerHTML = "☁️ Sincronizado";
                     }
                 }
             }
         } catch (error) {
-            console.error('❌ Error al sincronizar:', error);
-            if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Red";
+            console.error('❌ Error al sincronizar V2:', error);
+            if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Red V2";
         } finally {
-            // ALWAYS Clear Status after delay if interaction was not silent
             if (!silent && statusEl) {
                 setTimeout(() => {
                     statusEl.classList.remove('visible');
-                    // Optional: clear text after hidden transition
                 }, 2000);
             }
         }
-    } else if (currentSimulacroId) {
-        // Multi-Simulator Cloud Sync (Sim 2, 3, etc.)
-        // Uses 'simulacro_progress_v2' table
-        if (supabaseApp) {
-            try {
-                const { data: { user } } = await supabaseApp.auth.getUser();
-                if (user) {
-                    // Upsert to V2 table including simulacro_id
-                    const { error } = await supabaseApp.from('simulacro_progress_v2').upsert({
-                        user_id: user.id,
-                        simulacro_id: currentSimulacroId, // Critical: Distinguish exams
-                        progress_data: userProgress,
-                        score: score,
-                        last_index: currentQuestionIndex,
-                        updated_at: new Date().toISOString()
-                    }, { onConflict: 'user_id, simulacro_id' }); // Relies on unique constraint
-
-                    if (error) {
-                        console.error('❌ Error al guardar progreso V2:', error);
-                        if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Sync V2";
-                    } else {
-                        if (!silent) {
-                            console.log(`☁️ Progreso V2 (${currentSimulacroId}) sincronizado`);
-                            if (statusEl) statusEl.innerHTML = "☁️ Sincronizado";
-                        }
-                    }
-                }
-            } catch (error) {
-                console.error('❌ Error al sincronizar V2:', error);
-                if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Red V2";
-            } finally {
-                if (!silent && statusEl) {
-                    setTimeout(() => {
-                        statusEl.classList.remove('visible');
-                    }, 2000);
-                }
-            }
-        } else {
-            // Fallback local if no supabase
-            if (!silent && statusEl) {
-                statusEl.innerHTML = "💾 Guardado (Local)";
-                setTimeout(() => { statusEl.classList.remove('visible'); }, 2000);
-            }
+    } else {
+        // Fallback local if no supabase
+        if (!silent && statusEl) {
+            statusEl.innerHTML = "💾 Guardado (Local)";
+            setTimeout(() => { statusEl.classList.remove('visible'); }, 2000);
         }
     }
+}
 }
 
 // Nueva función para sincronizar manualmente
@@ -1125,10 +1096,15 @@ async function cargarProgreso(user = null) {
     console.log("📂 Cargando progreso...", user ? `(user: ${user.email})` : "(sin user)");
     const statusEl = document.getElementById('save-status');
 
-    // Determine which table to use based on simulator number
-    // Sim 1 -> simulacro_progress (Legacy table, no simulacro_id)
-    // Sim 2+ -> simulacro_progress_v2 (New table, with simulacro_id)
+    // Sim 1 -> simulacro_progress (Legacy) BUT we are migrating to V2
+    // Sim 2+ -> simulacro_progress_v2
     const isSim1 = !window.currentSimulacroNum || window.currentSimulacroNum === 1;
+
+    // Force Sim 1 ID if not set (Migration Logic)
+    if (isSim1 && !currentSimulacroId) {
+        currentSimulacroId = 'd15c2a06-b97f-4349-817b-14e07377a0e6';
+        console.log("⚠️ Set fallback ID for Sim 1:", currentSimulacroId);
+    }
 
     if (supabaseApp && user) {
         try {
@@ -1139,31 +1115,36 @@ async function cargarProgreso(user = null) {
                 setTimeout(() => reject(new Error('Supabase query timeout (5s)')), 5000)
             );
 
-            let queryPromise;
+            // ALWAYS try V2 first (Unified Architecture)
+            console.log(`✓ Consultando progreso Sim ${window.currentSimulacroNum || 1} (simulacro_progress_v2)...`);
 
-            if (isSim1) {
-                console.log("✓ Consultando progreso Sim 1 (simulacro_progress)...");
-                queryPromise = supabaseApp
+            let queryPromise = supabaseApp
+                .from('simulacro_progress_v2')
+                .select('*')
+                .eq('user_id', user.id)
+                .eq('simulacro_id', currentSimulacroId)
+                .single();
+
+            let { data, error } = await Promise.race([queryPromise, timeoutPromise]);
+
+            // Fallback for Sim 1: Check Legacy Table if V2 is empty
+            if (isSim1 && (error || !data)) {
+                console.log("⚠️ Sim 1 V2 vacío/error, buscando en Legacy (simulacro_progress)...");
+                const legacyQuery = supabaseApp
                     .from('simulacro_progress')
                     .select('*')
                     .eq('user_id', user.id)
                     .single();
-            } else {
-                console.log(`✓ Consultando progreso Sim ${window.currentSimulacroNum} (simulacro_progress_v2)...`);
-                // Ensure we have an ID for matching
-                if (!currentSimulacroId) {
-                    console.warn("⚠️ No currentSimulacroId for V2 load, skipping.");
-                    throw new Error("Missing simulacro ID for V2 load");
-                }
-                queryPromise = supabaseApp
-                    .from('simulacro_progress_v2')
-                    .select('*')
-                    .eq('user_id', user.id)
-                    .eq('simulacro_id', currentSimulacroId)
-                    .single();
-            }
 
-            const { data, error } = await Promise.race([queryPromise, timeoutPromise]);
+                const legacyResult = await legacyQuery;
+                if (legacyResult.data && !legacyResult.error) {
+                    console.log("♻️ Encontrado en Legacy. Usando datos antiguos.");
+                    data = legacyResult.data;
+                    // It will be migrated to V2 on next save
+                    // We need to shape it like V2? V2 has 'progress_data', V1 has 'progress_data' (jsonb). 
+                    // They are compatible enough for read.
+                }
+            }
 
             if (data && !error) {
                 console.log(`☁️ Datos encontrados para Sim ${window.currentSimulacroNum || 1}`);
