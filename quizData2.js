@@ -96,7 +96,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 4,
-            "category": "Inclusión",
+            "category": "Inclusión y Diversidad",
             "difficulty": "expert",
             "question": "Un estudiante con trastorno del espectro autista (TEA) muestra excelente desempeño académico en matemáticas y ciencias, pero evita trabajos grupales y presenta ansiedad significativa durante presentaciones orales. Según el Diseño Universal para el Aprendizaje (DUA), ¿cuál es la mejor estrategia para evaluar su comprensión en ciencias sociales sin comprometer los objetivos de aprendizaje?",
             "answerOptions": [
@@ -127,7 +127,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 5,
-            "category": "Marco Normativo",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "hard",
             "question": "Según el Decreto 1278 de 2002, la evaluación de desempeño de un docente en período de prueba debe considerar múltiples dimensiones. Un coordinador académico observa que un docente recién nombrado tiene excelente dominio disciplinar y preparación de clases, pero dificultades significativas en la comunicación con padres de familia y colegas. ¿Qué acción es más coherente con los criterios del Decreto 1278?",
             "answerOptions": [
@@ -282,7 +282,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 10,
-            "category": "Inclusión",
+            "category": "Inclusión y Diversidad",
             "difficulty": "hard",
             "question": "Una estudiante con dislexia toma más tiempo en las evaluaciones escritas, logrando solo completar 60% de las preguntas aunque sus respuestas muestran comprensión profunda. Según el principio de equidad en evaluación, ¿cuál es la adaptación más apropiada?",
             "answerOptions": [
@@ -313,7 +313,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 11,
-            "category": "Marco Normativo",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "hard",
             "question": "Según los Derechos Básicos de Aprendizaje (DBA) y los lineamientos curriculares colombianos, un docente debe diseñar currículo para 5° grado. Los DBA son muy específicos, mientras los lineamientos dan orientaciones generales. ¿Cuál es la relación adecuada entre ambos según el MEN?",
             "answerOptions": [
@@ -433,11 +433,12 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "a",
             "rationale": "El DUA Principio II (Proporcionar múltiples medios de Acción y Expresión) reconoce que las habilidades ejecutivas varían. El TDAH afecta regulación motora, atención sostenida y funciones ejecutivas, NO capacidad intelectual. Las adaptaciones apropiadas: 1) permiten movimiento (necesidad neurológica legítima), 2) ofrecen medios alternativos de expresión (dictado), 3) compensan dificultades ejecutivas (segmentación). Estas adaptaciones no reducen estándares conceptuales sino que eliminan barreras de formato. Esto es equidad: permitir que la brillantez intelectual se manifieste sin barreras ejecutivas irrelevantes.",
-            "hint": "DUA para TDAH: eliminar barreras ejecutivas/motoras, NO reducir expectativas conceptuales."
+            "hint": "DUA para TDAH: eliminar barreras ejecutivas/motoras, NO reducir expectativas conceptuales.",
+            "category": "Pedagogía y Didáctica"
         },
         {
             "questionNumber": 15,
-            "category": "Marco Normativo",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "hard",
             "question": "Según la Ley 1620 de 2013 (Sistema Nacional de Convivencia Escolar), un docente observa acoso escolar sistemático hacia un estudiante LGBTQ+. El manual de convivencia institucional no menciona explícitamente orientación sexual. ¿Cuál es la acción más apropiada según el marco normativo colombiano?",
             "answerOptions": [
@@ -623,7 +624,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 21,
-            "category": "Marco Normativo",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "hard",
             "question": "Según el Decreto 1290 de 2009, un estudiante reprobó el año académico y solicita graduación mediante 'validación' de todo el grado en examen único. ¿Es esto procedente según la norma?",
             "answerOptions": [
@@ -654,7 +655,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 22,
-            "category": "Inclusión",
+            "category": "Inclusión y Diversidad",
             "difficulty": "expert",
             "question": "Un estudiante ciego con software lector de pantalla necesita acceder a gráficas complejas en clase de estadística. ¿Cuál adaptación refleja mejor los principios del DUA para representación accesible?",
             "answerOptions": [
@@ -782,10 +783,26 @@ const RAW_QUIZ_DATA_2 = {
             "difficulty": "expert",
             "question": "Una escuela atiende población indígena y mestiza. Durante clase de ciencias naturales, estudiantes indígenas mencionan conocimientos tradicionales sobre plantas medicinales que contradicen parcialmente explicaciones farmacológicas occidentales. ¿Cuál enfoque refleja mejor pedagogía culturalmente sostenida según Paris y Alim?",
             "answerOptions": [
-                { "text": "Validar respetuosamente el conocimiento tradicional pero aclarar que el conocimiento científico occidental es más confiable por estar basado en evidencia empírica rigurosa.", "rationale": "Esta respuesta mantiene jerarquía epistemológica: conocimiento occidental como superior, tradicional como 'creencia' respetable pero no verdad. Paris y Alim critican esta 'tolerancia' que no desafía poder epistémico. Pedagogía culturalmente sostenida busca pluralismo genuino: reconocer múltiples sistemas de conocimiento como válidos en sus propios términos.", "isCorrect": false },
-                { "text": "Crear espacio para diálogo epistémico: examinar qué puede aprenderse de cada sistema, explorar convergencias y divergencias, y reconocer que ambos generan conocimientos valiosos desde epistemologías distintas.", "rationale": "CORRECTA. Pedagogía culturalmente sostenida (culturally sustaining pedagogy) no solo valida cultura sino que la SOSTIENE activamente como recurso de aprendizaje. En lugar de asimilar conocimiento indígena al marco occidental, esta práctica reconoce pluralismo epistémico: múltiples formas válidas de conocer. Explorar críticamente ambos sistemas (sin subordinar uno) desarrolla sofisticación epistemológica y mantiene vitalidad cultural.", "isCorrect": true },
-                { "text": "Dedicar días culturales específicos a conocimientos tradicionales, pero mantener el currículo regular de ciencias enfocado en conocimiento científico occidental.", "rationale": "Esta respuesta 'folcloriza' el conocimiento indígena: relegándolo a celebraciones ocasionales mientras el conocimiento 'serio' permanece occidental. Paris y Alim llaman esto 'pedagogía turística'. La pedagogía culturalmente sostenida integra conocimientos diversos en el currículo central, no como 'adición multicultural' sino como riguroso y relevante para todos los estudiantes.", "isCorrect": false },
-                { "text": "Animar a estudiantes indígenas a investigar y presentar sus conocimientos tradicionales como proyectos de ciencia, integrando saberes ancestrales en evaluación.", "rationale": "Si bien esta respuesta valora conocimiento tradicional, puede caer en 'exotización': solo estudiantes indígenas presentan saberes tradicionales mientras conocimiento occidental es universal para todos. La pedagogía culturalmente sostenida integra saberes diversos para TODOS los estudiantes, no etnifica el conocimiento ('este es para indígenas, aquel para todos'). La integración debe ser curricular, no individual.", "isCorrect": false }
+                {
+                    "text": "Validar respetuosamente el conocimiento tradicional pero aclarar que el conocimiento científico occidental es más confiable por estar basado en evidencia empírica rigurosa.",
+                    "rationale": "Esta respuesta mantiene jerarquía epistemológica: conocimiento occidental como superior, tradicional como 'creencia' respetable pero no verdad. Paris y Alim critican esta 'tolerancia' que no desafía poder epistémico. Pedagogía culturalmente sostenida busca pluralismo genuino: reconocer múltiples sistemas de conocimiento como válidos en sus propios términos.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Crear espacio para diálogo epistémico: examinar qué puede aprenderse de cada sistema, explorar convergencias y divergencias, y reconocer que ambos generan conocimientos valiosos desde epistemologías distintas.",
+                    "rationale": "CORRECTA. Pedagogía culturalmente sostenida (culturally sustaining pedagogy) no solo valida cultura sino que la SOSTIENE activamente como recurso de aprendizaje. En lugar de asimilar conocimiento indígena al marco occidental, esta práctica reconoce pluralismo epistémico: múltiples formas válidas de conocer. Explorar críticamente ambos sistemas (sin subordinar uno) desarrolla sofisticación epistemológica y mantiene vitalidad cultural.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Dedicar días culturales específicos a conocimientos tradicionales, pero mantener el currículo regular de ciencias enfocado en conocimiento científico occidental.",
+                    "rationale": "Esta respuesta 'folcloriza' el conocimiento indígena: relegándolo a celebraciones ocasionales mientras el conocimiento 'serio' permanece occidental. Paris y Alim llaman esto 'pedagogía turística'. La pedagogía culturalmente sostenida integra conocimientos diversos en el currículo central, no como 'adición multicultural' sino como riguroso y relevante para todos los estudiantes.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Animar a estudiantes indígenas a investigar y presentar sus conocimientos tradicionales como proyectos de ciencia, integrando saberes ancestrales en evaluación.",
+                    "rationale": "Si bien esta respuesta valora conocimiento tradicional, puede caer en 'exotización': solo estudiantes indígenas presentan saberes tradicionales mientras conocimiento occidental es universal para todos. La pedagogía culturalmente sostenida integra saberes diversos para TODOS los estudiantes, no etnifica el conocimiento ('este es para indígenas, aquel para todos'). La integración debe ser curricular, no individual.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "Pedagogía culturalmente sostenida (Paris y Alim, 2017) va más allá de pedagogía 'relevante' o 'responsiva'. No solo conecta con cultura estudiantil sino que activamente SOSTIENE prácticas culturales y lingüísticas como recursos de aprendizaje riguroso. En el caso de sistemas de conocimiento en conflicto, esto requiere diálogo epistémico genuino: no subordinar conocimiento tradicional a occidental, sino crear espacios para examinar ambos críticamente. Esto desarrolla sofisticación epistemológica en TODOS los estudiantes.",
@@ -797,10 +814,26 @@ const RAW_QUIZ_DATA_2 = {
             "difficulty": "expert",
             "question": "En proyecto ABP sobre contaminación local, estudiantes crean campañas de concientización. Docente diseña rúbrica: 'investigación científica' (40%), 'creatividad' (30%), 'presentación oral' (20%), 'trabajo en equipo' (10%). Según Wiggins, ¿cuál es la limitación MÁS SERIA?",
             "answerOptions": [
-                { "text": "Falta autoevaluación y coevaluación, limitando metacognición y criterios de calidad internos.", "rationale": "Autoevaluación es valiosa para metacognición, pero la limitación MÁS SERIA está en la estructura fragment ada. Wiggins enfatiza que evaluación auténtica debe reflejar desempeño real, no componentes aislados. Una autoevaluación sería útil, pero no aborda el problema estructural principal.", "isCorrect": false },
-                { "text": "Los criterios fragmentan el desempeño en componentes discretos con pesos arbitrarios, en lugar de evaluar holísticamente el logro del propósito auténtico: ¿la campaña efectivamente conciencia?", "rationale": "CORRECTA. Wiggins distingue entre evaluación 'escolar' (componentes académicos aislados) y 'auténtica' (logro de propósito real). En contextos reales, nadie evalúa campañas sumando porcentajes; se pregunta: ¿logró concientizar? Los criterios fragmentan desempeño en partes escolares, desviando atención del logro auténtico. Evaluación auténtica debe reflejar cómo se valoraría fuera de la escuela.", "isCorrect": true },
-                { "text": "El peso de 'trabajo en equipo' (10%) es muy bajo comparado con 'investigación' (40%), no refleja importancia de colaboración real.", "rationale": "Esta respuesta acepta la premisa de fragmentación por pesos, solo cuestionando distribución. Wiggins señala que el problema es la fragmentación misma. Evaluación auténtica pregunta '¿logra propósito real?' no '¿cómo distribuimos puntos?'. Redistribuir pesos mantiene el enfoque escolar artificial.", "isCorrect": false },
-                { "text": "Falta especificar niveles de desempeño (ejemplar, competente, en desarrollo) para cada criterio, dificultando retroalimentación específica.", "rationale": "Especificar niveles es buena práctica, pero no aborda la limitación MÁS SERIA: desconexión con propósito auténtico. Una rúbrica detallada puede seguir siendo artificialmente escolar si fragmenta desempeño. La cuestión central es qué se evalúa, no solo cómo se describe.", "isCorrect": false }
+                {
+                    "text": "Falta autoevaluación y coevaluación, limitando metacognición y criterios de calidad internos.",
+                    "rationale": "Autoevaluación es valiosa para metacognición, pero la limitación MÁS SERIA está en la estructura fragment ada. Wiggins enfatiza que evaluación auténtica debe reflejar desempeño real, no componentes aislados. Una autoevaluación sería útil, pero no aborda el problema estructural principal.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Los criterios fragmentan el desempeño en componentes discretos con pesos arbitrarios, en lugar de evaluar holísticamente el logro del propósito auténtico: ¿la campaña efectivamente conciencia?",
+                    "rationale": "CORRECTA. Wiggins distingue entre evaluación 'escolar' (componentes académicos aislados) y 'auténtica' (logro de propósito real). En contextos reales, nadie evalúa campañas sumando porcentajes; se pregunta: ¿logró concientizar? Los criterios fragmentan desempeño en partes escolares, desviando atención del logro auténtico. Evaluación auténtica debe reflejar cómo se valoraría fuera de la escuela.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "El peso de 'trabajo en equipo' (10%) es muy bajo comparado con 'investigación' (40%), no refleja importancia de colaboración real.",
+                    "rationale": "Esta respuesta acepta la premisa de fragmentación por pesos, solo cuestionando distribución. Wiggins señala que el problema es la fragmentación misma. Evaluación auténtica pregunta '¿logra propósito real?' no '¿cómo distribuimos puntos?'. Redistribuir pesos mantiene el enfoque escolar artificial.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Falta especificar niveles de desempeño (ejemplar, competente, en desarrollo) para cada criterio, dificultando retroalimentación específica.",
+                    "rationale": "Especificar niveles es buena práctica, pero no aborda la limitación MÁS SERIA: desconexión con propósito auténtico. Una rúbrica detallada puede seguir siendo artificialmente escolar si fragmenta desempeño. La cuestión central es qué se evalúa, no solo cómo se describe.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "Grant Wiggins argumenta que evaluación escolar tradicional fragmenta desempeño en componentes académicos con pesos arbitrarios, desconectándose del propósito real. Evaluación auténtica pregunta: ¿este desempeño sería valorado fuera de la escuela? En este caso, una campaña real se evalúa por impacto, persuasión, precisión, no sumando porcentajes. La fragmentación escolar desvía atención del logro genuino.",
@@ -808,14 +841,30 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 28,
-            "category": "Prácticas Restaurativas",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "expert",
             "question": "Tras conflicto entre dos estudiantes donde uno dañó trabajo del otro, docente implementa 'círculo restaurativo'. Durante círculo, víctima expresa frustración y agresor se disculpa. Docente cierra círculo. ¿Qué elemento CRÍTICO faltó según modelo restaurativo (Braithwaite)?",
             "answerOptions": [
-                { "text": "Faltó participación de padres de familia de ambos estudiantes en el círculo, ya que prácticas restaurativas requieren involucrar a comunidad ampliada.", "rationale": "Si bien prácticas restaurativas valoran participación comunitaria, no siempre es necesaria, especialmente en conflictos menores entre pares. El elemento CRÍTICO es plan de reparación co-creado. Braithwaite enfatiza que justicia restaurativa no solo busca disculpa sino restauración activa de daño y reintegración. Participación familiar es valiosa en casos serios, pero no sustituye acuerdo reparador.", "isCorrect": false },
-                { "text": "Faltó co-crear plan de reparación específico: ¿cómo reparará agresor el daño? ¿qué necesita víctima para sentirse restaurada? ¿cómo se monitoreará cumplimiento?", "rationale": "CORRECTA. Modelo restaurativo de Braithwaite tiene tres objetivos: 1) identificar daño, 2) asumir responsabilidad, 3) REPARAR y reintegrar. La disculpa sola no basta; justicia restaurativa requiere plan concreto de reparación acordado entre partes. Esto transforma conflicto en oportunidad de reparación activa y aprendizaje. Sin plan de reparación, el círculo es solo expresión emocional, no justicia restaurativa completa.", "isCorrect": true },
-                { "text": "Faltó aplicar consecuencia disciplinaria además del círculo, ya que prácticas restaurativas complementan, no reemplazan, sistemas disciplinarios escolares.", "rationale": "Esta respuesta malinterpreta justicia restaurativa. Braithwaite contrasta justicia punitiva (enfocada en castigo) con restaurativa (enfocada en reparación y reintegración). Agregar castigo tradicional socava principio restaurativo: que el agresor asuma responsabilidad no por evitar castigo sino por reparar daño a la comunidad. La consecuencia restaurativa ES el plan de reparación, no requiere castigo adicional.", "isCorrect": false },
-                { "text": "Faltó que agresor explique causas profundas de su conducta (ej. estrés, modelado familiar), para abordar raíces del problema, no solo síntomas.", "rationale": "Si bien comprender contexto de conducta es valioso, el elemento CRÍTICO del modelo restaurativo de Braithwaite es reparación. Explorar causas puede ser útil para prevención futura, pero justicia restaurativa se centra en: ¿quién fue dañado? ¿qué necesita? ¿cómo se repara? Sin plan de reparación, el círculo no cumple propósito restaurativo, aunque se comprendan causas.", "isCorrect": false }
+                {
+                    "text": "Faltó participación de padres de familia de ambos estudiantes en el círculo, ya que prácticas restaurativas requieren involucrar a comunidad ampliada.",
+                    "rationale": "Si bien prácticas restaurativas valoran participación comunitaria, no siempre es necesaria, especialmente en conflictos menores entre pares. El elemento CRÍTICO es plan de reparación co-creado. Braithwaite enfatiza que justicia restaurativa no solo busca disculpa sino restauración activa de daño y reintegración. Participación familiar es valiosa en casos serios, pero no sustituye acuerdo reparador.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Faltó co-crear plan de reparación específico: ¿cómo reparará agresor el daño? ¿qué necesita víctima para sentirse restaurada? ¿cómo se monitoreará cumplimiento?",
+                    "rationale": "CORRECTA. Modelo restaurativo de Braithwaite tiene tres objetivos: 1) identificar daño, 2) asumir responsabilidad, 3) REPARAR y reintegrar. La disculpa sola no basta; justicia restaurativa requiere plan concreto de reparación acordado entre partes. Esto transforma conflicto en oportunidad de reparación activa y aprendizaje. Sin plan de reparación, el círculo es solo expresión emocional, no justicia restaurativa completa.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Faltó aplicar consecuencia disciplinaria además del círculo, ya que prácticas restaurativas complementan, no reemplazan, sistemas disciplinarios escolares.",
+                    "rationale": "Esta respuesta malinterpreta justicia restaurativa. Braithwaite contrasta justicia punitiva (enfocada en castigo) con restaurativa (enfocada en reparación y reintegración). Agregar castigo tradicional socava principio restaurativo: que el agresor asuma responsabilidad no por evitar castigo sino por reparar daño a la comunidad. La consecuencia restaurativa ES el plan de reparación, no requiere castigo adicional.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Faltó que agresor explique causas profundas de su conducta (ej. estrés, modelado familiar), para abordar raíces del problema, no solo síntomas.",
+                    "rationale": "Si bien comprender contexto de conducta es valioso, el elemento CRÍTICO del modelo restaurativo de Braithwaite es reparación. Explorar causas puede ser útil para prevención futura, pero justicia restaurativa se centra en: ¿quién fue dañado? ¿qué necesita? ¿cómo se repara? Sin plan de reparación, el círculo no cumple propósito restaurativo, aunque se comprendan causas.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "John Braithwaite (teórico de justicia restaurativa) enfatiza que el objetivo no es solo expresión emocional o disculpa sino REPARACIÓN del daño y REINTEGRACIÓN del agresor a la comunidad. El proceso restaurativo tiene tres fases: 1) reconocer daño específico, 2) asumir responsabilidad, 3) co-crear plan de reparación concreto. Sin este plan, el círculo es catártico pero no restaurativo. La reparación transforma conflicto en aprendizaje activo de responsabilidad social.",
@@ -823,14 +872,30 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 29,
-            "category": "Diferenciación - Curriculum Compacting",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Estudiante de 5° grado domina conceptos de multiplicación y división que el currículo enseñará próximas 4 semanas. Docente identifica esto mediante pretest. Según modelo de 'compactación curricular' (Reis y Renzulli), ¿cuál es la respuesta MÁS APROPIADA?",
             "answerOptions": [
-                { "text": "Permitir que estudiante use tiempo de clase de matemáticas para lectura independiente o proyectos personales de su interés en cualquier área.", "rationale": "Esta respuesta omite tercer paso de compactación: reemplazo con desafío académico significativo EN EL ÁREA curricular. Reis y Renzulli enfatizan que tiempo liberado debe dedicarse a profundización, no actividades genéricas. Si estudiante domina multiplicación, debería explorar matemáticas más complejas (ej. fracciones avanzadas, pre-álgebra), no simplemente 'tiempo libre'. Compactación busca rigor acelerado, no recreación.", "isCorrect": false },
-                { "text": "Documentar evidencia del dominio, eximir de instrucción redundante, y proporcionar enriquecimiento matemático avanzado (ej. problemas de razonamiento algebraico, exploración de números primos).", "rationale": "CORRECTA. Compactación curricular (Reis y Renzulli) tiene tres pasos: 1) EVALUAR qué domina el estudiante, 2) EXIMIR de instrucción redundante, 3) REEMPLAZAR con desafío avanzado en la MISMA área. No es tiempo libre sino oportunidad de profundizar. Estudiante que domina multiplicación debería explorar conceptos matemáticos más complejos, manteniendo rigor académico y desarrollo continuo.", "isCorrect": true },
-                { "text": "Asignar al estudiante como 'tutor par' para ayudar a compañeros con dificultades en multiplicación durante las próximas 4 semanas.", "rationale": "Si bien tutoría entre pares puede tener valor social, usar a estudiantes avanzados solo como tutores no atiende SUS necesidades de aprendizaje. Reis y Renzulli enfatizan que estudiantes que dominan contenido MERECEN desafío apropiado, no solo ayudar a otros. Esto puede disfrazar falta de diferenciación como 'liderazgo'. Compactación debe liberar tiempo para APRENDIZAJE AVANZADO del estudiante, no como docente auxiliar.", "isCorrect": false },
-                { "text": "Mantener al estudiante en clase regular pero añadir 'tareas enriquecidas' adicionales (ej. problemas de multiplicación más difíciles) además del currículo estándar.", "rationale": "Esta respuesta es 'más de lo mismo', no compactación. Reis y Renzulli explican que compactación NO es agregar más trabajo sino ELIMINAR redundancia y REEMPLAZAR con desafío cualitativo. Hacer problemas más difíciles de multiplicación cuando ya domina el concepto es aumento cuantitativo (más tareas), no avance cualitativo (nuevos conceptos). Esto castiga logro con más trabajo, no lo recompensa con aprendizaje significativo.", "isCorrect": false }
+                {
+                    "text": "Permitir que estudiante use tiempo de clase de matemáticas para lectura independiente o proyectos personales de su interés en cualquier área.",
+                    "rationale": "Esta respuesta omite tercer paso de compactación: reemplazo con desafío académico significativo EN EL ÁREA curricular. Reis y Renzulli enfatizan que tiempo liberado debe dedicarse a profundización, no actividades genéricas. Si estudiante domina multiplicación, debería explorar matemáticas más complejas (ej. fracciones avanzadas, pre-álgebra), no simplemente 'tiempo libre'. Compactación busca rigor acelerado, no recreación.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Documentar evidencia del dominio, eximir de instrucción redundante, y proporcionar enriquecimiento matemático avanzado (ej. problemas de razonamiento algebraico, exploración de números primos).",
+                    "rationale": "CORRECTA. Compactación curricular (Reis y Renzulli) tiene tres pasos: 1) EVALUAR qué domina el estudiante, 2) EXIMIR de instrucción redundante, 3) REEMPLAZAR con desafío avanzado en la MISMA área. No es tiempo libre sino oportunidad de profundizar. Estudiante que domina multiplicación debería explorar conceptos matemáticos más complejos, manteniendo rigor académico y desarrollo continuo.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Asignar al estudiante como 'tutor par' para ayudar a compañeros con dificultades en multiplicación durante las próximas 4 semanas.",
+                    "rationale": "Si bien tutoría entre pares puede tener valor social, usar a estudiantes avanzados solo como tutores no atiende SUS necesidades de aprendizaje. Reis y Renzulli enfatizan que estudiantes que dominan contenido MERECEN desafío apropiado, no solo ayudar a otros. Esto puede disfrazar falta de diferenciación como 'liderazgo'. Compactación debe liberar tiempo para APRENDIZAJE AVANZADO del estudiante, no como docente auxiliar.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Mantener al estudiante en clase regular pero añadir 'tareas enriquecidas' adicionales (ej. problemas de multiplicación más difíciles) además del currículo estándar.",
+                    "rationale": "Esta respuesta es 'más de lo mismo', no compactación. Reis y Renzulli explican que compactación NO es agregar más trabajo sino ELIMINAR redundancia y REEMPLAZAR con desafío cualitativo. Hacer problemas más difíciles de multiplicación cuando ya domina el concepto es aumento cuantitativo (más tareas), no avance cualitativo (nuevos conceptos). Esto castiga logro con más trabajo, no lo recompensa con aprendizaje significativo.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "Curriculum Compacting (Reis y Renzulli, 1992) es estrategia de diferenciación para estudiantes que demuestran dominio previo. Busca: 1) definir objetivos de unidad, 2) identificar qué dominan mediante evaluación diagnóstica, 3) COMPACTAR (eliminar redundancia), 4) usar tiempo liberado para ENRIQUECIMIENTO/ACELERACIÓN en la misma área. NO es tiempo libre ni ayudar a otros, sino oportunidad de profundización rigurosa. Esto respeta necesidades de estudiantes avanzados sin penalizarlos con 'más de lo mismo'.",
@@ -838,14 +903,30 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 30,
-            "category": "Marco Normativo Colombiano",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "expert",
             "question": "Director declara que proyecto educativo institucional (PEI) enfatizará 'excelencia académica tradicional' y no incluirá 'educación sexual moderna ni ideologías de género' porque 'son temas familiares, no escolares'. Según Ley 115 de 1994 y jurisprudencia constitucional, ¿cuál es el problema LEGAL con esta postura?",
             "answerOptions": [
-                { "text": "El PEI puede determinar énfasis pedagógicos siempre que cumpla estándares mínimos del MEN, y educación sexual no es obligatoria si la comunidad educativa no laincluye.", "rationale": "INCORRECTA. Ley 115 Artículo 14 establece que educación sexual es OBLIGATORIA en todos los niveles (preescolar a media), no opcional según preferencias comunitarias. Además, Sentencia T-478/2015 de Corte Constitucional ordena incluir perspectiva de género en educación sexual, no como 'ideología' sino como derecho. Los establecimientos NO pueden omitir áreas obligatorias aunque PEI tenga autonomía en énfasis pedagógicos.", "isCorrect": false },
-                { "text": "Educación sexual (incluida perspectiva de género) es OBLIGATORIA según Ley 115 Art. 14 y sentencias constitucionales. PEI tiene autonomía en pedagogía, NO en omitir áreas obligatorias ni derechos fundamentales.", "rationale": "CORRECTA. Ley 115 Art. 14 establece áreas obligatorias, incluyendo 'educación sexual... de acuerdo con las necesidades psíquicas, físicas y afectivas de los educandos'. Sentencia T-478/2015 ordena incluir 'identidad de género, orientación sexual' como parte de derecho a educación inclusiva. La autonomía del PEI (Art. 77) permite decidir CÓMO enseñar áreas obligatorias, NO omitirlas. Rechazar 'ideologías de género' viola derechos de estudiantes LGBTIQ+ a educación libre de discriminación.", "isCorrect": true },
-                { "text": "La Ley 115 permite flexibilidad curricular según contexto regional y cultural, por lo que establecimiento puede adaptar contenidos sensibles a valores de la comunidad local.", "rationale": "Si bien Ley 115 reconoce flexibilidad, las áreas OBLIGATORIAS (Art. 14) y derechos fundamentales (dignidad, igualdad, educación) NO son negociables según 'valores locales'. Sentencia T-478/ 2015 clarifica que 'valores culturales' no justifican omitir educación sobre diversidad sexual y de género. La flexibilidad aplica a METODOLOGÍA, no a violar derechos constitucionales de estudiantes LGBTIQ+ a educación inclusiva.", "isCorrect": false },
-                { "text": "El problema no es legal sino pedagógico: omitir educación sexual puede generar desinformación, pero legalmente el PEI tiene autonomía en contenidos si no contradice explícitamente currículos del MEN.", "rationale": "Esta respuesta minimiza obligación legal. Ley 115 Art. 14 no sugiere educación sexual, la ORDENA. Sentencias como T-478/2015 no son recomendaciones pedagógicas sino MANDATOS constitucionales. Omitir educación sexual (y perspectiva de género) no es ejercicio de autonomía sino incumplimiento de ley y violación de derechos. El problema es tanto legal como pedagógico.", "isCorrect": false }
+                {
+                    "text": "El PEI puede determinar énfasis pedagógicos siempre que cumpla estándares mínimos del MEN, y educación sexual no es obligatoria si la comunidad educativa no laincluye.",
+                    "rationale": "INCORRECTA. Ley 115 Artículo 14 establece que educación sexual es OBLIGATORIA en todos los niveles (preescolar a media), no opcional según preferencias comunitarias. Además, Sentencia T-478/2015 de Corte Constitucional ordena incluir perspectiva de género en educación sexual, no como 'ideología' sino como derecho. Los establecimientos NO pueden omitir áreas obligatorias aunque PEI tenga autonomía en énfasis pedagógicos.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Educación sexual (incluida perspectiva de género) es OBLIGATORIA según Ley 115 Art. 14 y sentencias constitucionales. PEI tiene autonomía en pedagogía, NO en omitir áreas obligatorias ni derechos fundamentales.",
+                    "rationale": "CORRECTA. Ley 115 Art. 14 establece áreas obligatorias, incluyendo 'educación sexual... de acuerdo con las necesidades psíquicas, físicas y afectivas de los educandos'. Sentencia T-478/2015 ordena incluir 'identidad de género, orientación sexual' como parte de derecho a educación inclusiva. La autonomía del PEI (Art. 77) permite decidir CÓMO enseñar áreas obligatorias, NO omitirlas. Rechazar 'ideologías de género' viola derechos de estudiantes LGBTIQ+ a educación libre de discriminación.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "La Ley 115 permite flexibilidad curricular según contexto regional y cultural, por lo que establecimiento puede adaptar contenidos sensibles a valores de la comunidad local.",
+                    "rationale": "Si bien Ley 115 reconoce flexibilidad, las áreas OBLIGATORIAS (Art. 14) y derechos fundamentales (dignidad, igualdad, educación) NO son negociables según 'valores locales'. Sentencia T-478/ 2015 clarifica que 'valores culturales' no justifican omitir educación sobre diversidad sexual y de género. La flexibilidad aplica a METODOLOGÍA, no a violar derechos constitucionales de estudiantes LGBTIQ+ a educación inclusiva.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "El problema no es legal sino pedagógico: omitir educación sexual puede generar desinformación, pero legalmente el PEI tiene autonomía en contenidos si no contradice explícitamente currículos del MEN.",
+                    "rationale": "Esta respuesta minimiza obligación legal. Ley 115 Art. 14 no sugiere educación sexual, la ORDENA. Sentencias como T-478/2015 no son recomendaciones pedagógicas sino MANDATOS constitucionales. Omitir educación sexual (y perspectiva de género) no es ejercicio de autonomía sino incumplimiento de ley y violación de derechos. El problema es tanto legal como pedagógico.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "Ley 115 de 1994 (Ley General de Educación) Art. 14 establece ÁREAS OBLIGATORIAS Y FUNDAMENTALES, incluyendo 'educación sexual, impartida en cada caso de acuerdo con las necesidades psíquicas, físicas y afectivas de los educandos según su edad'. Sentencia T-478/2015 de Corte Constitucional ordena que educación sexual incluya 'identidad de género y orientación sexual', no como 'ideología' sino como derechos. PEI tiene autonomía (Art. 77) en enfoques pedagógicos, NO en omitir áreas legales ni derechos fundamentales. Rechazar educación de género viola derecho de estudiantes LGBTIQ+ a educación inclusiva.",
@@ -853,14 +934,30 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 31,
-            "category": "Integración Tecnológica - SAMR",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Docente reemplaza fichas físicas de vocabulario por aplicación Quizlet donde estudiantes practican definiciones con flashcards digitales y juegos. Según modelo SAMR (Puentedura), ¿en qué nivel está esta integración y qué caracteriza ese nivel?",
             "answerOptions": [
-                { "text": "SUSTITUCIÓN (S): tecnología reemplaza herramienta anterior sin cambio funcional significativo. Quizlet hace lo mismo que fichas físicas, solo que digital.", "rationale": "CORRECTA. En SAMR, Sustitución es nivel más básico: tecnología como reemplazo directo sin mejora funcional. Quizlet hace esencialmente lo mismo que fichas físicas (memorización de definiciones mediante repetición). Aunque tiene formato digital, la TAREA COGNITIVA es idéntica: recall de definiciones. No hay rediseño de aprendizaje. Esto no es malo, pero no aprovecha potencial transformador de tecnología.", "isCorrect": true },
-                { "text": "AUMENTO (A): tecnología reemplaza con mejoras funcionales. Quizlet añade elementos (juegos, audio) que fichas físicas no pueden ofrecer fácilmente.", "rationale": "Aunque Quizlet ofrece juegos y audio, la TAREA FUNDAMENTAL sigue siendo memorización de vocabulario mediante repetición. SAMR define Aumento como mejora funcional que cambia cómo se hace la tarea. En este caso, los 'juegos' son solo gamificación de repetición, no rediseño de aprendizaje. La mejora es motivacional/de compromiso, no de transformación cognitiva. Eso sigue siendo Sustitución con decoración digital.", "isCorrect": false },
-                { "text": "MODIFICACIÓN (M): tecnología permite rediseño significativo de tarea. Quizlet permite colaboración, seguimiento de progreso, y personalización que fichas físicas no ofrecen.", "rationale": "Modificación en SAMR requiere que tecnología permita rediseño SIGNIFICATIVO de la tarea de aprendizaje. Si bien Quizlet puede tener estas funciones, la descripción del escenario ('practican definiciones con flashcards digitales') indica uso básico de memorización. Sin evidencia de que rediseña tarea (ej. uso colaborativo de vocabulario en contexto auténtico), esto es Sustitución. Modificación requiere cambio en naturaleza de la tarea, no solo herramientas disponibles.", "isCorrect": false },
-                { "text": "REDEFINICIÓN (R): tecnología permite tareas antes inconcebibles. Quizlet permite a estudiantes crear, compartir y aprender vocabulario globalmente, imposible con fichas físicas.", "rationale": "Redefinición es nivel más alto de SAMR: tareas que NO eran posibles antes de tecnología. Aunque Quizlet puede facilitar intercambio global, la descripción del escenario describe uso tradicional (memorización de definiciones). Redefinición requeriría, por ejemplo, que estudiantes creen glosarios multilingües colaborativos con hablantes nativos globales, usando vocabulario en proyectos auténticos  internacionales. El uso descrito no alcanza eso.", "isCorrect": false }
+                {
+                    "text": "SUSTITUCIÓN (S): tecnología reemplaza herramienta anterior sin cambio funcional significativo. Quizlet hace lo mismo que fichas físicas, solo que digital.",
+                    "rationale": "CORRECTA. En SAMR, Sustitución es nivel más básico: tecnología como reemplazo directo sin mejora funcional. Quizlet hace esencialmente lo mismo que fichas físicas (memorización de definiciones mediante repetición). Aunque tiene formato digital, la TAREA COGNITIVA es idéntica: recall de definiciones. No hay rediseño de aprendizaje. Esto no es malo, pero no aprovecha potencial transformador de tecnología.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "AUMENTO (A): tecnología reemplaza con mejoras funcionales. Quizlet añade elementos (juegos, audio) que fichas físicas no pueden ofrecer fácilmente.",
+                    "rationale": "Aunque Quizlet ofrece juegos y audio, la TAREA FUNDAMENTAL sigue siendo memorización de vocabulario mediante repetición. SAMR define Aumento como mejora funcional que cambia cómo se hace la tarea. En este caso, los 'juegos' son solo gamificación de repetición, no rediseño de aprendizaje. La mejora es motivacional/de compromiso, no de transformación cognitiva. Eso sigue siendo Sustitución con decoración digital.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "MODIFICACIÓN (M): tecnología permite rediseño significativo de tarea. Quizlet permite colaboración, seguimiento de progreso, y personalización que fichas físicas no ofrecen.",
+                    "rationale": "Modificación en SAMR requiere que tecnología permita rediseño SIGNIFICATIVO de la tarea de aprendizaje. Si bien Quizlet puede tener estas funciones, la descripción del escenario ('practican definiciones con flashcards digitales') indica uso básico de memorización. Sin evidencia de que rediseña tarea (ej. uso colaborativo de vocabulario en contexto auténtico), esto es Sustitución. Modificación requiere cambio en naturaleza de la tarea, no solo herramientas disponibles.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "REDEFINICIÓN (R): tecnología permite tareas antes inconcebibles. Quizlet permite a estudiantes crear, compartir y aprender vocabulario globalmente, imposible con fichas físicas.",
+                    "rationale": "Redefinición es nivel más alto de SAMR: tareas que NO eran posibles antes de tecnología. Aunque Quizlet puede facilitar intercambio global, la descripción del escenario describe uso tradicional (memorización de definiciones). Redefinición requeriría, por ejemplo, que estudiantes creen glosarios multilingües colaborativos con hablantes nativos globales, usando vocabulario en proyectos auténticos  internacionales. El uso descrito no alcanza eso.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "a",
             "rationale": "Modelo SAMR de Ruben Puentedura describe cuatro niveles de integración tecnológica: SUSTITUCIÓN (reemplazo directo sin cambio), AUMENTO (reemplazo con mejora funcional), MODIFICACIÓN (rediseño significativo de tarea), REDEFINICIÓN (tareas antes imposibles). En este caso, aunque Quizlet es digital y tiene juegos, la TAREA COGNITIVA fundamental (memorización de definiciones mediante repetición) es idéntica a fichas físicas. No hay rediseño de aprendizaje. Esto ilustra que tecnología por sí sola no transforma aprendizaje; el diseño pedagógico determina impacto.",
@@ -868,14 +965,30 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 32,
-            "category": "Aprendizaje Basado en Indagación",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "En clase de ciencias, docente plantea: '¿Por qué las plantas son verdes?' Estudiantes responden: 'Por clorofila'. Docente confirma y avanza. Según modelo de indagación auténtica (Banchi y Bell), ¿qué nivel de indagación representa esto y cuál sería su limitación?",
             "answerOptions": [
-                { "text": "Indagación confirmativa (nivel 1): estudiantes confirman conocimiento establecido mediante actividad práctica. Limitación: no desarrolla pensamiento crítico ni habilidades de investigación.", "rationale": "Indagación confirmativa requiere ACTIVIDAD práctica donde estudiantes confirman principios mediante experimentación (ej. observar clorofila en microscopio). En este escenario, NO hay actividad, solo pregunta-respuesta oral. Esto es incluso menos que indagación confirmativa; es recitación tradicional disfrazada de 'pregunta'. La respuesta correcta identifica que ni siquiera es indagación.", "isCorrect": false },
-                { "text": "NO es indagación en absoluto: es recitación tradicional (IRE: Iniciación-Respuesta-Evaluación). Pregunta de 'indagación' requiere investigación real, no recall de información. Limitación: no desarrolla pensamiento científico.", "rationale": "CORRECTA. Banchi y Bell distinguen indagación auténtica de 'pseudo-indagación'. Indagación requiere que estudiantes GENEREN preguntas investigables, diseñen métodos, recopilen datos, analicen evidencia. La pregunta '¿Por qué plantas son verdes?' podría usarse para indagación ('Diseñen experimento para investigar'), pero usarla solo para recall de 'clorofila' es patrón IRE tradicional (teacher Initiates, student Responds, teacher Evaluates). Esto NO desarrolla pensamiento científico, solo memorización.", "isCorrect": true },
-                { "text": "Indagación estructurada (nivel 2): docente proporciona pregunta y procedimiento, estudiantes generan explicación. Limitación: no desarrolla habilidad de formular preguntas propias.", "rationale": "Indagación estructurada requiere que estudiantes sigan procedimiento investigativo para GENERAR explicaciones basadas en DATOS que recopilan. En este escenario, no hay procedimiento, recopilación de datos ni generación de explicación; solo recall de respuesta conocida ('clorofila'). Esto no califica como indagación estructurada, que requiere actividad investigativa real.", "isCorrect": false },
-                { "text": "Indagación guiada (nivel 3): docente proporciona pregunta, estudiantes diseñan procedimiento y desarrollan explicaciones. Limitación: no promueve autonomía completa en investigación.", "rationale": "Indagación guiada requiere que estudiantes DISEÑEN sus propios procedimientos investigativos y desarrollen explicaciones basadas en evidencia que generan. En este escenario, no hay diseño, recopilación de datos ni construcción de evidencia; solo recall directo. Esto no representa ningún nivel de indagación auténtica del modelo Banchi y Bell.", "isCorrect": false }
+                {
+                    "text": "Indagación confirmativa (nivel 1): estudiantes confirman conocimiento establecido mediante actividad práctica. Limitación: no desarrolla pensamiento crítico ni habilidades de investigación.",
+                    "rationale": "Indagación confirmativa requiere ACTIVIDAD práctica donde estudiantes confirman principios mediante experimentación (ej. observar clorofila en microscopio). En este escenario, NO hay actividad, solo pregunta-respuesta oral. Esto es incluso menos que indagación confirmativa; es recitación tradicional disfrazada de 'pregunta'. La respuesta correcta identifica que ni siquiera es indagación.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "NO es indagación en absoluto: es recitación tradicional (IRE: Iniciación-Respuesta-Evaluación). Pregunta de 'indagación' requiere investigación real, no recall de información. Limitación: no desarrolla pensamiento científico.",
+                    "rationale": "CORRECTA. Banchi y Bell distinguen indagación auténtica de 'pseudo-indagación'. Indagación requiere que estudiantes GENEREN preguntas investigables, diseñen métodos, recopilen datos, analicen evidencia. La pregunta '¿Por qué plantas son verdes?' podría usarse para indagación ('Diseñen experimento para investigar'), pero usarla solo para recall de 'clorofila' es patrón IRE tradicional (teacher Initiates, student Responds, teacher Evaluates). Esto NO desarrolla pensamiento científico, solo memorización.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Indagación estructurada (nivel 2): docente proporciona pregunta y procedimiento, estudiantes generan explicación. Limitación: no desarrolla habilidad de formular preguntas propias.",
+                    "rationale": "Indagación estructurada requiere que estudiantes sigan procedimiento investigativo para GENERAR explicaciones basadas en DATOS que recopilan. En este escenario, no hay procedimiento, recopilación de datos ni generación de explicación; solo recall de respuesta conocida ('clorofila'). Esto no califica como indagación estructurada, que requiere actividad investigativa real.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Indagación guiada (nivel 3): docente proporciona pregunta, estudiantes diseñan procedimiento y desarrollan explicaciones. Limitación: no promueve autonomía completa en investigación.",
+                    "rationale": "Indagación guiada requiere que estudiantes DISEÑEN sus propios procedimientos investigativos y desarrollen explicaciones basadas en evidencia que generan. En este escenario, no hay diseño, recopilación de datos ni construcción de evidencia; solo recall directo. Esto no representa ningún nivel de indagación auténtica del modelo Banchi y Bell.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "Banchi y Bell (2008) identifican 4 niveles de indagación científica: confirmativa, estructurada, guiada, y abierta. TODOS requieren que estudiantes participen en investigación real (diseñar, recopilar datos, analizar). La 'pseudo-indagación' (hacer preguntas pero esperar recall de respuestas conocidas) NO es indagación; es patrón tradicional IRE (Initiation-Response-Evaluation). Indagación auténtica requiere que estudiantes construyan comprensión mediante investigación, no reciten información. Este escenario ilustra cómo preguntas pueden parecer indagatorias pero mantener pedagogía transmisiva.",
@@ -883,14 +996,30 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 33,
-            "category": "Aprendizaje Socioemocional - Regulación Emocional",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Durante examen, docente nota que estudiante muestra ansiedad (respiración rápida, manos temblorosas). Docente se acerca y dice: 'Tranquilo, no es para tanto, tú puedes'. Según neurociencia de regulación emocional (Gross), ¿cuál es la limitación de esta intervención?",
             "answerOptions": [
-                { "text": "La intervención ignora 'supresión expresiva' (ocultar emociones), que Gross identifica como estrategia desadaptativa. Decir 'tranquilo' puede presionar al estudiante a suprimir ansiedad visible sin procesarla.", "rationale": "Si bien Gross distingue entre supresión (desadaptativa) y reevaluación (adaptativa), el problema aquí no es forzar supresión sino no enseñar HERRAMIENTA de regulación. Decir 'tranquilo' no es técnica de regulación, es ánimo verbal. La crítica principal es que no proporciona estrategia cognitiva o somática para regular ansiedad. Supresión sería decir 'No muestres que estás nervioso'.", "isCorrect": false },
-                { "text": "La intervención es 'regulación hetero-dirigida' (docente regula por estudiante), no 'autorregulación'. Gross enfatiza enseñar ESTRATEGIAS de regulación (ej. reevaluación cognitiva, respiración), no solo ánimo verbal.", "rationale": "CORRECTA. James Gross distingue regulación emocional efectiva (que modifica respuesta emocional mediante estrategias como reevaluación cognitiva o modulación fisiológica) de apoyo emocional general. Decir 'tranquilo' es ánimo, no estrategia de regulación. Para desarrollar autorregulación, docente debería enseñar herramientas: 'Toma tres respiraciones profundas', 'Replantea: este examen es oportunidad de mostrar lo aprendido'. Regulación efectiva requiere TÉCNICAS cognitivas/somáticas, no solo reassurance verbal.", "isCorrect": true },
-                { "text": "La intervención no valida la emoción del estudiante antes de intentar regularla. Según Gross, validación emocional es prerrequisito para regulación efectiva.", "rationale": "Si bien validación emocional es principio importante en counseling, Gross (neurocientífico cognitivo) se enfoca en MECANISMOS de regulación: cómo modificamos respuestas emocionales mediante estrategias cognitivas y conductuales. La limitación principal no es falta de validación sino falta de herramienta regulatoria. Validation es valiosa, pero la crítica central desde Gross es ausencia de técnica de regulación enseñada.", "isCorrect": false },
-                { "text": "La intervención ocurre durante el examen, momento inapropiado. Gross enfatiza que regulación emocional debe enseñarse preventivamente en contextos de baja activación, no reactivamente en crisis.", "rationale": "Si bien enseñanza preventiva de regulación es ideal, Gross NO dice que intervención en momento de activación emocional es inapropiada. De hecho, momentos de estrés son oportunidades de aplicar estrategias. La limitación es que 'tranquilo' NO es estrategia de regulación. Si docente enseñara respiración profunda EN ESE MOMENTO, sería apropiado. El problema es tipo de intervención, no timing.", "isCorrect": false }
+                {
+                    "text": "La intervención ignora 'supresión expresiva' (ocultar emociones), que Gross identifica como estrategia desadaptativa. Decir 'tranquilo' puede presionar al estudiante a suprimir ansiedad visible sin procesarla.",
+                    "rationale": "Si bien Gross distingue entre supresión (desadaptativa) y reevaluación (adaptativa), el problema aquí no es forzar supresión sino no enseñar HERRAMIENTA de regulación. Decir 'tranquilo' no es técnica de regulación, es ánimo verbal. La crítica principal es que no proporciona estrategia cognitiva o somática para regular ansiedad. Supresión sería decir 'No muestres que estás nervioso'.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La intervención es 'regulación hetero-dirigida' (docente regula por estudiante), no 'autorregulación'. Gross enfatiza enseñar ESTRATEGIAS de regulación (ej. reevaluación cognitiva, respiración), no solo ánimo verbal.",
+                    "rationale": "CORRECTA. James Gross distingue regulación emocional efectiva (que modifica respuesta emocional mediante estrategias como reevaluación cognitiva o modulación fisiológica) de apoyo emocional general. Decir 'tranquilo' es ánimo, no estrategia de regulación. Para desarrollar autorregulación, docente debería enseñar herramientas: 'Toma tres respiraciones profundas', 'Replantea: este examen es oportunidad de mostrar lo aprendido'. Regulación efectiva requiere TÉCNICAS cognitivas/somáticas, no solo reassurance verbal.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "La intervención no valida la emoción del estudiante antes de intentar regularla. Según Gross, validación emocional es prerrequisito para regulación efectiva.",
+                    "rationale": "Si bien validación emocional es principio importante en counseling, Gross (neurocientífico cognitivo) se enfoca en MECANISMOS de regulación: cómo modificamos respuestas emocionales mediante estrategias cognitivas y conductuales. La limitación principal no es falta de validación sino falta de herramienta regulatoria. Validation es valiosa, pero la crítica central desde Gross es ausencia de técnica de regulación enseñada.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La intervención ocurre durante el examen, momento inapropiado. Gross enfatiza que regulación emocional debe enseñarse preventivamente en contextos de baja activación, no reactivamente en crisis.",
+                    "rationale": "Si bien enseñanza preventiva de regulación es ideal, Gross NO dice que intervención en momento de activación emocional es inapropiada. De hecho, momentos de estrés son oportunidades de aplicar estrategias. La limitación es que 'tranquilo' NO es estrategia de regulación. Si docente enseñara respiración profunda EN ESE MOMENTO, sería apropiado. El problema es tipo de intervención, no timing.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "James Gross (2002) propone modelo de regulación emocional que distingue estrategias efectivas (ej. reevaluación cognitiva: replantear situación; modulación de respuesta: técnicas de respiración) de inefectivas (ej. supresión expresiva). El apoyo emocional verbal ('tranquilo, tú puedes') es positivo pero NO ENSEÑA regulación. Para desarrollar autorregulación estudiantil, docente debe enseñar TÉCNICAS específicas: 'Respira profundo', 'Reencuadra: no es amenaza, es desafío'. Regulación emocional es habilidad que requiere instrucción explícita en estrategias cognitivas y somáticas, no solo ánimo.",
@@ -898,14 +1027,30 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 34,
-            "category": "Retroalimentación Formativa - Timing",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Después de clase grupal sobre interpretación de poesía, docente proporciona retroalimentación detallada individual a cada estudiante sobre sus interpretaciones. Según investigación de Shute sobre retroalimentación, ¿cuál es la limitación MÁS PROBABLE de este timing?",
             "answerOptions": [
-                { "text": "Retroalimentación individual después de discusión grupal es redundante. Shute enfatiza que retroalimentación grupal es más eficiente y permite aprendizaje colaborativo.", "rationale": "Shute NO privilegia retroalimentación grupal sobre individual por eficiencia. Su investigación se enfoca en EFECTIVIDAD de retroalimentación según timing, especificidad, y oportunidad de uso. La crítica no es individual vs grupal sino CUÁNDO y SI permite revisión. Retroalimentación individual puede ser muy efectiva si es oportuna y accionable.", "isCorrect": false },
-                { "text": "Retroalimentación DESPUÉS de tarea completada es 'terminal', no 'formativa'. Shute enfatiza que retroalimentación es más efectiva cuando estudiantes pueden USARLA para revisar/mejorar, no solo para saber 'cómo les fue'.", "rationale": "CORRECTA. Valerie Shute distingue retroalimentación FORMATIVA (durante proceso, permite mejora) de SUMATIVA (post-tarea, informa resultado). Si discusión ya ocurrió y no hay oportunidad de revisión, la retroalimentación se vuelve informativa pero no formativa. Para ser formativa, debería proporcionarse DURANTE proceso de interpretación (ej. después de borrador escrito que pueden revisar, o durante discusión para refinar ideas). Timing determina si retroalimentación mejora aprendizaje o solo califica.", "isCorrect": true },
-                { "text": "Retroalimentación detallada puede generar 'sobrecarga cognitiva' (Shute), especialmente si estudiantes no pidieron ayuda. Retroalimentación breve y enfocada es más efectiva.", "rationale": "Si bien Shute discute riesgo de sobrecarga (demasiada información), esto aplica a COMPLEJIDAD de retroalimentación, no a timing. En este escenario, la limitación MÁS PROBABLE no es que sea 'detallada' sino que llega DESPUÉS de que tarea terminó, cuando no pueden usarla. Retroalimentación detallada puede  ser efectiva si es oportuna y accionable. El problema central es timing 'terminal', no detalle.", "isCorrect": false },
-                { "text": "Retroalimentación individual puede crear dependencia del docente. Shute enfatiza fomentar autoevaluación y retroalimentación entre pares antes de intervención docente.", "rationale": "Si bien autoevaluación y feedback entre pares son valiosos, Shute NO dice que retroalimentación docente crea dependencia problemática. Su investigación se centra en características de retroalimentación efectiva (timing, especificidad, accionabilidad), no en minimizar rol docente. La limitación principal en este escenario es timing (después de tarea), no fuente de retroalimentación.", "isCorrect": false }
+                {
+                    "text": "Retroalimentación individual después de discusión grupal es redundante. Shute enfatiza que retroalimentación grupal es más eficiente y permite aprendizaje colaborativo.",
+                    "rationale": "Shute NO privilegia retroalimentación grupal sobre individual por eficiencia. Su investigación se enfoca en EFECTIVIDAD de retroalimentación según timing, especificidad, y oportunidad de uso. La crítica no es individual vs grupal sino CUÁNDO y SI permite revisión. Retroalimentación individual puede ser muy efectiva si es oportuna y accionable.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Retroalimentación DESPUÉS de tarea completada es 'terminal', no 'formativa'. Shute enfatiza que retroalimentación es más efectiva cuando estudiantes pueden USARLA para revisar/mejorar, no solo para saber 'cómo les fue'.",
+                    "rationale": "CORRECTA. Valerie Shute distingue retroalimentación FORMATIVA (durante proceso, permite mejora) de SUMATIVA (post-tarea, informa resultado). Si discusión ya ocurrió y no hay oportunidad de revisión, la retroalimentación se vuelve informativa pero no formativa. Para ser formativa, debería proporcionarse DURANTE proceso de interpretación (ej. después de borrador escrito que pueden revisar, o durante discusión para refinar ideas). Timing determina si retroalimentación mejora aprendizaje o solo califica.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Retroalimentación detallada puede generar 'sobrecarga cognitiva' (Shute), especialmente si estudiantes no pidieron ayuda. Retroalimentación breve y enfocada es más efectiva.",
+                    "rationale": "Si bien Shute discute riesgo de sobrecarga (demasiada información), esto aplica a COMPLEJIDAD de retroalimentación, no a timing. En este escenario, la limitación MÁS PROBABLE no es que sea 'detallada' sino que llega DESPUÉS de que tarea terminó, cuando no pueden usarla. Retroalimentación detallada puede  ser efectiva si es oportuna y accionable. El problema central es timing 'terminal', no detalle.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Retroalimentación individual puede crear dependencia del docente. Shute enfatiza fomentar autoevaluación y retroalimentación entre pares antes de intervención docente.",
+                    "rationale": "Si bien autoevaluación y feedback entre pares son valiosos, Shute NO dice que retroalimentación docente crea dependencia problemática. Su investigación se centra en características de retroalimentación efectiva (timing, especificidad, accionabilidad), no en minimizar rol docente. La limitación principal en este escenario es timing (después de tarea), no fuente de retroalimentación.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "Valerie Shute (2008) enfatiza que retroalimentación es FORMATIVA solo cuando permite a estudiantes MEJORAR desempeño. Retroalimentación 'terminal' (después de tarea completada sin oportunidad de revisión) informa resultado pero no mejora aprendizaje. Para maximizar impacto formativo, debe proporcionarse DURANTE proceso (ej. después de borrador que pueden revisar) o en tarea continua. Timing determina si retroalimentación es herramienta de aprendizaje o solo evaluación. Este principio aplica universalmente: feedback es formativo cuando es accionable.",
@@ -913,335 +1058,350 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 35,
-            "category": "Pedagogía Basada en Fortalezas (Asset-Based)",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Docente trabaja con estudiantes de contexto rural de bajos ingresos. En reunión de equipo dice: 'Estos niños tienen muchas carencias: falta de libros en casa, padres con baja escolaridad, poca exposición cultural. Debemos compensar estos déficits'. Desde pedagogía asset-based (Yosso), ¿cuál es el problema con este encuadre?",
             "answerOptions": [
-                { "text": "El lenguaje es estigmatizante ('carencias', 'déficits') y puede generar bajas expectativas. Debería usar lenguaje más positivo ('desafíos', 'oportunidades') para marco de crecimiento.", "rationale": "Si bien lenguaje importa, el problema CENTRAL no es terminología sino MARCO CONCEPTUAL. Cambiar 'déficit' por 'desafío' mantiene perspectiva de carencia si no se reconocen activamente fortalezas que estudiantes SÍ poseen. Yosso critica el MODELO de déficit (comparar con clase media como norma), no solo vocabulario. Pedagogía asset-based requiere identificar capital cultural comunitario real, no solo refraseado positivo.", "isCorrect": false },
-                { "text": "El encuadre adopta perspectiva de 'déficit': mide capital cultural estudiantil contra norma de clase media, ignorando fortalezas (capital aspiracional, familiar, social, resistencia) que estudiantes rurales SÍ poseen.", "rationale": "CORRECTA. Tara Yosso (2005) critica 'teoría de déficit cultural' que asume que estudiantes de minorías/clases trabajadoras carecen de capital cultural porque no poseen capital de clase media dominante. Su 'Community Cultural Wealth' identifica 6 formas de capital que estos estudiantes SÍ poseen: aspiracional, familiar, social, lingüístico, navegacional, resistencia. El docente comete error de medir estudiantes rurales contra estándar urbano de clase media, ignorando conocimientos ecológicos, redes comunitarias fuertes, habilidades de resiliencia, valores familiares. Pedagogía asset-based construye desde fortalezas reales, no compensa  'falta' de capital dominante.", "isCorrect": true },
-                { "text": "El enfoque es paternalista y puede disminuir agencia estudiantil. Yosso enfatiza que docentes deben 'empoderar' estudiantes, no 'compensar' por ellos.", "rationale": "Si bien paternalismo es problema relacionado, Yosso se enfoca específicamente en RECONOCER CAPITAL CULTURAL que estudiantes ya poseen, no solo evitar paternalismo. El problema no es solo 'hacer por ellos' sino NO VER fortalezas que traen. Estudiantes rurales poseen conocimientos ecológicos, habilidades cooperativas, capital familiar, que son fortalezas reales. Pedagogía asset-based requiere identificar y construir desde estos activos, no solo evitar actitud condescendiente.", "isCorrect": false },
-                { "text": "El enfoque ignora factores estructurales (pobreza, inequidad de recursos escolares). Yosso enfatiza que responsabilidad es de sistemas, no de 'compensar' individualmente déficits estudiantiles.", "rationale": "Si bien Yosso reconoce injusticia estructural, su crítica al modelo de déficit es diferente. No dice que docentes deban solo señalar injusticia sistémica, sino que deben RECONOCER CAPITAL CULTURAL que estudiantes poseen. La pedagogía asset-based identifica fortalezas comunitarias como base de aprendizaje riguroso, no solo lamenta inequidades. Ambos (crítica estructural Y pedagogía asset-based) son importantes, pero la pregunta apunta a reconocimiento de activos.", "isCorrect": false }
+                {
+                    "text": "El lenguaje es estigmatizante ('carencias', 'déficits') y puede generar bajas expectativas. Debería usar lenguaje más positivo ('desafíos', 'oportunidades') para marco de crecimiento.",
+                    "rationale": "Si bien lenguaje importa, el problema CENTRAL no es terminología sino MARCO CONCEPTUAL. Cambiar 'déficit' por 'desafío' mantiene perspectiva de carencia si no se reconocen activamente fortalezas que estudiantes SÍ poseen. Yosso critica el MODELO de déficit (comparar con clase media como norma), no solo vocabulario. Pedagogía asset-based requiere identificar capital cultural comunitario real, no solo refraseado positivo.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "El encuadre adopta perspectiva de 'déficit': mide capital cultural estudiantil contra norma de clase media, ignorando fortalezas (capital aspiracional, familiar, social, resistencia) que estudiantes rurales SÍ poseen.",
+                    "rationale": "CORRECTA. Tara Yosso (2005) critica 'teoría de déficit cultural' que asume que estudiantes de minorías/clases trabajadoras carecen de capital cultural porque no poseen capital de clase media dominante. Su 'Community Cultural Wealth' identifica 6 formas de capital que estos estudiantes SÍ poseen: aspiracional, familiar, social, lingüístico, navegacional, resistencia. El docente comete error de medir estudiantes rurales contra estándar urbano de clase media, ignorando conocimientos ecológicos, redes comunitarias fuertes, habilidades de resiliencia, valores familiares. Pedagogía asset-based construye desde fortalezas reales, no compensa  'falta' de capital dominante.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "El enfoque es paternalista y puede disminuir agencia estudiantil. Yosso enfatiza que docentes deben 'empoderar' estudiantes, no 'compensar' por ellos.",
+                    "rationale": "Si bien paternalismo es problema relacionado, Yosso se enfoca específicamente en RECONOCER CAPITAL CULTURAL que estudiantes ya poseen, no solo evitar paternalismo. El problema no es solo 'hacer por ellos' sino NO VER fortalezas que traen. Estudiantes rurales poseen conocimientos ecológicos, habilidades cooperativas, capital familiar, que son fortalezas reales. Pedagogía asset-based requiere identificar y construir desde estos activos, no solo evitar actitud condescendiente.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "El enfoque ignora factores estructurales (pobreza, inequidad de recursos escolares). Yosso enfatiza que responsabilidad es de sistemas, no de 'compensar' individualmente déficits estudiantiles.",
+                    "rationale": "Si bien Yosso reconoce injusticia estructural, su crítica al modelo de déficit es diferente. No dice que docentes deban solo señalar injusticia sistémica, sino que deben RECONOCER CAPITAL CULTURAL que estudiantes poseen. La pedagogía asset-based identifica fortalezas comunitarias como base de aprendizaje riguroso, no solo lamenta inequidades. Ambos (crítica estructural Y pedagogía asset-based) son importantes, pero la pregunta apunta a reconocimiento de activos.",
+                    "isCorrect": false
+                }
             ],
             "correctAnswer": "b",
             "rationale": "Tara Yosso (2005) propone 'Community Cultural Wealth' como alternativa a teorías de déficit cultural. En lugar de medir estudiantes marginalizados contra capital cultural dominante (clase media, blanco) y concluir 'déficits', identifica 6 formas de capital que POSEEN: aspiracional (mantener esperanza pese adversidad), familiar (conocimientos de comunidad/familia), social (redes y recursos comunitarios), lingüísico (multilingüismo), navegacional (maniobrar instituciones), resistencia (oponerse inequidad). Pedagogía asset-based construye desde estas fortalezas reales, no 'compensa carencias'. Esto no niega injusticia estructural sino que afirma que estudiantes no son 'déficits ambulantes'.",
             "hint": "Yosso: pedagogía asset-based reconoce CAPITAL CULTURAL comunitario real (aspiracional, familiar, social, resistencia), no 'compensa' déficits comparados con clase media."
-        }
-        ,
+        },
         {
             "questionNumber": 36,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el d\u00eda sube 3 metros y en la noche resbala un metro. \u00bfEl d\u00eda que llegar\u00e1 el caracol a la cima del muro es el?",
+            "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el día sube 3 metros y en la noche resbala un metro. ¿El día que llegará el caracol a la cima del muro es el?",
             "answerOptions": [
                 {
-                    "text": "4\u00b0",
-                    "rationale": "An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+                    "text": "4°",
+                    "rationale": "Análisis: Cada día efectivo sube 2m (3m sube - 1m baja). Día 1: llega a 2m. Día 2: llega a 4m. Día 3: llega a 6m. El Día 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque llegó.",
                     "isCorrect": true
                 },
                 {
-                    "text": "5\u00b0",
-                    "rationale": "Esta no es la respuesta correcta. An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+                    "text": "5°",
+                    "rationale": "Esta no es la respuesta correcta. Análisis: Cada día efectivo sube 2m (3m sube - 1m baja). Día 1: llega a 2m. Día 2: llega a 4m. Día 3: llega a 6m. El Día 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque llegó.",
                     "isCorrect": false
                 },
                 {
-                    "text": "6\u00b0",
-                    "rationale": "Esta no es la respuesta correcta. An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+                    "text": "6°",
+                    "rationale": "Esta no es la respuesta correcta. Análisis: Cada día efectivo sube 2m (3m sube - 1m baja). Día 1: llega a 2m. Día 2: llega a 4m. Día 3: llega a 6m. El Día 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque llegó.",
                     "isCorrect": false
                 },
                 {
-                    "text": "7\u00b0",
-                    "rationale": "Esta no es la respuesta correcta. An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
+                    "text": "7°",
+                    "rationale": "Esta no es la respuesta correcta. Análisis: Cada día efectivo sube 2m (3m sube - 1m baja). Día 1: llega a 2m. Día 2: llega a 4m. Día 3: llega a 6m. El Día 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque llegó.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "a",
-            "rationale": "An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "rationale": "Análisis: Cada día efectivo sube 2m (3m sube - 1m baja). Día 1: llega a 2m. Día 2: llega a 4m. Día 3: llega a 6m. El Día 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque llegó.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 37,
-            "category": "Pedag\u00f3gica - Evaluaci\u00f3n",
+            "category": "Evaluación",
             "difficulty": "expert",
-            "question": "Un docente observa que sus estudiantes tienen dificultades para aplicar un nuevo concepto. \u00bfCu\u00e1l es la acci\u00f3n m\u00e1s apropiada seg\u00fan los principios de la Evaluaci\u00f3n Formativa?",
+            "question": "Un docente observa que sus estudiantes tienen dificultades para aplicar un nuevo concepto. ¿Cuál es la acción más apropiada según los principios de la Evaluación Formativa?",
             "answerOptions": [
                 {
-                    "text": "Asignarles m\u00e1s tarea para la casa como castigo por no comprender.",
-                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+                    "text": "Asignarles más tarea para la casa como castigo por no comprender.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluación formativa busca mejorar el proceso de aprendizaje mediante la identificación de dificultades y la retroalimentación oportuna, no mediante el castigo o la calificación punitiva.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Realizar una retroalimentaci\u00f3n reflexiva para identificar el error y ajustar la ense\u00f1anza.",
-                    "rationale": "La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+                    "text": "Realizar una retroalimentación reflexiva para identificar el error y ajustar la enseñanza.",
+                    "rationale": "La evaluación formativa busca mejorar el proceso de aprendizaje mediante la identificación de dificultades y la retroalimentación oportuna, no mediante el castigo o la calificación punitiva.",
                     "isCorrect": true
                 },
                 {
                     "text": "Ignorar el error y continuar con el siguiente tema para no atrasarse.",
-                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluación formativa busca mejorar el proceso de aprendizaje mediante la identificación de dificultades y la retroalimentación oportuna, no mediante el castigo o la calificación punitiva.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Bajarles puntos en la nota final para que estudien m\u00e1s.",
-                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+                    "text": "Bajarles puntos en la nota final para que estudien más.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluación formativa busca mejorar el proceso de aprendizaje mediante la identificación de dificultades y la retroalimentación oportuna, no mediante el castigo o la calificación punitiva.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
+            "rationale": "La evaluación formativa busca mejorar el proceso de aprendizaje mediante la identificación de dificultades y la retroalimentación oportuna, no mediante el castigo o la calificación punitiva.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 38,
-            "category": "Aptitud Verbal - Analog\u00edas",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "NUBE : EVAPORACI\u00d3N ::",
+            "question": "NUBE : EVAPORACIÓN ::",
             "answerOptions": [
                 {
-                    "text": "mar : r\u00edo",
-                    "rationale": "Esta no es la respuesta correcta. Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+                    "text": "mar : río",
+                    "rationale": "Esta no es la respuesta correcta. Relación de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporación. El sueño es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesión', pero la relación física más directa es sueño-cansancio).",
                     "isCorrect": false
                 },
                 {
-                    "text": "desempleo : recesi\u00f3n",
-                    "rationale": "Esta no es la respuesta correcta. Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+                    "text": "desempleo : recesión",
+                    "rationale": "Esta no es la respuesta correcta. Relación de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporación. El sueño es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesión', pero la relación física más directa es sueño-cansancio).",
                     "isCorrect": false
                 },
                 {
-                    "text": "sue\u00f1o : cansancio",
-                    "rationale": "Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+                    "text": "sueño : cansancio",
+                    "rationale": "Relación de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporación. El sueño es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesión', pero la relación física más directa es sueño-cansancio).",
                     "isCorrect": true
                 },
                 {
-                    "text": "oxidaci\u00f3n : \u00f3xido",
-                    "rationale": "Esta no es la respuesta correcta. Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+                    "text": "oxidación : óxido",
+                    "rationale": "Esta no es la respuesta correcta. Relación de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporación. El sueño es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesión', pero la relación física más directa es sueño-cansancio).",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
+            "rationale": "Relación de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporación. El sueño es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesión', pero la relación física más directa es sueño-cansancio).",
             "hint": "Fuente: Prueba APTITUD VERBAL 2016"
         },
         {
             "questionNumber": 39,
-            "category": "Situacional - Convivencia",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "expert",
-            "question": "En una escuela, la coincidencia del horario de descanso entre primaria y bachillerato genera agresiones. \u00bfCu\u00e1l es la medida m\u00e1s adecuada para abordar la situaci\u00f3n integralmente?",
+            "question": "En una escuela, la coincidencia del horario de descanso entre primaria y bachillerato genera agresiones. ¿Cuál es la medida más adecuada para abordar la situación integralmente?",
             "answerOptions": [
                 {
-                    "text": "Implementar campa\u00f1as educativas sobre buen comportamiento.",
-                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+                    "text": "Implementar campañas educativas sobre buen comportamiento.",
+                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la solución estructural y preventiva más efectiva es la separación de espacios o tiempos (Zonificación/Horarios) para garantizar la seguridad física inmediata.",
                     "isCorrect": false
                 },
                 {
                     "text": "Redistribuir el horario de descansos para que salgan a horas diferentes.",
-                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la solución estructural y preventiva más efectiva es la separación de espacios o tiempos (Zonificación/Horarios) para garantizar la seguridad física inmediata.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Establecer zonas espec\u00edficas de descanso para cada nivel con supervisi\u00f3n docente.",
-                    "rationale": "Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+                    "text": "Establecer zonas específicas de descanso para cada nivel con supervisión docente.",
+                    "rationale": "Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la solución estructural y preventiva más efectiva es la separación de espacios o tiempos (Zonificación/Horarios) para garantizar la seguridad física inmediata.",
                     "isCorrect": true
                 },
                 {
-                    "text": "Crear grupos de mediaci\u00f3n donde los grandes ayuden a los peque\u00f1os.",
-                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
+                    "text": "Crear grupos de mediación donde los grandes ayuden a los pequeños.",
+                    "rationale": "Esta no es la respuesta correcta. Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la solución estructural y preventiva más efectiva es la separación de espacios o tiempos (Zonificación/Horarios) para garantizar la seguridad física inmediata.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
-            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAG\u00d3GICA GENERAL"
+            "rationale": "Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la solución estructural y preventiva más efectiva es la separación de espacios o tiempos (Zonificación/Horarios) para garantizar la seguridad física inmediata.",
+            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
         },
         {
             "questionNumber": 40,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Si dentro de 20 a\u00f1os tendr\u00e9 el triple de la edad que ten\u00eda hace 20 a\u00f1os, entonces tengo:",
+            "question": "Si dentro de 20 años tendré el triple de la edad que tenía hace 20 años, entonces tengo:",
             "answerOptions": [
                 {
-                    "text": "20 a\u00f1os",
-                    "rationale": "Esta no es la respuesta correcta. Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+                    "text": "20 años",
+                    "rationale": "Esta no es la respuesta correcta. Ecuación: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
                     "isCorrect": false
                 },
                 {
-                    "text": "40 a\u00f1os",
-                    "rationale": "Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+                    "text": "40 años",
+                    "rationale": "Ecuación: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
                     "isCorrect": true
                 },
                 {
-                    "text": "60 a\u00f1os",
-                    "rationale": "Esta no es la respuesta correcta. Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+                    "text": "60 años",
+                    "rationale": "Esta no es la respuesta correcta. Ecuación: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
                     "isCorrect": false
                 },
                 {
-                    "text": "80 a\u00f1os",
-                    "rationale": "Esta no es la respuesta correcta. Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+                    "text": "80 años",
+                    "rationale": "Esta no es la respuesta correcta. Ecuación: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
-            "hint": "Fuente: Prueba Aptitud Num\u00e9rica Final"
+            "rationale": "Ecuación: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
+            "hint": "Fuente: Prueba Aptitud Numérica Final"
         },
         {
             "questionNumber": 41,
-            "category": "Gesti\u00f3n Educativa - Inclusi\u00f3n",
+            "category": "Inclusión y Diversidad",
             "difficulty": "hard",
-            "question": "En una instituci\u00f3n educativa se identifica la necesidad de integrar estrategias para estudiantes con discapacidad. \u00bfQu\u00e9 acci\u00f3n cumple con la normativa de inclusi\u00f3n?",
+            "question": "En una institución educativa se identifica la necesidad de integrar estrategias para estudiantes con discapacidad. ¿Qué acción cumple con la normativa de inclusión?",
             "answerOptions": [
                 {
                     "text": "Crear un aula exclusiva para estudiantes con discapacidad.",
-                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Diseño Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educación inclusiva, rechazando la segregación.",
                     "isCorrect": false
                 },
                 {
                     "text": "Implementar el Plan Individual de Ajustes Razonables (PIAR) y el DUA.",
-                    "rationale": "El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+                    "rationale": "El Decreto 1421 de 2017 establece el PIAR y el Diseño Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educación inclusiva, rechazando la segregación.",
                     "isCorrect": true
                 },
                 {
                     "text": "Sugerir a las familias buscar instituciones especializadas.",
-                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Diseño Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educación inclusiva, rechazando la segregación.",
                     "isCorrect": false
                 },
                 {
                     "text": "Eximir a estos estudiantes de las evaluaciones estandarizadas.",
-                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1421 de 2017 establece el PIAR y el Diseño Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educación inclusiva, rechazando la segregación.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
+            "rationale": "El Decreto 1421 de 2017 establece el PIAR y el Diseño Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educación inclusiva, rechazando la segregación.",
             "hint": "Fuente: Simulacro de Referencia - Grufae"
         },
         {
             "questionNumber": 42,
-            "category": "Aptitud Verbal - Ordenamiento",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Ordene las frases sobre 'La investigaci\u00f3n cualitativa': 1. es altamente interpretativa 2. pero puede ser una rica fuente 3. se re\u00fanen datos y se examinan 4. no puede arrojar conclusiones generales 5. toma una ruta exploratoria 6. en lugar de generar hip\u00f3tesis previas.",
+            "question": "Ordene las frases sobre 'La investigación cualitativa': 1. es altamente interpretativa 2. pero puede ser una rica fuente 3. se reúnen datos y se examinan 4. no puede arrojar conclusiones generales 5. toma una ruta exploratoria 6. en lugar de generar hipótesis previas.",
             "answerOptions": [
                 {
                     "text": "3, 6, 1, 2, 5, 4",
-                    "rationale": "Esta no es la respuesta correcta. Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+                    "rationale": "Esta no es la respuesta correcta. Orden lógico: Definición general (5) -> Contraste con método tradicional (6) -> Metodología (3) -> Característica (1) -> Limitación (4) -> Ventaja final (2).",
                     "isCorrect": false
                 },
                 {
                     "text": "5, 6, 3, 1, 4, 2",
-                    "rationale": "Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+                    "rationale": "Orden lógico: Definición general (5) -> Contraste con método tradicional (6) -> Metodología (3) -> Característica (1) -> Limitación (4) -> Ventaja final (2).",
                     "isCorrect": true
                 },
                 {
                     "text": "6, 1, 2, 5, 4, 3",
-                    "rationale": "Esta no es la respuesta correcta. Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+                    "rationale": "Esta no es la respuesta correcta. Orden lógico: Definición general (5) -> Contraste con método tradicional (6) -> Metodología (3) -> Característica (1) -> Limitación (4) -> Ventaja final (2).",
                     "isCorrect": false
                 },
                 {
                     "text": "1, 4, 2, 3, 6, 5",
-                    "rationale": "Esta no es la respuesta correcta. Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+                    "rationale": "Esta no es la respuesta correcta. Orden lógico: Definición general (5) -> Contraste con método tradicional (6) -> Metodología (3) -> Característica (1) -> Limitación (4) -> Ventaja final (2).",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
+            "rationale": "Orden lógico: Definición general (5) -> Contraste con método tradicional (6) -> Metodología (3) -> Característica (1) -> Limitación (4) -> Ventaja final (2).",
             "hint": "Fuente: Prueba APTITUD VERBAL 2016"
         },
         {
             "questionNumber": 43,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "4 obreros trabajando 7 horas diarias construyen un muro en 3 d\u00edas. \u00bfCu\u00e1ntos d\u00edas tardar\u00e1n 2 obreros trabajando 6 horas diarias en construir un muro igual?",
+            "question": "4 obreros trabajando 7 horas diarias construyen un muro en 3 días. ¿Cuántos días tardarán 2 obreros trabajando 6 horas diarias en construir un muro igual?",
             "answerOptions": [
                 {
-                    "text": "4 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+                    "text": "4 días",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/día. Días necesarios: 84 / 12 = 7 días.",
                     "isCorrect": false
                 },
                 {
-                    "text": "7 d\u00edas",
-                    "rationale": "Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+                    "text": "7 días",
+                    "rationale": "Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/día. Días necesarios: 84 / 12 = 7 días.",
                     "isCorrect": true
                 },
                 {
-                    "text": "9 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+                    "text": "9 días",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/día. Días necesarios: 84 / 12 = 7 días.",
                     "isCorrect": false
                 },
                 {
-                    "text": "12 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
+                    "text": "12 días",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/día. Días necesarios: 84 / 12 = 7 días.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "rationale": "Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/día. Días necesarios: 84 / 12 = 7 días.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 44,
-            "category": "Pedag\u00f3gica - Ciudadan\u00eda",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
-            "question": "En Ciencias Sociales, para reconocerse como sujeto de derechos, \u00bfqu\u00e9 proceso debe priorizar el docente?",
+            "question": "En Ciencias Sociales, para reconocerse como sujeto de derechos, ¿qué proceso debe priorizar el docente?",
             "answerOptions": [
                 {
-                    "text": "La memorizaci\u00f3n de las leyes internacionales.",
-                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+                    "text": "La memorización de las leyes internacionales.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teoría a la práctica mediante la deliberación y el enfrentamiento a dilemas, fomentando el pensamiento crítico.",
                     "isCorrect": false
                 },
                 {
-                    "text": "El dise\u00f1o de un mapa mental de las estructuras de gobierno.",
-                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+                    "text": "El diseño de un mapa mental de las estructuras de gobierno.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teoría a la práctica mediante la deliberación y el enfrentamiento a dilemas, fomentando el pensamiento crítico.",
                     "isCorrect": false
                 },
                 {
-                    "text": "La deliberaci\u00f3n, el an\u00e1lisis de dilemas \u00e9ticos y la toma de postura.",
-                    "rationale": "La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+                    "text": "La deliberación, el análisis de dilemas éticos y la toma de postura.",
+                    "rationale": "La competencia ciudadana activa requiere pasar de la teoría a la práctica mediante la deliberación y el enfrentamiento a dilemas, fomentando el pensamiento crítico.",
                     "isCorrect": true
                 },
                 {
-                    "text": "La realizaci\u00f3n de actividades f\u00edsicas para el autocuidado.",
-                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+                    "text": "La realización de actividades físicas para el autocuidado.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia ciudadana activa requiere pasar de la teoría a la práctica mediante la deliberación y el enfrentamiento a dilemas, fomentando el pensamiento crítico.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
+            "rationale": "La competencia ciudadana activa requiere pasar de la teoría a la práctica mediante la deliberación y el enfrentamiento a dilemas, fomentando el pensamiento crítico.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 45,
-            "category": "Psicot\u00e9cnica - Liderazgo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Ante la indisciplina por consumo de sustancias, la coordinadora busca aprovechar el talento docente. \u00bfCu\u00e1l es la mejor estrategia?",
+            "question": "Ante la indisciplina por consumo de sustancias, la coordinadora busca aprovechar el talento docente. ¿Cuál es la mejor estrategia?",
             "answerOptions": [
                 {
                     "text": "Evaluar cada aporte con criterios objetivos y decidir ella misma.",
-                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participación colaborativa (grupos pequeños) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Priorizar las ideas de los docentes dispuestos a asumir la implementaci\u00f3n.",
-                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+                    "text": "Priorizar las ideas de los docentes dispuestos a asumir la implementación.",
+                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participación colaborativa (grupos pequeños) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Implementar grupos peque\u00f1os para discutir y desarrollar las ideas m\u00e1s viables.",
-                    "rationale": "El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+                    "text": "Implementar grupos pequeños para discutir y desarrollar las ideas más viables.",
+                    "rationale": "El liderazgo distribuido promueve la participación colaborativa (grupos pequeños) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
                     "isCorrect": true
                 },
                 {
                     "text": "Delegar el problema al orientador escolar exclusivamente.",
-                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+                    "rationale": "Esta no es la respuesta correcta. El liderazgo distribuido promueve la participación colaborativa (grupos pequeños) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
+            "rationale": "El liderazgo distribuido promueve la participación colaborativa (grupos pequeños) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
             "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
         },
         {
             "questionNumber": 46,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Si por 12 camisetas pago 96 euros, \u00bfcu\u00e1nto pagar\u00e9 por 57 camisetas?",
+            "question": "Si por 12 camisetas pago 96 euros, ¿cuánto pagaré por 57 camisetas?",
             "answerOptions": [
                 {
                     "text": "400",
@@ -1266,292 +1426,292 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "b",
             "rationale": "Proporcionalidad directa. Costo unitario = 96 / 12 = 8 euros. Costo total = 57 * 8 = 456 euros.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 47,
-            "category": "Aptitud Verbal - Oraciones Incompletas",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "La investigaci\u00f3n cualitativa toma una ruta ________ m\u00e1s flexible, en lugar de generar hip\u00f3tesis a partir de la investigaci\u00f3n ________.",
+            "question": "La investigación cualitativa toma una ruta ________ más flexible, en lugar de generar hipótesis a partir de la investigación ________.",
             "answerOptions": [
                 {
                     "text": "exploratoria - previa",
-                    "rationale": "El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+                    "rationale": "El contexto académico contrasta la flexibilidad cualitativa (exploratoria) con los métodos tradicionales que requieren hipótesis anteriores (previas).",
                     "isCorrect": true
                 },
                 {
-                    "text": "r\u00edgida - futura",
-                    "rationale": "Esta no es la respuesta correcta. El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+                    "text": "rígida - futura",
+                    "rationale": "Esta no es la respuesta correcta. El contexto académico contrasta la flexibilidad cualitativa (exploratoria) con los métodos tradicionales que requieren hipótesis anteriores (previas).",
                     "isCorrect": false
                 },
                 {
-                    "text": "matem\u00e1tica - actual",
-                    "rationale": "Esta no es la respuesta correcta. El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+                    "text": "matemática - actual",
+                    "rationale": "Esta no es la respuesta correcta. El contexto académico contrasta la flexibilidad cualitativa (exploratoria) con los métodos tradicionales que requieren hipótesis anteriores (previas).",
                     "isCorrect": false
                 },
                 {
                     "text": "subjetiva - experimental",
-                    "rationale": "Esta no es la respuesta correcta. El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+                    "rationale": "Esta no es la respuesta correcta. El contexto académico contrasta la flexibilidad cualitativa (exploratoria) con los métodos tradicionales que requieren hipótesis anteriores (previas).",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "a",
-            "rationale": "El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
+            "rationale": "El contexto académico contrasta la flexibilidad cualitativa (exploratoria) con los métodos tradicionales que requieren hipótesis anteriores (previas).",
             "hint": "Fuente: Prueba APTITUD VERBAL 2016"
         },
         {
             "questionNumber": 48,
-            "category": "Pedag\u00f3gica - Planificaci\u00f3n",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
-            "question": "\u00bfQu\u00e9 se define inmediatamente despu\u00e9s de la situaci\u00f3n significativa en la programaci\u00f3n curricular?",
+            "question": "¿Qué se define inmediatamente después de la situación significativa en la programación curricular?",
             "answerOptions": [
                 {
-                    "text": "Las actividades l\u00fadicas.",
-                    "rationale": "Esta no es la respuesta correcta. En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+                    "text": "Las actividades lúdicas.",
+                    "rationale": "Esta no es la respuesta correcta. En la planificación inversa, tras definir el reto (situación significativa), se debe establecer qué aprendizajes (competencias) se requieren para resolverlo antes de diseñar actividades.",
                     "isCorrect": false
                 },
                 {
                     "text": "Los recursos y materiales.",
-                    "rationale": "Esta no es la respuesta correcta. En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+                    "rationale": "Esta no es la respuesta correcta. En la planificación inversa, tras definir el reto (situación significativa), se debe establecer qué aprendizajes (competencias) se requieren para resolverlo antes de diseñar actividades.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Seleccionar las Competencias, Capacidades y Desempe\u00f1os a movilizar.",
-                    "rationale": "En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+                    "text": "Seleccionar las Competencias, Capacidades y Desempeños a movilizar.",
+                    "rationale": "En la planificación inversa, tras definir el reto (situación significativa), se debe establecer qué aprendizajes (competencias) se requieren para resolverlo antes de diseñar actividades.",
                     "isCorrect": true
                 },
                 {
-                    "text": "La evaluaci\u00f3n sumativa final.",
-                    "rationale": "Esta no es la respuesta correcta. En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+                    "text": "La evaluación sumativa final.",
+                    "rationale": "Esta no es la respuesta correcta. En la planificación inversa, tras definir el reto (situación significativa), se debe establecer qué aprendizajes (competencias) se requieren para resolverlo antes de diseñar actividades.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
+            "rationale": "En la planificación inversa, tras definir el reto (situación significativa), se debe establecer qué aprendizajes (competencias) se requieren para resolverlo antes de diseñar actividades.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 49,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Ana va a la biblioteca cada 5 d\u00edas y Miguel cada 3 d\u00edas. Si hoy coincidieron, \u00bfen cu\u00e1ntos d\u00edas volver\u00e1n a coincidir?",
+            "question": "Ana va a la biblioteca cada 5 días y Miguel cada 3 días. Si hoy coincidieron, ¿en cuántos días volverán a coincidir?",
             "answerOptions": [
                 {
-                    "text": "10 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+                    "text": "10 días",
+                    "rationale": "Esta no es la respuesta correcta. Mínimo Común Múltiplo (MCM). MCM(5, 3) = 15.",
                     "isCorrect": false
                 },
                 {
-                    "text": "12 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+                    "text": "12 días",
+                    "rationale": "Esta no es la respuesta correcta. Mínimo Común Múltiplo (MCM). MCM(5, 3) = 15.",
                     "isCorrect": false
                 },
                 {
-                    "text": "15 d\u00edas",
-                    "rationale": "M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+                    "text": "15 días",
+                    "rationale": "Mínimo Común Múltiplo (MCM). MCM(5, 3) = 15.",
                     "isCorrect": true
                 },
                 {
-                    "text": "20 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
+                    "text": "20 días",
+                    "rationale": "Esta no es la respuesta correcta. Mínimo Común Múltiplo (MCM). MCM(5, 3) = 15.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "rationale": "Mínimo Común Múltiplo (MCM). MCM(5, 3) = 15.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 50,
-            "category": "Legislaci\u00f3n Educativa",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "hard",
-            "question": "\u00bfCu\u00e1l es la ley general que rige los fines de la educaci\u00f3n en Colombia?",
+            "question": "¿Cuál es la ley general que rige los fines de la educación en Colombia?",
             "answerOptions": [
                 {
                     "text": "Ley 1620",
-                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educación. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
                     "isCorrect": false
                 },
                 {
                     "text": "Decreto 1278",
-                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educación. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
                     "isCorrect": false
                 },
                 {
                     "text": "Ley 115 de 1994",
-                    "rationale": "La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+                    "rationale": "La Ley 115 de 1994 es la Ley General de Educación. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
                     "isCorrect": true
                 },
                 {
                     "text": "Ley 715",
-                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+                    "rationale": "Esta no es la respuesta correcta. La Ley 115 de 1994 es la Ley General de Educación. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
+            "rationale": "La Ley 115 de 1994 es la Ley General de Educación. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
             "hint": "Fuente: Manual de Funciones - MEN"
         },
         {
             "questionNumber": 51,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
             "question": "Si un ladrillo pesa 4 kg, el peso de un ladrillito del mismo material cuyas dimensiones son 4 veces menores es:",
             "answerOptions": [
                 {
                     "text": "62.5 g",
-                    "rationale": "El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+                    "rationale": "El volumen varía con el cubo de la proporción lineal. Si la dimensión es 1/4, el volumen es (1/4)³ = 1/64. Peso = 4000g / 64 = 62.5g.",
                     "isCorrect": true
                 },
                 {
                     "text": "125 g",
-                    "rationale": "Esta no es la respuesta correcta. El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+                    "rationale": "Esta no es la respuesta correcta. El volumen varía con el cubo de la proporción lineal. Si la dimensión es 1/4, el volumen es (1/4)³ = 1/64. Peso = 4000g / 64 = 62.5g.",
                     "isCorrect": false
                 },
                 {
                     "text": "250 g",
-                    "rationale": "Esta no es la respuesta correcta. El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+                    "rationale": "Esta no es la respuesta correcta. El volumen varía con el cubo de la proporción lineal. Si la dimensión es 1/4, el volumen es (1/4)³ = 1/64. Peso = 4000g / 64 = 62.5g.",
                     "isCorrect": false
                 },
                 {
                     "text": "500 g",
-                    "rationale": "Esta no es la respuesta correcta. El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
+                    "rationale": "Esta no es la respuesta correcta. El volumen varía con el cubo de la proporción lineal. Si la dimensión es 1/4, el volumen es (1/4)³ = 1/64. Peso = 4000g / 64 = 62.5g.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "a",
-            "rationale": "El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
-            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+            "rationale": "El volumen varía con el cubo de la proporción lineal. Si la dimensión es 1/4, el volumen es (1/4)³ = 1/64. Peso = 4000g / 64 = 62.5g.",
+            "hint": "Fuente: prueba pedagogía con respuestas (1).pdf"
         },
         {
             "questionNumber": 52,
-            "category": "Pedag\u00f3gica - NEE",
+            "category": "Inclusión y Diversidad",
             "difficulty": "expert",
-            "question": "Un estudiante con NEE tiene dificultades en lectura. \u00bfCu\u00e1l es la adaptaci\u00f3n curricular adecuada?",
+            "question": "Un estudiante con NEE tiene dificultades en lectura. ¿Cuál es la adaptación curricular adecuada?",
             "answerOptions": [
                 {
                     "text": "Eximirlo de las evaluaciones de lectura.",
-                    "rationale": "Esta no es la respuesta correcta. La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+                    "rationale": "Esta no es la respuesta correcta. La adaptación debe facilitar el acceso al currículo mediante ajustes razonables (apoyos visuales, simplificación) sin eliminar la competencia.",
                     "isCorrect": false
                 },
                 {
                     "text": "Reducir la cantidad de texto sin modificar complejidad.",
-                    "rationale": "Esta no es la respuesta correcta. La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+                    "rationale": "Esta no es la respuesta correcta. La adaptación debe facilitar el acceso al currículo mediante ajustes razonables (apoyos visuales, simplificación) sin eliminar la competencia.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Proporcionar textos con apoyo visual y simplificaci\u00f3n del vocabulario.",
-                    "rationale": "La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+                    "text": "Proporcionar textos con apoyo visual y simplificación del vocabulario.",
+                    "rationale": "La adaptación debe facilitar el acceso al currículo mediante ajustes razonables (apoyos visuales, simplificación) sin eliminar la competencia.",
                     "isCorrect": true
                 },
                 {
-                    "text": "Hacer que repita el a\u00f1o para que madure.",
-                    "rationale": "Esta no es la respuesta correcta. La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+                    "text": "Hacer que repita el año para que madure.",
+                    "rationale": "Esta no es la respuesta correcta. La adaptación debe facilitar el acceso al currículo mediante ajustes razonables (apoyos visuales, simplificación) sin eliminar la competencia.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
+            "rationale": "La adaptación debe facilitar el acceso al currículo mediante ajustes razonables (apoyos visuales, simplificación) sin eliminar la competencia.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 53,
-            "category": "Aptitud Verbal - Ant\u00f3nimos",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
             "question": "BAQUIANO",
             "answerOptions": [
                 {
                     "text": "Primerizo",
-                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Antónimo directo: Novato.",
                     "isCorrect": false
                 },
                 {
                     "text": "Novato",
-                    "rationale": "Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+                    "rationale": "Baquiano: Experto conocedor de caminos/terrenos. Antónimo directo: Novato.",
                     "isCorrect": true
                 },
                 {
                     "text": "Torpe",
-                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Antónimo directo: Novato.",
                     "isCorrect": false
                 },
                 {
                     "text": "Incapaz",
-                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
+                    "rationale": "Esta no es la respuesta correcta. Baquiano: Experto conocedor de caminos/terrenos. Antónimo directo: Novato.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
-            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC"
+            "rationale": "Baquiano: Experto conocedor de caminos/terrenos. Antónimo directo: Novato.",
+            "hint": "Fuente: GUÍA DE ORIENTACIÓN CNSC"
         },
         {
             "questionNumber": 54,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Juan vende limonada ganando $180 por vaso. Si vende 20 vasos por d\u00eda, para ganar $12.600 tardar\u00e1:",
+            "question": "Juan vende limonada ganando $180 por vaso. Si vende 20 vasos por día, para ganar $12.600 tardará:",
             "answerOptions": [
                 {
-                    "text": "3 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+                    "text": "3 días",
+                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. Días requeridos = $12600 / $3600 = 3.5 días.",
                     "isCorrect": false
                 },
                 {
-                    "text": "3.5 d\u00edas",
-                    "rationale": "Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+                    "text": "3.5 días",
+                    "rationale": "Ganancia diaria = 20 vasos * $180 = $3600. Días requeridos = $12600 / $3600 = 3.5 días.",
                     "isCorrect": true
                 },
                 {
-                    "text": "4 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+                    "text": "4 días",
+                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. Días requeridos = $12600 / $3600 = 3.5 días.",
                     "isCorrect": false
                 },
                 {
-                    "text": "4.5 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
+                    "text": "4.5 días",
+                    "rationale": "Esta no es la respuesta correcta. Ganancia diaria = 20 vasos * $180 = $3600. Días requeridos = $12600 / $3600 = 3.5 días.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "rationale": "Ganancia diaria = 20 vasos * $180 = $3600. Días requeridos = $12600 / $3600 = 3.5 días.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 55,
-            "category": "Situacional - Gesti\u00f3n",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "expert",
-            "question": "Un colegio no ha establecido el gobierno escolar obligatorio. La directora teme sanciones. \u00bfQu\u00e9 debe hacer?",
+            "question": "Un colegio no ha establecido el gobierno escolar obligatorio. La directora teme sanciones. ¿Qué debe hacer?",
             "answerOptions": [
                 {
-                    "text": "Delegar a un peque\u00f1o grupo la organizaci\u00f3n.",
-                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+                    "text": "Delegar a un pequeño grupo la organización.",
+                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participación democrática de toda la comunidad educativa.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Convocar a elecciones democr\u00e1ticas asegurando la participaci\u00f3n de todos los estamentos.",
-                    "rationale": "El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+                    "text": "Convocar a elecciones democráticas asegurando la participación de todos los estamentos.",
+                    "rationale": "El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participación democrática de toda la comunidad educativa.",
                     "isCorrect": true
                 },
                 {
-                    "text": "Posponer la creaci\u00f3n hasta recibir directrices.",
-                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+                    "text": "Posponer la creación hasta recibir directrices.",
+                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participación democrática de toda la comunidad educativa.",
                     "isCorrect": false
                 },
                 {
                     "text": "Contratar una entidad externa.",
-                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+                    "rationale": "Esta no es la respuesta correcta. El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participación democrática de toda la comunidad educativa.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
+            "rationale": "El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participación democrática de toda la comunidad educativa.",
             "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
         },
         {
             "questionNumber": 56,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "\u00bfQu\u00e9 hora es cuando el reloj marca los 5/6 de la mitad del triple de las 8:00 am?",
+            "question": "¿Qué hora es cuando el reloj marca los 5/6 de la mitad del triple de las 8:00 am?",
             "answerOptions": [
                 {
                     "text": "6:00 am",
@@ -1576,44 +1736,44 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "c",
             "rationale": "Triple de 8 = 24. Mitad de 24 = 12. 5/6 de 12 = 10. Son las 10:00 am.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 57,
-            "category": "Pedag\u00f3gica - Metacognici\u00f3n",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
-            "question": "Para gestionar el aprendizaje aut\u00f3nomo, \u00bfqu\u00e9 tipo de preguntas debe promover el docente?",
+            "question": "Para gestionar el aprendizaje autónomo, ¿qué tipo de preguntas debe promover el docente?",
             "answerOptions": [
                 {
                     "text": "Preguntas cerradas de memoria.",
-                    "rationale": "Esta no es la respuesta correcta. La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+                    "rationale": "Esta no es la respuesta correcta. La metacognición (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonomía y la autorregulación en el estudiante.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Preguntas metacognitivas: \u00bfC\u00f3mo aprendiste? \u00bfQu\u00e9 dificultades tuviste?",
-                    "rationale": "La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+                    "text": "Preguntas metacognitivas: ¿Cómo aprendiste? ¿Qué dificultades tuviste?",
+                    "rationale": "La metacognición (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonomía y la autorregulación en el estudiante.",
                     "isCorrect": true
                 },
                 {
                     "text": "Preguntas sobre la vida privada del autor.",
-                    "rationale": "Esta no es la respuesta correcta. La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+                    "rationale": "Esta no es la respuesta correcta. La metacognición (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonomía y la autorregulación en el estudiante.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Preguntas que exigen repetici\u00f3n literal.",
-                    "rationale": "Esta no es la respuesta correcta. La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+                    "text": "Preguntas que exigen repetición literal.",
+                    "rationale": "Esta no es la respuesta correcta. La metacognición (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonomía y la autorregulación en el estudiante.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
+            "rationale": "La metacognición (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonomía y la autorregulación en el estudiante.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 58,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Mario debe 5/8 de $16.000.000 y paga los 3/4 de la deuda. \u00bfCu\u00e1nto debe a\u00fan?",
+            "question": "Mario debe 5/8 de $16.000.000 y paga los 3/4 de la deuda. ¿Cuánto debe aún?",
             "answerOptions": [
                 {
                     "text": "$2.500.000",
@@ -1638,75 +1798,75 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "a",
             "rationale": "Deuda: 5/8 * 16m = 10m. Paga: 3/4 * 10m = 7.5m. Debe: 10m - 7.5m = 2.5 millones.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 59,
-            "category": "Aptitud Verbal - Sin\u00f3nimos",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
             "question": "DILAPIDAR",
             "answerOptions": [
                 {
                     "text": "Ahorrar",
-                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sinónimo directo de despilfarrar.",
                     "isCorrect": false
                 },
                 {
                     "text": "Poseer",
-                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sinónimo directo de despilfarrar.",
                     "isCorrect": false
                 },
                 {
                     "text": "Despilfarrar",
-                    "rationale": "Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+                    "rationale": "Dilapidar significa malgastar los bienes sin prudencia, sinónimo directo de despilfarrar.",
                     "isCorrect": true
                 },
                 {
                     "text": "Ganar",
-                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
+                    "rationale": "Esta no es la respuesta correcta. Dilapidar significa malgastar los bienes sin prudencia, sinónimo directo de despilfarrar.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
-            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+            "rationale": "Dilapidar significa malgastar los bienes sin prudencia, sinónimo directo de despilfarrar.",
+            "hint": "Fuente: prueba pedagogía con respuestas (1).pdf"
         },
         {
             "questionNumber": 60,
-            "category": "Psicot\u00e9cnica - Orientaci\u00f3n",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Ante un conflicto de agresi\u00f3n f\u00edsica repetida donde los padres usan castigo f\u00edsico en casa sin \u00e9xito, \u00bfqu\u00e9 debe hacer la instituci\u00f3n?",
+            "question": "Ante un conflicto de agresión física repetida donde los padres usan castigo físico en casa sin éxito, ¿qué debe hacer la institución?",
             "answerOptions": [
                 {
                     "text": "Expulsar a los estudiantes.",
-                    "rationale": "Esta no es la respuesta correcta. Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+                    "rationale": "Esta no es la respuesta correcta. Según la Ley 1620 y la Ley 1098, si hay vulneración de derechos (castigo físico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Activar rutas de apoyo interinstitucional (ICBF/Comisar\u00eda) por posible vulneraci\u00f3n de derechos.",
-                    "rationale": "Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+                    "text": "Activar rutas de apoyo interinstitucional (ICBF/Comisaría) por posible vulneración de derechos.",
+                    "rationale": "Según la Ley 1620 y la Ley 1098, si hay vulneración de derechos (castigo físico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
                     "isCorrect": true
                 },
                 {
-                    "text": "Aplicar castigos m\u00e1s severos en el colegio.",
-                    "rationale": "Esta no es la respuesta correcta. Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+                    "text": "Aplicar castigos más severos en el colegio.",
+                    "rationale": "Esta no es la respuesta correcta. Según la Ley 1620 y la Ley 1098, si hay vulneración de derechos (castigo físico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Ignorar la situaci\u00f3n familiar.",
-                    "rationale": "Esta no es la respuesta correcta. Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+                    "text": "Ignorar la situación familiar.",
+                    "rationale": "Esta no es la respuesta correcta. Según la Ley 1620 y la Ley 1098, si hay vulneración de derechos (castigo físico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
-            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC"
+            "rationale": "Según la Ley 1620 y la Ley 1098, si hay vulneración de derechos (castigo físico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
+            "hint": "Fuente: GUÍA DE ORIENTACIÓN CNSC"
         },
         {
             "questionNumber": 61,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Patricia es mayor que Claudia, y menor que Cristina, quien tiene la misma edad de Gloria. \u00bfQui\u00e9n es la menor?",
+            "question": "Patricia es mayor que Claudia, y menor que Cristina, quien tiene la misma edad de Gloria. ¿Quién es la menor?",
             "answerOptions": [
                 {
                     "text": "Patricia",
@@ -1731,44 +1891,44 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "b",
             "rationale": "Cristina = Gloria > Patricia > Claudia. La menor es Claudia.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 62,
-            "category": "Situacional - PEI",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "expert",
             "question": "El PEI de una escuela no refleja las condiciones culturales de la comunidad. La directora decide:",
             "answerOptions": [
                 {
                     "text": "Contratar un experto externo.",
-                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Guía 34).",
                     "isCorrect": false
                 },
                 {
                     "text": "Copiar el PEI de una escuela cercana.",
-                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Guía 34).",
                     "isCorrect": false
                 },
                 {
-                    "text": "Revisar y actualizar el PEI con la participaci\u00f3n activa de toda la comunidad educativa.",
-                    "rationale": "El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+                    "text": "Revisar y actualizar el PEI con la participación activa de toda la comunidad educativa.",
+                    "rationale": "El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Guía 34).",
                     "isCorrect": true
                 },
                 {
-                    "text": "Dejarlo as\u00ed para evitar tr\u00e1mites.",
-                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+                    "text": "Dejarlo así para evitar trámites.",
+                    "rationale": "Esta no es la respuesta correcta. El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Guía 34).",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
+            "rationale": "El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Guía 34).",
             "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
         },
         {
             "questionNumber": 63,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Ayer 2 camiones transportaron mercanc\u00eda. Hoy 3 camiones iguales har\u00e1n 6 viajes para mover la misma cantidad. \u00bfCu\u00e1ntos viajes hicieron ayer los 2 camiones?",
+            "question": "Ayer 2 camiones transportaron mercancía. Hoy 3 camiones iguales harán 6 viajes para mover la misma cantidad. ¿Cuántos viajes hicieron ayer los 2 camiones?",
             "answerOptions": [
                 {
                     "text": "6",
@@ -1793,197 +1953,197 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "b",
             "rationale": "Total carga = 3 camiones * 6 viajes = 18 unidades de carga. Ayer: 18 unidades / 2 camiones = 9 viajes.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 64,
-            "category": "Pedag\u00f3gica - TIC",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
-            "question": "El enfoque m\u00e1s pedag\u00f3gico del uso de TIC en el aula es:",
+            "question": "El enfoque más pedagógico del uso de TIC en el aula es:",
             "answerOptions": [
                 {
                     "text": "Reemplazar al docente con videos.",
-                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigación y el trabajo colaborativo, no ser un fin en sí mismas.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Usarlas como herramientas cognitivas para colaboraci\u00f3n e indagaci\u00f3n.",
-                    "rationale": "Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+                    "text": "Usarlas como herramientas cognitivas para colaboración e indagación.",
+                    "rationale": "Las TIC deben potenciar el aprendizaje activo, la investigación y el trabajo colaborativo, no ser un fin en sí mismas.",
                     "isCorrect": true
                 },
                 {
                     "text": "Restringir su uso a diapositivas.",
-                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigación y el trabajo colaborativo, no ser un fin en sí mismas.",
                     "isCorrect": false
                 },
                 {
                     "text": "Usarlas solo para premios.",
-                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+                    "rationale": "Esta no es la respuesta correcta. Las TIC deben potenciar el aprendizaje activo, la investigación y el trabajo colaborativo, no ser un fin en sí mismas.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
+            "rationale": "Las TIC deben potenciar el aprendizaje activo, la investigación y el trabajo colaborativo, no ser un fin en sí mismas.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 65,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Si 10 autos consumen 10 galones en 10 horas, \u00bfcu\u00e1ntos galones consume 1 auto en 1 hora?",
+            "question": "Si 10 autos consumen 10 galones en 10 horas, ¿cuántos galones consume 1 auto en 1 hora?",
             "answerOptions": [
                 {
                     "text": "1/100",
-                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 galón. 1 auto en 1 hora = 1/10 de galón.",
                     "isCorrect": false
                 },
                 {
                     "text": "1/10",
-                    "rationale": "10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+                    "rationale": "10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 galón. 1 auto en 1 hora = 1/10 de galón.",
                     "isCorrect": true
                 },
                 {
                     "text": "1",
-                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 galón. 1 auto en 1 hora = 1/10 de galón.",
                     "isCorrect": false
                 },
                 {
                     "text": "10",
-                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. 10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 galón. 1 auto en 1 hora = 1/10 de galón.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "rationale": "10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 galón. 1 auto en 1 hora = 1/10 de galón.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 66,
-            "category": "Aptitud Verbal - Oraciones Incompletas",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Los perros, gatos y otras plagas _____ tambi\u00e9n los animales de granja, son especies que dependen para su supervivencia de la especie humana _____ por su alto grado de domesticaci\u00f3n.",
+            "question": "Los perros, gatos y otras plagas _____ también los animales de granja, son especies que dependen para su supervivencia de la especie humana _____ por su alto grado de domesticación.",
             "answerOptions": [
                 {
                     "text": "y / ;",
-                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal implícita.",
                     "isCorrect": false
                 },
                 {
                     "text": ", y / ,",
-                    "rationale": "La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+                    "rationale": "La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal implícita.",
                     "isCorrect": true
                 },
                 {
                     "text": ", o / ,",
-                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal implícita.",
                     "isCorrect": false
                 },
                 {
                     "text": "; / y",
-                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+                    "rationale": "Esta no es la respuesta correcta. La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal implícita.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
+            "rationale": "La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal implícita.",
             "hint": "Fuente: Prueba APTITUD VERBAL 2016"
         },
         {
             "questionNumber": 67,
-            "category": "Situacional - Convivencia",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "expert",
-            "question": "Un estudiante consumi\u00f3 licor dentro del colegio. El manual estipula expulsi\u00f3n. El docente decide:",
+            "question": "Un estudiante consumió licor dentro del colegio. El manual estipula expulsión. El docente decide:",
             "answerOptions": [
                 {
                     "text": "Hacerle firmar un compromiso para no delatarlo.",
-                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanción.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Dialogar con el psic\u00f3logo e investigar qu\u00e9 anda mal en su vida privada (Debido Proceso).",
-                    "rationale": "Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+                    "text": "Dialogar con el psicólogo e investigar qué anda mal en su vida privada (Debido Proceso).",
+                    "rationale": "Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanción.",
                     "isCorrect": true
                 },
                 {
                     "text": "Expulsarlo inmediatamente.",
-                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanción.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Castigarlo f\u00edsicamente.",
-                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
+                    "text": "Castigarlo físicamente.",
+                    "rationale": "Esta no es la respuesta correcta. Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanción.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
-            "hint": "Fuente: 60 preguntas para concurso de reubicaci\u00f3n docente"
+            "rationale": "Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanción.",
+            "hint": "Fuente: 60 preguntas para concurso de reubicación docente"
         },
         {
             "questionNumber": 68,
-            "category": "Razonamiento Cuantitat ivo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Se sabe que tres obreros tardan 8, 6 y 4 horas en pintar una casa individualmente. \u00bfCu\u00e1nto tiempo tardan juntos?",
+            "question": "Se sabe que tres obreros tardan 8, 6 y 4 horas en pintar una casa individualmente. ¿Cuánto tiempo tardan juntos?",
             "answerOptions": [
                 {
                     "text": "Entre 1 y 2 horas",
-                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 ≈ 1.84 horas.",
                     "isCorrect": false
                 },
                 {
                     "text": "6 horas",
-                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 ≈ 1.84 horas.",
                     "isCorrect": false
                 },
                 {
                     "text": "18 horas",
-                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+                    "rationale": "Esta no es la respuesta correcta. Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 ≈ 1.84 horas.",
                     "isCorrect": false
                 },
                 {
                     "text": "1.84 horas",
-                    "rationale": "Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
+                    "rationale": "Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 ≈ 1.84 horas.",
                     "isCorrect": true
                 }
             ],
             "correctAnswer": "d",
-            "rationale": "Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
-            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+            "rationale": "Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 ≈ 1.84 horas.",
+            "hint": "Fuente: prueba pedagogía con respuestas (1).pdf"
         },
         {
             "questionNumber": 69,
-            "category": "Pedag\u00f3gica - Inclusi\u00f3n",
+            "category": "Inclusión y Diversidad",
             "difficulty": "expert",
-            "question": "En un aula hay dos grupos de rendimiento muy diferenciado. \u00bfQu\u00e9 est rategia es pertinente?",
+            "question": "En un aula hay dos grupos de rendimiento muy diferenciado. ¿Qué est rategia es pertinente?",
             "answerOptions": [
                 {
-                    "text": "Ense\u00f1ar solo al nivel promedio.",
-                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+                    "text": "Enseñar solo al nivel promedio.",
+                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedagógica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
                     "isCorrect": false
                 },
                 {
                     "text": "Separarlos en dos aulas distintas.",
-                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedagógica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Reconocer la diversidad y brindar acompa\u00f1amiento diferenciado (andamiaje) a quienes tienen dificultades mientras reta a los avanzados.",
-                    "rationale": "La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+                    "text": "Reconocer la diversidad y brindar acompañamiento diferenciado (andamiaje) a quienes tienen dificultades mientras reta a los avanzados.",
+                    "rationale": "La pertinencia pedagógica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
                     "isCorrect": true
                 },
                 {
                     "text": "Ignorar a los de bajo rendimiento.",
-                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+                    "rationale": "Esta no es la respuesta correcta. La pertinencia pedagógica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
-            "hint": "Fuente: 60 preguntas para concurso de reubicaci\u00f3n docente"
+            "rationale": "La pertinencia pedagógica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
+            "hint": "Fuente: 60 preguntas para concurso de reubicación docente"
         },
         {
             "questionNumber": 70,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
             "question": "El 20% del 40% de una cantidad equivale al:",
             "answerOptions": [
@@ -2010,75 +2170,75 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "d",
             "rationale": "0.20 * 0.40 = 0.08, que equivale al 8%.",
-            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+            "hint": "Fuente: prueba pedagogía con respuestas (1).pdf"
         },
         {
             "questionNumber": 71,
-            "category": "Gesti\u00f3n - PEI",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "hard",
-            "question": "\u00bfCu\u00e1l es el principal indicador de que el PEI es efectivo?",
+            "question": "¿Cuál es el principal indicador de que el PEI es efectivo?",
             "answerOptions": [
                 {
-                    "text": "El n\u00famero de reuniones realizadas.",
-                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+                    "text": "El número de reuniones realizadas.",
+                    "rationale": "Esta no es la respuesta correcta. La gestión escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misión institucional (Guía 34).",
                     "isCorrect": false
                 },
                 {
-                    "text": "Que los resultados de aprendizaje se alineen con la visi\u00f3n y objetivos del PEI.",
-                    "rationale": "La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+                    "text": "Que los resultados de aprendizaje se alineen con la visión y objetivos del PEI.",
+                    "rationale": "La gestión escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misión institucional (Guía 34).",
                     "isCorrect": true
                 },
                 {
                     "text": "La cantidad de dinero invertido en infraestructura.",
-                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+                    "rationale": "Esta no es la respuesta correcta. La gestión escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misión institucional (Guía 34).",
                     "isCorrect": false
                 },
                 {
                     "text": "El cumplimiento estricto de horarios.",
-                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+                    "rationale": "Esta no es la respuesta correcta. La gestión escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misión institucional (Guía 34).",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
+            "rationale": "La gestión escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misión institucional (Guía 34).",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 72,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Un padre tiene 3 veces la edad de su hijo. Hace 10 a\u00f1os ten\u00eda 5 veces la edad. \u00bfEdad del hijo?",
+            "question": "Un padre tiene 3 veces la edad de su hijo. Hace 10 años tenía 5 veces la edad. ¿Edad del hijo?",
             "answerOptions": [
                 {
                     "text": "20",
-                    "rationale": "P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+                    "rationale": "P = 3H. Hace 10 años: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
                     "isCorrect": true
                 },
                 {
                     "text": "30",
-                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 años: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
                     "isCorrect": false
                 },
                 {
                     "text": "40",
-                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 años: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
                     "isCorrect": false
                 },
                 {
                     "text": "50",
-                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+                    "rationale": "Esta no es la respuesta correcta. P = 3H. Hace 10 años: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "a",
-            "rationale": "P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "rationale": "P = 3H. Hace 10 años: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 73,
-            "category": "Pedag\u00f3gica - Did\u00e1ctica",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
-            "question": "\u00bfQu\u00e9 proceso es central para la competencia 'Construye interpretaciones hist\u00f3ricas'?",
+            "question": "¿Qué proceso es central para la competencia 'Construye interpretaciones históricas'?",
             "answerOptions": [
                 {
                     "text": "Memorizar fechas.",
@@ -2086,17 +2246,17 @@ const RAW_QUIZ_DATA_2 = {
                     "isCorrect": false
                 },
                 {
-                    "text": "Lectura y contraste cr\u00edtico de diversas fuentes.",
+                    "text": "Lectura y contraste crítico de diversas fuentes.",
                     "rationale": "La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
                     "isCorrect": true
                 },
                 {
-                    "text": "Hacer res\u00famenes de un solo libro.",
+                    "text": "Hacer resúmenes de un solo libro.",
                     "rationale": "Esta no es la respuesta correcta. La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Ver pel\u00edculas de \u00e9poca.",
+                    "text": "Ver películas de época.",
                     "rationale": "Esta no es la respuesta correcta. La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
                     "isCorrect": false
                 }
@@ -2107,9 +2267,9 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 74,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Pedro usa 1/4 del d\u00eda en tareas, 1/6 en deporte y 1/9 con amigos. \u00bfQu\u00e9 parte le queda libre?",
+            "question": "Pedro usa 1/4 del día en tareas, 1/6 en deporte y 1/9 con amigos. ¿Qué parte le queda libre?",
             "answerOptions": [
                 {
                     "text": "17/36",
@@ -2134,44 +2294,44 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "a",
             "rationale": "Suma de gastos: 1/4 + 1/6 + 1/9 = (9+6+4)/36 = 19/36. Libre = 1 - 19/36 = 17/36.",
-            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+            "hint": "Fuente: prueba pedagogía con respuestas (1).pdf"
         },
         {
             "questionNumber": 75,
-            "category": "Legislaci\u00f3n - Evaluaci\u00f3n",
+            "category": "Evaluación",
             "difficulty": "hard",
-            "question": "Seg\u00fan la normativa colombiana, la evaluaci\u00f3n de los estudiantes en los niveles de b\u00e1sica y media debe ser:",
+            "question": "Según la normativa colombiana, la evaluación de los estudiantes en los niveles de básica y media debe ser:",
             "answerOptions": [
                 {
                     "text": "Cualitativa, integral y continua.",
-                    "rationale": "El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+                    "rationale": "El Decreto 1290 (y sus antecedentes) promueve una evaluación formativa, integral y continua, superando la mera calificación numérica final.",
                     "isCorrect": true
                 },
                 {
                     "text": "Solo sumativa y final.",
-                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluación formativa, integral y continua, superando la mera calificación numérica final.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Exclusivamente memor\u00edstica.",
-                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+                    "text": "Exclusivamente memorística.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluación formativa, integral y continua, superando la mera calificación numérica final.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Dependiente del pago de pensi\u00f3n.",
-                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+                    "text": "Dependiente del pago de pensión.",
+                    "rationale": "Esta no es la respuesta correcta. El Decreto 1290 (y sus antecedentes) promueve una evaluación formativa, integral y continua, superando la mera calificación numérica final.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "a",
-            "rationale": "El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
+            "rationale": "El Decreto 1290 (y sus antecedentes) promueve una evaluación formativa, integral y continua, superando la mera calificación numérica final.",
             "hint": "Fuente: Manual de Funciones - MEN"
         },
         {
             "questionNumber": 76,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Tres anuncios se encienden a intervalos de 12, 15 y 18 minutos. Si coinciden a las 2:00 pm, \u00bfa qu\u00e9 hora repiten?",
+            "question": "Tres anuncios se encienden a intervalos de 12, 15 y 18 minutos. Si coinciden a las 2:00 pm, ¿a qué hora repiten?",
             "answerOptions": [
                 {
                     "text": "5:00 pm",
@@ -2196,13 +2356,13 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "a",
             "rationale": "MCM(12, 15, 18) = 180 minutos. 180 min = 3 horas. 2:00 pm + 3 horas = 5:00 pm.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 77,
-            "category": "Pedag\u00f3gica - Planificaci\u00f3n",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
-            "question": "Al planificar una unidad did\u00e1ctica, el docente debe considerar primero:",
+            "question": "Al planificar una unidad didáctica, el docente debe considerar primero:",
             "answerOptions": [
                 {
                     "text": "El libro de texto.",
@@ -2215,7 +2375,7 @@ const RAW_QUIZ_DATA_2 = {
                     "isCorrect": true
                 },
                 {
-                    "text": "La decoraci\u00f3n del aula.",
+                    "text": "La decoración del aula.",
                     "rationale": "Esta no es la respuesta correcta. El aprendizaje significativo parte de conectar los nuevos saberes con el contexto y los conocimientos previos del estudiante.",
                     "isCorrect": false
                 },
@@ -2231,133 +2391,133 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 78,
-            "category": "Aptitud Verbal - Comprensi\u00f3n",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Si un texto argumentativo defiende la eutanasia, una idea contraria ser\u00eda:",
+            "question": "Si un texto argumentativo defiende la eutanasia, una idea contraria sería:",
             "answerOptions": [
                 {
                     "text": "El derecho a morir dignamente.",
-                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento ético/religioso clásico que se opone a la disposición de la propia vida (eutanasia).",
                     "isCorrect": false
                 },
                 {
-                    "text": "La autonom\u00eda del paciente.",
-                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+                    "text": "La autonomía del paciente.",
+                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento ético/religioso clásico que se opone a la disposición de la propia vida (eutanasia).",
                     "isCorrect": false
                 },
                 {
                     "text": "La sacralidad de la vida por encima de la libertad individual.",
-                    "rationale": "La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+                    "rationale": "La sacralidad de la vida es el argumento ético/religioso clásico que se opone a la disposición de la propia vida (eutanasia).",
                     "isCorrect": true
                 },
                 {
                     "text": "El alivio del sufrimiento.",
-                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+                    "rationale": "Esta no es la respuesta correcta. La sacralidad de la vida es el argumento ético/religioso clásico que se opone a la disposición de la propia vida (eutanasia).",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
+            "rationale": "La sacralidad de la vida es el argumento ético/religioso clásico que se opone a la disposición de la propia vida (eutanasia).",
             "hint": "Fuente: Inferido de textos de Aptitud Verbal"
         },
         {
             "questionNumber": 79,
-            "category": "Psicot\u00e9cnica - Trabajo en Equipo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
             "question": "Un docente critica constantemente a sus colegas en reuniones. Como coordinador, usted debe:",
             "answerOptions": [
                 {
                     "text": "Ignorarlo para no crear conflicto.",
-                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicación exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Abordarlo en privado para retroalimentar sobre comunicaci\u00f3n asertiva y respeto.",
-                    "rationale": "La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+                    "text": "Abordarlo en privado para retroalimentar sobre comunicación asertiva y respeto.",
+                    "rationale": "La competencia comportamental de liderazgo y comunicación exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
                     "isCorrect": true
                 },
                 {
-                    "text": "Criticarlo p\u00fablicamente para que aprenda.",
-                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+                    "text": "Criticarlo públicamente para que aprenda.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicación exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
                     "isCorrect": false
                 },
                 {
                     "text": "Expulsarlo de las reuniones.",
-                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+                    "rationale": "Esta no es la respuesta correcta. La competencia comportamental de liderazgo y comunicación exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
+            "rationale": "La competencia comportamental de liderazgo y comunicación exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
             "hint": "Fuente: Manual de Funciones - Competencias Comportamentales"
         },
         {
             "questionNumber": 80,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Una familia de 6 adultos tiene comida para 15 d\u00edas. Llegan 3  adultos m\u00e1s. \u00bfPara cu\u00e1ntos d\u00edas alcanza ahora?",
+            "question": "Una familia de 6 adultos tiene comida para 15 días. Llegan 3  adultos más. ¿Para cuántos días alcanza ahora?",
             "answerOptions": [
                 {
-                    "text": "10 d\u00edas",
-                    "rationale": "Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+                    "text": "10 días",
+                    "rationale": "Regla de tres inversa. (6 personas * 15 días) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 días.",
                     "isCorrect": true
                 },
                 {
-                    "text": "12 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+                    "text": "12 días",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 días) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 días.",
                     "isCorrect": false
                 },
                 {
-                    "text": "9 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+                    "text": "9 días",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 días) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 días.",
                     "isCorrect": false
                 },
                 {
-                    "text": "8 d\u00edas",
-                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
+                    "text": "8 días",
+                    "rationale": "Esta no es la respuesta correcta. Regla de tres inversa. (6 personas * 15 días) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 días.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "a",
-            "rationale": "Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "rationale": "Regla de tres inversa. (6 personas * 15 días) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 días.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 81,
-            "category": "Pedag\u00f3gica - Ambiente de Aula",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
-            "question": "Para fomentar un clima de aula democr\u00e1tico, el docente debe:",
+            "question": "Para fomentar un clima de aula democrático, el docente debe:",
             "answerOptions": [
                 {
-                    "text": "Imponer normas estrictas sin discusi\u00f3n.",
-                    "rationale": "Esta no es la respuesta correcta. La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+                    "text": "Imponer normas estrictas sin discusión.",
+                    "rationale": "Esta no es la respuesta correcta. La convivencia democrática se basa en la participación y el consenso normativo, no en la imposición ni en el desorden.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Permitir que los estudiantes participen en la construcci\u00f3n de los acuerdos de convivencia.",
-                    "rationale": "La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+                    "text": "Permitir que los estudiantes participen en la construcción de los acuerdos de convivencia.",
+                    "rationale": "La convivencia democrática se basa en la participación y el consenso normativo, no en la imposición ni en el desorden.",
                     "isCorrect": true
                 },
                 {
                     "text": "Dejar que los estudiantes hagan lo que quieran (Laissez-faire).",
-                    "rationale": "Esta no es la respuesta correcta. La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+                    "rationale": "Esta no es la respuesta correcta. La convivencia democrática se basa en la participación y el consenso normativo, no en la imposición ni en el desorden.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Elegir un delegado que mande a los dem\u00e1s.",
-                    "rationale": "Esta no es la respuesta correcta. La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+                    "text": "Elegir un delegado que mande a los demás.",
+                    "rationale": "Esta no es la respuesta correcta. La convivencia democrática se basa en la participación y el consenso normativo, no en la imposición ni en el desorden.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
+            "rationale": "La convivencia democrática se basa en la participación y el consenso normativo, no en la imposición ni en el desorden.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 82,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "El largo del puente A es 3 veces el largo del puente B. Si suman 120 metros, el puente m\u00e1s largo mide:",
+            "question": "El largo del puente A es 3 veces el largo del puente B. Si suman 120 metros, el puente más largo mide:",
             "answerOptions": [
                 {
                     "text": "30 m",
@@ -2382,44 +2542,44 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "d",
             "rationale": "A + B = 120. A = 3B. Entonces 3B + B = 120 -> 4B = 120 -> B = 30. A = 3(30) = 90m.",
-            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Num\u00e9rica"
+            "hint": "Fuente: GUÍA DE ORIENTACIÓN CNSC - Aptitud Numérica"
         },
         {
             "questionNumber": 83,
-            "category": "Pedag\u00f3gica - EIB",
+            "category": "Inclusión y Diversidad",
             "difficulty": "expert",
-            "question": "En un contexto de educaci\u00f3n intercultural (EIB), el docente debe:",
+            "question": "En un contexto de educación intercultural (EIB), el docente debe:",
             "answerOptions": [
                 {
                     "text": "Prohibir la lengua materna.",
-                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedagógico de la lengua y cultura originarias para un aprendizaje pertinente.",
                     "isCorrect": false
                 },
                 {
                     "text": "Utilizar la lengua materna como puente para el aprendizaje y valorar la cultura local.",
-                    "rationale": "El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+                    "rationale": "El enfoque EIB exige el respeto y uso pedagógico de la lengua y cultura originarias para un aprendizaje pertinente.",
                     "isCorrect": true
                 },
                 {
-                    "text": "Ense\u00f1ar solo la cultura occidental.",
-                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+                    "text": "Enseñar solo la cultura occidental.",
+                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedagógico de la lengua y cultura originarias para un aprendizaje pertinente.",
                     "isCorrect": false
                 },
                 {
                     "text": "Ignorar el contexto cultural.",
-                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+                    "rationale": "Esta no es la respuesta correcta. El enfoque EIB exige el respeto y uso pedagógico de la lengua y cultura originarias para un aprendizaje pertinente.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
+            "rationale": "El enfoque EIB exige el respeto y uso pedagógico de la lengua y cultura originarias para un aprendizaje pertinente.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 84,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Un tanque de 1200 cm3 est\u00e1 lleno 3/4 en invierno y 2/3 en verano. La diferencia es:",
+            "question": "Un tanque de 1200 cm3 está lleno 3/4 en invierno y 2/3 en verano. La diferencia es:",
             "answerOptions": [
                 {
                     "text": "100 cm3",
@@ -2444,137 +2604,137 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "a",
             "rationale": "Invierno: 3/4 de 1200 = 900. Verano: 2/3 de 1200 = 800. Diferencia: 900 - 800 = 100 cm3.",
-            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Num\u00e9rica"
+            "hint": "Fuente: GUÍA DE ORIENTACIÓN CNSC - Aptitud Numérica"
         },
         {
             "questionNumber": 85,
-            "category": "Aptitud Verbal - Ordenamiento",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Ordene la oraci\u00f3n: 1. lleva 2. esa 3. alegre 4. mu\u00f1eca 5. a 6. su 7. infancia 8. la",
+            "question": "Ordene la oración: 1. lleva 2. esa 3. alegre 4. muñeca 5. a 6. su 7. infancia 8. la",
             "answerOptions": [
                 {
                     "text": "2, 4, 8, 1, 5, 6, 3, 7",
-                    "rationale": "'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+                    "rationale": "'Esa muñeca la lleva a su alegre infancia' construye el sentido completo.",
                     "isCorrect": true
                 },
                 {
                     "text": "6, 3, 4, 8, 1, 5, 2, 7",
-                    "rationale": "Esta no es la respuesta correcta. 'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+                    "rationale": "Esta no es la respuesta correcta. 'Esa muñeca la lleva a su alegre infancia' construye el sentido completo.",
                     "isCorrect": false
                 },
                 {
                     "text": "2, 3, 7, 8, 1, 5, 6, 4",
-                    "rationale": "Esta no es la respuesta correcta. 'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+                    "rationale": "Esta no es la respuesta correcta. 'Esa muñeca la lleva a su alegre infancia' construye el sentido completo.",
                     "isCorrect": false
                 },
                 {
                     "text": "6, 7, 8, 1, 5, 2, 3, 4",
-                    "rationale": "Esta no es la respuesta correcta. 'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
+                    "rationale": "Esta no es la respuesta correcta. 'Esa muñeca la lleva a su alegre infancia' construye el sentido completo.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "a",
-            "rationale": "'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
-            "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Verbal"
+            "rationale": "'Esa muñeca la lleva a su alegre infancia' construye el sentido completo.",
+            "hint": "Fuente: GUÍA DE ORIENTACIÓN CNSC - Aptitud Verbal"
         },
         {
             "questionNumber": 86,
-            "category": "Pedag\u00f3gica - \u00c9tica",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
-            "question": "Seg\u00fan la \u00e9tica docente, frente a los resultados de evaluaci\u00f3n, el deber es:",
+            "question": "Según la ética docente, frente a los resultados de evaluación, el deber es:",
             "answerOptions": [
                 {
                     "text": "Ocultarlos hasta el final.",
-                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluación debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
                     "isCorrect": false
                 },
                 {
                     "text": "Usarlos para clasificar a los alumnos.",
-                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluación debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Comunicarlos y usarlos para la mejora continua (retroalimentaci\u00f3n).",
-                    "rationale": "La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+                    "text": "Comunicarlos y usarlos para la mejora continua (retroalimentación).",
+                    "rationale": "La evaluación debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
                     "isCorrect": true
                 },
                 {
                     "text": "Ignorar los.",
-                    "rationale": "Esta no es la respuesta correcta. La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+                    "rationale": "Esta no es la respuesta correcta. La evaluación debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "c",
-            "rationale": "La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
+            "rationale": "La evaluación debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
         },
         {
             "questionNumber": 87,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Si un c\u00edrculo tiene radio 10 cm, su \u00e1rea es (pi = 3.14):",
+            "question": "Si un círculo tiene radio 10 cm, su área es (pi = 3.14):",
             "answerOptions": [
                 {
                     "text": "31.4",
-                    "rationale": "Esta no es la respuesta correcta. \u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+                    "rationale": "Esta no es la respuesta correcta. Área = pi * r². A = 3.14 * (10²) = 3.14 * 100 = 314 cm².",
                     "isCorrect": false
                 },
                 {
                     "text": "314",
-                    "rationale": "\u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+                    "rationale": "Área = pi * r². A = 3.14 * (10²) = 3.14 * 100 = 314 cm².",
                     "isCorrect": true
                 },
                 {
                     "text": "100",
-                    "rationale": "Esta no es la respuesta correcta. \u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+                    "rationale": "Esta no es la respuesta correcta. Área = pi * r². A = 3.14 * (10²) = 3.14 * 100 = 314 cm².",
                     "isCorrect": false
                 },
                 {
                     "text": "62.8",
-                    "rationale": "Esta no es la respuesta correcta. \u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
+                    "rationale": "Esta no es la respuesta correcta. Área = pi * r². A = 3.14 * (10²) = 3.14 * 100 = 314 cm².",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "\u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
-            "hint": "Fuente: Conocimiento General Matem\u00e1tico"
+            "rationale": "Área = pi * r². A = 3.14 * (10²) = 3.14 * 100 = 314 cm².",
+            "hint": "Fuente: Conocimiento General Matemático"
         },
         {
             "questionNumber": 88,
-            "category": "Situacional - Rector\u00eda",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "expert",
-            "question": "El rector debe decidir entre construir una piscina o una pista de patinaje. \u00bfQu\u00e9 debe hacer?",
+            "question": "El rector debe decidir entre construir una piscina o una pista de patinaje. ¿Qué debe hacer?",
             "answerOptions": [
                 {
-                    "text": "Decidir seg\u00fan su gusto personal.",
-                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+                    "text": "Decidir según su gusto personal.",
+                    "rationale": "Esta no es la respuesta correcta. La gestión de recursos debe responder a un diagnóstico de necesidades y al bienestar de la comunidad (Gestión Directiva/Comunitaria).",
                     "isCorrect": false
                 },
                 {
-                    "text": "Realizar un estudio t\u00e9cnico y consultar las necesidades e intereses de la comunidad educativa.",
-                    "rationale": "La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+                    "text": "Realizar un estudio técnico y consultar las necesidades e intereses de la comunidad educativa.",
+                    "rationale": "La gestión de recursos debe responder a un diagnóstico de necesidades y al bienestar de la comunidad (Gestión Directiva/Comunitaria).",
                     "isCorrect": true
                 },
                 {
                     "text": "Hacer una rifa.",
-                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+                    "rationale": "Esta no es la respuesta correcta. La gestión de recursos debe responder a un diagnóstico de necesidades y al bienestar de la comunidad (Gestión Directiva/Comunitaria).",
                     "isCorrect": false
                 },
                 {
                     "text": "Preguntar solo a los padres.",
-                    "rationale": "Esta no es la respuesta correcta. La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
+                    "rationale": "Esta no es la respuesta correcta. La gestión de recursos debe responder a un diagnóstico de necesidades y al bienestar de la comunidad (Gestión Directiva/Comunitaria).",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
-            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAG\u00d3GICA GENERAL"
+            "rationale": "La gestión de recursos debe responder a un diagnóstico de necesidades y al bienestar de la comunidad (Gestión Directiva/Comunitaria).",
+            "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
         },
         {
             "questionNumber": 89,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "En una reuni\u00f3n, la mitad son mujeres, de ellas 1/6 son altas. Si hay 36 personas, \u00bfcu\u00e1ntas mujeres NO son altas?",
+            "question": "En una reunión, la mitad son mujeres, de ellas 1/6 son altas. Si hay 36 personas, ¿cuántas mujeres NO son altas?",
             "answerOptions": [
                 {
                     "text": "12",
@@ -2599,73 +2759,73 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "b",
             "rationale": "Total 36. Mujeres = 18. Altas = 1/6 de 18 = 3. No altas = 18 - 3 = 15.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 90,
-            "category": "Pedag\u00f3gica - Evaluaci\u00f3n",
+            "category": "Evaluación",
             "difficulty": "expert",
-            "question": "El uso de r\u00fabricas detalladas compartidas previamente con los estudiantes favorece:",
+            "question": "El uso de rúbricas detalladas compartidas previamente con los estudiantes favorece:",
             "answerOptions": [
                 {
                     "text": "Que el docente trabaje menos.",
-                    "rationale": "Esta no es la respuesta correcta. La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. La rúbrica es un instrumento de evaluación formativa que guía al estudiante sobre qué se espera de él, fomentando la autorregulación.",
                     "isCorrect": false
                 },
                 {
-                    "text": "La autoevaluaci\u00f3n y la claridad sobre los objetivos de aprendizaje.",
-                    "rationale": "La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+                    "text": "La autoevaluación y la claridad sobre los objetivos de aprendizaje.",
+                    "rationale": "La rúbrica es un instrumento de evaluación formativa que guía al estudiante sobre qué se espera de él, fomentando la autorregulación.",
                     "isCorrect": true
                 },
                 {
                     "text": "Que todos saquen la misma nota.",
-                    "rationale": "Esta no es la respuesta correcta. La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. La rúbrica es un instrumento de evaluación formativa que guía al estudiante sobre qué se espera de él, fomentando la autorregulación.",
                     "isCorrect": false
                 },
                 {
-                    "text": "La memorizaci\u00f3n.",
-                    "rationale": "Esta no es la respuesta correcta. La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+                    "text": "La memorización.",
+                    "rationale": "Esta no es la respuesta correcta. La rúbrica es un instrumento de evaluación formativa que guía al estudiante sobre qué se espera de él, fomentando la autorregulación.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
+            "rationale": "La rúbrica es un instrumento de evaluación formativa que guía al estudiante sobre qué se espera de él, fomentando la autorregulación.",
             "hint": "Fuente: 02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
         },
         {
             "questionNumber": 91,
-            "category": "Aptitud Verbal - Comprensi\u00f3n",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "En un texto sobre 'El futuro del libro', si el autor dice que el libro es una extensi\u00f3n de la memoria, implica que:",
+            "question": "En un texto sobre 'El futuro del libro', si el autor dice que el libro es una extensión de la memoria, implica que:",
             "answerOptions": [
                 {
                     "text": "Los libros ocupan mucho espacio.",
-                    "rationale": "Esta no es la respuesta correcta. La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+                    "rationale": "Esta no es la respuesta correcta. La metáfora 'extensión de la memoria' alude a la función de almacenamiento y transmisión cultural de la escritura.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Los libros permiten preservar el conocimiento humano a trav\u00e9s del tiempo.",
-                    "rationale": "La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+                    "text": "Los libros permiten preservar el conocimiento humano a través del tiempo.",
+                    "rationale": "La metáfora 'extensión de la memoria' alude a la función de almacenamiento y transmisión cultural de la escritura.",
                     "isCorrect": true
                 },
                 {
                     "text": "La memoria humana es infinita.",
-                    "rationale": "Esta no es la respuesta correcta. La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+                    "rationale": "Esta no es la respuesta correcta. La metáfora 'extensión de la memoria' alude a la función de almacenamiento y transmisión cultural de la escritura.",
                     "isCorrect": false
                 },
                 {
                     "text": "Los libros son obsoletos.",
-                    "rationale": "Esta no es la respuesta correcta. La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
+                    "rationale": "Esta no es la respuesta correcta. La metáfora 'extensión de la memoria' alude a la función de almacenamiento y transmisión cultural de la escritura.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
-            "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
+            "rationale": "La metáfora 'extensión de la memoria' alude a la función de almacenamiento y transmisión cultural de la escritura.",
+            "hint": "Fuente: prueba pedagogía con respuestas (1).pdf"
         },
         {
             "questionNumber": 92,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
             "question": "Si a/b = 2/3 y b/c = 3/5, entonces a/c es:",
             "answerOptions": [
@@ -2692,105 +2852,105 @@ const RAW_QUIZ_DATA_2 = {
             ],
             "correctAnswer": "a",
             "rationale": "(a/b) * (b/c) = a/c. (2/3) * (3/5) = 6/15 = 2/5.",
-            "hint": "Fuente: Conocimiento General Matem\u00e1tico"
+            "hint": "Fuente: Conocimiento General Matemático"
         },
         {
             "questionNumber": 93,
-            "category": "Legislaci\u00f3n - Manual de Convivencia",
+            "category": "Marco Normativo y Gestión",
             "difficulty": "hard",
-            "question": "Seg\u00fan la Ley 1620, el Manual de Convivencia debe:",
+            "question": "Según la Ley 1620, el Manual de Convivencia debe:",
             "answerOptions": [
                 {
                     "text": "Ser un listado de castigos.",
-                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construción colectiva que regula la convivencia y define rutas de promoción, prevención y atención.",
                     "isCorrect": false
                 },
                 {
-                    "text": "Construirse participativamente y definir la ruta de atenci\u00f3n integral.",
-                    "rationale": "El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+                    "text": "Construirse participativamente y definir la ruta de atención integral.",
+                    "rationale": "El manual es una herramienta de construción colectiva que regula la convivencia y define rutas de promoción, prevención y atención.",
                     "isCorrect": true
                 },
                 {
-                    "text": "Copiar el c\u00f3digo de polic\u00eda.",
-                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+                    "text": "Copiar el código de policía.",
+                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construción colectiva que regula la convivencia y define rutas de promoción, prevención y atención.",
                     "isCorrect": false
                 },
                 {
                     "text": "Ser redactado solo por el rector.",
-                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. El manual es una herramienta de construción colectiva que regula la convivencia y define rutas de promoción, prevención y atención.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
+            "rationale": "El manual es una herramienta de construción colectiva que regula la convivencia y define rutas de promoción, prevención y atención.",
             "hint": "Fuente: Manual de Funciones - MEN"
         },
         {
             "questionNumber": 94,
-            "category": "Razonamiento Cuantitativo",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
-            "question": "Un vendedor recibe un sueldo base m\u00e1s 10% de comisi\u00f3n. Si vendi\u00f3 10 millones y recibi\u00f3 2 millones en total, su sueldo base es:",
+            "question": "Un vendedor recibe un sueldo base más 10% de comisión. Si vendió 10 millones y recibió 2 millones en total, su sueldo base es:",
             "answerOptions": [
                 {
-                    "text": "1 mill\u00f3n",
-                    "rationale": "Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+                    "text": "1 millón",
+                    "rationale": "Comisión = 10% de 10m = 1 millón. Total (2m) = Base + Comisión (1m). Base = 1 millón.",
                     "isCorrect": true
                 },
                 {
                     "text": "800 mil",
-                    "rationale": "Esta no es la respuesta correcta. Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. Comisión = 10% de 10m = 1 millón. Total (2m) = Base + Comisión (1m). Base = 1 millón.",
                     "isCorrect": false
                 },
                 {
                     "text": "1.2 millones",
-                    "rationale": "Esta no es la respuesta correcta. Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. Comisión = 10% de 10m = 1 millón. Total (2m) = Base + Comisión (1m). Base = 1 millón.",
                     "isCorrect": false
                 },
                 {
                     "text": "500 mil",
-                    "rationale": "Esta no es la respuesta correcta. Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
+                    "rationale": "Esta no es la respuesta correcta. Comisión = 10% de 10m = 1 millón. Total (2m) = Base + Comisión (1m). Base = 1 millón.",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "a",
-            "rationale": "Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
-            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
+            "rationale": "Comisión = 10% de 10m = 1 millón. Total (2m) = Base + Comisión (1m). Base = 1 millón.",
+            "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iván Martínez"
         },
         {
             "questionNumber": 95,
-            "category": "Pedag\u00f3gica - Motivaci\u00f3n",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Un estudiante no participa en clase por miedo a equivocarse. El docente debe:",
             "answerOptions": [
                 {
                     "text": "No preguntarle nunca para no incomodarlo.",
-                    "rationale": "Esta no es la respuesta correcta. La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+                    "rationale": "Esta no es la respuesta correcta. La seguridad psicológica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluación Formativa).",
                     "isCorrect": false
                 },
                 {
                     "text": "Crear un clima de confianza donde el error sea visto como parte del aprendizaje.",
-                    "rationale": "La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+                    "rationale": "La seguridad psicológica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluación Formativa).",
                     "isCorrect": true
                 },
                 {
                     "text": "Oblig arlo a participar para que pierda el miedo.",
-                    "rationale": "Esta no es la respuesta correcta. La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+                    "rationale": "Esta no es la respuesta correcta. La seguridad psicológica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluación Formativa).",
                     "isCorrect": false
                 },
                 {
                     "text": "Bajarle puntos por no participar.",
-                    "rationale": "Esta no es la respuesta correcta. La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
+                    "rationale": "Esta no es la respuesta correcta. La seguridad psicológica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluación Formativa).",
                     "isCorrect": false
                 }
             ],
             "correctAnswer": "b",
-            "rationale": "La seguridad psicol\u00f3gica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluaci\u00f3n Formativa).",
-            "hint": "Fuente: 60 preguntas para concurso de reubicaci\u00f3n docente"
+            "rationale": "La seguridad psicológica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluación Formativa).",
+            "hint": "Fuente: 60 preguntas para concurso de reubicación docente"
         }
     ]
 };
 
-// Hacer el objeto accesible globalmente
-if (typeof window !== 'undefined') {
-    window.RAW_QUIZ_DATA_2 = RAW_QUIZ_DATA_2;
+// Metadata for export
+if (typeof module !== 'undefined') {
+    module.exports = RAW_QUIZ_DATA_2;
 }

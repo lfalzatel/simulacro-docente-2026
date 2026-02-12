@@ -771,6 +771,22 @@ function selectOption(el, isCorrect, rationale, allOptions, optionIndex) {
         opt.onclick = null;
     });
 
+    const categoryColors = {
+        // Sim 1
+        "Evaluación y Retroalimentación": "var(--accent-color)",
+        "Estrategias Pedagógicas": "var(--secondary-color)",
+        "Inclusión y Diversidad": "var(--success-color)",
+        "Legislación Educativa": "var(--warning-color)",
+
+        // Sim 2 (Consolidated)
+        "Pedagogía y Didáctica": "var(--secondary-color)", // Maps to Estrategias
+        "Evaluación": "var(--accent-color)", // Maps to Evaluación
+        "Marco Normativo y Gestión": "var(--warning-color)", // Maps to Legislación
+        "Habilidades Transversales": "#8e44ad", // New color for skills
+
+        "General": "var(--text-secondary)"
+    };
+
     const rationaleBox = document.getElementById('rationale-box');
     rationaleBox.style.display = 'block';
     rationaleBox.innerText = rationale;
