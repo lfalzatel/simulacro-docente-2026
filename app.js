@@ -1184,12 +1184,12 @@ async function cargarProgreso(user = null) {
                 const cloudAnswerCount = Object.keys(cloudProgress).length;
 
                 console.log(`� Comparando: Nube (${cloudAnswerCount} resp, ${new Date(cloudTime).toLocaleTimeString()}) vs Local (${localAnswerCount} resp, ${new Date(localTime).toLocaleTimeString()})`);
+                console.log(` Comparando: Nube (${cloudAnswerCount} resp, ${new Date(cloudTime).toLocaleTimeString()}) vs Local (${localAnswerCount} resp, ${new Date(localTime).toLocaleTimeString()})`);
 
                 // DECISION LOGIC
                 let useCloud = false;
                 let syncReason = '';
 
-                // If timestamps are significantly different (> 10s difference)
                 if (Math.abs(cloudTime - localTime) > 10000) {
                     if (cloudTime > localTime) {
                         useCloud = true;
@@ -1203,111 +1203,115 @@ async function cargarProgreso(user = null) {
                     if (cloudAnswerCount >= localAnswerCount) {
                         useCloud = true;
                         syncReason = 'nube tiene igual o más respuestas (Cantidad)';
-                        console.log(`🔄 Decisión final: ${useCloud ? 'NUBE ☁️' : 'LOCAL 💾'} (${syncReason})`);
-
-                        if (useCloud) {
-                            // USE CLOUD DATA
-                            userProgress = { ...cloudProgress };
-                            score = data.score || Object.values(userProgress).filter(a => a && a.isCorrect).length; // Prefer DB score if available
-
-                            // Handle 'last_index' which might be top-level or in progress
-                            userProgress.safeLastIndex = (data.last_index !== undefined) ? data.last_index : (userProgress.safeLastIndex || 0);
-
-                            // Restore other fields
-                            currentQuestionIndex = userProgress.safeLastIndex;
-
-                            // Update localStorage with cloud data
-                            localStorage.setItem(key, JSON.stringify({
-                                lastIndex: userProgress.safeLastIndex,
-                                score: score,
-                                answers: cloudProgress,
-                                timestamp: data.updated_at,
-                                totalTime: userProgress.totalTime || cloudProgress.totalTime || 0
-                            }));
-
-                            console.log(`☁️ USANDO NUBE: ${cloudAnswerCount} respuestas, Score: ${score}`);
-                            if (statusEl) {
-                                statusEl.innerHTML = "☁️ Sincronizado";
-                                statusEl.classList.add('visible');
-                                setTimeout(() => {
-                                    if (statusEl) statusEl.classList.remove('visible');
-                                }, 2000);
-                            }
-                        } else {
-                            // USE LOCAL DATA (it has more)
-                            // If local exists, use it. If not (first load on new device but logic fell here?), use cloud.
-                            if (localData) {
-                                userProgress = localData.answers || {};
-                                score = localData.score || 0;
-                                userProgress.safeLastIndex = localData.lastIndex || 0;
-                                currentQuestionIndex = userProgress.safeLastIndex;
-                                console.log(`💾 USANDO LOCAL: ${localAnswerCount} respuestas, Score: ${score}`);
-
-                                // Trigger a background sync to update cloud with this newer local data?
-                                // Maybe not right now to avoid complexity, but usually yes.
-                            } else {
-                                // Fallback: Logic said local is properly "newer" (maybe time is wrong?) but local is null?
-                                // This shouldn't happen with the logic above, but safety net:
-                                console.warn("⚠️ Fallback lógico raro: Local ganaba pero es null. Usando nube.");
-                                userProgress = { ...cloudProgress };
-                                score = data.score || 0;
-                                currentQuestionIndex = data.last_index || 0;
-                            }
-                        }
-
-                    } else if (error && error.code !== 'PGRST116') {
-                        console.warn("⚠️ Error obteniendo progreso nube", error.message);
-                        cargarProgresoLocal();
                     } else {
-                        // No cloud data (PGRST116 or empty)
-                        console.log("🆕 Sin datos en nube para este simulacro.");
-
-                        // Special check for Migration (only relevant for Sim 1 primarily, but let's leave it safe)
-                        // Only try migration if we really have nothing locally either
-                        const key = getStorageKey();
-                        if (!localStorage.getItem(key) && isSim1) {
-                            // ... Migration logic remains same or can be simplified ...
-                            // For conciseness, I'll just call local load which handles default init
-                            cargarProgresoLocal();
-                        } else {
-                            cargarProgresoLocal();
-                        }
-                    }
-                } catch (error) {
-                    console.error('❌ Error al cargar de cloud:', error);
-                    cargarProgresoLocal();
-                    if (statusEl) {
-                        statusEl.classList.remove('visible');
+                        useCloud = false;
+                        syncReason = 'local tiene más respuestas (Cantidad)';
                     }
                 }
-            } else {
-                // No Supabase or No User
-                console.log("⚠️ Carga local (Sin usuario/Supabase o Sim Offline)");
-                cargarProgresoLocal();
-            }
 
-            // Force dashboard update
-            console.log("📈 Actualizando dashboard con datos cargados...");
-            await updateDashboardStats();
+                console.log(`🔄 Decisión final: ${useCloud ? 'NUBE ☁️' : 'LOCAL 💾'} (${syncReason})`);
 
-            // Sync UI if quiz is active
-            if (!document.getElementById('quiz-view').classList.contains('hidden') && userProgress && userProgress.safeLastIndex > 0) {
-                // Basic jump to last index
-                if (currentQuestionIndex === 0 && (!userProgress[0] || Object.keys(userProgress).length > 0)) {
-                    console.log("→ Saltando a pregunta guardada:", userProgress.safeLastIndex + 1);
+                if (useCloud) {
+                    // USE CLOUD DATA
+                    userProgress = { ...cloudProgress };
+                    score = data.score || Object.values(userProgress).filter(a => a && a.isCorrect).length; // Prefer DB score if available
+
+                    // Handle 'last_index' which might be top-level or in progress
+                    userProgress.safeLastIndex = (data.last_index !== undefined) ? data.last_index : (userProgress.safeLastIndex || 0);
+
+                    // Restore other fields
                     currentQuestionIndex = userProgress.safeLastIndex;
-                    updateUI();
 
-                    // Show toast
+                    // Update localStorage with cloud data
+                    localStorage.setItem(key, JSON.stringify({
+                        lastIndex: userProgress.safeLastIndex,
+                        score: score,
+                        answers: cloudProgress,
+                        timestamp: data.updated_at,
+                        totalTime: userProgress.totalTime || cloudProgress.totalTime || 0
+                    }));
+
+                    console.log(`☁️ USANDO NUBE: ${cloudAnswerCount} respuestas, Score: ${score}`);
                     if (statusEl) {
-                        statusEl.innerHTML = "🔄 Progreso restaurado";
+                        statusEl.innerHTML = "☁️ Sincronizado";
                         statusEl.classList.add('visible');
-                        setTimeout(() => statusEl.classList.remove('visible'), 2000);
+                        setTimeout(() => {
+                            if (statusEl) statusEl.classList.remove('visible');
+                        }, 2000);
+                    }
+                } else {
+                    // USE LOCAL DATA (it has more)
+                    // If local exists, use it. If not (first load on new device but logic fell here?), use cloud.
+                    if (localData) {
+                        userProgress = localData.answers || {};
+                        score = localData.score || 0;
+                        userProgress.safeLastIndex = localData.lastIndex || 0;
+                        currentQuestionIndex = userProgress.safeLastIndex;
+                        console.log(`💾 USANDO LOCAL: ${localAnswerCount} respuestas, Score: ${score}`);
+
+                        // Trigger a background sync to update cloud with this newer local data?
+                        // Maybe not right now to avoid complexity, but usually yes.
+                    } else {
+                        // Fallback: Logic said local is properly "newer" (maybe time is wrong?) but local is null?
+                        // This shouldn't happen with the logic above, but safety net:
+                        console.warn("⚠️ Fallback lógico raro: Local ganaba pero es null. Usando nube.");
+                        userProgress = { ...cloudProgress };
+                        score = data.score || 0;
+                        currentQuestionIndex = data.last_index || 0;
                     }
                 }
+
+            } else if (error && error.code !== 'PGRST116') {
+                console.warn("⚠️ Error obteniendo progreso nube", error.message);
+                cargarProgresoLocal();
+            } else {
+                // No cloud data (PGRST116 or empty)
+                console.log("🆕 Sin datos en nube para este simulacro.");
+
+                // Special check for Migration (only relevant for Sim 1 primarily, but let's leave it safe)
+                // Only try migration if we really have nothing locally either
+                const key = getStorageKey();
+                if (!localStorage.getItem(key) && isSim1) {
+                    // ... Migration logic remains same or can be simplified ...
+                    // For conciseness, I'll just call local load which handles default init
+                    cargarProgresoLocal();
+                } else {
+                    cargarProgresoLocal();
+                }
+            }
+        } catch (error) {
+            console.error('❌ Error al cargar de cloud:', error);
+            cargarProgresoLocal();
+            if (statusEl) {
+                statusEl.classList.remove('visible');
             }
         }
-}
+    } else {
+        // No Supabase or No User
+        console.log("⚠️ Carga local (Sin usuario/Supabase o Sim Offline)");
+        cargarProgresoLocal();
+    }
+
+    // Force dashboard update
+    console.log("📈 Actualizando dashboard con datos cargados...");
+    await updateDashboardStats();
+
+    // Sync UI if quiz is active
+    if (!document.getElementById('quiz-view').classList.contains('hidden') && userProgress && userProgress.safeLastIndex > 0) {
+        // Basic jump to last index
+        if (currentQuestionIndex === 0 && (!userProgress[0] || Object.keys(userProgress).length > 0)) {
+            console.log("→ Saltando a pregunta guardada:", userProgress.safeLastIndex + 1);
+            currentQuestionIndex = userProgress.safeLastIndex;
+            updateUI();
+
+            // Show toast
+            if (statusEl) {
+                statusEl.innerHTML = "🔄 Progreso restaurado";
+                statusEl.classList.add('visible');
+                setTimeout(() => statusEl.classList.remove('visible'), 2000);
+            }
+        }
+    }
 }
 
 /* -------------------------------------------------------------------------- */
