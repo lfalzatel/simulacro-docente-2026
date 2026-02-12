@@ -1,9 +1,10 @@
-const CACHE_NAME = 'quiz-app-v71'; // Updated for categories and reports view
+const CACHE_NAME = 'quiz-app-v75'; // Matches index.html version
 const ASSETS = [
     './',
     './index.html',
-    './style.css?v=70',
-    './app.js?v=70',
+    './style.css?v=75',
+    './app.js?v=75',
+    './sw.js?v=75',
     './quizData.js',
     './quizData2.js',
     './pwa_icon_192.svg',

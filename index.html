@@ -444,18 +444,47 @@
     <script src="https://cdn.jsdelivr.net/npm/@sweetalert2/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=74" defer></script>
+    <script src="app.js?v=75" defer></script>
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=74')
+                navigator.serviceWorker.register('./sw.js?v=75')
                     .then(reg => {
-                        console.log('✓ SW v74 registrado');
-                        // Removed auto-reload login to prevent loops.
-                        // Updates will happen naturally via sw.js skipWaiting()
+                        console.log('✓ SW v75 registrado');
+
+                        // Check if there's a waiting SW (update ready)
+                        if (reg.waiting) {
+                            console.log('New SW waiting. Forcing update...');
+                            reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                            window.location.reload();
+                        }
+
+                        reg.onupdatefound = () => {
+                            const installingWorker = reg.installing;
+                            installingWorker.onstatechange = () => {
+                                if (installingWorker.state === 'installed') {
+                                    if (navigator.serviceWorker.controller) {
+                                        // New update available
+                                        console.log('New content available; please refresh.');
+                                        window.location.reload();
+                                    } else {
+                                        // Content is cached for the first time
+                                        console.log('Content is cached for offline use.');
+                                    }
+                                }
+                            };
+                        };
                     })
                     .catch(err => console.log('❌ Error SW:', err));
+
+                // Reload when controller changes (prevent infinity loop handled by version check usually, but simple here)
+                let refreshing;
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    if (refreshing) return;
+                    refreshing = true;
+                    window.location.reload();
+                });
             });
         }
     </script>

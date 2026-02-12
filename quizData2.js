@@ -3,7 +3,7 @@ const RAW_QUIZ_DATA_2 = {
     "questions": [
         {
             "questionNumber": 1,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Una docente implementa Aprendizaje Basado en Proyectos (ABP) donde los estudiantes diseñan una solución para reducir el desperdicio de agua en su institución. Durante la ejecución, algunos estudiantes solo copian información de internet sin analizar el problema. ¿Cuál es la intervención más apropiada según los principios del ABP?",
             "answerOptions": [
@@ -34,7 +34,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 2,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "expert",
             "question": "Un docente diseña una rúbrica analítica para evaluar ensayos argumentativos. Algunos estudiantes obtienen puntajes altos en 'estructura' y баjos en 'profundidad de análisis'. Al revisar los trabajos, el docente nota que estos estudiantes siguen fórmulas rígidas sin reflexión crítica. ¿Qué ajuste metodológico es más apropiado según la evaluación formativa avanzada?",
             "answerOptions": [
@@ -65,7 +65,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 3,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "En una clase invertida (Flipped Classroom), algunos estudiantes llegan sin haber visto los videos preasignados, argumentando 'falta de tiempo'. El docente observa que estos estudiantes provienen de contextos socioeconómicos vulnerables con acceso limitado a internet en casa. ¿Cuál es la adaptación más equitativa según los principios de la clase invertida inclusiva?",
             "answerOptions": [
@@ -127,7 +127,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 5,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según el Decreto 1278 de 2002, la evaluación de desempeño de un docente en período de prueba debe considerar múltiples dimensiones. Un coordinador académico observa que un docente recién nombrado tiene excelente dominio disciplinar y preparación de clases, pero dificultades significativas en la comunicación con padres de familia y colegas. ¿Qué acción es más coherente con los criterios del Decreto 1278?",
             "answerOptions": [
@@ -158,7 +158,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 6,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Un docente implementa gamificación en su clase de ciencias naturales con un sistema de puntos, niveles y recompensas. Tras un mes, observa que los estudiantes están más motivados por acumular puntos que por comprender los conceptos científicos. ¿Cuál es la intervención más apropiada según los principios de gamificación significativa?",
             "answerOptions": [
@@ -189,7 +189,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 7,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "expert",
             "question": "Una docente implementa coevaluación donde los estudiantes evalúan los ensayos de sus compañeros usando una rúbrica. Nota que algunos estudiantes dan calificaciones muy generosas sin justificación crítica, mientras otros son excesivamente severos. ¿Cuál es la estrategia más efectiva según la literatura sobre assessment for learning?",
             "answerOptions": [
@@ -220,7 +220,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 8,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Durante un debate sobre cambio climático, un estudiante argumenta correctamente los datos científicos, pero sus compañeros rechazan sus ideas porque 'no tiene buenas calificaciones en ciencias'. Según Vygotsky y el aprendizaje situado, ¿cuál es la intervención más apropiada?",
             "answerOptions": [
@@ -251,7 +251,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 9,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Un docente nota que tras enseñar estrategias de lectura crítica, los estudiantes las aplican solo en clase de lenguaje, no en ciencias sociales o naturales. ¿Cuál estrategia aborda mejor este problema de transfer de aprendizaje según la ciencia cognitiva contemporánea?",
             "answerOptions": [
@@ -313,7 +313,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 11,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según los Derechos Básicos de Aprendizaje (DBA) y los lineamientos curriculares colombianos, un docente debe diseñar currículo para 5° grado. Los DBA son muy específicos, mientras los lineamientos dan orientaciones generales. ¿Cuál es la relación adecuada entre ambos según el MEN?",
             "answerOptions": [
@@ -344,7 +344,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 12,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Un docente implementa aprendizaje cooperativo con roles asignados (líder, secretario, portavoz). Observa que estudiantes tímidos siempre quedan como 'secretarios' sin oportunidad de desarrollar habilidades de liderazgo. ¿Cuál ajuste refleja mejor los principios de Johnson & Johnson sobre cooperación genuina?",
             "answerOptions": [
@@ -375,7 +375,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 13,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "hard",
             "question": "Un docente implementa autoevaluación donde los estudiantes califican su propio aprendizaje. Observa que algunos estudiantes con bajo desempeño se autocalifican muy alto, mientras otros con excelente desempeño se autocalifican bajo. ¿Qué explica mejor este fenómeno según la literatura sobre metacognición y qué hacer al respecto?",
             "answerOptions": [
@@ -434,11 +434,11 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "El DUA Principio II (Proporcionar múltiples medios de Acción y Expresión) reconoce que las habilidades ejecutivas varían. El TDAH afecta regulación motora, atención sostenida y funciones ejecutivas, NO capacidad intelectual. Las adaptaciones apropiadas: 1) permiten movimiento (necesidad neurológica legítima), 2) ofrecen medios alternativos de expresión (dictado), 3) compensan dificultades ejecutivas (segmentación). Estas adaptaciones no reducen estándares conceptuales sino que eliminan barreras de formato. Esto es equidad: permitir que la brillantez intelectual se manifieste sin barreras ejecutivas irrelevantes.",
             "hint": "DUA para TDAH: eliminar barreras ejecutivas/motoras, NO reducir expectativas conceptuales.",
-            "category": "Pedagogía y Didáctica"
+            "category": "Estrategias Pedagógicas"
         },
         {
             "questionNumber": 15,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según la Ley 1620 de 2013 (Sistema Nacional de Convivencia Escolar), un docente observa acoso escolar sistemático hacia un estudiante LGBTQ+. El manual de convivencia institucional no menciona explícitamente orientación sexual. ¿Cuál es la acción más apropiada según el marco normativo colombiano?",
             "answerOptions": [
@@ -469,7 +469,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 16,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Según investigación en neurociencia cognitiva sobre consolidación de memoria, un docente quiere maximizar la retención a largo plazo de conceptos matemáticos complejos. ¿Cuál estrategia está mejor fundamentada en evidencia sobre espaciamiento y recuperación?",
             "answerOptions": [
@@ -500,7 +500,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 17,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "expert",
             "question": "Un docente da retroalimentación detallada en ensayos estudiantiles. Observa que estudiantes con comentarios extensos (2-3 párrafos por ensayo) mejoran MENOS que aquellos con comentarios breves y enfocados. ¿Qué principio de feedback efectivo explica esto?",
             "answerOptions": [
@@ -531,7 +531,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 18,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Un docente implementa grupos flexibles basados en desempeño para matemáticas, reagrupando estudiantes según evaluaciones semanales. Nota que estudiantes en grupos 'bajos' desarrollan identidad negativa ('no soy bueno en matemáticas'). ¿Cuál ajuste mantiene diferenciación sin estigmatización?",
             "answerOptions": [
@@ -562,7 +562,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 19,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "expert",
             "question": "En un proyecto sobre contaminación local, estudiantes investigan y proponen soluciones. El docente nota que se enfocan en soluciones superficiales ('poner más canecas') sin análisis sistémico. ¿Qué andamiaje promueve pensamiento de sistemas complejos según PBL de alta calidad?",
             "answerOptions": [
@@ -593,7 +593,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 20,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Inspirado en Paulo Freire, un docente quiere implementar pedagogía dialógica problematizadora en ciencias sociales. ¿Cuál práctica refleja auténticamente la praxis de Freire, no solo el discurso?",
             "answerOptions": [
@@ -624,7 +624,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 21,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según el Decreto 1290 de 2009, un estudiante reprobó el año académico y solicita graduación mediante 'validación' de todo el grado en examen único. ¿Es esto procedente según la norma?",
             "answerOptions": [
@@ -686,7 +686,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 23,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Los estudiantes usan Wikipedia para investigar. El docente observa que copian información sin evaluar credibilidad de fuentes. ¿Cuál estrategia desarrolla mejor literacidad digital crítica según frameworks contemporáneos?",
             "answerOptions": [
@@ -717,7 +717,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 24,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "expert",
             "question": "Un docente implementa círculos restaurativos semanales para desarrollar competencias socioemocionales. Observa que algunos estudiantes comparten vulnerabilidades mientras otros permanecen callados. ¿Cuál enfoque respeta seguridad emocional mientras promueve desarrollo SEL?",
             "answerOptions": [
@@ -748,7 +748,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 25,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Un docente diseña unidad sobre ecosistemas. Quiere diferenciar por 'disposición para aprender' (readiness) según Tomlinson. ¿Cuál práctica refleja mejor este principio sin reducir estándares?",
             "answerOptions": [
@@ -779,7 +779,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 26,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Una escuela atiende población indígena y mestiza. Durante clase de ciencias naturales, estudiantes indígenas mencionan conocimientos tradicionales sobre plantas medicinales que contradicen parcialmente explicaciones farmacológicas occidentales. ¿Cuál enfoque refleja mejor pedagogía culturalmente sostenida según Paris y Alim?",
             "answerOptions": [
@@ -810,7 +810,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 27,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "expert",
             "question": "En proyecto ABP sobre contaminación local, estudiantes crean campañas de concientización. Docente diseña rúbrica: 'investigación científica' (40%), 'creatividad' (30%), 'presentación oral' (20%), 'trabajo en equipo' (10%). Según Wiggins, ¿cuál es la limitación MÁS SERIA?",
             "answerOptions": [
@@ -841,7 +841,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 28,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "Tras conflicto entre dos estudiantes donde uno dañó trabajo del otro, docente implementa 'círculo restaurativo'. Durante círculo, víctima expresa frustración y agresor se disculpa. Docente cierra círculo. ¿Qué elemento CRÍTICO faltó según modelo restaurativo (Braithwaite)?",
             "answerOptions": [
@@ -872,7 +872,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 29,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Estudiante de 5° grado domina conceptos de multiplicación y división que el currículo enseñará próximas 4 semanas. Docente identifica esto mediante pretest. Según modelo de 'compactación curricular' (Reis y Renzulli), ¿cuál es la respuesta MÁS APROPIADA?",
             "answerOptions": [
@@ -903,7 +903,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 30,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "Director declara que proyecto educativo institucional (PEI) enfatizará 'excelencia académica tradicional' y no incluirá 'educación sexual moderna ni ideologías de género' porque 'son temas familiares, no escolares'. Según Ley 115 de 1994 y jurisprudencia constitucional, ¿cuál es el problema LEGAL con esta postura?",
             "answerOptions": [
@@ -934,7 +934,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 31,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Docente reemplaza fichas físicas de vocabulario por aplicación Quizlet donde estudiantes practican definiciones con flashcards digitales y juegos. Según modelo SAMR (Puentedura), ¿en qué nivel está esta integración y qué caracteriza ese nivel?",
             "answerOptions": [
@@ -965,7 +965,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 32,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "En clase de ciencias, docente plantea: '¿Por qué las plantas son verdes?' Estudiantes responden: 'Por clorofila'. Docente confirma y avanza. Según modelo de indagación auténtica (Banchi y Bell), ¿qué nivel de indagación representa esto y cuál sería su limitación?",
             "answerOptions": [
@@ -996,7 +996,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 33,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Durante examen, docente nota que estudiante muestra ansiedad (respiración rápida, manos temblorosas). Docente se acerca y dice: 'Tranquilo, no es para tanto, tú puedes'. Según neurociencia de regulación emocional (Gross), ¿cuál es la limitación de esta intervención?",
             "answerOptions": [
@@ -1027,7 +1027,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 34,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "expert",
             "question": "Después de clase grupal sobre interpretación de poesía, docente proporciona retroalimentación detallada individual a cada estudiante sobre sus interpretaciones. Según investigación de Shute sobre retroalimentación, ¿cuál es la limitación MÁS PROBABLE de este timing?",
             "answerOptions": [
@@ -1058,7 +1058,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 35,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Docente trabaja con estudiantes de contexto rural de bajos ingresos. En reunión de equipo dice: 'Estos niños tienen muchas carencias: falta de libros en casa, padres con baja escolaridad, poca exposición cultural. Debemos compensar estos déficits'. Desde pedagogía asset-based (Yosso), ¿cuál es el problema con este encuadre?",
             "answerOptions": [
@@ -1089,7 +1089,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 36,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el día sube 3 metros y en la noche resbala un metro. ¿El día que llegará el caracol a la cima del muro es el?",
             "answerOptions": [
@@ -1120,7 +1120,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 37,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "expert",
             "question": "Un docente observa que sus estudiantes tienen dificultades para aplicar un nuevo concepto. ¿Cuál es la acción más apropiada según los principios de la Evaluación Formativa?",
             "answerOptions": [
@@ -1151,7 +1151,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 38,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "NUBE : EVAPORACIÓN ::",
             "answerOptions": [
@@ -1182,7 +1182,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 39,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "En una escuela, la coincidencia del horario de descanso entre primaria y bachillerato genera agresiones. ¿Cuál es la medida más adecuada para abordar la situación integralmente?",
             "answerOptions": [
@@ -1213,7 +1213,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 40,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Si dentro de 20 años tendré el triple de la edad que tenía hace 20 años, entonces tengo:",
             "answerOptions": [
@@ -1275,7 +1275,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 42,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Ordene las frases sobre 'La investigación cualitativa': 1. es altamente interpretativa 2. pero puede ser una rica fuente 3. se reúnen datos y se examinan 4. no puede arrojar conclusiones generales 5. toma una ruta exploratoria 6. en lugar de generar hipótesis previas.",
             "answerOptions": [
@@ -1306,7 +1306,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 43,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "4 obreros trabajando 7 horas diarias construyen un muro en 3 días. ¿Cuántos días tardarán 2 obreros trabajando 6 horas diarias en construir un muro igual?",
             "answerOptions": [
@@ -1337,7 +1337,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 44,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "En Ciencias Sociales, para reconocerse como sujeto de derechos, ¿qué proceso debe priorizar el docente?",
             "answerOptions": [
@@ -1368,7 +1368,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 45,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Ante la indisciplina por consumo de sustancias, la coordinadora busca aprovechar el talento docente. ¿Cuál es la mejor estrategia?",
             "answerOptions": [
@@ -1399,7 +1399,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 46,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Si por 12 camisetas pago 96 euros, ¿cuánto pagaré por 57 camisetas?",
             "answerOptions": [
@@ -1430,7 +1430,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 47,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "La investigación cualitativa toma una ruta ________ más flexible, en lugar de generar hipótesis a partir de la investigación ________.",
             "answerOptions": [
@@ -1461,7 +1461,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 48,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "¿Qué se define inmediatamente después de la situación significativa en la programación curricular?",
             "answerOptions": [
@@ -1492,7 +1492,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 49,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Ana va a la biblioteca cada 5 días y Miguel cada 3 días. Si hoy coincidieron, ¿en cuántos días volverán a coincidir?",
             "answerOptions": [
@@ -1523,7 +1523,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 50,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "¿Cuál es la ley general que rige los fines de la educación en Colombia?",
             "answerOptions": [
@@ -1554,7 +1554,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 51,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Si un ladrillo pesa 4 kg, el peso de un ladrillito del mismo material cuyas dimensiones son 4 veces menores es:",
             "answerOptions": [
@@ -1616,7 +1616,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 53,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "BAQUIANO",
             "answerOptions": [
@@ -1647,7 +1647,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 54,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Juan vende limonada ganando $180 por vaso. Si vende 20 vasos por día, para ganar $12.600 tardará:",
             "answerOptions": [
@@ -1678,7 +1678,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 55,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "Un colegio no ha establecido el gobierno escolar obligatorio. La directora teme sanciones. ¿Qué debe hacer?",
             "answerOptions": [
@@ -1709,7 +1709,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 56,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "¿Qué hora es cuando el reloj marca los 5/6 de la mitad del triple de las 8:00 am?",
             "answerOptions": [
@@ -1740,7 +1740,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 57,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Para gestionar el aprendizaje autónomo, ¿qué tipo de preguntas debe promover el docente?",
             "answerOptions": [
@@ -1771,7 +1771,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 58,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Mario debe 5/8 de $16.000.000 y paga los 3/4 de la deuda. ¿Cuánto debe aún?",
             "answerOptions": [
@@ -1802,7 +1802,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 59,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "DILAPIDAR",
             "answerOptions": [
@@ -1833,7 +1833,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 60,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Ante un conflicto de agresión física repetida donde los padres usan castigo físico en casa sin éxito, ¿qué debe hacer la institución?",
             "answerOptions": [
@@ -1864,7 +1864,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 61,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Patricia es mayor que Claudia, y menor que Cristina, quien tiene la misma edad de Gloria. ¿Quién es la menor?",
             "answerOptions": [
@@ -1895,7 +1895,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 62,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "El PEI de una escuela no refleja las condiciones culturales de la comunidad. La directora decide:",
             "answerOptions": [
@@ -1926,7 +1926,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 63,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Ayer 2 camiones transportaron mercancía. Hoy 3 camiones iguales harán 6 viajes para mover la misma cantidad. ¿Cuántos viajes hicieron ayer los 2 camiones?",
             "answerOptions": [
@@ -1957,7 +1957,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 64,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "El enfoque más pedagógico del uso de TIC en el aula es:",
             "answerOptions": [
@@ -1988,7 +1988,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 65,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Si 10 autos consumen 10 galones en 10 horas, ¿cuántos galones consume 1 auto en 1 hora?",
             "answerOptions": [
@@ -2019,7 +2019,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 66,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Los perros, gatos y otras plagas _____ también los animales de granja, son especies que dependen para su supervivencia de la especie humana _____ por su alto grado de domesticación.",
             "answerOptions": [
@@ -2050,7 +2050,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 67,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "Un estudiante consumió licor dentro del colegio. El manual estipula expulsión. El docente decide:",
             "answerOptions": [
@@ -2081,7 +2081,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 68,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Se sabe que tres obreros tardan 8, 6 y 4 horas en pintar una casa individualmente. ¿Cuánto tiempo tardan juntos?",
             "answerOptions": [
@@ -2143,7 +2143,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 70,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "El 20% del 40% de una cantidad equivale al:",
             "answerOptions": [
@@ -2174,7 +2174,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 71,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "¿Cuál es el principal indicador de que el PEI es efectivo?",
             "answerOptions": [
@@ -2205,7 +2205,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 72,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Un padre tiene 3 veces la edad de su hijo. Hace 10 años tenía 5 veces la edad. ¿Edad del hijo?",
             "answerOptions": [
@@ -2236,7 +2236,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 73,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "¿Qué proceso es central para la competencia 'Construye interpretaciones históricas'?",
             "answerOptions": [
@@ -2267,7 +2267,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 74,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Pedro usa 1/4 del día en tareas, 1/6 en deporte y 1/9 con amigos. ¿Qué parte le queda libre?",
             "answerOptions": [
@@ -2298,7 +2298,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 75,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "hard",
             "question": "Según la normativa colombiana, la evaluación de los estudiantes en los niveles de básica y media debe ser:",
             "answerOptions": [
@@ -2329,7 +2329,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 76,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Tres anuncios se encienden a intervalos de 12, 15 y 18 minutos. Si coinciden a las 2:00 pm, ¿a qué hora repiten?",
             "answerOptions": [
@@ -2360,7 +2360,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 77,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Al planificar una unidad didáctica, el docente debe considerar primero:",
             "answerOptions": [
@@ -2391,7 +2391,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 78,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Si un texto argumentativo defiende la eutanasia, una idea contraria sería:",
             "answerOptions": [
@@ -2422,7 +2422,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 79,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Un docente critica constantemente a sus colegas en reuniones. Como coordinador, usted debe:",
             "answerOptions": [
@@ -2453,7 +2453,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 80,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Una familia de 6 adultos tiene comida para 15 días. Llegan 3  adultos más. ¿Para cuántos días alcanza ahora?",
             "answerOptions": [
@@ -2484,7 +2484,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 81,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Para fomentar un clima de aula democrático, el docente debe:",
             "answerOptions": [
@@ -2515,7 +2515,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 82,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "El largo del puente A es 3 veces el largo del puente B. Si suman 120 metros, el puente más largo mide:",
             "answerOptions": [
@@ -2577,7 +2577,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 84,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Un tanque de 1200 cm3 está lleno 3/4 en invierno y 2/3 en verano. La diferencia es:",
             "answerOptions": [
@@ -2608,7 +2608,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 85,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Ordene la oración: 1. lleva 2. esa 3. alegre 4. muñeca 5. a 6. su 7. infancia 8. la",
             "answerOptions": [
@@ -2639,7 +2639,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 86,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Según la ética docente, frente a los resultados de evaluación, el deber es:",
             "answerOptions": [
@@ -2670,7 +2670,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 87,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Si un círculo tiene radio 10 cm, su área es (pi = 3.14):",
             "answerOptions": [
@@ -2701,7 +2701,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 88,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "El rector debe decidir entre construir una piscina o una pista de patinaje. ¿Qué debe hacer?",
             "answerOptions": [
@@ -2732,7 +2732,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 89,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "En una reunión, la mitad son mujeres, de ellas 1/6 son altas. Si hay 36 personas, ¿cuántas mujeres NO son altas?",
             "answerOptions": [
@@ -2763,7 +2763,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 90,
-            "category": "Evaluación",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "expert",
             "question": "El uso de rúbricas detalladas compartidas previamente con los estudiantes favorece:",
             "answerOptions": [
@@ -2794,7 +2794,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 91,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "En un texto sobre 'El futuro del libro', si el autor dice que el libro es una extensión de la memoria, implica que:",
             "answerOptions": [
@@ -2825,7 +2825,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 92,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Si a/b = 2/3 y b/c = 3/5, entonces a/c es:",
             "answerOptions": [
@@ -2856,7 +2856,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 93,
-            "category": "Marco Normativo y Gestión",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según la Ley 1620, el Manual de Convivencia debe:",
             "answerOptions": [
@@ -2887,7 +2887,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 94,
-            "category": "Habilidades Transversales",
+            "category": "Desarrollo Cognitivo",
             "difficulty": "hard",
             "question": "Un vendedor recibe un sueldo base más 10% de comisión. Si vendió 10 millones y recibió 2 millones en total, su sueldo base es:",
             "answerOptions": [
@@ -2918,7 +2918,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 95,
-            "category": "Pedagogía y Didáctica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Un estudiante no participa en clase por miedo a equivocarse. El docente debe:",
             "answerOptions": [

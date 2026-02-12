@@ -770,19 +770,25 @@ function selectOption(el, isCorrect, rationale, allOptions, optionIndex) {
         opt.style.cursor = 'default';
         opt.onclick = null;
     });
-
+    // Color Mapping (Unified for Sim 1 & 2)
     const categoryColors = {
-        // Sim 1
+        // Core Pedagogical & Evaluation
         "Evaluación y Retroalimentación": "var(--accent-color)",
         "Estrategias Pedagógicas": "var(--secondary-color)",
-        "Inclusión y Diversidad": "var(--success-color)",
-        "Legislación Educativa": "var(--warning-color)",
+        "Planificación Curricular": "#16a085", // Teal
 
-        // Sim 2 (Consolidated)
-        "Pedagogía y Didáctica": "var(--secondary-color)", // Maps to Estrategias
-        "Evaluación": "var(--accent-color)", // Maps to Evaluación
-        "Marco Normativo y Gestión": "var(--warning-color)", // Maps to Legislación
-        "Habilidades Transversales": "#8e44ad", // New color for skills
+        // Inclusion & Values
+        "Inclusión y Diversidad": "var(--success-color)",
+        "Convivencia y Valores": "#e67e22", // Orange
+
+        // Legal & Management
+        "Marco Legal y Normativo": "var(--warning-color)",
+        "Gestión Institucional": "#2c3e50", // Dark Blue
+
+        // Skills & Cognitive
+        "Competencias Específicas": "#9b59b6", // Purple
+        "Desarrollo Cognitivo": "#2980b9", // Blue
+        "Razonamiento Lógico": "#8e44ad", // Deep Purple
 
         "General": "var(--text-secondary)"
     };
@@ -1341,6 +1347,29 @@ function renderCategoryStats() {
     // Let's sort by name for consistency
     const categories = Object.keys(stats).sort();
 
+    // Color Mapping (Unified for Sim 1 & 2)
+    const categoryColors = {
+        // Core Pedagogical & Evaluation
+        "Evaluación y Retroalimentación": "var(--accent-color)",
+        "Estrategias Pedagógicas": "var(--secondary-color)",
+        "Planificación Curricular": "#16a085", // Teal
+
+        // Inclusion & Values
+        "Inclusión y Diversidad": "var(--success-color)",
+        "Convivencia y Valores": "#e67e22", // Orange
+
+        // Legal & Management
+        "Marco Legal y Normativo": "var(--warning-color)",
+        "Gestión Institucional": "#2c3e50", // Dark Blue
+
+        // Skills & Cognitive
+        "Competencias Específicas": "#9b59b6", // Purple
+        "Desarrollo Cognitivo": "#2980b9", // Blue
+        "Razonamiento Lógico": "#8e44ad", // Deep Purple
+
+        "General": "var(--text-secondary)"
+    };
+
     // 3. Render HTML
     container.innerHTML = '';
 
@@ -1350,10 +1379,12 @@ function renderCategoryStats() {
         const incorrectPct = (data.incorrect / data.total) * 100;
         // Unanswered is the remaining space automatically due to flex/width logic
 
+        const color = categoryColors[cat] || categoryColors["General"];
+
         const html = `
-            <div class="category-stat-item">
+            <div class="category-stat-item" style="border-left: 4px solid ${color};">
                 <div class="cat-header">
-                    <span>${cat}</span>
+                    <span style="color: ${color}; font-weight: bold;">${cat}</span>
                     <span>${data.correct + data.incorrect} / ${data.total}</span>
                 </div>
                 <div class="cat-progress-track">
