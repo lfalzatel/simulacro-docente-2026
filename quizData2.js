@@ -3,7 +3,7 @@ const RAW_QUIZ_DATA_2 = {
     "questions": [
         {
             "questionNumber": 1,
-            "category": "Pedagogía Contemporánea",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "hard",
             "question": "Una docente implementa Aprendizaje Basado en Proyectos (ABP) donde los estudiantes diseñan una solución para reducir el desperdicio de agua en su institución. Durante la ejecución, algunos estudiantes solo copian información de internet sin analizar el problema. ¿Cuál es la intervención más apropiada según los principios del ABP?",
             "answerOptions": [
@@ -34,7 +34,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 2,
-            "category": "Evaluación Formativa",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Un docente diseña una rúbrica analítica para evaluar ensayos argumentativos. Algunos estudiantes obtienen puntajes altos en 'estructura' y баjos en 'profundidad de análisis'. Al revisar los trabajos, el docente nota que estos estudiantes siguen fórmulas rígidas sin reflexión crítica. ¿Qué ajuste metodológico es más apropiado según la evaluación formativa avanzada?",
             "answerOptions": [
@@ -65,7 +65,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 3,
-            "category": "Pedagogía Contemporánea",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "hard",
             "question": "En una clase invertida (Flipped Classroom), algunos estudiantes llegan sin haber visto los videos preasignados, argumentando 'falta de tiempo'. El docente observa que estos estudiantes provienen de contextos socioeconómicos vulnerables con acceso limitado a internet en casa. ¿Cuál es la adaptación más equitativa según los principios de la clase invertida inclusiva?",
             "answerOptions": [
@@ -96,7 +96,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 4,
-            "category": "Inclusión Educativa",
+            "category": "Inclusión",
             "difficulty": "expert",
             "question": "Un estudiante con trastorno del espectro autista (TEA) muestra excelente desempeño académico en matemáticas y ciencias, pero evita trabajos grupales y presenta ansiedad significativa durante presentaciones orales. Según el Diseño Universal para el Aprendizaje (DUA), ¿cuál es la mejor estrategia para evaluar su comprensión en ciencias sociales sin comprometer los objetivos de aprendizaje?",
             "answerOptions": [
@@ -158,7 +158,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 6,
-            "category": "Pedagogía Contemporánea",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "hard",
             "question": "Un docente implementa gamificación en su clase de ciencias naturales con un sistema de puntos, niveles y recompensas. Tras un mes, observa que los estudiantes están más motivados por acumular puntos que por comprender los conceptos científicos. ¿Cuál es la intervención más apropiada según los principios de gamificación significativa?",
             "answerOptions": [
@@ -189,7 +189,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 7,
-            "category": "Evaluación Formativa",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Una docente implementa coevaluación donde los estudiantes evalúan los ensayos de sus compañeros usando una rúbrica. Nota que algunos estudiantes dan calificaciones muy generosas sin justificación crítica, mientras otros son excesivamente severos. ¿Cuál es la estrategia más efectiva según la literatura sobre assessment for learning?",
             "answerOptions": [
@@ -220,7 +220,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 8,
-            "category": "Constructivismo Social",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "hard",
             "question": "Durante un debate sobre cambio climático, un estudiante argumenta correctamente los datos científicos, pero sus compañeros rechazan sus ideas porque 'no tiene buenas calificaciones en ciencias'. Según Vygotsky y el aprendizaje situado, ¿cuál es la intervención más apropiada?",
             "answerOptions": [
@@ -251,7 +251,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 9,
-            "category": "Pedagogía Contemporánea",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Un docente nota que tras enseñar estrategias de lectura crítica, los estudiantes las aplican solo en clase de lenguaje, no en ciencias sociales o naturales. ¿Cuál estrategia aborda mejor este problema de transfer de aprendizaje según la ciencia cognitiva contemporánea?",
             "answerOptions": [
@@ -282,7 +282,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 10,
-            "category": "Inclusión Educativa",
+            "category": "Inclusión",
             "difficulty": "hard",
             "question": "Una estudiante con dislexia toma más tiempo en las evaluaciones escritas, logrando solo completar 60% de las preguntas aunque sus respuestas muestran comprensión profunda. Según el principio de equidad en evaluación, ¿cuál es la adaptación más apropiada?",
             "answerOptions": [
@@ -344,7 +344,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 12,
-            "category": "Pedagogía Contemporánea",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Un docente implementa aprendizaje cooperativo con roles asignados (líder, secretario, portavoz). Observa que estudiantes tímidos siempre quedan como 'secretarios' sin oportunidad de desarrollar habilidades de liderazgo. ¿Cuál ajuste refleja mejor los principios de Johnson & Johnson sobre cooperación genuina?",
             "answerOptions": [
@@ -375,7 +375,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 13,
-            "category": "Evaluación Formativa",
+            "category": "Evaluación",
             "difficulty": "hard",
             "question": "Un docente implementa autoevaluación donde los estudiantes califican su propio aprendizaje. Observa que algunos estudiantes con bajo desempeño se autocalifican muy alto, mientras otros con excelente desempeño se autocalifican bajo. ¿Qué explica mejor este fenómeno según la literatura sobre metacognición y qué hacer al respecto?",
             "answerOptions": [
@@ -468,7 +468,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 16,
-            "category": "Neuroeducación",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Según investigación en neurociencia cognitiva sobre consolidación de memoria, un docente quiere maximizar la retención a largo plazo de conceptos matemáticos complejos. ¿Cuál estrategia está mejor fundamentada en evidencia sobre espaciamiento y recuperación?",
             "answerOptions": [
@@ -499,7 +499,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 17,
-            "category": "Evaluación Formativa",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Un docente da retroalimentación detallada en ensayos estudiantiles. Observa que estudiantes con comentarios extensos (2-3 párrafos por ensayo) mejoran MENOS que aquellos con comentarios breves y enfocados. ¿Qué principio de feedback efectivo explica esto?",
             "answerOptions": [
@@ -530,7 +530,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 18,
-            "category": "Pedagogía Diferenciada",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "hard",
             "question": "Un docente implementa grupos flexibles basados en desempeño para matemáticas, reagrupando estudiantes según evaluaciones semanales. Nota que estudiantes en grupos 'bajos' desarrollan identidad negativa ('no soy bueno en matemáticas'). ¿Cuál ajuste mantiene diferenciación sin estigmatización?",
             "answerOptions": [
@@ -561,7 +561,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 19,
-            "category": "Aprendizaje Basado en Proyectos",
+            "category": "Habilidades Transversales",
             "difficulty": "expert",
             "question": "En un proyecto sobre contaminación local, estudiantes investigan y proponen soluciones. El docente nota que se enfocan en soluciones superficiales ('poner más canecas') sin análisis sistémico. ¿Qué andamiaje promueve pensamiento de sistemas complejos según PBL de alta calidad?",
             "answerOptions": [
@@ -592,7 +592,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 20,
-            "category": "Pedagogía Crítica",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Inspirado en Paulo Freire, un docente quiere implementar pedagogía dialógica problematizadora en ciencias sociales. ¿Cuál práctica refleja auténticamente la praxis de Freire, no solo el discurso?",
             "answerOptions": [
@@ -654,7 +654,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 22,
-            "category": "Inclusión Educativa",
+            "category": "Inclusión",
             "difficulty": "expert",
             "question": "Un estudiante ciego con software lector de pantalla necesita acceder a gráficas complejas en clase de estadística. ¿Cuál adaptación refleja mejor los principios del DUA para representación accesible?",
             "answerOptions": [
@@ -685,7 +685,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 23,
-            "category": "Alfabetización Digital",
+            "category": "Habilidades Transversales",
             "difficulty": "hard",
             "question": "Los estudiantes usan Wikipedia para investigar. El docente observa que copian información sin evaluar credibilidad de fuentes. ¿Cuál estrategia desarrolla mejor literacidad digital crítica según frameworks contemporáneos?",
             "answerOptions": [
@@ -716,7 +716,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 24,
-            "category": "Aprendizaje Socioemocional",
+            "category": "Habilidades Transversales",
             "difficulty": "expert",
             "question": "Un docente implementa círculos restaurativos semanales para desarrollar competencias socioemocionales. Observa que algunos estudiantes comparten vulnerabilidades mientras otros permanecen callados. ¿Cuál enfoque respeta seguridad emocional mientras promueve desarrollo SEL?",
             "answerOptions": [
@@ -747,7 +747,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 25,
-            "category": "Pedagogía Diferenciada",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Un docente diseña unidad sobre ecosistemas. Quiere diferenciar por 'disposición para aprender' (readiness) según Tomlinson. ¿Cuál práctica refleja mejor este principio sin reducir estándares?",
             "answerOptions": [
@@ -778,7 +778,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 26,
-            "category": "Pedagogía Culturalmente Responsiva",
+            "category": "Pedagogía y Didáctica",
             "difficulty": "expert",
             "question": "Una escuela atiende población indígena y mestiza. Durante clase de ciencias naturales, estudiantes indígenas mencionan conocimientos tradicionales sobre plantas medicinales que contradicen parcialmente explicaciones farmacológicas occidentales. ¿Cuál enfoque refleja mejor pedagogía culturalmente sostenida según Paris y Alim?",
             "answerOptions": [
@@ -793,7 +793,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 27,
-            "category": "Evaluación Auténtica",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "En proyecto ABP sobre contaminación local, estudiantes crean campañas de concientización. Docente diseña rúbrica: 'investigación científica' (40%), 'creatividad' (30%), 'presentación oral' (20%), 'trabajo en equipo' (10%). Según Wiggins, ¿cuál es la limitación MÁS SERIA?",
             "answerOptions": [
@@ -957,7 +957,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "An\u00e1lisis: Cada d\u00eda efectivo sube 2m (3m sube - 1m baja). D\u00eda 1: llega a 2m. D\u00eda 2: llega a 4m. D\u00eda 3: llega a 6m. El D\u00eda 4, estando en 6m, sube sus 3m diarios y llega a 9m (la cima). Ya no resbala porque lleg\u00f3.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 37,
             "category": "Pedag\u00f3gica - Evaluaci\u00f3n",
@@ -988,7 +988,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La evaluaci\u00f3n formativa busca mejorar el proceso de aprendizaje mediante la identificaci\u00f3n de dificultades y la retroalimentaci\u00f3n oportuna, no mediante el castigo o la calificaci\u00f3n punitiva.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 38,
             "category": "Aptitud Verbal - Analog\u00edas",
@@ -1019,7 +1019,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "Relaci\u00f3n de Efecto a Causa (Producto : Proceso). La nube es producto de la evaporaci\u00f3n. El sue\u00f1o es producto (efecto) del cansancio. (Nota: En algunas claves se marca 'desempleo: recesi\u00f3n', pero la relaci\u00f3n f\u00edsica m\u00e1s directa es sue\u00f1o-cansancio).",
             "hint": "Fuente: Prueba APTITUD VERBAL 2016"
-        }        ,
+        },
         {
             "questionNumber": 39,
             "category": "Situacional - Convivencia",
@@ -1050,7 +1050,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "Dado que el problema se agrava por el 'poco espacio' (contexto del caso), la soluci\u00f3n estructural y preventiva m\u00e1s efectiva es la separaci\u00f3n de espacios o tiempos (Zonificaci\u00f3n/Horarios) para garantizar la seguridad f\u00edsica inmediata.",
             "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAG\u00d3GICA GENERAL"
-        }        ,
+        },
         {
             "questionNumber": 40,
             "category": "Razonamiento Cuantitativo",
@@ -1081,7 +1081,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Ecuaci\u00f3n: Sea x la edad actual. (x + 20) = 3(x - 20). Resolviendo: x + 20 = 3x - 60 => 80 = 2x => x = 40.",
             "hint": "Fuente: Prueba Aptitud Num\u00e9rica Final"
-        }        ,
+        },
         {
             "questionNumber": 41,
             "category": "Gesti\u00f3n Educativa - Inclusi\u00f3n",
@@ -1112,7 +1112,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "El Decreto 1421 de 2017 establece el PIAR y el Dise\u00f1o Universal para el Aprendizaje (DUA) como herramientas obligatorias para la educaci\u00f3n inclusiva, rechazando la segregaci\u00f3n.",
             "hint": "Fuente: Simulacro de Referencia - Grufae"
-        }        ,
+        },
         {
             "questionNumber": 42,
             "category": "Aptitud Verbal - Ordenamiento",
@@ -1143,7 +1143,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Orden l\u00f3gico: Definici\u00f3n general (5) -> Contraste con m\u00e9todo tradicional (6) -> Metodolog\u00eda (3) -> Caracter\u00edstica (1) -> Limitaci\u00f3n (4) -> Ventaja final (2).",
             "hint": "Fuente: Prueba APTITUD VERBAL 2016"
-        }        ,
+        },
         {
             "questionNumber": 43,
             "category": "Razonamiento Cuantitativo",
@@ -1174,7 +1174,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Regla de tres compuesta. Total horas-hombre requeridas: 4*7*3 = 84 horas. Nueva capacidad diaria: 2*6 = 12 horas/d\u00eda. D\u00edas necesarios: 84 / 12 = 7 d\u00edas.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 44,
             "category": "Pedag\u00f3gica - Ciudadan\u00eda",
@@ -1205,7 +1205,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "La competencia ciudadana activa requiere pasar de la teor\u00eda a la pr\u00e1ctica mediante la deliberaci\u00f3n y el enfrentamiento a dilemas, fomentando el pensamiento cr\u00edtico.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 45,
             "category": "Psicot\u00e9cnica - Liderazgo",
@@ -1236,7 +1236,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "El liderazgo distribuido promueve la participaci\u00f3n colaborativa (grupos peque\u00f1os) para construir soluciones consensuadas, aumentando el compromiso del equipo.",
             "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
-        }        ,
+        },
         {
             "questionNumber": 46,
             "category": "Razonamiento Cuantitativo",
@@ -1267,7 +1267,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Proporcionalidad directa. Costo unitario = 96 / 12 = 8 euros. Costo total = 57 * 8 = 456 euros.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 47,
             "category": "Aptitud Verbal - Oraciones Incompletas",
@@ -1298,7 +1298,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "El contexto acad\u00e9mico contrasta la flexibilidad cualitativa (exploratoria) con los m\u00e9todos tradicionales que requieren hip\u00f3tesis anteriores (previas).",
             "hint": "Fuente: Prueba APTITUD VERBAL 2016"
-        }        ,
+        },
         {
             "questionNumber": 48,
             "category": "Pedag\u00f3gica - Planificaci\u00f3n",
@@ -1329,7 +1329,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "En la planificaci\u00f3n inversa, tras definir el reto (situaci\u00f3n significativa), se debe establecer qu\u00e9 aprendizajes (competencias) se requieren para resolverlo antes de dise\u00f1ar actividades.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 49,
             "category": "Razonamiento Cuantitativo",
@@ -1360,7 +1360,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "M\u00ednimo Com\u00fan M\u00faltiplo (MCM). MCM(5, 3) = 15.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 50,
             "category": "Legislaci\u00f3n Educativa",
@@ -1391,7 +1391,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "La Ley 115 de 1994 es la Ley General de Educaci\u00f3n. El Decreto 1278 es el estatuto docente, la 715 regula recursos y la 1620 convivencia.",
             "hint": "Fuente: Manual de Funciones - MEN"
-        }        ,
+        },
         {
             "questionNumber": 51,
             "category": "Razonamiento Cuantitativo",
@@ -1422,7 +1422,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "El volumen var\u00eda con el cubo de la proporci\u00f3n lineal. Si la dimensi\u00f3n es 1/4, el volumen es (1/4)\u00b3 = 1/64. Peso = 4000g / 64 = 62.5g.",
             "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
-        }        ,
+        },
         {
             "questionNumber": 52,
             "category": "Pedag\u00f3gica - NEE",
@@ -1453,7 +1453,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "La adaptaci\u00f3n debe facilitar el acceso al curr\u00edculo mediante ajustes razonables (apoyos visuales, simplificaci\u00f3n) sin eliminar la competencia.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 53,
             "category": "Aptitud Verbal - Ant\u00f3nimos",
@@ -1484,7 +1484,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Baquiano: Experto conocedor de caminos/terrenos. Ant\u00f3nimo directo: Novato.",
             "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC"
-        }        ,
+        },
         {
             "questionNumber": 54,
             "category": "Razonamiento Cuantitativo",
@@ -1515,7 +1515,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Ganancia diaria = 20 vasos * $180 = $3600. D\u00edas requeridos = $12600 / $3600 = 3.5 d\u00edas.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 55,
             "category": "Situacional - Gesti\u00f3n",
@@ -1546,7 +1546,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "El gobierno escolar (Ley 115, Art 142) es obligatorio y requiere la participaci\u00f3n democr\u00e1tica de toda la comunidad educativa.",
             "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
-        }        ,
+        },
         {
             "questionNumber": 56,
             "category": "Razonamiento Cuantitativo",
@@ -1577,7 +1577,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "Triple de 8 = 24. Mitad de 24 = 12. 5/6 de 12 = 10. Son las 10:00 am.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 57,
             "category": "Pedag\u00f3gica - Metacognici\u00f3n",
@@ -1608,7 +1608,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La metacognici\u00f3n (pensar sobre el propio pensamiento) es fundamental para desarrollar la autonom\u00eda y la autorregulaci\u00f3n en el estudiante.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 58,
             "category": "Razonamiento Cuantitativo",
@@ -1639,7 +1639,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "Deuda: 5/8 * 16m = 10m. Paga: 3/4 * 10m = 7.5m. Debe: 10m - 7.5m = 2.5 millones.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 59,
             "category": "Aptitud Verbal - Sin\u00f3nimos",
@@ -1670,7 +1670,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "Dilapidar significa malgastar los bienes sin prudencia, sin\u00f3nimo directo de despilfarrar.",
             "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
-        }        ,
+        },
         {
             "questionNumber": 60,
             "category": "Psicot\u00e9cnica - Orientaci\u00f3n",
@@ -1701,7 +1701,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Seg\u00fan la Ley 1620 y la Ley 1098, si hay vulneraci\u00f3n de derechos (castigo f\u00edsico severo) y la estrategia escolar no funciona, se debe activar la ruta externa.",
             "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC"
-        }        ,
+        },
         {
             "questionNumber": 61,
             "category": "Razonamiento Cuantitativo",
@@ -1732,7 +1732,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Cristina = Gloria > Patricia > Claudia. La menor es Claudia.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 62,
             "category": "Situacional - PEI",
@@ -1763,7 +1763,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "El Proyecto Educativo Institucional debe ser contextualizado y construido participativamente (Ley 115, Gu\u00eda 34).",
             "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE"
-        }        ,
+        },
         {
             "questionNumber": 63,
             "category": "Razonamiento Cuantitativo",
@@ -1794,7 +1794,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Total carga = 3 camiones * 6 viajes = 18 unidades de carga. Ayer: 18 unidades / 2 camiones = 9 viajes.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 64,
             "category": "Pedag\u00f3gica - TIC",
@@ -1825,7 +1825,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Las TIC deben potenciar el aprendizaje activo, la investigaci\u00f3n y el trabajo colaborativo, no ser un fin en s\u00ed mismas.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 65,
             "category": "Razonamiento Cuantitativo",
@@ -1856,7 +1856,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "10 autos en 10 horas = 10 galones. 1 auto en 10 horas = 1 gal\u00f3n. 1 auto en 1 hora = 1/10 de gal\u00f3n.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 66,
             "category": "Aptitud Verbal - Oraciones Incompletas",
@@ -1887,7 +1887,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La estructura enumera grupos (coma + y) y luego explica la causa tras una coma explica tiva o causal impl\u00edcita.",
             "hint": "Fuente: Prueba APTITUD VERBAL 2016"
-        }        ,
+        },
         {
             "questionNumber": 67,
             "category": "Situacional - Convivencia",
@@ -1918,7 +1918,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Aunque la falta sea grave, el debido proceso y el enfoque formativo (Ley 1620) exigen indagar causas y ofrecer apoyo psicosocial antes o durante la sanci\u00f3n.",
             "hint": "Fuente: 60 preguntas para concurso de reubicaci\u00f3n docente"
-        }        ,
+        },
         {
             "questionNumber": 68,
             "category": "Razonamiento Cuantitat ivo",
@@ -1949,7 +1949,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "d",
             "rationale": "Sumar velocidades (1/8 + 1/6 + 1/4) = (3+4+6)/24 = 13/24 casas por hora. Tiempo = 24/13 \u2248 1.84 horas.",
             "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
-        }        ,
+        },
         {
             "questionNumber": 69,
             "category": "Pedag\u00f3gica - Inclusi\u00f3n",
@@ -1980,7 +1980,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "La pertinencia pedag\u00f3gica implica atender la diversidad dentro del aula mediante estrategias diferenciadas sin segregar.",
             "hint": "Fuente: 60 preguntas para concurso de reubicaci\u00f3n docente"
-        }        ,
+        },
         {
             "questionNumber": 70,
             "category": "Razonamiento Cuantitativo",
@@ -2011,7 +2011,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "d",
             "rationale": "0.20 * 0.40 = 0.08, que equivale al 8%.",
             "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
-        }        ,
+        },
         {
             "questionNumber": 71,
             "category": "Gesti\u00f3n - PEI",
@@ -2042,7 +2042,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La gesti\u00f3n escolar se mide por resultados de calidad (aprendizajes) y su coherencia con la misi\u00f3n institucional (Gu\u00eda 34).",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 72,
             "category": "Razonamiento Cuantitativo",
@@ -2073,7 +2073,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "P = 3H. Hace 10 a\u00f1os: (P-10) = 5(H-10). Sustituyendo: 3H -  10 = 5H - 50 -> 40 = 2H -> H = 20.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 73,
             "category": "Pedag\u00f3gica - Did\u00e1ctica",
@@ -2104,7 +2104,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La historia se construye interpretando fuentes diversas y contrastando perspectivas, no memorizando datos aislados.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 74,
             "category": "Razonamiento Cuantitativo",
@@ -2135,7 +2135,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "Suma de gastos: 1/4 + 1/6 + 1/9 = (9+6+4)/36 = 19/36. Libre = 1 - 19/36 = 17/36.",
             "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
-        }        ,
+        },
         {
             "questionNumber": 75,
             "category": "Legislaci\u00f3n - Evaluaci\u00f3n",
@@ -2166,7 +2166,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "El Decreto 1290 (y sus antecedentes) promueve una evaluaci\u00f3n formativa, integral y continua, superando la mera calificaci\u00f3n num\u00e9rica final.",
             "hint": "Fuente: Manual de Funciones - MEN"
-        }        ,
+        },
         {
             "questionNumber": 76,
             "category": "Razonamiento Cuantitativo",
@@ -2197,7 +2197,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "MCM(12, 15, 18) = 180 minutos. 180 min = 3 horas. 2:00 pm + 3 horas = 5:00 pm.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 77,
             "category": "Pedag\u00f3gica - Planificaci\u00f3n",
@@ -2228,7 +2228,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "El aprendizaje significativo parte de conectar los nuevos saberes con el contexto y los conocimientos previos del estudiante.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 78,
             "category": "Aptitud Verbal - Comprensi\u00f3n",
@@ -2259,7 +2259,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "La sacralidad de la vida es el argumento \u00e9tico/religioso cl\u00e1sico que se opone a la disposici\u00f3n de la propia vida (eutanasia).",
             "hint": "Fuente: Inferido de textos de Aptitud Verbal"
-        }        ,
+        },
         {
             "questionNumber": 79,
             "category": "Psicot\u00e9cnica - Trabajo en Equipo",
@@ -2290,7 +2290,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La competencia comportamental de liderazgo y comunicaci\u00f3n exige abordar los conflictos de manera constructiva y privada para mejorar el clima laboral.",
             "hint": "Fuente: Manual de Funciones - Competencias Comportamentales"
-        }        ,
+        },
         {
             "questionNumber": 80,
             "category": "Razonamiento Cuantitativo",
@@ -2321,7 +2321,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "Regla de tres inversa. (6 personas * 15 d\u00edas) = 90 raciones. Ahora hay 9 personas. 90 / 9 = 10 d\u00edas.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 81,
             "category": "Pedag\u00f3gica - Ambiente de Aula",
@@ -2352,7 +2352,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La convivencia democr\u00e1tica se basa en la participaci\u00f3n y el consenso normativo, no en la imposici\u00f3n ni en el desorden.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 82,
             "category": "Razonamiento Cuantitativo",
@@ -2383,7 +2383,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "d",
             "rationale": "A + B = 120. A = 3B. Entonces 3B + B = 120 -> 4B = 120 -> B = 30. A = 3(30) = 90m.",
             "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Num\u00e9rica"
-        }        ,
+        },
         {
             "questionNumber": 83,
             "category": "Pedag\u00f3gica - EIB",
@@ -2414,7 +2414,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "El enfoque EIB exige el respeto y uso pedag\u00f3gico de la lengua y cultura originarias para un aprendizaje pertinente.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 84,
             "category": "Razonamiento Cuantitativo",
@@ -2445,7 +2445,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "Invierno: 3/4 de 1200 = 900. Verano: 2/3 de 1200 = 800. Diferencia: 900 - 800 = 100 cm3.",
             "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Num\u00e9rica"
-        }        ,
+        },
         {
             "questionNumber": 85,
             "category": "Aptitud Verbal - Ordenamiento",
@@ -2476,7 +2476,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "'Esa mu\u00f1eca la lleva a su alegre infancia' construye el sentido completo.",
             "hint": "Fuente: GU\u00cdA DE ORIENTACI\u00d3N CNSC - Aptitud Verbal"
-        }        ,
+        },
         {
             "questionNumber": 86,
             "category": "Pedag\u00f3gica - \u00c9tica",
@@ -2507,7 +2507,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "c",
             "rationale": "La evaluaci\u00f3n debe ser transparente y tener un fin formativo de mejoramiento, no solo administrativo.",
             "hint": "Fuente: Material de estudio Concurso docente 2026"
-        }        ,
+        },
         {
             "questionNumber": 87,
             "category": "Razonamiento Cuantitativo",
@@ -2538,7 +2538,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "\u00c1rea = pi * r\u00b2. A = 3.14 * (10\u00b2) = 3.14 * 100 = 314 cm\u00b2.",
             "hint": "Fuente: Conocimiento General Matem\u00e1tico"
-        }        ,
+        },
         {
             "questionNumber": 88,
             "category": "Situacional - Rector\u00eda",
@@ -2569,7 +2569,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La gesti\u00f3n de recursos debe responder a un diagn\u00f3stico de necesidades y al bienestar de la comunidad (Gesti\u00f3n Directiva/Comunitaria).",
             "hint": "Fuente: CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAG\u00d3GICA GENERAL"
-        }        ,
+        },
         {
             "questionNumber": 89,
             "category": "Razonamiento Cuantitativo",
@@ -2600,7 +2600,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "Total 36. Mujeres = 18. Altas = 1/6 de 18 = 3. No altas = 18 - 3 = 15.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 90,
             "category": "Pedag\u00f3gica - Evaluaci\u00f3n",
@@ -2631,7 +2631,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La r\u00fabrica es un instrumento de evaluaci\u00f3n formativa que gu\u00eda al estudiante sobre qu\u00e9 se espera de \u00e9l, fomentando la autorregulaci\u00f3n.",
             "hint": "Fuente: 02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
-        }        ,
+        },
         {
             "questionNumber": 91,
             "category": "Aptitud Verbal - Comprensi\u00f3n",
@@ -2662,7 +2662,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La met\u00e1fora 'extensi\u00f3n de la memoria' alude a la funci\u00f3n de almacenamiento y transmisi\u00f3n cultural de la escritura.",
             "hint": "Fuente: prueba pedagog\u00eda con respuestas (1).pdf"
-        }        ,
+        },
         {
             "questionNumber": 92,
             "category": "Razonamiento Cuantitativo",
@@ -2693,7 +2693,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "(a/b) * (b/c) = a/c. (2/3) * (3/5) = 6/15 = 2/5.",
             "hint": "Fuente: Conocimiento General Matem\u00e1tico"
-        }        ,
+        },
         {
             "questionNumber": 93,
             "category": "Legislaci\u00f3n - Manual de Convivencia",
@@ -2724,7 +2724,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "El manual es una herramienta de construci\u00f3n colectiva que regula la convivencia y define rutas de promoci\u00f3n, prevenci\u00f3n y atenci\u00f3n.",
             "hint": "Fuente: Manual de Funciones - MEN"
-        }        ,
+        },
         {
             "questionNumber": 94,
             "category": "Razonamiento Cuantitativo",
@@ -2755,7 +2755,7 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "Comisi\u00f3n = 10% de 10m = 1 mill\u00f3n. Total (2m) = Base + Comisi\u00f3n (1m). Base = 1 mill\u00f3n.",
             "hint": "Fuente: Razonamiento Cuantitativo - Lic. Oscar Iv\u00e1n Mart\u00ednez"
-        }        ,
+        },
         {
             "questionNumber": 95,
             "category": "Pedag\u00f3gica - Motivaci\u00f3n",
