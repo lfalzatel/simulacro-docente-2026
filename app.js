@@ -1011,10 +1011,48 @@ async function guardarProgresoCompleto(silent = false) {
             }
         }
     } else if (currentSimulacroId) {
-        // For other simulacros, just local save for now
-        if (!silent && statusEl) {
-            statusEl.innerHTML = "💾 Guardado (Local)";
-            setTimeout(() => { statusEl.classList.remove('visible'); }, 2000);
+        // Multi-Simulator Cloud Sync (Sim 2, 3, etc.)
+        // Uses 'simulacro_progress_v2' table
+        if (supabaseApp) {
+            try {
+                const { data: { user } } = await supabaseApp.auth.getUser();
+                if (user) {
+                    // Upsert to V2 table including simulacro_id
+                    const { error } = await supabaseApp.from('simulacro_progress_v2').upsert({
+                        user_id: user.id,
+                        simulacro_id: currentSimulacroId, // Critical: Distinguish exams
+                        progress_data: userProgress,
+                        score: score,
+                        last_index: currentQuestionIndex,
+                        updated_at: new Date().toISOString()
+                    }, { onConflict: 'user_id, simulacro_id' }); // Relies on unique constraint
+
+                    if (error) {
+                        console.error('❌ Error al guardar progreso V2:', error);
+                        if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Sync V2";
+                    } else {
+                        if (!silent) {
+                            console.log(`☁️ Progreso V2 (${currentSimulacroId}) sincronizado`);
+                            if (statusEl) statusEl.innerHTML = "☁️ Sincronizado";
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('❌ Error al sincronizar V2:', error);
+                if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Red V2";
+            } finally {
+                if (!silent && statusEl) {
+                    setTimeout(() => {
+                        statusEl.classList.remove('visible');
+                    }, 2000);
+                }
+            }
+        } else {
+            // Fallback local if no supabase
+            if (!silent && statusEl) {
+                statusEl.innerHTML = "💾 Guardado (Local)";
+                setTimeout(() => { statusEl.classList.remove('visible'); }, 2000);
+            }
         }
     }
 }
@@ -1228,6 +1266,66 @@ async function cargarProgreso(user = null) {
                 statusEl.classList.remove('visible');
             }
         }
+    } else if (supabaseApp && user && currentSimulacroId && !isDefaultSim) {
+        // ---------------------------------------------------------
+        // LOAD LOGIC FOR SIMULACRO 2+ (V2 TABLE)
+        // ---------------------------------------------------------
+        try {
+            console.log(`✓ Consultando progreso V2 para Sim: ${currentSimulacroId}...`);
+
+            const { data, error } = await supabaseApp
+                .from('simulacro_progress_v2')
+                .select('*')
+                .eq('user_id', user.id)
+                .eq('simulacro_id', currentSimulacroId)
+                .single();
+
+            if (data && !error) {
+                console.log(`☁️ Datos V2 encontrados para ${currentSimulacroId}`);
+
+                // Logic for V2: We trust the cloud if it exists, similar to Sim 1
+                // But strictly we should also compare with local if user worked offline.
+                // For now, let's use the same comparison logic or simple overwrite if cloud is newer.
+
+                const cloudProgress = data.progress_data || {};
+                const cloudTime = new Date(data.updated_at || 0).getTime();
+
+                const key = getStorageKey();
+                const saved = localStorage.getItem(key);
+                const localData = saved ? JSON.parse(saved) : null;
+                const localTime = new Date(localData ? (localData.timestamp || 0) : 0).getTime();
+
+                // Simple check: Cloud > Local + 10s
+                if (cloudTime > localTime + 10000 || !localData) {
+                    userProgress = { ...cloudProgress };
+                    score = data.score || 0;
+                    if (!userProgress.safeLastIndex) userProgress.safeLastIndex = data.last_index || 0;
+                    currentQuestionIndex = userProgress.safeLastIndex;
+
+                    // Update Local
+                    localStorage.setItem(key, JSON.stringify({
+                        lastIndex: currentQuestionIndex,
+                        score: score,
+                        answers: userProgress,
+                        timestamp: data.updated_at,
+                        totalTime: userProgress.totalTime || 0
+                    }));
+                    console.log("☁️ Cargado desde V2 (Nube)");
+                } else {
+                    console.log("💾 Local es más reciente que V2, conservando local.");
+                    cargarProgresoLocal();
+                }
+
+            } else {
+                console.log("🆕 Sin datos V2 en nube para este simulacro. Cargando local.");
+                cargarProgresoLocal();
+            }
+
+        } catch (e) {
+            console.error("❌ Error loading V2:", e);
+            cargarProgresoLocal();
+        }
+
     } else if (supabaseApp && !user) {
         // No user provided, fallback to local
         console.log("⚠️ cargarProgreso() sin usuario - usando solo datos locales");
