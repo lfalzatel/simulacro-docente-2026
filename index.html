@@ -70,7 +70,13 @@
                     </div>
                     <div class="menu-item" onclick="switchView('docs')">
                         <span>📚</span>
-                        <span>Documentación</span>
+                        <div class="stats-header">
+                            <h3>Tu Progreso</h3>
+                            <select class="period-selector" onchange="updateDashboardStats()">
+                                <option value="all">Todo</option>
+                                <option value="week">Esta semana</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="menu-item" onclick="showReports()" style="margin-bottom: 20px;">
                         <span>📊</span>
@@ -80,7 +86,7 @@
                         <span>🚪</span>
                         <span>Cerrar Sesión</span>
                     </div>
-                    <!-- 
+                    <!--
                     <div class="menu-item logout" onclick="sincronizarDatos()" style="color: var(--accent-secondary);">
                         <span>🔄</span>
                         <span>Sincronizar</span>
@@ -190,6 +196,17 @@
                 </div>
             </div>
 
+            <!-- SIMULATOR SELECTOR (PROFILE) - MOVED HERE -->
+            <div style="margin-bottom: 2rem;">
+                <label
+                    style="display: block; color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">Ver
+                    estadísticas de:</label>
+                <select id="profile-sim-selector" class="sim-selector" onchange="handleSimulatorChange(this.value)"
+                    style="width: 100%; padding: 0.75rem; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-size: 1rem;">
+                    <option value="" disabled selected>Cargando...</option>
+                </select>
+            </div>
+
             <!-- Total Score Card (New) -->
             <div class="stat-card"
                 style="margin-bottom: 2rem; background: linear-gradient(135deg, var(--surface) 0%, rgba(37, 99, 235, 0.05) 100%);">
@@ -267,6 +284,17 @@
                 </div>
             </div>
 
+            <!-- SIMULATOR SELECTOR (REPORTS) - MOVED HERE -->
+            <div style="margin-bottom: 2rem;">
+                <label
+                    style="display: block; color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">Analizar
+                    reporte de:</label>
+                <select id="reports-sim-selector" class="sim-selector" onchange="handleSimulatorChange(this.value)"
+                    style="width: 100%; padding: 0.75rem; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-size: 1rem;">
+                    <option value="" disabled selected>Cargando...</option>
+                </select>
+            </div>
+
             <!-- Overall Performance Summary -->
             <div class="stat-card"
                 style="margin-bottom: 2rem; background: linear-gradient(135deg, var(--surface) 0%, rgba(139, 154, 126, 0.1) 100%);">
@@ -301,10 +329,6 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 0;">📚 Rendimiento por Categoría
                     </h3>
-                    <select id="reports-sim-selector" class="sim-selector" onchange="handleSimulatorChange(this.value)"
-                        style="padding: 0.25rem 0.5rem; font-size: 0.85rem; border-radius: 8px; border: 1px solid var(--border);">
-                        <option value="" disabled selected>Cargando...</option>
-                    </select>
                 </div>
                 <div id="reports-category-stats-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
                     <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">
