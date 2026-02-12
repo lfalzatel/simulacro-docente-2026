@@ -1292,65 +1292,84 @@ async function cargarProgreso(user = null) {
 
             // Sync UI if quiz is active
             if (!document.getElementById('quiz-view').classList.contains('hidden') && userProgress && userProgress.safeLastIndex > 0) {
-                /*                        Category Reports Logic                              */
-                /* -------------------------------------------------------------------------- */
+                // Basic jump to last index
+                if (currentQuestionIndex === 0 && (!userProgress[0] || Object.keys(userProgress).length > 0)) {
+                    console.log("→ Saltando a pregunta guardada:", userProgress.safeLastIndex + 1);
+                    currentQuestionIndex = userProgress.safeLastIndex;
+                    updateUI();
 
-                function renderCategoryStats() {
-                    const container = document.getElementById('category-stats-container');
-                    if (!container) return;
-
-                    // Use current data or fallbacks
-                    const activeQuizData = window.currentQuizData ? window.currentQuizData.questions : (quizData || []);
-
-                    if (!activeQuizData || activeQuizData.length === 0) {
-                        container.innerHTML = '<div style="text-align: center; padding: 1rem;">No hay datos disponibles.</div>';
-                        return;
+                    // Show toast
+                    if (statusEl) {
+                        statusEl.innerHTML = "🔄 Progreso restaurado";
+                        statusEl.classList.add('visible');
+                        setTimeout(() => statusEl.classList.remove('visible'), 2000);
                     }
+                }
+            }
+        }
+}
+}
 
-                    // 1. Calculate Stats by Category
-                    const stats = {};
-                    const defaultCategory = "General";
+/* -------------------------------------------------------------------------- */
+/*                        Category Reports Logic                              */
+/* -------------------------------------------------------------------------- */
 
-                    activeQuizData.forEach((q, index) => {
-                        // Normalize category
-                        let cat = q.category || defaultCategory;
-                        if (!cat || cat.trim() === '') cat = defaultCategory;
+function renderCategoryStats() {
+    const container = document.getElementById('category-stats-container');
+    if (!container) return;
 
-                        if (!stats[cat]) {
-                            stats[cat] = { total: 0, correct: 0, incorrect: 0, unanswered: 0 };
-                        }
+    // Use current data or fallbacks
+    const activeQuizData = window.currentQuizData ? window.currentQuizData.questions : (quizData || []);
 
-                        stats[cat].total++;
+    if (!activeQuizData || activeQuizData.length === 0) {
+        container.innerHTML = '<div style="text-align: center; padding: 1rem;">No hay datos disponibles.</div>';
+        return;
+    }
 
-                        // Check user progress for this question index
-                        // userProgress is global object { index: { isCorrect: bool, ... } }
-                        const answer = userProgress[index];
+    // 1. Calculate Stats by Category
+    const stats = {};
+    const defaultCategory = "General";
 
-                        if (answer) {
-                            if (answer.isCorrect) {
-                                stats[cat].correct++;
-                            } else {
-                                stats[cat].incorrect++;
-                            }
-                        } else {
-                            stats[cat].unanswered++;
-                        }
-                    });
+    activeQuizData.forEach((q, index) => {
+        // Normalize category
+        let cat = q.category || defaultCategory;
+        if (!cat || cat.trim() === '') cat = defaultCategory;
 
-                    // 2. Sort categories (optional: by name or by activity volume)
-                    // Let's sort by name for consistency
-                    const categories = Object.keys(stats).sort();
+        if (!stats[cat]) {
+            stats[cat] = { total: 0, correct: 0, incorrect: 0, unanswered: 0 };
+        }
 
-                    // 3. Render HTML
-                    container.innerHTML = '';
+        stats[cat].total++;
 
-                    categories.forEach(cat => {
-                        const data = stats[cat];
-                        const correctPct = (data.correct / data.total) * 100;
-                        const incorrectPct = (data.incorrect / data.total) * 100;
-                        // Unanswered is the remaining space automatically due to flex/width logic
+        // Check user progress for this question index
+        // userProgress is global object { index: { isCorrect: bool, ... } }
+        const answer = userProgress[index];
 
-                        const html = `
+        if (answer) {
+            if (answer.isCorrect) {
+                stats[cat].correct++;
+            } else {
+                stats[cat].incorrect++;
+            }
+        } else {
+            stats[cat].unanswered++;
+        }
+    });
+
+    // 2. Sort categories (optional: by name or by activity volume)
+    // Let's sort by name for consistency
+    const categories = Object.keys(stats).sort();
+
+    // 3. Render HTML
+    container.innerHTML = '';
+
+    categories.forEach(cat => {
+        const data = stats[cat];
+        const correctPct = (data.correct / data.total) * 100;
+        const incorrectPct = (data.incorrect / data.total) * 100;
+        // Unanswered is the remaining space automatically due to flex/width logic
+
+        const html = `
             <div class="category-stat-item">
                 <div class="cat-header">
                     <span>${cat}</span>
@@ -1373,76 +1392,76 @@ async function cargarProgreso(user = null) {
                 </div>
             </div>
         `;
-                        container.insertAdjacentHTML('beforeend', html);
-                    });
-                }
+        container.insertAdjacentHTML('beforeend', html);
+    });
+}
 
 
-                /* -------------------------------------------------------------------------- */
-                /*                              Reports View Logic                            */
-                /* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                              Reports View Logic                            */
+/* -------------------------------------------------------------------------- */
 
-                function renderReportsView() {
-                    const activeQuizData = window.currentQuizData ? window.currentQuizData.questions : (quizData || []);
-                    if (!activeQuizData || activeQuizData.length === 0) return;
+function renderReportsView() {
+    const activeQuizData = window.currentQuizData ? window.currentQuizData.questions : (quizData || []);
+    if (!activeQuizData || activeQuizData.length === 0) return;
 
-                    // Calculate overall statistics
-                    let totalQuestions = 0, correctAnswers = 0, incorrectAnswers = 0;
-                    Object.values(userProgress).forEach(answer => {
-                        totalQuestions++;
-                        answer.isCorrect ? correctAnswers++ : incorrectAnswers++;
-                    });
-                    const accuracy = totalQuestions > 0 ? ((correctAnswers / totalQuestions) * 100).toFixed(1) : 0;
+    // Calculate overall statistics
+    let totalQuestions = 0, correctAnswers = 0, incorrectAnswers = 0;
+    Object.values(userProgress).forEach(answer => {
+        totalQuestions++;
+        answer.isCorrect ? correctAnswers++ : incorrectAnswers++;
+    });
+    const accuracy = totalQuestions > 0 ? ((correctAnswers / totalQuestions) * 100).toFixed(1) : 0;
 
-                    // Update overall stats
-                    document.getElementById('report-total-questions').textContent = totalQuestions;
-                    document.getElementById('report-correct').textContent = correctAnswers;
-                    document.getElementById('report-incorrect').textContent = incorrectAnswers;
-                    document.getElementById('report-accuracy').textContent = accuracy + '%';
+    // Update overall stats
+    document.getElementById('report-total-questions').textContent = totalQuestions;
+    document.getElementById('report-correct').textContent = correctAnswers;
+    document.getElementById('report-incorrect').textContent = incorrectAnswers;
+    document.getElementById('report-accuracy').textContent = accuracy + '%';
 
-                    // Calculate stats by category
-                    const stats = {}, defaultCategory = "General";
-                    activeQuizData.forEach((q, index) => {
-                        let cat = q.category || defaultCategory;
-                        if (!cat || cat.trim() === '') cat = defaultCategory;
-                        if (!stats[cat]) stats[cat] = { total: 0, correct: 0, incorrect: 0, unanswered: 0, accuracy: 0 };
-                        stats[cat].total++;
-                        const answer = userProgress[index];
-                        if (answer) answer.isCorrect ? stats[cat].correct++ : stats[cat].incorrect++;
-                        else stats[cat].unanswered++;
-                    });
+    // Calculate stats by category
+    const stats = {}, defaultCategory = "General";
+    activeQuizData.forEach((q, index) => {
+        let cat = q.category || defaultCategory;
+        if (!cat || cat.trim() === '') cat = defaultCategory;
+        if (!stats[cat]) stats[cat] = { total: 0, correct: 0, incorrect: 0, unanswered: 0, accuracy: 0 };
+        stats[cat].total++;
+        const answer = userProgress[index];
+        if (answer) answer.isCorrect ? stats[cat].correct++ : stats[cat].incorrect++;
+        else stats[cat].unanswered++;
+    });
 
-                    // Calculate accuracy for each category
-                    Object.keys(stats).forEach(cat => {
-                        const data = stats[cat], answered = data.correct + data.incorrect;
-                        data.accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(1) : 0;
-                    });
+    // Calculate accuracy for each category
+    Object.keys(stats).forEach(cat => {
+        const data = stats[cat], answered = data.correct + data.incorrect;
+        data.accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(1) : 0;
+    });
 
-                    // Sort categories by accuracy (lowest first) - Changed to sort by score (lowest coverage first)
-                    // To prioritize weak areas where score is low (either low accuracy or low participation)
-                    const categories = Object.keys(stats).sort((a, b) => {
-                        const scoreA = (stats[a].correct / stats[a].total);
-                        const scoreB = (stats[b].correct / stats[b].total);
-                        return scoreA - scoreB;
-                    });
+    // Sort categories by accuracy (lowest first) - Changed to sort by score (lowest coverage first)
+    // To prioritize weak areas where score is low (either low accuracy or low participation)
+    const categories = Object.keys(stats).sort((a, b) => {
+        const scoreA = (stats[a].correct / stats[a].total);
+        const scoreB = (stats[b].correct / stats[b].total);
+        return scoreA - scoreB;
+    });
 
-                    // Render category stats
-                    const categoryContainer = document.getElementById('reports-category-stats-container');
-                    if (categoryContainer) {
-                        categoryContainer.innerHTML = '';
-                        categories.forEach(cat => {
-                            const data = stats[cat], answered = data.correct + data.incorrect;
+    // Render category stats
+    const categoryContainer = document.getElementById('reports-category-stats-container');
+    if (categoryContainer) {
+        categoryContainer.innerHTML = '';
+        categories.forEach(cat => {
+            const data = stats[cat], answered = data.correct + data.incorrect;
 
-                            // Percentage of TOTAL questions (Coverage/Score)
-                            const correctPct = (data.correct / data.total) * 100;
-                            const incorrectPct = (data.incorrect / data.total) * 100;
-                            const unansweredPct = 100 - correctPct - incorrectPct;
+            // Percentage of TOTAL questions (Coverage/Score)
+            const correctPct = (data.correct / data.total) * 100;
+            const incorrectPct = (data.incorrect / data.total) * 100;
+            const unansweredPct = 100 - correctPct - incorrectPct;
 
-                            // Accuracy of answered questions (Qualitative)
-                            const accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(0) : 0;
-                            const score = ((data.correct / data.total) * 100).toFixed(0);
+            // Accuracy of answered questions (Qualitative)
+            const accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(0) : 0;
+            const score = ((data.correct / data.total) * 100).toFixed(0);
 
-                            const html = `
+            const html = `
                 <div style="padding: 1rem; background: var(--success-bg); border-radius: 8px; border: 1px solid var(--border); background-color: var(--bg-card);">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
                         <div style="font-weight: 600; color: var(--text-primary); max-width: 60%;">${cat}</div>
@@ -1470,25 +1489,25 @@ async function cargarProgreso(user = null) {
                     </div>
                 </div>
             `;
-                            categoryContainer.insertAdjacentHTML('beforeend', html);
-                        });
-                    }
+            categoryContainer.insertAdjacentHTML('beforeend', html);
+        });
+    }
 
-                    // Generate recommendations
-                    const recommendationsContainer = document.getElementById('recommendations-container');
-                    if (recommendationsContainer) {
-                        recommendationsContainer.innerHTML = '';
-                        const weakCategories = categories.filter(cat => {
-                            const data = stats[cat], answered = data.correct + data.incorrect;
-                            return answered > 0 && data.accuracy < 70;
-                        }).slice(0, 5);
+    // Generate recommendations
+    const recommendationsContainer = document.getElementById('recommendations-container');
+    if (recommendationsContainer) {
+        recommendationsContainer.innerHTML = '';
+        const weakCategories = categories.filter(cat => {
+            const data = stats[cat], answered = data.correct + data.incorrect;
+            return answered > 0 && data.accuracy < 70;
+        }).slice(0, 5);
 
-                        if (weakCategories.length === 0) {
-                            recommendationsContainer.innerHTML = '<div style="padding: 1rem; background: var(--success-bg); border-radius: 8px; color: var(--success-text); text-align: center;">🎉 ¡Excelente trabajo! Tienes un rendimiento sólido en todas las categorías.</div>';
-                        } else {
-                            weakCategories.forEach(cat => {
-                                const data = stats[cat];
-                                recommendationsContainer.insertAdjacentHTML('beforeend', `
+        if (weakCategories.length === 0) {
+            recommendationsContainer.innerHTML = '<div style="padding: 1rem; background: var(--success-bg); border-radius: 8px; color: var(--success-text); text-align: center;">🎉 ¡Excelente trabajo! Tienes un rendimiento sólido en todas las categorías.</div>';
+        } else {
+            weakCategories.forEach(cat => {
+                const data = stats[cat];
+                recommendationsContainer.insertAdjacentHTML('beforeend', `
                     <div style="padding: 0.75rem; background: var(--bg-body-start); border-left: 3px solid var(--accent-secondary); border-radius: 4px;">
                         <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem;">${cat}</div>
                         <div style="font-size: 0.85rem; color: var(--text-secondary);">
@@ -1496,361 +1515,361 @@ async function cargarProgreso(user = null) {
                         </div>
                     </div>
                 `);
-                            });
-                        }
-                    }
+            });
+        }
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   Helpers                                  */
+/* -------------------------------------------------------------------------- */
+
+// Helper to get storage key based on current simulator
+// Helper to get storage key based on current simulator
+function getStorageKey() {
+    // v67: SECURITY FIX - Isolate data per user
+    // If we have an authenticated user, append their ID to the key.
+    // This prevents "User B" from seeing "User A's" local data.
+
+    let baseKey = 'progresoUsuario';
+
+    // Compatibilidad: Si es el simulacro 1, NO agregar ID para mantener compatibilidad con datos viejos
+    // Si estamos en otro simulacro (2, 3, etc), sí usamos el ID único
+    if (currentSimulacroId && window.currentSimulacroNum !== 1) {
+        baseKey += `_${currentSimulacroId}`;
+    }
+
+    // CRITICAL: Append User ID if logged in
+    if (lastAuthUserId) {
+        baseKey += `_${lastAuthUserId}`;
+    }
+
+    return baseKey;
+}
+
+// Helper function to load from localStorage only
+function cargarProgresoLocal() {
+    const key = getStorageKey();
+    console.log(`📂 Cargando local desde: ${key}`);
+    const saved = localStorage.getItem(key);
+
+    // If not found and we are in default/null state, try legacy
+    if (!saved && !currentSimulacroId) {
+        // Fallback is already 'progresoUsuario'
+    }
+
+    if (saved) {
+        try {
+            const data = JSON.parse(saved);
+            userProgress = data.answers || {};
+            score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
+            userProgress.safeLastIndex = data.lastIndex || 0;
+            currentQuestionIndex = userProgress.safeLastIndex;
+
+            if (data.answers && data.answers.totalTime) {
+                userProgress.totalTime = data.answers.totalTime;
+            } else if (data.totalTime) {
+                userProgress.totalTime = data.totalTime;
+            }
+
+            const answerCount = Object.keys(userProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
+            console.log(`✓ Progreso local (${key}): ${answerCount} respuestas, Score: ${score}`);
+        } catch (e) {
+            console.error('❌ Error al parsear progreso local:', e);
+        }
+    } else {
+        console.log(`ℹ️ No hay progreso local en ${key}`);
+        // Reset if starting fresh simulator
+        if (currentSimulacroId) {
+            userProgress = {};
+            score = 0;
+            currentQuestionIndex = 0;
+            userProgress.totalTime = 0;
+        }
+    }
+}
+
+// Real-Time Sync - Listen for changes from other devices
+async function setupRealtimeSync(user) {
+    if (!supabaseApp || !user) {
+        console.log("⚠️ No se puede configurar realtime: falta Supabase o usuario");
+        return;
+    }
+
+    // Cleanup existing channel if any
+    if (realtimeChannel) {
+        console.log("🔌 Desconectando canal anterior...");
+        await supabaseApp.removeChannel(realtimeChannel);
+        realtimeChannel = null;
+    }
+
+    // Subscribe to changes on this user's progress
+    console.log("📡 Configurando sincronización en tiempo real...");
+    realtimeChannel = supabaseApp
+        .channel(`progress-${user.id}`)
+        .on('postgres_changes', {
+            event: '*', // INSERT, UPDATE, DELETE
+            schema: 'public',
+            table: 'simulacro_progress',
+            filter: `user_id=eq.${user.id}`
+        }, async (payload) => {
+            console.log('✨ Cambio detectado desde otro dispositivo');
+            console.log('   Tipo:', payload.eventType);
+
+            // Reload progress silently
+            await cargarProgreso(user);
+        })
+        .subscribe((status) => {
+            if (status === 'SUBSCRIBED') {
+                console.log('🔔 Sincronización en tiempo real activada');
+            } else if (status === 'CHANNEL_ERROR') {
+                console.error('❌ Error en canal de sincronización');
+            } else if (status === 'TIMED_OUT') {
+                console.warn('⏱️ Timeout en canal de sincronización');
+            }
+        });
+}
+
+// Login con Google - CORREGIDO para PWA
+async function loginWithGoogle() {
+    if (!supabaseApp) {
+        alert("Sistema de autenticación no disponible. Por favor recarga la página.");
+        return;
+    }
+
+    console.log("🔐 Iniciando login con Google...");
+
+    try {
+        // Detect if running as installed PWA
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+            window.navigator.standalone ||
+            document.referrer.includes('android-app://');
+
+        console.log(`📱 Modo: ${isStandalone ? 'PWA Instalada' : 'Navegador'}`);
+
+        // Use full page redirect for PWA, popup for browser
+        const redirectUrl = `${window.location.origin}${window.location.pathname}`;
+        console.log("🔗 Redirect URL:", redirectUrl);
+
+        const { data, error } = await supabaseApp.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: redirectUrl,
+                skipBrowserRedirect: false, // Always use browser redirect (works in PWA)
+                queryParams: {
+                    access_type: 'offline',
+                    prompt: 'consent',
                 }
+            }
+        });
 
+        if (error) {
+            console.error("❌ Error de login:", error);
+            alert("Error al iniciar sesión: " + error.message);
+        } else {
+            console.log("✓ Redirigiendo a Google...");
+            // The redirect happens automatically
+        }
+    } catch (error) {
+        console.error("❌ Error inesperado:", error);
+        alert("Error inesperado. Por favor intenta de nuevo.");
+    }
+}
 
-                /* -------------------------------------------------------------------------- */
-                /*                                   Helpers                                  */
-                /* -------------------------------------------------------------------------- */
+async function logout() {
+    console.log("🖱️ Logout click! Forzando salida local...");
 
-                // Helper to get storage key based on current simulator
-                // Helper to get storage key based on current simulator
-                function getStorageKey() {
-                    // v67: SECURITY FIX - Isolate data per user
-                    // If we have an authenticated user, append their ID to the key.
-                    // This prevents "User B" from seeing "User A's" local data.
+    try {
+        // 1. LIMPIEZA LOCAL INMEDIATA (Prioridad Usuario)
+        // localStorage.removeItem('progresoUsuario'); // ⚠️ DISABLED to prevent data loss of legacy data
+        userProgress = {};
+        score = 0;
+        currentQuestionIndex = 0;
 
-                    let baseKey = 'progresoUsuario';
+        // 2. Mostrar Login YA MISMO
+        showLogin();
+        console.log("✓ UI limpia y reseteada");
 
-                    // Compatibilidad: Si es el simulacro 1, NO agregar ID para mantener compatibilidad con datos viejos
-                    // Si estamos en otro simulacro (2, 3, etc), sí usamos el ID único
-                    if (currentSimulacroId && window.currentSimulacroNum !== 1) {
-                        baseKey += `_${currentSimulacroId}`;
-                    }
+        // 3. Intentar cerrar sesión en servidor (Background - No bloqueante)
+        if (supabaseApp) {
+            console.log("📡 Enviando signOut a Supabase (Background)...");
+            supabaseApp.auth.signOut().then(({ error }) => {
+                if (error) console.warn("⚠️ Error en signOut servidor:", error.message);
+                else console.log("✓ Sesión cerrada en servidor");
+            });
+        }
+    } catch (error) {
+        console.error("❌ Error crítico en logout:", error);
+        // Fallback final: Recargar página para asegurar limpieza
+        window.location.reload();
+    }
+}
 
-                    // CRITICAL: Append User ID if logged in
-                    if (lastAuthUserId) {
-                        baseKey += `_${lastAuthUserId}`;
-                    }
+// Theme Logic
+window.setTheme = function (theme) {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
 
-                    return baseKey;
-                }
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
 
-                // Helper function to load from localStorage only
-                function cargarProgresoLocal() {
-                    const key = getStorageKey();
-                    console.log(`📂 Cargando local desde: ${key}`);
-                    const saved = localStorage.getItem(key);
+    const themeMap = { 'default': 0, 'deep': 1, 'night': 2, 'desktop': 3 };
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    if (themeButtons[themeMap[theme]]) {
+        themeButtons[themeMap[theme]].classList.add('active');
+    }
+}
 
-                    // If not found and we are in default/null state, try legacy
-                    if (!saved && !currentSimulacroId) {
-                        // Fallback is already 'progresoUsuario'
-                    }
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'default';
+    window.setTheme(savedTheme);
+}
 
-                    if (saved) {
-                        try {
-                            const data = JSON.parse(saved);
-                            userProgress = data.answers || {};
-                            score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
-                            userProgress.safeLastIndex = data.lastIndex || 0;
-                            currentQuestionIndex = userProgress.safeLastIndex;
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    initTheme();
 
-                            if (data.answers && data.answers.totalTime) {
-                                userProgress.totalTime = data.answers.totalTime;
-                            } else if (data.totalTime) {
-                                userProgress.totalTime = data.totalTime;
-                            }
+    const loginBtn = document.getElementById('googleLoginBtn');
+    if (loginBtn) loginBtn.onclick = loginWithGoogle;
 
-                            const answerCount = Object.keys(userProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
-                            console.log(`✓ Progreso local (${key}): ${answerCount} respuestas, Score: ${score}`);
-                        } catch (e) {
-                            console.error('❌ Error al parsear progreso local:', e);
-                        }
-                    } else {
-                        console.log(`ℹ️ No hay progreso local en ${key}`);
-                        // Reset if starting fresh simulator
-                        if (currentSimulacroId) {
-                            userProgress = {};
-                            score = 0;
-                            currentQuestionIndex = 0;
-                            userProgress.totalTime = 0;
-                        }
-                    }
-                }
+    const profileBtn = document.getElementById('profileBtn');
+    const profileMenu = document.getElementById('profileMenu');
 
-                // Real-Time Sync - Listen for changes from other devices
-                async function setupRealtimeSync(user) {
-                    if (!supabaseApp || !user) {
-                        console.log("⚠️ No se puede configurar realtime: falta Supabase o usuario");
-                        return;
-                    }
+    if (profileBtn && profileMenu) {
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileMenu.classList.toggle('active');
+        });
 
-                    // Cleanup existing channel if any
-                    if (realtimeChannel) {
-                        console.log("🔌 Desconectando canal anterior...");
-                        await supabaseApp.removeChannel(realtimeChannel);
-                        realtimeChannel = null;
-                    }
+        document.addEventListener('click', () => {
+            profileMenu.classList.remove('active');
+        });
 
-                    // Subscribe to changes on this user's progress
-                    console.log("📡 Configurando sincronización en tiempo real...");
-                    realtimeChannel = supabaseApp
-                        .channel(`progress-${user.id}`)
-                        .on('postgres_changes', {
-                            event: '*', // INSERT, UPDATE, DELETE
-                            schema: 'public',
-                            table: 'simulacro_progress',
-                            filter: `user_id=eq.${user.id}`
-                        }, async (payload) => {
-                            console.log('✨ Cambio detectado desde otro dispositivo');
-                            console.log('   Tipo:', payload.eventType);
+        profileMenu.addEventListener('click', (e) => {
+            // Allow clicks to bubble up so document listener closes menu if needed,
+            // OR if valid link is clicked, it works.
+            // e.stopPropagation(); // REMOVED to fix "menu stays open"
+        });
+    }
+});
 
-                            // Reload progress silently
-                            await cargarProgreso(user);
-                        })
-                        .subscribe((status) => {
-                            if (status === 'SUBSCRIBED') {
-                                console.log('🔔 Sincronización en tiempo real activada');
-                            } else if (status === 'CHANNEL_ERROR') {
-                                console.error('❌ Error en canal de sincronización');
-                            } else if (status === 'TIMED_OUT') {
-                                console.warn('⏱️ Timeout en canal de sincronización');
-                            }
-                        });
-                }
+// SW registration is handled in index.html with versioning
+// Removed duplicate registration to prevent loops
 
-                // Login con Google - CORREGIDO para PWA
-                async function loginWithGoogle() {
-                    if (!supabaseApp) {
-                        alert("Sistema de autenticación no disponible. Por favor recarga la página.");
-                        return;
-                    }
+let deferredPrompt;
+const installBtn = document.getElementById('installAppBtn');
 
-                    console.log("🔐 Iniciando login con Google...");
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+    if (installBtn) installBtn.style.display = 'none';
+}
 
-                    try {
-                        // Detect if running as installed PWA
-                        const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
-                            window.navigator.standalone ||
-                            document.referrer.includes('android-app://');
+window.addEventListener('appinstalled', () => {
+    if (installBtn) installBtn.style.display = 'none';
+});
 
-                        console.log(`📱 Modo: ${isStandalone ? 'PWA Instalada' : 'Navegador'}`);
+if (installBtn) {
+    installBtn.addEventListener('click', () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then(() => {
+                deferredPrompt = null;
+            });
+        } else {
+            alert('Para instalar: Chrome/Edge: Menú > Instalar app. Safari: Compartir > Agregar a inicio.');
+        }
+    });
+}
 
-                        // Use full page redirect for PWA, popup for browser
-                        const redirectUrl = `${window.location.origin}${window.location.pathname}`;
-                        console.log("🔗 Redirect URL:", redirectUrl);
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
 
-                        const { data, error } = await supabaseApp.auth.signInWithOAuth({
-                            provider: 'google',
-                            options: {
-                                redirectTo: redirectUrl,
-                                skipBrowserRedirect: false, // Always use browser redirect (works in PWA)
-                                queryParams: {
-                                    access_type: 'offline',
-                                    prompt: 'consent',
-                                }
-                            }
-                        });
+// ==================== UNIVERSAL SIMULATOR SELECTOR ====================
 
-                        if (error) {
-                            console.error("❌ Error de login:", error);
-                            alert("Error al iniciar sesión: " + error.message);
-                        } else {
-                            console.log("✓ Redirigiendo a Google...");
-                            // The redirect happens automatically
-                        }
-                    } catch (error) {
-                        console.error("❌ Error inesperado:", error);
-                        alert("Error inesperado. Por favor intenta de nuevo.");
-                    }
-                }
+// Helper to start simulacro from selector ID
+async function handleSimulatorChange(simId) {
+    if (!simId) return;
 
-                async function logout() {
-                    console.log("🖱️ Logout click! Forzando salida local...");
+    // Find the simulacro object
+    const simulacro = simulacrosCatalog.find(s => s.id === simId);
+    if (!simulacro) {
+        console.error("Simulacro not found:", simId);
+        return;
+    }
 
-                    try {
-                        // 1. LIMPIEZA LOCAL INMEDIATA (Prioridad Usuario)
-                        // localStorage.removeItem('progresoUsuario'); // ⚠️ DISABLED to prevent data loss of legacy data
-                        userProgress = {};
-                        score = 0;
-                        currentQuestionIndex = 0;
+    // LOAD CONTEXT ONLY (Do NOT start quiz)
+    // This allows user to switch stats view without forcing them into quiz mode
+    const loaded = await loadSimulacroContext(simulacro);
+    if (!loaded) return;
 
-                        // 2. Mostrar Login YA MISMO
-                        showLogin();
-                        console.log("✓ UI limpia y reseteada");
+    // Refresh UI based on current view
+    // Since we are in SPA, we need to know what view is active
+    const dashboardVisible = !document.getElementById('dashboard').classList.contains('hidden');
+    const profileVisible = !document.getElementById('profile-view').classList.contains('hidden');
+    const reportsVisible = !document.getElementById('reports-view').classList.contains('hidden');
 
-                        // 3. Intentar cerrar sesión en servidor (Background - No bloqueante)
-                        if (supabaseApp) {
-                            console.log("📡 Enviando signOut a Supabase (Background)...");
-                            supabaseApp.auth.signOut().then(({ error }) => {
-                                if (error) console.warn("⚠️ Error en signOut servidor:", error.message);
-                                else console.log("✓ Sesión cerrada en servidor");
-                            });
-                        }
-                    } catch (error) {
-                        console.error("❌ Error crítico en logout:", error);
-                        // Fallback final: Recargar página para asegurar limpieza
-                        window.location.reload();
-                    }
-                }
+    if (dashboardVisible) {
+        updateDashboardStats();
+    } else if (profileVisible) {
+        renderActivityCalendar();
+        // Profile might also use dashboard stats logic so run it too
+        updateDashboardStats();
+    } else if (reportsVisible) {
+        renderReportsView();
+    }
 
-                // Theme Logic
-                window.setTheme = function (theme) {
-                    document.body.setAttribute('data-theme', theme);
-                    localStorage.setItem('theme', theme);
+    // Sync all selectors to show new state
+    updateAllSimulatorSelectors();
+}
 
-                    document.querySelectorAll('.theme-btn').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
+// Helper to populate and sync all 3 selectors (Dashboard, Reports, Profile)
+function updateAllSimulatorSelectors() {
+    const selectors = [
+        document.getElementById('dashboard-sim-selector'),
+        document.getElementById('reports-sim-selector'),
+        document.getElementById('profile-sim-selector')
+    ];
 
-                    const themeMap = { 'default': 0, 'deep': 1, 'night': 2, 'desktop': 3 };
-                    const themeButtons = document.querySelectorAll('.theme-btn');
-                    if (themeButtons[themeMap[theme]]) {
-                        themeButtons[themeMap[theme]].classList.add('active');
-                    }
-                }
+    selectors.forEach(select => {
+        if (!select) return;
 
-                function initTheme() {
-                    const savedTheme = localStorage.getItem('theme') || 'default';
-                    window.setTheme(savedTheme);
-                }
+        // Save current selection before wipe
+        // But if currentSimulacroId is set, that overrides local state
+        const targetValue = currentSimulacroId || (simulacrosCatalog.length > 0 ? simulacrosCatalog[0].id : '');
 
-                document.addEventListener('DOMContentLoaded', () => {
-                    init();
-                    initTheme();
+        // Clear options
+        select.innerHTML = '';
 
-                    const loginBtn = document.getElementById('googleLoginBtn');
-                    if (loginBtn) loginBtn.onclick = loginWithGoogle;
+        if (simulacrosCatalog.length === 0) {
+            const option = document.createElement('option');
+            option.textContent = "Cargando...";
+            select.appendChild(option);
+            return;
+        }
 
-                    const profileBtn = document.getElementById('profileBtn');
-                    const profileMenu = document.getElementById('profileMenu');
+        // Add options from catalog
+        simulacrosCatalog.forEach(sim => {
+            const option = document.createElement('option');
+            option.value = sim.id;
 
-                    if (profileBtn && profileMenu) {
-                        profileBtn.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            profileMenu.classList.toggle('active');
-                        });
+            // Logic for locked/premium visualization
+            const canAccess = canAccessSimulacro(sim);
+            let label = sim.titulo;
+            if (!canAccess) label = `🔒 ${label}`;
+            // if (sim.es_premium) label = `⭐ ${label}`;
 
-                        document.addEventListener('click', () => {
-                            profileMenu.classList.remove('active');
-                        });
+            option.textContent = label;
 
-                        profileMenu.addEventListener('click', (e) => {
-                            // Allow clicks to bubble up so document listener closes menu if needed,
-                            // OR if valid link is clicked, it works.
-                            // e.stopPropagation(); // REMOVED to fix "menu stays open"
-                        });
-                    }
-                });
+            select.appendChild(option);
+        });
 
-                // SW registration is handled in index.html with versioning
-                // Removed duplicate registration to prevent loops
+        // Set active value
+        if (targetValue) {
+            select.value = targetValue;
+        }
+    });
 
-                let deferredPrompt;
-                const installBtn = document.getElementById('installAppBtn');
-
-                if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-                    if (installBtn) installBtn.style.display = 'none';
-                }
-
-                window.addEventListener('appinstalled', () => {
-                    if (installBtn) installBtn.style.display = 'none';
-                });
-
-                if (installBtn) {
-                    installBtn.addEventListener('click', () => {
-                        if (deferredPrompt) {
-                            deferredPrompt.prompt();
-                            deferredPrompt.userChoice.then(() => {
-                                deferredPrompt = null;
-                            });
-                        } else {
-                            alert('Para instalar: Chrome/Edge: Menú > Instalar app. Safari: Compartir > Agregar a inicio.');
-                        }
-                    });
-                }
-
-                window.addEventListener('beforeinstallprompt', (e) => {
-                    e.preventDefault();
-                    deferredPrompt = e;
-                });
-
-                // ==================== UNIVERSAL SIMULATOR SELECTOR ====================
-
-                // Helper to start simulacro from selector ID
-                async function handleSimulatorChange(simId) {
-                    if (!simId) return;
-
-                    // Find the simulacro object
-                    const simulacro = simulacrosCatalog.find(s => s.id === simId);
-                    if (!simulacro) {
-                        console.error("Simulacro not found:", simId);
-                        return;
-                    }
-
-                    // LOAD CONTEXT ONLY (Do NOT start quiz)
-                    // This allows user to switch stats view without forcing them into quiz mode
-                    const loaded = await loadSimulacroContext(simulacro);
-                    if (!loaded) return;
-
-                    // Refresh UI based on current view
-                    // Since we are in SPA, we need to know what view is active
-                    const dashboardVisible = !document.getElementById('dashboard').classList.contains('hidden');
-                    const profileVisible = !document.getElementById('profile-view').classList.contains('hidden');
-                    const reportsVisible = !document.getElementById('reports-view').classList.contains('hidden');
-
-                    if (dashboardVisible) {
-                        updateDashboardStats();
-                    } else if (profileVisible) {
-                        renderActivityCalendar();
-                        // Profile might also use dashboard stats logic so run it too
-                        updateDashboardStats();
-                    } else if (reportsVisible) {
-                        renderReportsView();
-                    }
-
-                    // Sync all selectors to show new state
-                    updateAllSimulatorSelectors();
-                }
-
-                // Helper to populate and sync all 3 selectors (Dashboard, Reports, Profile)
-                function updateAllSimulatorSelectors() {
-                    const selectors = [
-                        document.getElementById('dashboard-sim-selector'),
-                        document.getElementById('reports-sim-selector'),
-                        document.getElementById('profile-sim-selector')
-                    ];
-
-                    selectors.forEach(select => {
-                        if (!select) return;
-
-                        // Save current selection before wipe
-                        // But if currentSimulacroId is set, that overrides local state
-                        const targetValue = currentSimulacroId || (simulacrosCatalog.length > 0 ? simulacrosCatalog[0].id : '');
-
-                        // Clear options
-                        select.innerHTML = '';
-
-                        if (simulacrosCatalog.length === 0) {
-                            const option = document.createElement('option');
-                            option.textContent = "Cargando...";
-                            select.appendChild(option);
-                            return;
-                        }
-
-                        // Add options from catalog
-                        simulacrosCatalog.forEach(sim => {
-                            const option = document.createElement('option');
-                            option.value = sim.id;
-
-                            // Logic for locked/premium visualization
-                            const canAccess = canAccessSimulacro(sim);
-                            let label = sim.titulo;
-                            if (!canAccess) label = `🔒 ${label}`;
-                            // if (sim.es_premium) label = `⭐ ${label}`;
-
-                            option.textContent = label;
-
-                            select.appendChild(option);
-                        });
-
-                        // Set active value
-                        if (targetValue) {
-                            select.value = targetValue;
-                        }
-                    });
-
-                }
+}
