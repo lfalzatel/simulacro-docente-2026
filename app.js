@@ -142,6 +142,16 @@ async function showDashboard(user) {
     console.log(`✓ Rol asignado: ${userRole}`);
     await renderSimulacroCards();
 
+    // Ensure selectors are populated and synced
+    if (currentSimulacroId) {
+        updateAllSimulatorSelectors();
+    } else {
+        // If no simulator selected yet, maybe default to first one? 
+        // Or wait for user interaction. 
+        // For dashboard stats, we usually default to Sim 1 or "General"
+        updateAllSimulatorSelectors();
+    }
+
     // NOTE: Dashboard stats will be updated by cargarProgreso() after data loads
     // Do NOT call updateDashboardStats() here - userProgress is still empty!
 
@@ -225,27 +235,10 @@ async function updateDashboardStats() {
     // Render Category Stats
     renderCategoryStats();
 
-    // UPDATE SIMULATOR LABEL
-    const simLabel = document.getElementById('dashboard-sim-label');
-    if (simLabel) {
-        if (currentSimulacroId && window.currentSimulacroNum) {
-            simLabel.style.display = 'inline-block';
-            simLabel.innerText = `Viendo: Simulacro ${window.currentSimulacroNum}`;
-
-            // Optional: Color code
-            if (window.currentSimulacroNum === 1) {
-                simLabel.style.background = 'var(--primary-light)';
-                simLabel.style.color = 'var(--primary)';
-            } else {
-                simLabel.style.background = '#FEF3C7'; // Yellow/Amber for Premium
-                simLabel.style.color = '#B45309';
-            }
-        } else {
-            // Default view (usually Sim 1 or General)
-            simLabel.style.display = 'inline-block';
-            simLabel.innerText = 'Viendo: General';
-        }
-    }
+    // UPDATE SIMULATOR LABEL - REMOVED (Replaced by Selectors)
+    // The selectors are updated via updateAllSimulatorSelectors() called in startSimulacro/init
+    // But we should double check sync here just in case stats update came from elsewhere
+    updateAllSimulatorSelectors();
 }
 
 // ==================== MULTI-SIMULATOR SYSTEM ====================
@@ -344,6 +337,9 @@ async function loadSimulacros() {
     } catch (err) {
         console.error('❌ Error loading simulacros:', err);
         return [];
+    } finally {
+        // Always try to sync selectors after loading catalog
+        updateAllSimulatorSelectors();
     }
 }
 
@@ -1864,3 +1860,72 @@ window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
 });
+
+// ==================== UNIVERSAL SIMULATOR SELECTOR ====================
+
+// Helper to start simulacro from selector ID
+function handleSimulatorChange(simId) {
+    if (!simId) return;
+
+    // Find the simulacro object
+    const simulacro = simulacrosCatalog.find(s => s.id === simId);
+    if (!simulacro) {
+        console.error("Simulacro not found:", simId);
+        return;
+    }
+
+    // START IT! (This handles context switch, data reload, and UI update)
+    startSimulacro(simulacro);
+
+    // Sync all selectors to show new state
+    updateAllSimulatorSelectors();
+}
+
+// Helper to populate and sync all 3 selectors (Dashboard, Reports, Profile)
+function updateAllSimulatorSelectors() {
+    const selectors = [
+        document.getElementById('dashboard-sim-selector'),
+        document.getElementById('reports-sim-selector'),
+        document.getElementById('profile-sim-selector')
+    ];
+
+    selectors.forEach(select => {
+        if (!select) return;
+
+        // Save current selection before wipe
+        // But if currentSimulacroId is set, that overrides local state
+        const targetValue = currentSimulacroId || (simulacrosCatalog.length > 0 ? simulacrosCatalog[0].id : '');
+
+        // Clear options
+        select.innerHTML = '';
+
+        if (simulacrosCatalog.length === 0) {
+            const option = document.createElement('option');
+            option.textContent = "Cargando...";
+            select.appendChild(option);
+            return;
+        }
+
+        // Add options from catalog
+        simulacrosCatalog.forEach(sim => {
+            const option = document.createElement('option');
+            option.value = sim.id;
+
+            // Logic for locked/premium visualization
+            const canAccess = canAccessSimulacro(sim);
+            let label = sim.titulo;
+            if (!canAccess) label = `🔒 ${label}`;
+            // if (sim.es_premium) label = `⭐ ${label}`;
+
+            option.textContent = label;
+
+            select.appendChild(option);
+        });
+
+        // Set active value
+        if (targetValue) {
+            select.value = targetValue;
+        }
+    });
+
+}

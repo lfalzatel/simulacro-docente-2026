@@ -298,8 +298,14 @@
 
             <!-- Category Performance Section -->
             <div class="stat-card" style="margin-bottom: 2rem;">
-                <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-primary);">📚 Rendimiento por
-                    Categoría</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.2rem; color: var(--text-primary); margin: 0;">📚 Rendimiento por Categoría
+                    </h3>
+                    <select id="reports-sim-selector" class="sim-selector" onchange="handleSimulatorChange(this.value)"
+                        style="padding: 0.25rem 0.5rem; font-size: 0.85rem; border-radius: 8px; border: 1px solid var(--border);">
+                        <option value="" disabled selected>Cargando...</option>
+                    </select>
+                </div>
                 <div id="reports-category-stats-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
                     <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">
                         Cargando estadísticas por categoría...
