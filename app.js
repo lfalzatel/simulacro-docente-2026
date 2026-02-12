@@ -224,6 +224,28 @@ async function updateDashboardStats() {
 
     // Render Category Stats
     renderCategoryStats();
+
+    // UPDATE SIMULATOR LABEL
+    const simLabel = document.getElementById('dashboard-sim-label');
+    if (simLabel) {
+        if (currentSimulacroId && window.currentSimulacroNum) {
+            simLabel.style.display = 'inline-block';
+            simLabel.innerText = `Viendo: Simulacro ${window.currentSimulacroNum}`;
+
+            // Optional: Color code
+            if (window.currentSimulacroNum === 1) {
+                simLabel.style.background = 'var(--primary-light)';
+                simLabel.style.color = 'var(--primary)';
+            } else {
+                simLabel.style.background = '#FEF3C7'; // Yellow/Amber for Premium
+                simLabel.style.color = '#B45309';
+            }
+        } else {
+            // Default view (usually Sim 1 or General)
+            simLabel.style.display = 'inline-block';
+            simLabel.innerText = 'Viendo: General';
+        }
+    }
 }
 
 // ==================== MULTI-SIMULATOR SYSTEM ====================
@@ -419,16 +441,18 @@ async function startSimulacro(simulacro) {
     score = 0;
     currentQuestionIndex = 0;
 
-    // SMART LOAD: If Sim 1 and dashboard already loaded valid data, reuse it!
-    if (simulacro.numero === 1 && userProgress && Object.keys(userProgress).length > 0) {
-        console.log("♻️ Reusando progreso cargado en dashboard para Sim 1");
-        // Update score just in case
-        score = Object.values(userProgress).filter(a => a && a.isCorrect).length;
-    } else {
-        userProgress = {}; // Clear previous progress for other sims or clean state
-        console.log('🔄 Cargando progreso local para simulacro:', simulacro.numero);
-        cargarProgresoLocal();
-    }
+    // FORCE RELOAD DATA (Fix context bleeding)
+    // We must ensure we are loading data SPECIFIC to this currentSimulacroId
+    // The previous optimization was causing Sim 1 to inherit Sim 2's session data
+
+    console.log(`🔄 Cambio de contexto: Cargando datos frescos para Simulacro ${simulacro.numero}...`);
+    userProgress = {}; // CRITICAL: Clear memory first
+    score = 0;
+    currentQuestionIndex = 0;
+
+    // Pass current user to ensure we look up the right cloud record
+    const user = supabaseApp?.auth?.getUser ? (await supabaseApp.auth.getUser()).data.user : null;
+    await cargarProgreso(user);
 
     // Add version to menu
     const menuFooter = document.querySelector('.profile-menu .menu-section-label').parentElement;
