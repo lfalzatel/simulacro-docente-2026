@@ -1069,7 +1069,6 @@ async function guardarProgresoCompleto(silent = false) {
         }
     }
 }
-}
 
 // Nueva función para sincronizar manualmente
 async function sincronizarDatos() {
