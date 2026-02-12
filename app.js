@@ -338,6 +338,23 @@ async function loadSimulacros() {
         console.error('❌ Error loading simulacros:', err);
         return [];
     } finally {
+        // UPDATE QUESTION COUNTS FROM REAL DATA
+        // This fixes the issue where DB/Fallback says 35 but we actually have 95+
+        if (typeof RAW_QUIZ_DATA !== 'undefined' && RAW_QUIZ_DATA.questions) {
+            const sim1 = simulacrosCatalog.find(s => s.numero === 1);
+            if (sim1) {
+                sim1.total_preguntas = RAW_QUIZ_DATA.questions.length;
+                console.log(`✓ Sync Sim 1 count: ${sim1.total_preguntas}`);
+            }
+        }
+        if (typeof RAW_QUIZ_DATA_2 !== 'undefined' && RAW_QUIZ_DATA_2.questions) {
+            const sim2 = simulacrosCatalog.find(s => s.numero === 2);
+            if (sim2) {
+                sim2.total_preguntas = RAW_QUIZ_DATA_2.questions.length;
+                console.log(`✓ Sync Sim 2 count: ${sim2.total_preguntas}`);
+            }
+        }
+
         // Always try to sync selectors after loading catalog
         updateAllSimulatorSelectors();
     }
