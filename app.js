@@ -418,8 +418,9 @@ async function renderSimulacroCards() {
     });
 }
 
-async function startSimulacro(simulacro) {
-    console.log('🚀 Iniciando simulacro:', simulacro.titulo);
+// Helper to load simulator context WITHOUT starting quiz
+async function loadSimulacroContext(simulacro) {
+    console.log('� Cargando contexto para:', simulacro.titulo);
     currentSimulacroId = simulacro.id;
     window.currentSimulacroNum = simulacro.numero; // Track number for sync logic
 
@@ -428,23 +429,23 @@ async function startSimulacro(simulacro) {
         // Simulacro 1: usa quizData original (360 preguntas)
         window.currentQuizData = window.RAW_QUIZ_DATA;
     } else if (simulacro.numero === 2) {
-        // Simulacro 2: usa quizData2 (premium - 35 preguntas)
+        // Simulacro 2: usa quizData2 (premium - 95 preguntas)
         if (!window.RAW_QUIZ_DATA_2) {
-            alert('Error: No se pudo cargar el simulacro 2. Por favor, recarga la página.');
             console.error('RAW_QUIZ_DATA_2 no está definido');
-            return;
+            alert('Error: No se pudo cargar el simulacro 2. Por favor, recarga la página.');
+            return false;
         }
         window.currentQuizData = window.RAW_QUIZ_DATA_2;
     } else {
         alert(`Simulacro ${simulacro.numero} próximamente disponible.`);
-        return;
+        return false;
     }
 
     // Validation
     if (!window.currentQuizData || !window.currentQuizData.questions) {
         console.error('❌ Error crítico: Datos del quiz no encontrados', window.currentQuizData);
         alert('Error crítico: No se pudieron cargar los datos del simulacro. Por favor, intenta de nuevo o recarga la página.');
-        return;
+        return false;
     }
 
     console.log('✅ Quiz data cargado:', window.currentQuizData.questions.length, 'preguntas');
@@ -455,17 +456,22 @@ async function startSimulacro(simulacro) {
     currentQuestionIndex = 0;
 
     // FORCE RELOAD DATA (Fix context bleeding)
-    // We must ensure we are loading data SPECIFIC to this currentSimulacroId
-    // The previous optimization was causing Sim 1 to inherit Sim 2's session data
-
     console.log(`🔄 Cambio de contexto: Cargando datos frescos para Simulacro ${simulacro.numero}...`);
     userProgress = {}; // CRITICAL: Clear memory first
-    score = 0;
-    currentQuestionIndex = 0;
 
     // Pass current user to ensure we look up the right cloud record
     const user = supabaseApp?.auth?.getUser ? (await supabaseApp.auth.getUser()).data.user : null;
     await cargarProgreso(user);
+
+    return true;
+}
+
+async function startSimulacro(simulacro) {
+    const loaded = await loadSimulacroContext(simulacro);
+    if (!loaded) return;
+
+    // console.log('🚀 Iniciando simulacro:', simulacro.titulo); // Already logged in loadSimulacroContext
+
 
     // Add version to menu
     const menuFooter = document.querySelector('.profile-menu .menu-section-label').parentElement;
@@ -1881,7 +1887,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 // ==================== UNIVERSAL SIMULATOR SELECTOR ====================
 
 // Helper to start simulacro from selector ID
-function handleSimulatorChange(simId) {
+async function handleSimulatorChange(simId) {
     if (!simId) return;
 
     // Find the simulacro object
@@ -1891,8 +1897,26 @@ function handleSimulatorChange(simId) {
         return;
     }
 
-    // START IT! (This handles context switch, data reload, and UI update)
-    startSimulacro(simulacro);
+    // LOAD CONTEXT ONLY (Do NOT start quiz)
+    // This allows user to switch stats view without forcing them into quiz mode
+    const loaded = await loadSimulacroContext(simulacro);
+    if (!loaded) return;
+
+    // Refresh UI based on current view
+    // Since we are in SPA, we need to know what view is active
+    const dashboardVisible = !document.getElementById('dashboard').classList.contains('hidden');
+    const profileVisible = !document.getElementById('profile-view').classList.contains('hidden');
+    const reportsVisible = !document.getElementById('reports-view').classList.contains('hidden');
+
+    if (dashboardVisible) {
+        updateDashboardStats();
+    } else if (profileVisible) {
+        renderActivityCalendar();
+        // Profile might also use dashboard stats logic so run it too
+        updateDashboardStats();
+    } else if (reportsVisible) {
+        renderReportsView();
+    }
 
     // Sync all selectors to show new state
     updateAllSimulatorSelectors();
