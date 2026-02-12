@@ -441,17 +441,17 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@sweetalert2/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=72" defer></script>
+    <script src="app.js?v=73" defer></script>
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=72')
+                navigator.serviceWorker.register('./sw.js?v=73')
                     .then(reg => {
-                        console.log('✓ SW v72 registrado');
+                        console.log('✓ SW v73 registrado');
                         // Removed auto-reload login to prevent loops.
                         // Updates will happen naturally via sw.js skipWaiting()
                     })

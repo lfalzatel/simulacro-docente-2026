@@ -1166,10 +1166,13 @@ async function cargarProgreso(user = null) {
                 console.log(`� Comparando: Nube (${cloudAnswerCount} resp, ${new Date(cloudTime).toLocaleTimeString()}) vs Local (${localAnswerCount} resp, ${new Date(localTime).toLocaleTimeString()})`);
                 console.log(` Comparando: Nube (${cloudAnswerCount} resp, ${new Date(cloudTime).toLocaleTimeString()}) vs Local (${localAnswerCount} resp, ${new Date(localTime).toLocaleTimeString()})`);
 
-                // DECISION LOGIC
-                let useCloud = false;
-                let syncReason = '';
+                // DECISION LOGIC: CLOUD AUTHORITY (Requested by User)
+                // We trust cloud data as the single source of truth.
+                // If cloud data exists, we use it and overwrite local.
+                let useCloud = true;
+                let syncReason = 'Prioridad Nube (Forzada)';
 
+                /* LEGACY LOGIC - DISABLED
                 if (Math.abs(cloudTime - localTime) > 10000) {
                     if (cloudTime > localTime) {
                         useCloud = true;
@@ -1179,65 +1182,43 @@ async function cargarProgreso(user = null) {
                         syncReason = 'local es más reciente (>10s)';
                     }
                 } else {
-                    // Timestamps close or invalid: Use Quantity
                     if (cloudAnswerCount >= localAnswerCount) {
                         useCloud = true;
-                        syncReason = 'nube tiene igual o más respuestas (Cantidad)';
                     } else {
                         useCloud = false;
-                        syncReason = 'local tiene más respuestas (Cantidad)';
                     }
                 }
+                */
 
                 console.log(`🔄 Decisión final: ${useCloud ? 'NUBE ☁️' : 'LOCAL 💾'} (${syncReason})`);
 
                 if (useCloud) {
                     // USE CLOUD DATA
                     userProgress = { ...cloudProgress };
-                    score = data.score || Object.values(userProgress).filter(a => a && a.isCorrect).length; // Prefer DB score if available
+                    score = data.score || Object.values(userProgress).filter(a => a && a.isCorrect).length;
 
-                    // Handle 'last_index' which might be top-level or in progress
+                    // Handle 'last_index'
                     userProgress.safeLastIndex = (data.last_index !== undefined) ? data.last_index : (userProgress.safeLastIndex || 0);
 
                     // Restore other fields
                     currentQuestionIndex = userProgress.safeLastIndex;
 
-                    // Update localStorage with cloud data
+                    // FORCE OVERWRITE LOCAL STORAGE
                     localStorage.setItem(key, JSON.stringify({
                         lastIndex: userProgress.safeLastIndex,
                         score: score,
-                        answers: cloudProgress,
+                        answers: userProgress,
                         timestamp: data.updated_at,
                         totalTime: userProgress.totalTime || cloudProgress.totalTime || 0
                     }));
 
-                    console.log(`☁️ USANDO NUBE: ${cloudAnswerCount} respuestas, Score: ${score}`);
+                    console.log(`☁️ USANDO NUBE: ${Object.keys(userProgress).length} respuestas, Score: ${score}`);
                     if (statusEl) {
-                        statusEl.innerHTML = "☁️ Sincronizado";
+                        statusEl.innerHTML = "☁️ Restaurado";
                         statusEl.classList.add('visible');
                         setTimeout(() => {
                             if (statusEl) statusEl.classList.remove('visible');
                         }, 2000);
-                    }
-                } else {
-                    // USE LOCAL DATA (it has more)
-                    // If local exists, use it. If not (first load on new device but logic fell here?), use cloud.
-                    if (localData) {
-                        userProgress = localData.answers || {};
-                        score = localData.score || 0;
-                        userProgress.safeLastIndex = localData.lastIndex || 0;
-                        currentQuestionIndex = userProgress.safeLastIndex;
-                        console.log(`💾 USANDO LOCAL: ${localAnswerCount} respuestas, Score: ${score}`);
-
-                        // Trigger a background sync to update cloud with this newer local data?
-                        // Maybe not right now to avoid complexity, but usually yes.
-                    } else {
-                        // Fallback: Logic said local is properly "newer" (maybe time is wrong?) but local is null?
-                        // This shouldn't happen with the logic above, but safety net:
-                        console.warn("⚠️ Fallback lógico raro: Local ganaba pero es null. Usando nube.");
-                        userProgress = { ...cloudProgress };
-                        score = data.score || 0;
-                        currentQuestionIndex = data.last_index || 0;
                     }
                 }
 
