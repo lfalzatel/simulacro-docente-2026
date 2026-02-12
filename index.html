@@ -453,11 +453,10 @@
                     .then(reg => {
                         console.log('✓ SW v75 registrado');
 
-                        // Check if there's a waiting SW (update ready)
+                        // Handle updates cleanly without infinite loops
                         if (reg.waiting) {
-                            console.log('New SW waiting. Forcing update...');
+                            console.log('SW waiting. Skipping...');
                             reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-                            window.location.reload();
                         }
 
                         reg.onupdatefound = () => {
@@ -465,9 +464,8 @@
                             installingWorker.onstatechange = () => {
                                 if (installingWorker.state === 'installed') {
                                     if (navigator.serviceWorker.controller) {
-                                        // New update available
-                                        console.log('New content available; please refresh.');
-                                        window.location.reload();
+                                        console.log('New content available.');
+                                        // Optional: Show a toast instead of forcing reload
                                     } else {
                                         // Content is cached for the first time
                                         console.log('Content is cached for offline use.');
@@ -478,7 +476,7 @@
                     })
                     .catch(err => console.log('❌ Error SW:', err));
 
-                // Reload when controller changes (prevent infinity loop handled by version check usually, but simple here)
+                // One-time reload when controller changes
                 let refreshing;
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
                     if (refreshing) return;

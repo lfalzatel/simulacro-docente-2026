@@ -69,12 +69,20 @@ data.questions.forEach(q => {
 console.log(`Updated ${changedCount} categories.`);
 
 // Reconstruct file content
+// Use window.RAW_QUIZ_DATA_2 if strictly browser, or just const. 
+// But safely:
 const newContent = `const RAW_QUIZ_DATA_2 = ${JSON.stringify(data, null, 4)};
 
-// Metadata for export
+// Metadata for export (Node.js)
 if (typeof module !== 'undefined') {
     module.exports = RAW_QUIZ_DATA_2;
-}`;
+}
+
+// Metadata for browser global (if needed explicitly, though const in global scope works)
+if (typeof window !== 'undefined') {
+    window.RAW_QUIZ_DATA_2 = RAW_QUIZ_DATA_2;
+}
+`;
 
 fs.writeFileSync(filePath, newContent, 'utf8');
 console.log("File saved.");

@@ -562,7 +562,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 19,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "En un proyecto sobre contaminación local, estudiantes investigan y proponen soluciones. El docente nota que se enfocan en soluciones superficiales ('poner más canecas') sin análisis sistémico. ¿Qué andamiaje promueve pensamiento de sistemas complejos según PBL de alta calidad?",
             "answerOptions": [
@@ -686,7 +686,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 23,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Los estudiantes usan Wikipedia para investigar. El docente observa que copian información sin evaluar credibilidad de fuentes. ¿Cuál estrategia desarrolla mejor literacidad digital crítica según frameworks contemporáneos?",
             "answerOptions": [
@@ -717,7 +717,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 24,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "expert",
             "question": "Un docente implementa círculos restaurativos semanales para desarrollar competencias socioemocionales. Observa que algunos estudiantes comparten vulnerabilidades mientras otros permanecen callados. ¿Cuál enfoque respeta seguridad emocional mientras promueve desarrollo SEL?",
             "answerOptions": [
@@ -1089,7 +1089,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 36,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el día sube 3 metros y en la noche resbala un metro. ¿El día que llegará el caracol a la cima del muro es el?",
             "answerOptions": [
@@ -1151,7 +1151,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 38,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "NUBE : EVAPORACIÓN ::",
             "answerOptions": [
@@ -1213,7 +1213,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 40,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Si dentro de 20 años tendré el triple de la edad que tenía hace 20 años, entonces tengo:",
             "answerOptions": [
@@ -1275,7 +1275,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 42,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Ordene las frases sobre 'La investigación cualitativa': 1. es altamente interpretativa 2. pero puede ser una rica fuente 3. se reúnen datos y se examinan 4. no puede arrojar conclusiones generales 5. toma una ruta exploratoria 6. en lugar de generar hipótesis previas.",
             "answerOptions": [
@@ -1306,7 +1306,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 43,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "4 obreros trabajando 7 horas diarias construyen un muro en 3 días. ¿Cuántos días tardarán 2 obreros trabajando 6 horas diarias en construir un muro igual?",
             "answerOptions": [
@@ -1368,7 +1368,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 45,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Ante la indisciplina por consumo de sustancias, la coordinadora busca aprovechar el talento docente. ¿Cuál es la mejor estrategia?",
             "answerOptions": [
@@ -1399,7 +1399,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 46,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Si por 12 camisetas pago 96 euros, ¿cuánto pagaré por 57 camisetas?",
             "answerOptions": [
@@ -1430,7 +1430,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 47,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "La investigación cualitativa toma una ruta ________ más flexible, en lugar de generar hipótesis a partir de la investigación ________.",
             "answerOptions": [
@@ -1492,7 +1492,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 49,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Ana va a la biblioteca cada 5 días y Miguel cada 3 días. Si hoy coincidieron, ¿en cuántos días volverán a coincidir?",
             "answerOptions": [
@@ -1554,7 +1554,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 51,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Si un ladrillo pesa 4 kg, el peso de un ladrillito del mismo material cuyas dimensiones son 4 veces menores es:",
             "answerOptions": [
@@ -1616,7 +1616,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 53,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "BAQUIANO",
             "answerOptions": [
@@ -1647,7 +1647,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 54,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Juan vende limonada ganando $180 por vaso. Si vende 20 vasos por día, para ganar $12.600 tardará:",
             "answerOptions": [
@@ -1709,7 +1709,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 56,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "¿Qué hora es cuando el reloj marca los 5/6 de la mitad del triple de las 8:00 am?",
             "answerOptions": [
@@ -1771,7 +1771,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 58,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Mario debe 5/8 de $16.000.000 y paga los 3/4 de la deuda. ¿Cuánto debe aún?",
             "answerOptions": [
@@ -1802,7 +1802,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 59,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "DILAPIDAR",
             "answerOptions": [
@@ -1833,7 +1833,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 60,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Ante un conflicto de agresión física repetida donde los padres usan castigo físico en casa sin éxito, ¿qué debe hacer la institución?",
             "answerOptions": [
@@ -1864,7 +1864,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 61,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Patricia es mayor que Claudia, y menor que Cristina, quien tiene la misma edad de Gloria. ¿Quién es la menor?",
             "answerOptions": [
@@ -1926,7 +1926,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 63,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Ayer 2 camiones transportaron mercancía. Hoy 3 camiones iguales harán 6 viajes para mover la misma cantidad. ¿Cuántos viajes hicieron ayer los 2 camiones?",
             "answerOptions": [
@@ -1988,7 +1988,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 65,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Si 10 autos consumen 10 galones en 10 horas, ¿cuántos galones consume 1 auto en 1 hora?",
             "answerOptions": [
@@ -2019,7 +2019,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 66,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Los perros, gatos y otras plagas _____ también los animales de granja, son especies que dependen para su supervivencia de la especie humana _____ por su alto grado de domesticación.",
             "answerOptions": [
@@ -2081,7 +2081,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 68,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Se sabe que tres obreros tardan 8, 6 y 4 horas en pintar una casa individualmente. ¿Cuánto tiempo tardan juntos?",
             "answerOptions": [
@@ -2143,7 +2143,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 70,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "El 20% del 40% de una cantidad equivale al:",
             "answerOptions": [
@@ -2205,7 +2205,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 72,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Un padre tiene 3 veces la edad de su hijo. Hace 10 años tenía 5 veces la edad. ¿Edad del hijo?",
             "answerOptions": [
@@ -2267,7 +2267,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 74,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Pedro usa 1/4 del día en tareas, 1/6 en deporte y 1/9 con amigos. ¿Qué parte le queda libre?",
             "answerOptions": [
@@ -2329,7 +2329,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 76,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Tres anuncios se encienden a intervalos de 12, 15 y 18 minutos. Si coinciden a las 2:00 pm, ¿a qué hora repiten?",
             "answerOptions": [
@@ -2391,7 +2391,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 78,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Si un texto argumentativo defiende la eutanasia, una idea contraria sería:",
             "answerOptions": [
@@ -2422,7 +2422,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 79,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Un docente critica constantemente a sus colegas en reuniones. Como coordinador, usted debe:",
             "answerOptions": [
@@ -2453,7 +2453,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 80,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Una familia de 6 adultos tiene comida para 15 días. Llegan 3  adultos más. ¿Para cuántos días alcanza ahora?",
             "answerOptions": [
@@ -2515,7 +2515,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 82,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "El largo del puente A es 3 veces el largo del puente B. Si suman 120 metros, el puente más largo mide:",
             "answerOptions": [
@@ -2577,7 +2577,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 84,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Un tanque de 1200 cm3 está lleno 3/4 en invierno y 2/3 en verano. La diferencia es:",
             "answerOptions": [
@@ -2608,7 +2608,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 85,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Ordene la oración: 1. lleva 2. esa 3. alegre 4. muñeca 5. a 6. su 7. infancia 8. la",
             "answerOptions": [
@@ -2670,7 +2670,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 87,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Si un círculo tiene radio 10 cm, su área es (pi = 3.14):",
             "answerOptions": [
@@ -2732,7 +2732,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 89,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "En una reunión, la mitad son mujeres, de ellas 1/6 son altas. Si hay 36 personas, ¿cuántas mujeres NO son altas?",
             "answerOptions": [
@@ -2794,7 +2794,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 91,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "En un texto sobre 'El futuro del libro', si el autor dice que el libro es una extensión de la memoria, implica que:",
             "answerOptions": [
@@ -2825,7 +2825,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 92,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Si a/b = 2/3 y b/c = 3/5, entonces a/c es:",
             "answerOptions": [
@@ -2887,7 +2887,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 94,
-            "category": "Desarrollo Cognitivo",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "hard",
             "question": "Un vendedor recibe un sueldo base más 10% de comisión. Si vendió 10 millones y recibió 2 millones en total, su sueldo base es:",
             "answerOptions": [
@@ -2950,7 +2950,12 @@ const RAW_QUIZ_DATA_2 = {
     ]
 };
 
-// Metadata for export
+// Metadata for export (Node.js)
 if (typeof module !== 'undefined') {
     module.exports = RAW_QUIZ_DATA_2;
+}
+
+// Metadata for browser global (if needed explicitly, though const in global scope works)
+if (typeof window !== 'undefined') {
+    window.RAW_QUIZ_DATA_2 = RAW_QUIZ_DATA_2;
 }
