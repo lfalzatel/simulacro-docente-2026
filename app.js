@@ -387,15 +387,22 @@ async function resetSimulacroProgress() {
         }
 
         // 2. Clear Local Data
-        userProgress = {};
+        // CRITICAL: Use the exact same key generation logic as getStorageKey()
+        const storageKey = getStorageKey();
+        console.log("🗑️ Borrando local:", storageKey);
+        localStorage.removeItem(storageKey);
+
+        // Also clear potential legacy/migrated keys just in case
         if (user) {
             localStorage.removeItem(`progreso_v2_${user.id}_${currentSimulacroId}`);
-        } else {
-            // Fallback for guest (though guest likely shouldn't be resetting like this)
-            localStorage.removeItem('progresoUsuario');
+            // If Sim 1, also clear non-ID key
+            if (!currentSimulacroId || currentSimulacroId === 'd15c2a06-b97f-4349-817b-14e07377a0e6') {
+                localStorage.removeItem(`progresoUsuario_${user.id}`);
+            }
         }
 
         // 3. Reset Global Variables
+        userProgress = {};
         score = 0;
         currentQuestionIndex = 0;
 
