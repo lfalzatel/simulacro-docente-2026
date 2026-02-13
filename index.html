@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=76">
 </head>
 
 <body>
@@ -88,7 +88,7 @@
                      -->
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
                         <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                            v68 (Fix Aislamiento Datos)
+                            v76 (Preguntas Actualizadas)
                         </div>
                     </div>
                 </div>
@@ -449,9 +449,9 @@
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=75')
+                navigator.serviceWorker.register('./sw.js?v=76')
                     .then(reg => {
-                        console.log('✓ SW v75 registrado');
+                        console.log('✓ SW v76 registrado');
 
                         // Handle updates cleanly without infinite loops
                         if (reg.waiting) {
