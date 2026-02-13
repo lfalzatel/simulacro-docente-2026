@@ -140,6 +140,13 @@ async function showDashboard(user) {
     // Load user role and render simulator selector
     userRole = await getUserRole(user);
     console.log(`✓ Rol asignado: ${userRole}`);
+
+    // Show Admin Menu Item if applicable
+    const adminBtn = document.getElementById('admin-menu-item');
+    if (adminBtn) {
+        adminBtn.style.display = userRole === 'admin' ? 'flex' : 'none';
+    }
+
     await renderSimulacroCards();
 
     // Ensure selectors are populated and synced
@@ -241,7 +248,172 @@ async function updateDashboardStats() {
     updateAllSimulatorSelectors();
 }
 
-// ==================== MULTI-SIMULATOR SYSTEM ====================
+// ==================== ADMIN PANEL LOGIC ====================
+
+async function searchUser() {
+    const emailInput = document.getElementById('admin-search-input');
+    const email = emailInput.value.trim();
+    const resultsContainer = document.getElementById('admin-results-container');
+    const userCard = document.getElementById('admin-user-card');
+
+    if (!email) {
+        Swal.fire('Error', 'Por favor ingresa un correo electrónico', 'error');
+        return;
+    }
+
+    resultsContainer.style.display = 'none';
+
+    try {
+        const { data, error } = await supabaseApp
+            .from('user_roles')
+            .select('*')
+            .eq('email', email)
+            .single();
+
+        if (error || !data) {
+            Swal.fire('No encontrado', 'No se encontró ningún usuario con ese correo.', 'warning');
+            return;
+        }
+
+        renderAdminUserCard(data);
+        resultsContainer.style.display = 'block';
+
+    } catch (err) {
+        console.error("Error searching user:", err);
+        Swal.fire('Error', 'Ocurrió un error al buscar.', 'error');
+    }
+}
+
+function renderAdminUserCard(user) {
+    const card = document.getElementById('admin-user-card');
+    const isSelf = user.user_id === supabaseApp.auth.getUser()?.data?.user?.id; // Rough check
+
+    card.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+            <div>
+                <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-primary);">${user.email}</div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary);">ID: ${user.user_id}</div>
+                <div style="margin-top: 0.5rem;">
+                   Role Actual: <span class="role-badge ${user.role}">${user.role.toUpperCase()}</span>
+                </div>
+            </div>
+            <div style="text-align: right; font-size: 0.8rem; color: var(--text-secondary);">
+                <div>Creado: ${new Date(user.created_at).toLocaleDateString()}</div>
+                <div>Actualizado: ${new Date(user.updated_at).toLocaleDateString()}</div>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button onclick="updateUserRole('${user.user_id}', 'free')" 
+                style="padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border-color); background: white; cursor: pointer; ${user.role === 'free' ? 'opacity: 0.5; pointer-events: none;' : ''}">
+                🔽 Asignar FREE
+            </button>
+            <button onclick="updateUserRole('${user.user_id}', 'premium')" 
+                style="padding: 0.5rem 1rem; border-radius: 8px; border: none; background: linear-gradient(135deg, #FCD34D, #F59E0B); color: #78350F; font-weight: 700; cursor: pointer; ${user.role === 'premium' ? 'opacity: 0.5; pointer-events: none;' : ''}">
+                ⭐ Asignar PREMIUM
+            </button>
+            <button onclick="updateUserRole('${user.user_id}', 'admin')" 
+                style="padding: 0.5rem 1rem; border-radius: 8px; border: none; background: #1e293b; color: white; cursor: pointer; ${user.role === 'admin' ? 'opacity: 0.5; pointer-events: none;' : ''}">
+                🛡️ Asignar ADMIN
+            </button>
+        </div>
+    `;
+}
+
+async function updateUserRole(targetUserId, newRole) {
+    try {
+        const { error } = await supabaseApp
+            .from('user_roles')
+            .update({ role: newRole, updated_at: new Date() })
+            .eq('user_id', targetUserId);
+
+        if (error) throw error;
+
+        Swal.fire({
+            title: '¡Rol Actualizado!',
+            text: `El usuario ahora es ${newRole.toUpperCase()}.`,
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false
+        });
+
+        // Refresh search
+        searchUser();
+
+    } catch (err) {
+        console.error("Error updating role:", err);
+        Swal.fire('Error', 'No se pudo actualizar el rol. Verifica permisos.', 'error');
+    }
+}
+
+// ==================== PROGRESS RESET LOGIC ====================
+
+async function resetSimulacroProgress() {
+    const result = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Esto borrará TODO tu progreso en este simulacro! No podrás deshacerlo.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sí, borrar todo',
+        cancelButtonText: 'Cancelar'
+    });
+
+    if (!result.isConfirmed) return;
+
+    Swal.fire({
+        title: 'Restableciendo...',
+        text: 'Por favor espera',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    try {
+        const user = supabaseApp?.auth?.getUser ? (await supabaseApp.auth.getUser()).data.user : null;
+
+        // 1. Clear Cloud Data
+        if (user && currentSimulacroId) {
+            console.log("🗑️ Borrando progreso en nube para:", currentSimulacroId);
+            const { error } = await supabaseApp
+                .from('simulacro_progress_v2')
+                .delete()
+                .eq('user_id', user.id)
+                .eq('simulacro_id', currentSimulacroId);
+
+            if (error) console.error("Error deleting cloud progress:", error);
+        }
+
+        // 2. Clear Local Data
+        userProgress = {};
+        if (user) {
+            localStorage.removeItem(`progreso_v2_${user.id}_${currentSimulacroId}`);
+        } else {
+            // Fallback for guest (though guest likely shouldn't be resetting like this)
+            localStorage.removeItem('progresoUsuario');
+        }
+
+        // 3. Reset Global Variables
+        score = 0;
+        currentQuestionIndex = 0;
+
+        // 4. Reload
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
+
+    } catch (err) {
+        console.error("Error resetting progress:", err);
+        Swal.fire('Error', 'Falló el restablecimiento. Intenta recargar la página.', 'error');
+    }
+}
+
+// Bind new functions
+window.searchUser = searchUser;
+window.updateUserRole = updateUserRole;
+window.resetSimulacroProgress = resetSimulacroProgress;
 
 async function getUserRole(user) {
     if (!user) return 'free';
@@ -249,6 +421,14 @@ async function getUserRole(user) {
     // 🛡️ SUPER ADMIN BYPASS: Always admin for owner
     if (user.email === 'lfalzatel@gmail.com') {
         console.log("👑 Super Admin detectado (Hardcoded)");
+        // Sync Admin Role to DB to ensure RLS works
+        const { error } = await supabaseApp.from('user_roles').upsert({
+            user_id: user.id,
+            email: user.email,
+            role: 'admin',
+            updated_at: new Date()
+        });
+        if (error) console.error("Error syncing admin role:", error);
         return 'admin';
     }
 
@@ -269,13 +449,21 @@ async function getUserRole(user) {
 
         if (error) {
             console.warn('⚠️ No role found, creating free role:', error.message);
-            // Auto-create free role for new users
+            // Auto-create free role for new users AND sync email
             await supabaseApp.from('user_roles').insert({
                 user_id: user.id,
+                email: user.email,
                 role: 'free'
             });
             return 'free';
         }
+
+        // ALWAYS SYNC EMAIL (in case it changed or wasn't there)
+        // This ensures the Admin Panel can find this user by email
+        await supabaseApp.from('user_roles').update({
+            email: user.email,
+            updated_at: new Date()
+        }).eq('user_id', user.id);
 
         return data?.role || 'free';
     } catch (err) {
@@ -624,12 +812,14 @@ function switchView(viewId) {
         updateDashboardStats(); // Update stats in profile too
     } else if (viewId === 'reports') {
         document.getElementById('reports-view').classList.remove('hidden');
+    } else if (viewId === 'admin') {
+        document.getElementById('admin-view').classList.remove('hidden');
     }
 
     // Show/hide back arrow in header
     const backBtn = document.getElementById('header-back-btn');
     if (backBtn) {
-        if (viewId === 'profile' || viewId === 'reports') {
+        if (viewId === 'profile' || viewId === 'reports' || viewId === 'admin') {
             backBtn.style.display = 'flex';
         } else {
             backBtn.style.display = 'none';

@@ -57,6 +57,12 @@
                         <span>Mi Perfil</span>
                     </div>
 
+                    <div id="admin-menu-item" class="menu-item" onclick="switchView('admin')"
+                        style="display: none; color: var(--accent-primary);">
+                        <span>🛠️</span>
+                        <span>Administración</span>
+                    </div>
+
                     <div class="menu-section-label">Tema</div>
                     <div class="theme-options">
                         <button class="theme-btn active" onclick="setTheme('default')" title="Día (Earth)">☀️</button>
@@ -408,6 +414,41 @@
                 style="margin-top: 1rem; background: var(--accent-secondary);">
                 Volver al Dashboard
             </button>
+        </div>
+
+        <!-- Admin View -->
+        <div id="admin-view" class="dashboard hidden">
+            <div class="welcome-section"
+                style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; border: 2px solid #334155;">
+                <h1 class="welcome-title" style="color: white;">🛠️ Panel de Administración</h1>
+                <p class="welcome-text" style="color: #94a3b8;">Gestión de usuarios y permisos.</p>
+                <button class="back-btn" onclick="switchView('dashboard')"
+                    style="background: rgba(255,255,255,0.1); color: white; margin-top: 1rem;">
+                    ← Volver al Dashboard
+                </button>
+            </div>
+
+            <div class="stat-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Buscar Usuario</h3>
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem;">
+                    <input type="email" id="admin-search-input" placeholder="Correo electrónico del usuario..."
+                        style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-body-start); color: var(--text-primary);">
+                    <button onclick="searchUser()" class="start-btn"
+                        style="width: auto; margin: 0; background: var(--accent-primary); color: white;">
+                        🔍 Buscar
+                    </button>
+                </div>
+
+                <div id="admin-results-container" style="display: none;">
+                    <h3
+                        style="font-size: 1.1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+                        Resultados</h3>
+                    <div id="admin-user-card"
+                        style="background: var(--bg-body-start); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <!-- User details injected here -->
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Documentation View -->
