@@ -1,9 +1,9 @@
 const RAW_QUIZ_DATA_2 = {
-    "quizTitle": "Simulacro Premium I - Nivel Avanzado",
+    "quizTitle": "Simulacro 2: Ascenso y Reubicación (Experto)",
     "questions": [
         {
             "questionNumber": 1,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "hard",
             "question": "Una docente implementa Aprendizaje Basado en Proyectos (ABP) donde los estudiantes diseñan una solución para reducir el desperdicio de agua en su institución. Durante la ejecución, algunos estudiantes solo copian información de internet sin analizar el problema. ¿Cuál es la intervención más apropiada según los principios del ABP?",
             "answerOptions": [
@@ -34,7 +34,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 2,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Un docente diseña una rúbrica analítica para evaluar ensayos argumentativos. Algunos estudiantes obtienen puntajes altos en 'estructura' y баjos en 'profundidad de análisis'. Al revisar los trabajos, el docente nota que estos estudiantes siguen fórmulas rígidas sin reflexión crítica. ¿Qué ajuste metodológico es más apropiado según la evaluación formativa avanzada?",
             "answerOptions": [
@@ -65,7 +65,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 3,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "hard",
             "question": "En una clase invertida (Flipped Classroom), algunos estudiantes llegan sin haber visto los videos preasignados, argumentando 'falta de tiempo'. El docente observa que estos estudiantes provienen de contextos socioeconómicos vulnerables con acceso limitado a internet en casa. ¿Cuál es la adaptación más equitativa según los principios de la clase invertida inclusiva?",
             "answerOptions": [
@@ -96,7 +96,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 4,
-            "category": "Inclusión y Diversidad",
+            "category": "Inclusión",
             "difficulty": "expert",
             "question": "Un estudiante con trastorno del espectro autista (TEA) muestra excelente desempeño académico en matemáticas y ciencias, pero evita trabajos grupales y presenta ansiedad significativa durante presentaciones orales. Según el Diseño Universal para el Aprendizaje (DUA), ¿cuál es la mejor estrategia para evaluar su comprensión en ciencias sociales sin comprometer los objetivos de aprendizaje?",
             "answerOptions": [
@@ -127,7 +127,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 5,
-            "category": "Marco Legal y Normativo",
+            "category": "Normatividad",
             "difficulty": "hard",
             "question": "Según el Decreto 1278 de 2002, la evaluación de desempeño de un docente en período de prueba debe considerar múltiples dimensiones. Un coordinador académico observa que un docente recién nombrado tiene excelente dominio disciplinar y preparación de clases, pero dificultades significativas en la comunicación con padres de familia y colegas. ¿Qué acción es más coherente con los criterios del Decreto 1278?",
             "answerOptions": [
@@ -158,7 +158,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 6,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "hard",
             "question": "Un docente implementa gamificación en su clase de ciencias naturales con un sistema de puntos, niveles y recompensas. Tras un mes, observa que los estudiantes están más motivados por acumular puntos que por comprender los conceptos científicos. ¿Cuál es la intervención más apropiada según los principios de gamificación significativa?",
             "answerOptions": [
@@ -189,7 +189,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 7,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Una docente implementa coevaluación donde los estudiantes evalúan los ensayos de sus compañeros usando una rúbrica. Nota que algunos estudiantes dan calificaciones muy generosas sin justificación crítica, mientras otros son excesivamente severos. ¿Cuál es la estrategia más efectiva según la literatura sobre assessment for learning?",
             "answerOptions": [
@@ -220,7 +220,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 8,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "hard",
             "question": "Durante un debate sobre cambio climático, un estudiante argumenta correctamente los datos científicos, pero sus compañeros rechazan sus ideas porque 'no tiene buenas calificaciones en ciencias'. Según Vygotsky y el aprendizaje situado, ¿cuál es la intervención más apropiada?",
             "answerOptions": [
@@ -251,7 +251,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 9,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Un docente nota que tras enseñar estrategias de lectura crítica, los estudiantes las aplican solo en clase de lenguaje, no en ciencias sociales o naturales. ¿Cuál estrategia aborda mejor este problema de transfer de aprendizaje según la ciencia cognitiva contemporánea?",
             "answerOptions": [
@@ -282,7 +282,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 10,
-            "category": "Inclusión y Diversidad",
+            "category": "Inclusión",
             "difficulty": "hard",
             "question": "Una estudiante con dislexia toma más tiempo en las evaluaciones escritas, logrando solo completar 60% de las preguntas aunque sus respuestas muestran comprensión profunda. Según el principio de equidad en evaluación, ¿cuál es la adaptación más apropiada?",
             "answerOptions": [
@@ -313,7 +313,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 11,
-            "category": "Marco Legal y Normativo",
+            "category": "Normatividad",
             "difficulty": "hard",
             "question": "Según los Derechos Básicos de Aprendizaje (DBA) y los lineamientos curriculares colombianos, un docente debe diseñar currículo para 5° grado. Los DBA son muy específicos, mientras los lineamientos dan orientaciones generales. ¿Cuál es la relación adecuada entre ambos según el MEN?",
             "answerOptions": [
@@ -344,7 +344,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 12,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Un docente implementa aprendizaje cooperativo con roles asignados (líder, secretario, portavoz). Observa que estudiantes tímidos siempre quedan como 'secretarios' sin oportunidad de desarrollar habilidades de liderazgo. ¿Cuál ajuste refleja mejor los principios de Johnson & Johnson sobre cooperación genuina?",
             "answerOptions": [
@@ -375,7 +375,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 13,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "hard",
             "question": "Un docente implementa autoevaluación donde los estudiantes califican su propio aprendizaje. Observa que algunos estudiantes con bajo desempeño se autocalifican muy alto, mientras otros con excelente desempeño se autocalifican bajo. ¿Qué explica mejor este fenómeno según la literatura sobre metacognición y qué hacer al respecto?",
             "answerOptions": [
@@ -434,11 +434,11 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "a",
             "rationale": "El DUA Principio II (Proporcionar múltiples medios de Acción y Expresión) reconoce que las habilidades ejecutivas varían. El TDAH afecta regulación motora, atención sostenida y funciones ejecutivas, NO capacidad intelectual. Las adaptaciones apropiadas: 1) permiten movimiento (necesidad neurológica legítima), 2) ofrecen medios alternativos de expresión (dictado), 3) compensan dificultades ejecutivas (segmentación). Estas adaptaciones no reducen estándares conceptuales sino que eliminan barreras de formato. Esto es equidad: permitir que la brillantez intelectual se manifieste sin barreras ejecutivas irrelevantes.",
             "hint": "DUA para TDAH: eliminar barreras ejecutivas/motoras, NO reducir expectativas conceptuales.",
-            "category": "Estrategias Pedagógicas"
+            "category": "Pedagogía"
         },
         {
             "questionNumber": 15,
-            "category": "Marco Legal y Normativo",
+            "category": "Normatividad",
             "difficulty": "hard",
             "question": "Según la Ley 1620 de 2013 (Sistema Nacional de Convivencia Escolar), un docente observa acoso escolar sistemático hacia un estudiante LGBTQ+. El manual de convivencia institucional no menciona explícitamente orientación sexual. ¿Cuál es la acción más apropiada según el marco normativo colombiano?",
             "answerOptions": [
@@ -469,7 +469,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 16,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Según investigación en neurociencia cognitiva sobre consolidación de memoria, un docente quiere maximizar la retención a largo plazo de conceptos matemáticos complejos. ¿Cuál estrategia está mejor fundamentada en evidencia sobre espaciamiento y recuperación?",
             "answerOptions": [
@@ -500,7 +500,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 17,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Un docente da retroalimentación detallada en ensayos estudiantiles. Observa que estudiantes con comentarios extensos (2-3 párrafos por ensayo) mejoran MENOS que aquellos con comentarios breves y enfocados. ¿Qué principio de feedback efectivo explica esto?",
             "answerOptions": [
@@ -531,7 +531,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 18,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "hard",
             "question": "Un docente implementa grupos flexibles basados en desempeño para matemáticas, reagrupando estudiantes según evaluaciones semanales. Nota que estudiantes en grupos 'bajos' desarrollan identidad negativa ('no soy bueno en matemáticas'). ¿Cuál ajuste mantiene diferenciación sin estigmatización?",
             "answerOptions": [
@@ -562,7 +562,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 19,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "En un proyecto sobre contaminación local, estudiantes investigan y proponen soluciones. El docente nota que se enfocan en soluciones superficiales ('poner más canecas') sin análisis sistémico. ¿Qué andamiaje promueve pensamiento de sistemas complejos según PBL de alta calidad?",
             "answerOptions": [
@@ -593,7 +593,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 20,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Inspirado en Paulo Freire, un docente quiere implementar pedagogía dialógica problematizadora en ciencias sociales. ¿Cuál práctica refleja auténticamente la praxis de Freire, no solo el discurso?",
             "answerOptions": [
@@ -624,7 +624,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 21,
-            "category": "Marco Legal y Normativo",
+            "category": "Normatividad",
             "difficulty": "hard",
             "question": "Según el Decreto 1290 de 2009, un estudiante reprobó el año académico y solicita graduación mediante 'validación' de todo el grado en examen único. ¿Es esto procedente según la norma?",
             "answerOptions": [
@@ -655,7 +655,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 22,
-            "category": "Inclusión y Diversidad",
+            "category": "Inclusión",
             "difficulty": "expert",
             "question": "Un estudiante ciego con software lector de pantalla necesita acceder a gráficas complejas en clase de estadística. ¿Cuál adaptación refleja mejor los principios del DUA para representación accesible?",
             "answerOptions": [
@@ -686,7 +686,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 23,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "hard",
             "question": "Los estudiantes usan Wikipedia para investigar. El docente observa que copian información sin evaluar credibilidad de fuentes. ¿Cuál estrategia desarrolla mejor literacidad digital crítica según frameworks contemporáneos?",
             "answerOptions": [
@@ -717,7 +717,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 24,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Un docente implementa círculos restaurativos semanales para desarrollar competencias socioemocionales. Observa que algunos estudiantes comparten vulnerabilidades mientras otros permanecen callados. ¿Cuál enfoque respeta seguridad emocional mientras promueve desarrollo SEL?",
             "answerOptions": [
@@ -748,7 +748,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 25,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Un docente diseña unidad sobre ecosistemas. Quiere diferenciar por 'disposición para aprender' (readiness) según Tomlinson. ¿Cuál práctica refleja mejor este principio sin reducir estándares?",
             "answerOptions": [
@@ -779,7 +779,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 26,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Una escuela atiende población indígena y mestiza. Durante clase de ciencias naturales, estudiantes indígenas mencionan conocimientos tradicionales sobre plantas medicinales que contradicen parcialmente explicaciones farmacológicas occidentales. ¿Cuál enfoque refleja mejor pedagogía culturalmente sostenida según Paris y Alim?",
             "answerOptions": [
@@ -810,7 +810,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 27,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "En proyecto ABP sobre contaminación local, estudiantes crean campañas de concientización. Docente diseña rúbrica: 'investigación científica' (40%), 'creatividad' (30%), 'presentación oral' (20%), 'trabajo en equipo' (10%). Según Wiggins, ¿cuál es la limitación MÁS SERIA?",
             "answerOptions": [
@@ -841,7 +841,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 28,
-            "category": "Marco Legal y Normativo",
+            "category": "Convivencia",
             "difficulty": "expert",
             "question": "Tras conflicto entre dos estudiantes donde uno dañó trabajo del otro, docente implementa 'círculo restaurativo'. Durante círculo, víctima expresa frustración y agresor se disculpa. Docente cierra círculo. ¿Qué elemento CRÍTICO faltó según modelo restaurativo (Braithwaite)?",
             "answerOptions": [
@@ -872,7 +872,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 29,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Estudiante de 5° grado domina conceptos de multiplicación y división que el currículo enseñará próximas 4 semanas. Docente identifica esto mediante pretest. Según modelo de 'compactación curricular' (Reis y Renzulli), ¿cuál es la respuesta MÁS APROPIADA?",
             "answerOptions": [
@@ -903,7 +903,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 30,
-            "category": "Marco Legal y Normativo",
+            "category": "Normatividad",
             "difficulty": "expert",
             "question": "Director declara que proyecto educativo institucional (PEI) enfatizará 'excelencia académica tradicional' y no incluirá 'educación sexual moderna ni ideologías de género' porque 'son temas familiares, no escolares'. Según Ley 115 de 1994 y jurisprudencia constitucional, ¿cuál es el problema LEGAL con esta postura?",
             "answerOptions": [
@@ -934,7 +934,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 31,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Docente reemplaza fichas físicas de vocabulario por aplicación Quizlet donde estudiantes practican definiciones con flashcards digitales y juegos. Según modelo SAMR (Puentedura), ¿en qué nivel está esta integración y qué caracteriza ese nivel?",
             "answerOptions": [
@@ -965,7 +965,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 32,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "En clase de ciencias, docente plantea: '¿Por qué las plantas son verdes?' Estudiantes responden: 'Por clorofila'. Docente confirma y avanza. Según modelo de indagación auténtica (Banchi y Bell), ¿qué nivel de indagación representa esto y cuál sería su limitación?",
             "answerOptions": [
@@ -996,7 +996,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 33,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Durante examen, docente nota que estudiante muestra ansiedad (respiración rápida, manos temblorosas). Docente se acerca y dice: 'Tranquilo, no es para tanto, tú puedes'. Según neurociencia de regulación emocional (Gross), ¿cuál es la limitación de esta intervención?",
             "answerOptions": [
@@ -1027,7 +1027,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 34,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Después de clase grupal sobre interpretación de poesía, docente proporciona retroalimentación detallada individual a cada estudiante sobre sus interpretaciones. Según investigación de Shute sobre retroalimentación, ¿cuál es la limitación MÁS PROBABLE de este timing?",
             "answerOptions": [
@@ -1058,7 +1058,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 35,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Docente trabaja con estudiantes de contexto rural de bajos ingresos. En reunión de equipo dice: 'Estos niños tienen muchas carencias: falta de libros en casa, padres con baja escolaridad, poca exposición cultural. Debemos compensar estos déficits'. Desde pedagogía asset-based (Yosso), ¿cuál es el problema con este encuadre?",
             "answerOptions": [
@@ -1089,7 +1089,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 36,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el día sube 3 metros y en la noche resbala un metro. ¿El día que llegará el caracol a la cima del muro es el?",
             "answerOptions": [
@@ -1120,7 +1120,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 37,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "Un docente observa que sus estudiantes tienen dificultades para aplicar un nuevo concepto. ¿Cuál es la acción más apropiada según los principios de la Evaluación Formativa?",
             "answerOptions": [
@@ -1151,7 +1151,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 38,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "NUBE : EVAPORACIÓN ::",
             "answerOptions": [
@@ -1182,7 +1182,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 39,
-            "category": "Marco Legal y Normativo",
+            "category": "Convivencia",
             "difficulty": "expert",
             "question": "En una escuela, la coincidencia del horario de descanso entre primaria y bachillerato genera agresiones. ¿Cuál es la medida más adecuada para abordar la situación integralmente?",
             "answerOptions": [
@@ -1213,7 +1213,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 40,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si dentro de 20 años tendré el triple de la edad que tenía hace 20 años, entonces tengo:",
             "answerOptions": [
@@ -1244,7 +1244,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 41,
-            "category": "Inclusión y Diversidad",
+            "category": "Inclusión",
             "difficulty": "hard",
             "question": "En una institución educativa se identifica la necesidad de integrar estrategias para estudiantes con discapacidad. ¿Qué acción cumple con la normativa de inclusión?",
             "answerOptions": [
@@ -1275,7 +1275,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 42,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "Ordene las frases sobre 'La investigación cualitativa': 1. es altamente interpretativa 2. pero puede ser una rica fuente 3. se reúnen datos y se examinan 4. no puede arrojar conclusiones generales 5. toma una ruta exploratoria 6. en lugar de generar hipótesis previas.",
             "answerOptions": [
@@ -1306,7 +1306,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 43,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "4 obreros trabajando 7 horas diarias construyen un muro en 3 días. ¿Cuántos días tardarán 2 obreros trabajando 6 horas diarias en construir un muro igual?",
             "answerOptions": [
@@ -1337,7 +1337,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 44,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "En Ciencias Sociales, para reconocerse como sujeto de derechos, ¿qué proceso debe priorizar el docente?",
             "answerOptions": [
@@ -1368,7 +1368,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 45,
-            "category": "Estrategias Pedagógicas",
+            "category": "Competencias",
             "difficulty": "hard",
             "question": "Ante la indisciplina por consumo de sustancias, la coordinadora busca aprovechar el talento docente. ¿Cuál es la mejor estrategia?",
             "answerOptions": [
@@ -1399,7 +1399,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 46,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si por 12 camisetas pago 96 euros, ¿cuánto pagaré por 57 camisetas?",
             "answerOptions": [
@@ -1430,7 +1430,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 47,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "La investigación cualitativa toma una ruta ________ más flexible, en lugar de generar hipótesis a partir de la investigación ________.",
             "answerOptions": [
@@ -1461,7 +1461,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 48,
-            "category": "Estrategias Pedagógicas",
+            "category": "Planeación",
             "difficulty": "expert",
             "question": "¿Qué se define inmediatamente después de la situación significativa en la programación curricular?",
             "answerOptions": [
@@ -1492,7 +1492,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 49,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Ana va a la biblioteca cada 5 días y Miguel cada 3 días. Si hoy coincidieron, ¿en cuántos días volverán a coincidir?",
             "answerOptions": [
@@ -1523,7 +1523,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 50,
-            "category": "Marco Legal y Normativo",
+            "category": "Normatividad",
             "difficulty": "hard",
             "question": "¿Cuál es la ley general que rige los fines de la educación en Colombia?",
             "answerOptions": [
@@ -1554,7 +1554,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 51,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si un ladrillo pesa 4 kg, el peso de un ladrillito del mismo material cuyas dimensiones son 4 veces menores es:",
             "answerOptions": [
@@ -1585,7 +1585,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 52,
-            "category": "Inclusión y Diversidad",
+            "category": "Inclusión",
             "difficulty": "expert",
             "question": "Un estudiante con NEE tiene dificultades en lectura. ¿Cuál es la adaptación curricular adecuada?",
             "answerOptions": [
@@ -1616,7 +1616,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 53,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "BAQUIANO",
             "answerOptions": [
@@ -1647,7 +1647,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 54,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Juan vende limonada ganando $180 por vaso. Si vende 20 vasos por día, para ganar $12.600 tardará:",
             "answerOptions": [
@@ -1678,7 +1678,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 55,
-            "category": "Marco Legal y Normativo",
+            "category": "Gestión",
             "difficulty": "expert",
             "question": "Un colegio no ha establecido el gobierno escolar obligatorio. La directora teme sanciones. ¿Qué debe hacer?",
             "answerOptions": [
@@ -1709,7 +1709,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 56,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "¿Qué hora es cuando el reloj marca los 5/6 de la mitad del triple de las 8:00 am?",
             "answerOptions": [
@@ -1740,7 +1740,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 57,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Para gestionar el aprendizaje autónomo, ¿qué tipo de preguntas debe promover el docente?",
             "answerOptions": [
@@ -1771,7 +1771,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 58,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Mario debe 5/8 de $16.000.000 y paga los 3/4 de la deuda. ¿Cuánto debe aún?",
             "answerOptions": [
@@ -1802,7 +1802,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 59,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "DILAPIDAR",
             "answerOptions": [
@@ -1833,7 +1833,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 60,
-            "category": "Estrategias Pedagógicas",
+            "category": "Competencias",
             "difficulty": "hard",
             "question": "Ante un conflicto de agresión física repetida donde los padres usan castigo físico en casa sin éxito, ¿qué debe hacer la institución?",
             "answerOptions": [
@@ -1864,7 +1864,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 61,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Patricia es mayor que Claudia, y menor que Cristina, quien tiene la misma edad de Gloria. ¿Quién es la menor?",
             "answerOptions": [
@@ -1895,7 +1895,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 62,
-            "category": "Marco Legal y Normativo",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "El PEI de una escuela no refleja las condiciones culturales de la comunidad. La directora decide:",
             "answerOptions": [
@@ -1926,7 +1926,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 63,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Ayer 2 camiones transportaron mercancía. Hoy 3 camiones iguales harán 6 viajes para mover la misma cantidad. ¿Cuántos viajes hicieron ayer los 2 camiones?",
             "answerOptions": [
@@ -1957,7 +1957,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 64,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "El enfoque más pedagógico del uso de TIC en el aula es:",
             "answerOptions": [
@@ -1988,7 +1988,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 65,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si 10 autos consumen 10 galones en 10 horas, ¿cuántos galones consume 1 auto en 1 hora?",
             "answerOptions": [
@@ -2019,7 +2019,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 66,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "Los perros, gatos y otras plagas _____ también los animales de granja, son especies que dependen para su supervivencia de la especie humana _____ por su alto grado de domesticación.",
             "answerOptions": [
@@ -2050,7 +2050,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 67,
-            "category": "Marco Legal y Normativo",
+            "category": "Convivencia",
             "difficulty": "expert",
             "question": "Un estudiante consumió licor dentro del colegio. El manual estipula expulsión. El docente decide:",
             "answerOptions": [
@@ -2081,7 +2081,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 68,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Se sabe que tres obreros tardan 8, 6 y 4 horas en pintar una casa individualmente. ¿Cuánto tiempo tardan juntos?",
             "answerOptions": [
@@ -2112,7 +2112,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 69,
-            "category": "Inclusión y Diversidad",
+            "category": "Inclusión",
             "difficulty": "expert",
             "question": "En un aula hay dos grupos de rendimiento muy diferenciado. ¿Qué est rategia es pertinente?",
             "answerOptions": [
@@ -2143,7 +2143,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 70,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "El 20% del 40% de una cantidad equivale al:",
             "answerOptions": [
@@ -2174,7 +2174,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 71,
-            "category": "Marco Legal y Normativo",
+            "category": "Gestión",
             "difficulty": "hard",
             "question": "¿Cuál es el principal indicador de que el PEI es efectivo?",
             "answerOptions": [
@@ -2205,7 +2205,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 72,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Un padre tiene 3 veces la edad de su hijo. Hace 10 años tenía 5 veces la edad. ¿Edad del hijo?",
             "answerOptions": [
@@ -2236,7 +2236,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 73,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "¿Qué proceso es central para la competencia 'Construye interpretaciones históricas'?",
             "answerOptions": [
@@ -2267,7 +2267,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 74,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Pedro usa 1/4 del día en tareas, 1/6 en deporte y 1/9 con amigos. ¿Qué parte le queda libre?",
             "answerOptions": [
@@ -2298,7 +2298,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 75,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "hard",
             "question": "Según la normativa colombiana, la evaluación de los estudiantes en los niveles de básica y media debe ser:",
             "answerOptions": [
@@ -2329,7 +2329,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 76,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Tres anuncios se encienden a intervalos de 12, 15 y 18 minutos. Si coinciden a las 2:00 pm, ¿a qué hora repiten?",
             "answerOptions": [
@@ -2360,7 +2360,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 77,
-            "category": "Estrategias Pedagógicas",
+            "category": "Planeación",
             "difficulty": "expert",
             "question": "Al planificar una unidad didáctica, el docente debe considerar primero:",
             "answerOptions": [
@@ -2391,7 +2391,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 78,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "Si un texto argumentativo defiende la eutanasia, una idea contraria sería:",
             "answerOptions": [
@@ -2422,7 +2422,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 79,
-            "category": "Estrategias Pedagógicas",
+            "category": "Competencias",
             "difficulty": "hard",
             "question": "Un docente critica constantemente a sus colegas en reuniones. Como coordinador, usted debe:",
             "answerOptions": [
@@ -2453,7 +2453,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 80,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Una familia de 6 adultos tiene comida para 15 días. Llegan 3  adultos más. ¿Para cuántos días alcanza ahora?",
             "answerOptions": [
@@ -2484,7 +2484,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 81,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Para fomentar un clima de aula democrático, el docente debe:",
             "answerOptions": [
@@ -2515,7 +2515,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 82,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "El largo del puente A es 3 veces el largo del puente B. Si suman 120 metros, el puente más largo mide:",
             "answerOptions": [
@@ -2546,7 +2546,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 83,
-            "category": "Inclusión y Diversidad",
+            "category": "Inclusión",
             "difficulty": "expert",
             "question": "En un contexto de educación intercultural (EIB), el docente debe:",
             "answerOptions": [
@@ -2577,7 +2577,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 84,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Un tanque de 1200 cm3 está lleno 3/4 en invierno y 2/3 en verano. La diferencia es:",
             "answerOptions": [
@@ -2608,7 +2608,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 85,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "Ordene la oración: 1. lleva 2. esa 3. alegre 4. muñeca 5. a 6. su 7. infancia 8. la",
             "answerOptions": [
@@ -2639,7 +2639,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 86,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Según la ética docente, frente a los resultados de evaluación, el deber es:",
             "answerOptions": [
@@ -2670,7 +2670,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 87,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si un círculo tiene radio 10 cm, su área es (pi = 3.14):",
             "answerOptions": [
@@ -2701,7 +2701,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 88,
-            "category": "Marco Legal y Normativo",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "El rector debe decidir entre construir una piscina o una pista de patinaje. ¿Qué debe hacer?",
             "answerOptions": [
@@ -2732,7 +2732,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 89,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "En una reunión, la mitad son mujeres, de ellas 1/6 son altas. Si hay 36 personas, ¿cuántas mujeres NO son altas?",
             "answerOptions": [
@@ -2763,7 +2763,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 90,
-            "category": "Evaluación y Retroalimentación",
+            "category": "Evaluación",
             "difficulty": "expert",
             "question": "El uso de rúbricas detalladas compartidas previamente con los estudiantes favorece:",
             "answerOptions": [
@@ -2794,7 +2794,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 91,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Verbal",
             "difficulty": "hard",
             "question": "En un texto sobre 'El futuro del libro', si el autor dice que el libro es una extensión de la memoria, implica que:",
             "answerOptions": [
@@ -2825,7 +2825,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 92,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si a/b = 2/3 y b/c = 3/5, entonces a/c es:",
             "answerOptions": [
@@ -2856,7 +2856,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 93,
-            "category": "Marco Legal y Normativo",
+            "category": "Convivencia",
             "difficulty": "hard",
             "question": "Según la Ley 1620, el Manual de Convivencia debe:",
             "answerOptions": [
@@ -2887,7 +2887,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 94,
-            "category": "Estrategias Pedagógicas",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Un vendedor recibe un sueldo base más 10% de comisión. Si vendió 10 millones y recibió 2 millones en total, su sueldo base es:",
             "answerOptions": [
@@ -2918,7 +2918,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 95,
-            "category": "Estrategias Pedagógicas",
+            "category": "Pedagogía",
             "difficulty": "expert",
             "question": "Un estudiante no participa en clase por miedo a equivocarse. El docente debe:",
             "answerOptions": [
@@ -2946,16 +2946,1874 @@ const RAW_QUIZ_DATA_2 = {
             "correctAnswer": "b",
             "rationale": "La seguridad psicológica es requisito para el aprendizaje. El docente debe naturalizar el error como oportunidad de mejora (Evaluación Formativa).",
             "hint": "Fuente: 60 preguntas para concurso de reubicación docente"
+        },
+        {
+            "questionNumber": 96,
+            "category": "Inclusión",
+            "difficulty": "expert",
+            "question": "La Institución Educativa El Progreso tiene estudiantes con discapacidad y de diversas etnias. Aunque los documentos valoran la diversidad, persisten barreras. Varios docentes dudan sobre los PIAR y el DUA, alegando que 'baja el nivel'. ¿Cuál es la actuación docente más adecuada (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Continuar con la metodología habitual para no generar diferencias y tratar a todos por igual.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Elaborar junto al equipo interdisciplinario los PIAR y aplicar principios del DUA para diversificar la presentación de la información y la participación.",
+                    "rationale": "El nivel avanzado implica pasar de la queja a la acción pedagógica: implementar los ajustes razonables (PIAR) y el Diseño Universal (DUA) elimina barreras sin bajar la calidad, cumpliendo el Decreto 1421.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Sugerir a las familias que busquen apoyo externo terapéutico y esperar resultados clínicos.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Reducir las actividades y la exigencia a los estudiantes diversos para que no se sientan presionados.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El nivel avanzado implica pasar de la queja a la acción pedagógica: implementar los ajustes razonables (PIAR) y el Diseño Universal (DUA) elimina barreras sin bajar la calidad, cumpliendo el Decreto 1421.",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 97,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "Un estudiante afrodescendiente recién llegado presenta bajo desempeño y dificultades de adaptación. Algunos docentes sugieren que tiene 'problemas cognitivos'. ¿Qué orientación debe dar el coordinador (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Iniciar inmediatamente un PIAR asumiendo una discapacidad cognitiva.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Solicitar evaluación médica externa para justificar los bajos resultados ante secretaría.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Promover estrategias de inclusión cultural y aplicación del DUA, revisando barreras pedagógicas y de contexto antes de cualquier etiquetamiento.",
+                    "rationale": "Antes de patologizar (etiquetar medicamente), la gestión educativa inclusiva exige revisar si la escuela está ofreciendo un entorno culturalmente pertinente. Se debe abordar desde la interculturalidad y el DUA.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ubicarlo temporalmente en un grado inferior para que se nivele.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Antes de patologizar (etiquetar medicamente), la gestión educativa inclusiva exige revisar si la escuela está ofreciendo un entorno culturalmente pertinente. Se debe abordar desde la interculturalidad y el DUA.",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 98,
+            "category": "Inclusión",
+            "difficulty": "expert",
+            "question": "En una institución católica, una estudiante Testigo de Jehová se niega a participar en la organización de la misa de aniversario. La directora de grupo le dice que es obligatorio por el Manual de Convivencia. ¿Qué actuación favorece el aprendizaje inclusivo y legal (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Exigir la participación porque al matricularse aceptó el manual de convivencia confesional.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Permitir que no asista, dejándola en la biblioteca sola durante el evento.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Dialogar con la estudiante para acordar una actividad alternativa dentro del evento que no vulnere sus creencias pero la integre a la comunidad (ej. logística no religiosa), o respetar su no asistencia garantizando su derecho a la libertad de culto.",
+                    "rationale": "La libertad de culto es un derecho fundamental (Constitución). El nivel avanzado busca la inclusión mediante ajustes o respeto a la objeción de conciencia sin segregar ni imponer.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Convocar a los padres para convencerlos de que es solo un acto cultural.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La libertad de culto es un derecho fundamental (Constitución). El nivel avanzado busca la inclusión mediante ajustes o respeto a la objeción de conciencia sin segregar ni imponer.",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 99,
+            "category": "Convivencia",
+            "difficulty": "expert",
+            "question": "Durante la elección del personero, un candidato publica memes satíricos sobre el reglamento y docentes. No hay insultos, solo sátira. Algunos maestros piden su descalificación. ¿Qué decisión debe tomar el coordinador (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Descalificarlo inmediatamente por falta de respeto a la autoridad.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Validar su postulación, aprovechando la situación para debatir pedagógicamente sobre la libertad de expresión, sus límites y la crítica constructiva en democracia.",
+                    "rationale": "La sátira es parte de la expresión democrática. La respuesta avanzada convierte el conflicto en una oportunidad pedagógica sobre ciudadanía y libertad de expresión, en lugar de recurrir al autoritarismo.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ignorar los memes para no darle importancia y dejar que los estudiantes voten.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Sancionarlo con suspensión para sentar un precedente de orden.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La sátira es parte de la expresión democrática. La respuesta avanzada convierte el conflicto en una oportunidad pedagógica sobre ciudadanía y libertad de expresión, en lugar de recurrir al autoritarismo.",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 100,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "Durante una actividad lúdica en preescolar, un niño propone inventar una canción nueva en lugar de cantar la dirigida por la maestra. La docente duda. ¿Cómo se promueve la participación desde la primera infancia (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Seguir con la planificación original para enseñar disciplina y obediencia.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Decirle que inventen la canción en el recreo, pero ahora deben atender.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Acolitar la propuesta, permitiendo que los niños co-creen la canción, fomentando su autonomía, creatividad y liderazgo desde temprana edad.",
+                    "rationale": "La participación auténtica en primera infancia implica escuchar la voz del niño y permitirle incidir en su entorno. Esto desarrolla autonomía y pensamiento creativo (Lineamientos Educación Inicial).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Permitir la canción nueva solo si el niño se porta bien el resto de la clase.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La participación auténtica en primera infancia implica escuchar la voz del niño y permitirle incidir en su entorno. Esto desarrolla autonomía y pensamiento creativo (Lineamientos Educación Inicial).",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 101,
+            "category": "Convivencia",
+            "difficulty": "expert",
+            "question": "Se han incrementado los conflictos verbales en los descansos. Las agresiones menores se minimizan como 'cosas de adolescentes'. ¿Cuál es la acción más adecuada desde la orientación escolar (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Aumentar la vigilancia de los docentes en los patios para castigar a los agresores.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Implementar una estrategia integral de convivencia que incluya mediación escolar, formación en habilidades socioemocionales y revisión de los acuerdos de convivencia con los estudiantes.",
+                    "rationale": "El enfoque avanzado es sistémico y preventivo (Ley 1620). No se limita a vigilar (control) sino a formar capacidades (habilidades socioemocionales y mediación) para transformar el clima escolar.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Dar charlas magistrales sobre el bullying una vez al semestre.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Expulsar temporalmente a los estudiantes reincidentes.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El enfoque avanzado es sistémico y preventivo (Ley 1620). No se limita a vigilar (control) sino a formar capacidades (habilidades socioemocionales y mediación) para transformar el clima escolar.",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 102,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "La docente Carmen recibe retroalimentación de su directivo sugiriendo mejorar la eficiencia en la organización de eventos, pues el último requirió recursos excesivos. ¿Cuál es la mejor actitud de Carmen (Competencia Comportamental)?",
+            "answerOptions": [
+                {
+                    "text": "Cuestionar la retroalimentación defendiendo que el evento fue bonito.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Rechazar la crítica argumentando que la calidad cuesta dinero.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Aceptar la retroalimentación reflexivamente como una oportunidad de mejora para optimizar la gestión de recursos en el futuro.",
+                    "rationale": "La competencia de 'Orientación al Logro' y 'Compromiso' implica aceptar la evaluación de desempeño para la mejora continua, reconociendo que la eficiencia es parte de la gestión educativa.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ignorar al directivo y seguir haciéndolo igual.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La competencia de 'Orientación al Logro' y 'Compromiso' implica aceptar la evaluación de desempeño para la mejora continua, reconociendo que la eficiencia es parte de la gestión educativa.",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 103,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "El equipo directivo quiere implementar la Jornada Única. Algunos docentes temen mayor carga. Según la normativa, ¿qué acción es prioritaria para el director (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Imponer el horario y reportar a quienes no cumplan.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Asegurar primero que el plan de estudios y el PEI se ajusten pedagógicamente a la jornada, garantizando condiciones de alimentación y recursos, y concertando con la comunidad.",
+                    "rationale": "La Jornada Única no es solo más tiempo, es una reorganización curricular y de condiciones (infraestructura/PAE). La gestión directiva eficaz asegura la viabilidad pedagógica y operativa antes de la implementación.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Implementarla solo con las asignaturas fundamentales (Matemáticas y Lenguaje).",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Pedir a los padres que paguen el almuerzo para viabilizarla.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La Jornada Única no es solo más tiempo, es una reorganización curricular y de condiciones (infraestructura/PAE). La gestión directiva eficaz asegura la viabilidad pedagógica y operativa antes de la implementación.",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 104,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "Un docente nota que sus estudiantes confunden conceptos de estado, gobierno y nación. ¿Qué acción pedagógica asegura el aprendizaje profundo (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Repetir la explicación teórica hasta que memoricen las definiciones.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Implementar un enfoque diferenciado con estudios de caso, debates y análisis de situaciones reales donde apliquen los conceptos en contextos distintos.",
+                    "rationale": "El aprendizaje significativo de conceptos abstractos requiere estrategias activas (casos, debates) y diferenciación, no repetición mecánica.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Hacer un examen sorpresa para obligarlos a estudiar.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Pedir que copien el glosario del libro de texto.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El aprendizaje significativo de conceptos abstractos requiere estrategias activas (casos, debates) y diferenciación, no repetición mecánica.",
+            "hint": "02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
+        },
+        {
+            "questionNumber": 105,
+            "category": "Evaluación",
+            "difficulty": "expert",
+            "question": "Marcos y María no entienden sus calificaciones ni qué hacer para mejorar. El docente decide usar rúbricas. ¿Cómo fomenta la cultura de aprendizaje con ellas (Nivel Avanzado)?",
+            "answerOptions": [
+                {
+                    "text": "Entregar la rúbrica junto con la nota final para justificar la calificación.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Publicar la rúbrica en el tablero y asumir que la leyeron.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Socializar la rúbrica antes de la actividad, analizar ejemplos de diferentes niveles de desempeño y usarla para autoevaluación durante el proceso.",
+                    "rationale": "La evaluación formativa requiere que el estudiante conozca los criterios *antes* y durante el proceso. Analizar ejemplos ayuda a interiorizar el estándar de calidad esperado.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Usar la rúbrica solo para uso exclusivo del docente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La evaluación formativa requiere que el estudiante conozca los criterios *antes* y durante el proceso. Analizar ejemplos ayuda a interiorizar el estándar de calidad esperado.",
+            "hint": "02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
+        },
+        {
+            "questionNumber": 106,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "Para enriquecer sus clases de matemáticas y hacerlas pertinentes, un docente rural decide: (Nivel Avanzado)",
+            "answerOptions": [
+                {
+                    "text": "Seguir estrictamente el libro de texto del Ministerio.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Incorporar problemas del contexto local (ej. mercado, cosecha) y consultar con sabedores locales para integrar prácticas matemáticas de la comunidad.",
+                    "rationale": "La pertinencia curricular se logra vinculando el saber disciplinar con el contexto sociocultural del estudiante (Matemática situada/Etnomatemática).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Traer videos de internet sobre matemáticas avanzadas.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Aumentar la cantidad de ejercicios abstractos en el tablero.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La pertinencia curricular se logra vinculando el saber disciplinar con el contexto sociocultural del estudiante (Matemática situada/Etnomatemática).",
+            "hint": "02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
+        },
+        {
+            "questionNumber": 107,
+            "category": "Inclusión",
+            "difficulty": "expert",
+            "question": "Un estudiante con discapacidad visual ingresa al aula. El docente de aula no sabe Braille. ¿Cuál es la acción inmediata más inclusiva?",
+            "answerOptions": [
+                {
+                    "text": "Esperar a que llegue el tiflólogo de secretaría para que le enseñe.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Eximir al estudiante de tomar apuntes.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Implementar estrategias de oralidad, grabar las clases, usar trabajo por parejas (pares tutores) y gestionar recursos tiflotécnicos mientras se capacita.",
+                    "rationale": "La inclusión no espera expertos; el docente de aula debe realizar ajustes razonables inmediatos (audios, pares, oralidad) para garantizar participación (Decreto 1421).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Sugerir el traslado a un colegio especial.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La inclusión no espera expertos; el docente de aula debe realizar ajustes razonables inmediatos (audios, pares, oralidad) para garantizar participación (Decreto 1421).",
+            "hint": "02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA (Inferido contexto)"
+        },
+        {
+            "questionNumber": 108,
+            "category": "Evaluación",
+            "difficulty": "expert",
+            "question": "¿Qué define mejor el enfoque de 'Evaluar para Avanzar' según el Ministerio de Educación?",
+            "answerOptions": [
+                {
+                    "text": "Una prueba para ranquear a los mejores estudiantes.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Un mecanismo punitivo para docentes con bajos resultados.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Una estrategia de valoración de aprendizajes para identificar brechas y diseñar planes de fortalecimiento académico y emocional.",
+                    "rationale": "Evaluar para Avanzar es una política de evaluación diagnóstica y formativa orientada a identificar qué aprendizajes faltan y cómo actuar pedagógicamente para cerrarlos.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Un requisito burocrático de fin de año.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Evaluar para Avanzar es una política de evaluación diagnóstica y formativa orientada a identificar qué aprendizajes faltan y cómo actuar pedagógicamente para cerrarlos.",
+            "hint": "01 CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
+        },
+        {
+            "questionNumber": 109,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "Un rector observa que el Consejo Académico no está cumpliendo su función de revisión curricular. ¿Qué acción de liderazgo es pertinente?",
+            "answerOptions": [
+                {
+                    "text": "Disolver el consejo y tomar las decisiones él mismo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Delegar la función a la secretaria académica.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Convocar al Consejo, recordar sus funciones legales (Ley 115), y liderar un cronograma de trabajo para la actualización del PEI y currículo con metas claras.",
+                    "rationale": "El rector debe ejercer liderazgo pedagógico activando las instancias del Gobierno Escolar (Consejo Académico) para que cumplan su rol misional, no suplantarlas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Quejarse ante la Secretaría de Educación.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "El rector debe ejercer liderazgo pedagógico activando las instancias del Gobierno Escolar (Consejo Académico) para que cumplan su rol misional, no suplantarlas.",
+            "hint": "01 CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
+        },
+        {
+            "questionNumber": 110,
+            "category": "Convivencia",
+            "difficulty": "expert",
+            "question": "Dos estudiantes, Gabriel y Daniel, se agreden físicamente tras un periodo de burlas. El docente interviene. ¿Cuál es el manejo restaurativo adecuado?",
+            "answerOptions": [
+                {
+                    "text": "Expulsar a ambos inmediatamente por violencia física.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ignorarlo si no hubo sangre.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Suspender solo al que pegó el primer puño.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Detener la agresión, aplicar primeros auxilios, reportar, y posteriormente facilitar un proceso de diálogo/mediación para reparar el daño y establecer acuerdos de no repetición (Ruta de Atención).",
+                    "rationale": "La Ley 1620 exige activar la ruta (atención inmediata) y priorizar enfoques restaurativos y pedagógicos para la resolución del conflicto, más allá de la simple sanción punitiva.",
+                    "isCorrect": true
+                }
+            ],
+            "correctAnswer": "d",
+            "rationale": "La Ley 1620 exige activar la ruta (atención inmediata) y priorizar enfoques restaurativos y pedagógicos para la resolución del conflicto, más allá de la simple sanción punitiva.",
+            "hint": "01 CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
+        },
+        {
+            "questionNumber": 111,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "El docente Antonio nota desinterés. Cree que falta definir productos tangibles. ¿Por qué es importante definir objetivos y productos claros?",
+            "answerOptions": [
+                {
+                    "text": "Para tener algo que calificar rápidamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Para que los padres vean que se trabaja.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Porque ofrece una meta clara que orienta el esfuerzo y aumenta la motivación y compromiso del estudiante (aprendizaje situado).",
+                    "rationale": "El aprendizaje basado en proyectos o retos requiere metas claras (productos) que den sentido y propósito a las actividades, aumentando la motivación intrínseca.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Para mantener a los estudiantes ocupados todo el tiempo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "El aprendizaje basado en proyectos o retos requiere metas claras (productos) que den sentido y propósito a las actividades, aumentando la motivación intrínseca.",
+            "hint": "01 CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
+        },
+        {
+            "questionNumber": 112,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "Un estudiante de grado 11 tiene alto rendimiento pero no sabe qué estudiar. ¿Cuál es el rol del Docente Orientador según el modelo OSO (Orientación Socio Ocupacional)?",
+            "answerOptions": [
+                {
+                    "text": "Decirle qué carrera da más dinero.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Aplicar un test y decirle el resultado como verdad absoluta.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Acompañar un proceso de autoconocimiento, exploración del mundo de la formación y del trabajo, para que él tome una decisión informada.",
+                    "rationale": "La orientación socio-ocupacional no es prescriptiva. Busca desarrollar la capacidad de toma de decisiones del estudiante basándose en el conocimiento de sí mismo y del entorno.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ignorarlo, ya es casi adulto.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La orientación socio-ocupacional no es prescriptiva. Busca desarrollar la capacidad de toma de decisiones del estudiante basándose en el conocimiento de sí mismo y del entorno.",
+            "hint": "Guía Definitiva: Concurso Docente y Directivo 2026 (Transcript)"
+        },
+        {
+            "questionNumber": 113,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "Para desarrollar el pensamiento crítico sobre 'Justicia Social' en un contexto vulnerable, la docente Lorena debe:",
+            "answerOptions": [
+                {
+                    "text": "Dictar la definición de justicia del diccionario.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Utilizar el Aprendizaje Basado en Problemas (ABP) para analizar situaciones reales de inequidad de su entorno y proponer soluciones.",
+                    "rationale": "El pensamiento crítico se desarrolla analizando la realidad. El ABP contextualizado permite conectar la teoría (justicia) con la vivencia (inequidad), fomentando postura crítica.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Evitar temas polémicos para no tener problemas.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Hacer un examen de selección múltiple sobre leyes.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El pensamiento crítico se desarrolla analizando la realidad. El ABP contextualizado permite conectar la teoría (justicia) con la vivencia (inequidad), fomentando postura crítica.",
+            "hint": "02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
+        },
+        {
+            "questionNumber": 114,
+            "category": "Normatividad",
+            "difficulty": "expert",
+            "question": "Según el Decreto 1278, ¿cuál es el propósito principal de la Evaluación de Desempeño Anual?",
+            "answerOptions": [
+                {
+                    "text": "Despedir docentes ineficientes.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Aumentar el salario automáticamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Verificar el cumplimiento de funciones y formular planes de mejoramiento personal e institucional.",
+                    "rationale": "El propósito es el mejoramiento continuo. La evaluación identifica fortalezas y áreas de mejora que se traducen en planes de desarrollo profesional (PDI).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Llenar requisitos burocráticos de la Secretaría.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "El propósito es el mejoramiento continuo. La evaluación identifica fortalezas y áreas de mejora que se traducen en planes de desarrollo profesional (PDI).",
+            "hint": "Manual de Funciones, Requisitos y Competencias"
+        },
+        {
+            "questionNumber": 115,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "Para formular el Plan de Mejoramiento Institucional (PMI), el insumo principal debe ser:",
+            "answerOptions": [
+                {
+                    "text": "Las corazonadas del rector.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "El presupuesto financiero del año anterior.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Los resultados de la Autoevaluación Institucional (Guía 34) que revisa las cuatro gestiones.",
+                    "rationale": "La Guía 34 establece que el PMI nace del diagnóstico objetivo realizado en la Autoevaluación Institucional, abarcando gestión directiva, académica, administrativa y comunitaria.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Las quejas de los padres de familia únicamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La Guía 34 establece que el PMI nace del diagnóstico objetivo realizado en la Autoevaluación Institucional, abarcando gestión directiva, académica, administrativa y comunitaria.",
+            "hint": "Manual de Funciones - Guía 34"
+        },
+        {
+            "questionNumber": 116,
+            "category": "Evaluación",
+            "difficulty": "expert",
+            "question": "¿Qué caracteriza a una evaluación 'Auténtica'?",
+            "answerOptions": [
+                {
+                    "text": "Que las preguntas sean muy difíciles.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Que se realice en un salón cerrado y en silencio.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Que evalúe el desempeño en contextos o situaciones lo más cercanas posible a la realidad (simulación o práctica real).",
+                    "rationale": "La evaluación auténtica busca medir la competencia en ejecución, enfrentando al estudiante a desafíos realistas y no solo a pruebas de papel y lápiz descontextualizadas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Que sea certificada por notario.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La evaluación auténtica busca medir la competencia en ejecución, enfrentando al estudiante a desafíos realistas y no solo a pruebas de papel y lápiz descontextualizadas.",
+            "hint": "Material de estudio Concurso docente 2026"
+        },
+        {
+            "questionNumber": 117,
+            "category": "Inclusión",
+            "difficulty": "expert",
+            "question": "Un docente se niega a recibir a un estudiante con discapacidad auditiva porque 'no está capacitado'. Como directivo, su acción basada en derecho es:",
+            "answerOptions": [
+                {
+                    "text": "Aceptar la negativa y negar el cupo al estudiante.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Recordarle que la educación es un derecho y organizar el acompañamiento pedagógico y la formación en servicio para el docente (Decreto 1421).",
+                    "rationale": "El derecho a la educación prevalece. La institución debe garantizar el acceso y proveer los apoyos (formación, intérprete, etc.) para que el docente pueda atender la inclusión.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Despedir al docente inmediatamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Poner al estudiante en el salón sin ningún apoyo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El derecho a la educación prevalece. La institución debe garantizar el acceso y proveer los apoyos (formación, intérprete, etc.) para que el docente pueda atender la inclusión.",
+            "hint": "01 CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
+        },
+        {
+            "questionNumber": 118,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "El docente utiliza el 'Error' de un estudiante en la pizarra para explicar un tema a todos. Para que sea constructivo y no punitivo, debe:",
+            "answerOptions": [
+                {
+                    "text": "Burlarse suavemente para que no lo vuelva a cometer.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Decir quién se equivocó para que preste más atención.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Analizar la lógica detrás del error sin juzgar a la persona, usándolo como ventana para comprender el proceso de pensamiento y corregir conceptualmente.",
+                    "rationale": "El error es una oportunidad de aprendizaje. Analizar la lógica del error permite entender la construcción mental del estudiante y ajustar la enseñanza (Didáctica del error).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Borrarlo rápido y poner la respuesta correcta.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "El error es una oportunidad de aprendizaje. Analizar la lógica del error permite entender la construcción mental del estudiante y ajustar la enseñanza (Didáctica del error).",
+            "hint": "Material de estudio Concurso docente 2026"
+        },
+        {
+            "questionNumber": 119,
+            "category": "Convivencia",
+            "difficulty": "expert",
+            "question": "En un caso de presunto acoso sexual por parte de un docente hacia un estudiante, la ruta de atención inmediata exige:",
+            "answerOptions": [
+                {
+                    "text": "Confrontar al docente con el estudiante en rectoría.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Remitir inmediatamente a Fiscalía/ICBF y separar preventivamente al docente del contacto con menores (protección), garantizando el debido proceso.",
+                    "rationale": "Ante delitos presuntos contra menores, la prioridad es la protección y la remisión a autoridades competentes (Ley 1620, Código de Infancia). La IE no investiga delitos, activa rutas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Hacer una investigación interna exhaustiva antes de avisar a autoridades.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Pedir al estudiante que se retracte para no dañar la imagen del colegio.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Ante delitos presuntos contra menores, la prioridad es la protección y la remisión a autoridades competentes (Ley 1620, Código de Infancia). La IE no investiga delitos, activa rutas.",
+            "hint": "Manual de Funciones - Normatividad (Ley 1620)"
+        },
+        {
+            "questionNumber": 120,
+            "category": "Razonamiento Lógico",
+            "difficulty": "expert",
+            "question": "Si 'Todos los filósofos son racionales' y 'Algún racional es matemático', se puede concluir con certeza que:",
+            "answerOptions": [
+                {
+                    "text": "Algún filósofo es matemático.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Todos los matemáticos son filósofos.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Algún matemático es racional.",
+                    "rationale": "Lógica de conjuntos. Si algún racional es matemático, la intersección entre Racionales y Matemáticos no es vacía. Por tanto, es verdad que 'Algún matemático es racional' (conmutativa de la intersección). No se puede asegurar nada sobre la relación Filósofo-Matemático.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ningún filósofo es matemático.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Lógica de conjuntos. Si algún racional es matemático, la intersección entre Racionales y Matemáticos no es vacía. Por tanto, es verdad que 'Algún matemático es racional' (conmutativa de la intersección). No se puede asegurar nada sobre la relación Filósofo-Matemático.",
+            "hint": "RAZONAMIENTO CUANTITATIVO PREPARÁNDONOS PARA EL CONCURSO DOCENTE"
+        },
+        {
+            "questionNumber": 121,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "¿Qué implica la 'Gestión Comunitaria' según la Guía 34?",
+            "answerOptions": [
+                {
+                    "text": "Hacer bazares para recaudar fondos.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Articular la institución con el entorno, promover la participación de padres, la inclusión y la prevención de riesgos.",
+                    "rationale": "La gestión comunitaria busca la corresponsabilidad y la relación bidireccional escuela-comunidad, incluyendo inclusión y convivencia.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Darle las llaves del colegio a la Junta de Acción Comunal.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Atender quejas de vecinos solamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La gestión comunitaria busca la corresponsabilidad y la relación bidireccional escuela-comunidad, incluyendo inclusión y convivencia.",
+            "hint": "Manual de Funciones - Guía 34"
+        },
+        {
+            "questionNumber": 122,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "Un docente quiere fomentar la **Metacognición**. Al finalizar la clase pregunta:",
+            "answerOptions": [
+                {
+                    "text": "¿Les gustó la clase?",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "¿Qué aprendí hoy y cómo lo aprendí? ¿Para qué me sirve?",
+                    "rationale": "Las preguntas metacognitivas obligan al estudiante a reflexionar sobre sus propios procesos de pensamiento y la utilidad del aprendizaje.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "¿Quién quiere salir al recreo?",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "¿Copiaron toda la tarea?",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Las preguntas metacognitivas obligan al estudiante a reflexionar sobre sus propios procesos de pensamiento y la utilidad del aprendizaje.",
+            "hint": "Material de estudio Concurso docente 2026"
+        },
+        {
+            "questionNumber": 123,
+            "category": "Competencias",
+            "difficulty": "expert",
+            "question": "Sinónimo contextual: 'El orador **increpó** a la multitud por su apatía'.",
+            "answerOptions": [
+                {
+                    "text": "Elogió",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Rephendió",
+                    "rationale": "Increpar significa reprender con dureza o severidad. En el contexto de 'apatía', el orador está regañando.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ignoró",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Saludó",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Increpar significa reprender con dureza o severidad. En el contexto de 'apatía', el orador está regañando.",
+            "hint": "Prueba APTITUD VERBAL 2016"
+        },
+        {
+            "questionNumber": 124,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "Trabajo en equipo docente: Un colega no entrega sus planificaciones a tiempo, afectando el trabajo de área. Usted:",
+            "answerOptions": [
+                {
+                    "text": "Lo delata con el rector inmediatamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Hace el trabajo por él para no pelear.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Dialoga con él asertivamente para entender sus dificultades y acordar compromisos de entrega, recordándole la interdependencia del equipo.",
+                    "rationale": "La competencia comportamental de Trabajo en Equipo y Comunicación Asertiva privilegia el diálogo directo y la búsqueda de soluciones antes del conflicto o la queja.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Lo excluye del grupo de Whatsapp.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "La competencia comportamental de Trabajo en Equipo y Comunicación Asertiva privilegia el diálogo directo y la búsqueda de soluciones antes del conflicto o la queja.",
+            "hint": "Manual de Funciones - Competencias Comportamentales"
+        },
+        {
+            "questionNumber": 125,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "En el modelo **Escuela Nueva** (rural), el rol del docente es principalmente:",
+            "answerOptions": [
+                {
+                    "text": "Dictar clase magistral a todos los grados al tiempo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Facilitador que acompaña el aprendizaje autónomo de estudiantes de diferentes grados usando guías de interaprendizaje.",
+                    "rationale": "Escuela Nueva se basa en el aprendizaje activo, flexible y cooperativo mediante guías, donde el docente facilita procesos simultáneos en multigrado.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Administrador de la huerta escolar.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Cuidador de los niños mientras llegan los padres.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Escuela Nueva se basa en el aprendizaje activo, flexible y cooperativo mediante guías, donde el docente facilita procesos simultáneos en multigrado.",
+            "hint": "01 CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
+        },
+        {
+            "questionNumber": 126,
+            "category": "Razonamiento Lógico",
+            "difficulty": "expert",
+            "question": "En una carrera, A llegó antes que B, pero después que C. D llegó antes que C. ¿Quién llegó último?",
+            "answerOptions": [
+                {
+                    "text": "A",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "B",
+                    "rationale": "Orden: D > C > A > B. Por tanto, B llegó último.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "C",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "D",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Orden: D > C > A > B. Por tanto, B llegó último.",
+            "hint": "RAZONAMIENTO CUANTITATIVO PREPARÁNDONOS PARA EL CONCURSO DOCENTE"
+        },
+        {
+            "questionNumber": 127,
+            "category": "Planeación",
+            "difficulty": "expert",
+            "question": "La 'Transversalidad' en el currículo implica:",
+            "answerOptions": [
+                {
+                    "text": "Dar una clase de ética a la semana.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Que problemáticas relevantes (ej. ambiente, derechos) atraviesen todas las áreas académicas dinamizando la formación integral.",
+                    "rationale": "La transversalidad conecta la escuela con la vida, integrando temas cruciales (como los Proyectos Pedagógicos Transversales) en el desarrollo de todas las asignaturas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Cruzar los horarios de los profesores.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Hacer proyectos solo al final del año.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La transversalidad conecta la escuela con la vida, integrando temas cruciales (como los Proyectos Pedagógicos Transversales) en el desarrollo de todas las asignaturas.",
+            "hint": "Manual de Funciones - Proyectos Transversales"
+        },
+        {
+            "questionNumber": 128,
+            "category": "Inclusión",
+            "difficulty": "expert",
+            "question": "El DUA (Diseño Universal para el Aprendizaje) propone:",
+            "answerOptions": [
+                {
+                    "text": "Hacer una clase diferente para cada niño.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ofrecer múltiples formas de representación, acción/expresión y motivación para atender a la diversidad desde la planificación inicial.",
+                    "rationale": "El DUA busca eliminar barreras desde el diseño del currículo, ofreciendo opciones variadas para que todos puedan aprender (Principio de flexibilidad).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Diseñar solo para el estudiante promedio.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Usar tecnología costosa obligatoriamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El DUA busca eliminar barreras desde el diseño del currículo, ofreciendo opciones variadas para que todos puedan aprender (Principio de flexibilidad).",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 129,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "El Consejo Directivo debe resolver un conflicto sobre costos educativos. Su función es:",
+            "answerOptions": [
+                {
+                    "text": "Ignorar el tema financiero.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Aprobar el presupuesto y adoptar las tarifas educativas vigentes, garantizando la correcta administración de recursos.",
+                    "rationale": "El Consejo Directivo es la máxima instancia administrativa y financiera; le corresponde la adopción de costos y aprobación del presupuesto (Ley 115).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Dejar que el rector decida solo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Pedir cuotas extraordinarias no autorizadas.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El Consejo Directivo es la máxima instancia administrativa y financiera; le corresponde la adopción de costos y aprobación del presupuesto (Ley 115).",
+            "hint": "Manual de Funciones - Gobierno Escolar"
+        },
+        {
+            "questionNumber": 130,
+            "category": "Convivencia",
+            "difficulty": "expert",
+            "question": "Un estudiante es víctima de Ciberbullying fuera del horario escolar. La escuela debe:",
+            "answerOptions": [
+                {
+                    "text": "No hacer nada porque fue fuera del colegio.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Intervenir activando la ruta de atención, dado que afecta la convivencia escolar y los derechos del estudiante, brindando apoyo y seguimiento.",
+                    "rationale": "La Ley 1620 y sentencias de la Corte extienden la responsabilidad de la escuela al ciberacoso si este impacta la convivencia o vulnera derechos de miembros de la comunidad educativa.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Expulsar a los implicados sin averiguar.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Decirle a los padres que le quiten el celular.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La Ley 1620 y sentencias de la Corte extienden la responsabilidad de la escuela al ciberacoso si este impacta la convivencia o vulnera derechos de miembros de la comunidad educativa.",
+            "hint": "01 CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
+        },
+        {
+            "questionNumber": 131,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "La 'Zona de Desarrollo Próximo' (Vygotsky) se refiere a:",
+            "answerOptions": [
+                {
+                    "text": "La distancia entre el pupitre y el tablero.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Lo que el estudiante ya sabe hacer solo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La brecha entre lo que el estudiante puede hacer solo y lo que puede lograr con la guía de un mediador (docente/par).",
+                    "rationale": "Es el espacio donde ocurre el aprendizaje mediante el andamiaje. El docente actúa en esta zona para potenciar el desarrollo.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "El nivel de desarrollo físico del niño.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Es el espacio donde ocurre el aprendizaje mediante el andamiaje. El docente actúa en esta zona para potenciar el desarrollo.",
+            "hint": "60 preguntas para concurso de reubicación docente"
+        },
+        {
+            "questionNumber": 132,
+            "category": "Evaluación",
+            "difficulty": "expert",
+            "question": "¿Qué diferencia la Evaluación Sumativa de la Formativa?",
+            "answerOptions": [
+                {
+                    "text": "La sumativa usa números y la formativa letras.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La sumativa certifica el aprendizaje al final (resultado), la formativa acompaña y mejora el aprendizaje durante el proceso.",
+                    "rationale": "La distinción clave es el propósito: la formativa busca mejorar (proceso), la sumativa busca verificar y certificar (producto).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "No hay diferencia.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La formativa es opcional.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La distinción clave es el propósito: la formativa busca mejorar (proceso), la sumativa busca verificar y certificar (producto).",
+            "hint": "Material de estudio Concurso docente 2026"
+        },
+        {
+            "questionNumber": 133,
+            "category": "Competencias",
+            "difficulty": "expert",
+            "question": "Analogía: PINTOR : PINCEL ::",
+            "answerOptions": [
+                {
+                    "text": "Escultor : Cincel",
+                    "rationale": "Relación Sujeto : Instrumento principal de trabajo manual creativo. El cincel es al escultor lo que el pincel al pintor (creación artística manual). El bisturí es técnico/científico.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Músico : Guitarra",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Escritor : Libro",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Médico : Bisturí",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "a",
+            "rationale": "Relación Sujeto : Instrumento principal de trabajo manual creativo. El cincel es al escultor lo que el pincel al pintor (creación artística manual). El bisturí es técnico/científico.",
+            "hint": "Prueba APTITUD VERBAL 2016"
+        },
+        {
+            "questionNumber": 134,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "La autoevaluación institucional anual tiene como fin último:",
+            "answerOptions": [
+                {
+                    "text": "Enviar un informe a la Secretaría.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Elaborar el Plan de Mejoramiento Institucional (PMI) para elevar la calidad educativa.",
+                    "rationale": "La autoevaluación es el diagnóstico base para planificar la mejora continua a través del PMI (Guía 34).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Criticar a los docentes que trabajan mal.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Cumplir un requisito formal.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La autoevaluación es el diagnóstico base para planificar la mejora continua a través del PMI (Guía 34).",
+            "hint": "Manual de Funciones - Guía 34"
+        },
+        {
+            "questionNumber": 135,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "El aprendizaje colaborativo se diferencia del trabajo en grupo tradicional en que:",
+            "answerOptions": [
+                {
+                    "text": "Se sientan juntos pero trabajan individualmente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Existe interdependencia positiva y responsabilidad individual y grupal para lograr una meta común.",
+                    "rationale": "La clave es la interdependencia positiva: el éxito de uno depende del éxito de todos, exigiendo colaboración real, no solo repartición de tareas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Uno hace el trabajo y los demás copian.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Es más desordenado.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La clave es la interdependencia positiva: el éxito de uno depende del éxito de todos, exigiendo colaboración real, no solo repartición de tareas.",
+            "hint": "02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
+        },
+        {
+            "questionNumber": 136,
+            "category": "Razonamiento Lógico",
+            "difficulty": "expert",
+            "question": "Un padre tiene 40 años y su hijo 10. ¿Dentro de cuántos años la edad del padre será el doble de la del hijo?",
+            "answerOptions": [
+                {
+                    "text": "10",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "15",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "20",
+                    "rationale": "Sea x los años que pasan. (40+x) = 2(10+x). 40+x = 20+2x. 20 = x. En 20 años el padre tendrá 60 y el hijo 30.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "25",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Sea x los años que pasan. (40+x) = 2(10+x). 40+x = 20+2x. 20 = x. En 20 años el padre tendrá 60 y el hijo 30.",
+            "hint": "RAZONAMIENTO CUANTITATIVO PREPARÁNDONOS PARA EL CONCURSO DOCENTE"
+        },
+        {
+            "questionNumber": 137,
+            "category": "Normatividad",
+            "difficulty": "expert",
+            "question": "¿Qué ley establece el Código de la Infancia y la Adolescencia en Colombia?",
+            "answerOptions": [
+                {
+                    "text": "Ley 115 de 1994",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ley 1098 de 2006",
+                    "rationale": "La Ley 1098 de 2006 es el Código de Infancia y Adolescencia, marco fundamental para la protección de derechos de los menores.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ley 715 de 2001",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ley 1620 de 2013",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La Ley 1098 de 2006 es el Código de Infancia y Adolescencia, marco fundamental para la protección de derechos de los menores.",
+            "hint": "Manual de Funciones - Normatividad"
+        },
+        {
+            "questionNumber": 138,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "La 'Transposición Didáctica' (Chevallard) consiste en:",
+            "answerOptions": [
+                {
+                    "text": "Cambiar a los alumnos de puesto.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "El proceso de transformar el saber científico (sabio) en saber enseñable (escolar) accesible al estudiante.",
+                    "rationale": "Es la adaptación necesaria que hace el docente para que un conocimiento complejo sea comprensible y aprendible por el estudiante.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Copiar el libro de texto en el tablero.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Traducir textos de otro idioma.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Es la adaptación necesaria que hace el docente para que un conocimiento complejo sea comprensible y aprendible por el estudiante.",
+            "hint": "Material de estudio Concurso docente 2026 (Conceptos pedagógicos)"
+        },
+        {
+            "questionNumber": 139,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "Un docente quiere liderar un proyecto ambiental. Para que sea institucional debe:",
+            "answerOptions": [
+                {
+                    "text": "Hacerlo solo en su salón.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Articularlo al Proyecto Ambiental Escolar (PRAE) y presentarlo al Consejo Académico/Directivo para su inclusión en el PEI.",
+                    "rationale": "La institucionalización requiere articulación con los proyectos transversales obligatorios (PRAE) y aprobación de órganos de gobierno escolar.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Pedir dinero a los padres sin permiso.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Sembrar árboles el fin de semana.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La institucionalización requiere articulación con los proyectos transversales obligatorios (PRAE) y aprobación de órganos de gobierno escolar.",
+            "hint": "Manual de Funciones - Proyectos Transversales"
+        },
+        {
+            "questionNumber": 140,
+            "category": "Competencias",
+            "difficulty": "expert",
+            "question": "Comprensión lectora: 'Leer entre líneas' hace referencia al nivel de lectura:",
+            "answerOptions": [
+                {
+                    "text": "Literal",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Inferencial",
+                    "rationale": "El nivel inferencial implica deducir información implícita que no está escrita directamente en el texto ('entre líneas').",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Crítico",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Fonético",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El nivel inferencial implica deducir información implícita que no está escrita directamente en el texto ('entre líneas').",
+            "hint": "Prueba APTITUD VERBAL 2016"
+        },
+        {
+            "questionNumber": 141,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "Un estudiante llora porque perdió un examen. La respuesta empática del docente es:",
+            "answerOptions": [
+                {
+                    "text": "Decirle que deje de llorar, que no es para tanto.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Validar su emoción ('Veo que estás triste'), escucharle y luego buscar juntos estrategias para mejorar en el próximo.",
+                    "rationale": "La empatía y contención emocional implican validar el sentimiento del otro sin juzgar, antes de pasar a la solución racional.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ignorarlo para no reforzar el llanto.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Regalarle puntos para que se calme.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La empatía y contención emocional implican validar el sentimiento del otro sin juzgar, antes de pasar a la solución racional.",
+            "hint": "01 CARTILLA DE PREGUNTAS PRUEBA DOCENTE PEDAGÓGICA GENERAL"
+        },
+        {
+            "questionNumber": 142,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "¿Qué función cumple el Manual de Funciones en el concurso docente?",
+            "answerOptions": [
+                {
+                    "text": "Ninguna, es solo papel.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Define el perfil, requisitos, conocimientos y competencias que se evaluarán en la prueba y se exigirán en el cargo.",
+                    "rationale": "El Manual (Resolución 3842/2022 o 09317/2016) es la base técnica que define qué se evalúa y qué se espera del docente.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Sirve para calcular el sueldo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Indica el horario de entrada.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El Manual (Resolución 3842/2022 o 09317/2016) es la base técnica que define qué se evalúa y qué se espera del docente.",
+            "hint": "Manual de Funciones - MEN"
+        },
+        {
+            "questionNumber": 143,
+            "category": "Inclusión",
+            "difficulty": "expert",
+            "question": "La educación intercultural busca:",
+            "answerOptions": [
+                {
+                    "text": "Que todos se vuelvan iguales.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Promover el diálogo de saberes y el respeto mutuo entre culturas diferentes en un plano de equidad.",
+                    "rationale": "La interculturalidad supera el multiculturalismo (coexistencia) buscando la interacción y enriquecimiento mutuo (diálogo de saberes).",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Enseñar folclor una vez al año.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Segregar a las etnias para protegerlas.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La interculturalidad supera el multiculturalismo (coexistencia) buscando la interacción y enriquecimiento mutuo (diálogo de saberes).",
+            "hint": "Material de estudio Concurso docente 2026"
+        },
+        {
+            "questionNumber": 144,
+            "category": "Razonamiento Lógico",
+            "difficulty": "expert",
+            "question": "Si sube el precio de la gasolina, sube el transporte. Si sube el transporte, suben los alimentos. Subió la gasolina. Conclusión:",
+            "answerOptions": [
+                {
+                    "text": "Bajaron los alimentos.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Subieron los alimentos.",
+                    "rationale": "Silogismo hipotético (transitividad). A -> B, B -> C. Si ocurre A, ocurre C. Gasolina sube -> Alimentos suben.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "El transporte bajó.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "No pasa nada.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Silogismo hipotético (transitividad). A -> B, B -> C. Si ocurre A, ocurre C. Gasolina sube -> Alimentos suben.",
+            "hint": "RAZONAMIENTO CUANTITATIVO PREPARÁNDONOS PARA EL CONCURSO DOCENTE"
+        },
+        {
+            "questionNumber": 145,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "El uso de Mapas Conceptuales favorece el aprendizaje porque:",
+            "answerOptions": [
+                {
+                    "text": "Es más fácil calificar dibujos.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Permite organizar, jerarquizar y relacionar visualmente los conceptos (Aprendizaje Significativo de Ausubel).",
+                    "rationale": "Los mapas conceptuales son herramientas cognitivas que reflejan la estructura mental del conocimiento y sus relaciones jerárquicas.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ocupa toda la hora de clase.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Es una actividad artística.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Los mapas conceptuales son herramientas cognitivas que reflejan la estructura mental del conocimiento y sus relaciones jerárquicas.",
+            "hint": "60 preguntas para concurso de reubicación docente"
+        },
+        {
+            "questionNumber": 146,
+            "category": "Convivencia",
+            "difficulty": "expert",
+            "question": "La ética del cuidado en la escuela implica:",
+            "answerOptions": [
+                {
+                    "text": "Cuidar que no se roben las sillas.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Reconocer la vulnerabilidad del otro y asumir la responsabilidad de proteger y promover el bienestar mutuo.",
+                    "rationale": "La ética del cuidado se centra en las relaciones, la responsabilidad hacia el otro y la interdependencia, fundamental para la convivencia.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Vigilar con cámaras.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ser permisivo con todo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La ética del cuidado se centra en las relaciones, la responsabilidad hacia el otro y la interdependencia, fundamental para la convivencia.",
+            "hint": "Material de estudio Concurso docente 2026"
+        },
+        {
+            "questionNumber": 147,
+            "category": "Planeación",
+            "difficulty": "expert",
+            "question": "Los Derechos Básicos de Aprendizaje (DBA) son:",
+            "answerOptions": [
+                {
+                    "text": "El plan de estudios completo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Un conjunto de saberes fundamentales que todo estudiante debe alcanzar en cada grado, referente para la planeación.",
+                    "rationale": "Los DBA son referentes de calidad que explicitan los aprendizajes estructurantes por grado y área.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Los derechos humanos.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "El manual de convivencia.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Los DBA son referentes de calidad que explicitan los aprendizajes estructurantes por grado y área.",
+            "hint": "Guía Definitiva: Concurso Docente y Directivo 2026 (Transcript)"
+        },
+        {
+            "questionNumber": 148,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "Si un docente quiere ascender en el escalafón (1278), debe:",
+            "answerOptions": [
+                {
+                    "text": "Esperar a cumplir años de servicio solamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Superar la Evaluación de Carácter Diagnóstica Formativa (ECDF) o el concurso de ascenso convocado.",
+                    "rationale": "El ascenso en el estatuto 1278 está condicionado a la superación de evaluaciones de competencia/desempeño convocadas por el Estado.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Ser amigo del rector.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Hacer una huelga.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "El ascenso en el estatuto 1278 está condicionado a la superación de evaluaciones de competencia/desempeño convocadas por el Estado.",
+            "hint": "Manual de Funciones - Normatividad"
+        },
+        {
+            "questionNumber": 149,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "La gamificación en el aula consiste en:",
+            "answerOptions": [
+                {
+                    "text": "Dejar jugar a los niños libremente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Usar mecánicas y dinámicas de juego (puntos, niveles, retos) en contextos no lúdicos para motivar el aprendizaje.",
+                    "rationale": "Gamificar es aplicar la psicología del juego (motivación, recompensa, progreso) al proceso de aprendizaje para aumentar el compromiso.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Jugar videojuegos en clase.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Hacer rifas.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Gamificar es aplicar la psicología del juego (motivación, recompensa, progreso) al proceso de aprendizaje para aumentar el compromiso.",
+            "hint": "Todo sobre el concurso Docente 2026 (Transcript)"
+        },
+        {
+            "questionNumber": 150,
+            "category": "Inclusión",
+            "difficulty": "expert",
+            "question": "Un estudiante con TDAH se distrae mucho. Ajuste razonable en aula:",
+            "answerOptions": [
+                {
+                    "text": "Sacarlo del salón.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ubicarlo lejos de ventanas/puertas (estímulos), segmentar las instrucciones y permitir pausas activas.",
+                    "rationale": "Son ajustes de acceso y metodología que ayudan a focalizar la atención sin segregar al estudiante.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Regañarlo cada vez que se mueva.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Dejarlo hacer lo que quiera.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "Son ajustes de acceso y metodología que ayudan a focalizar la atención sin segregar al estudiante.",
+            "hint": "Nuevos Maestros fase 2 entrega 6.2"
+        },
+        {
+            "questionNumber": 151,
+            "category": "Razonamiento Lógico",
+            "difficulty": "expert",
+            "question": "Serie gráfica: Círculo, Cuadrado, Triángulo, Círculo, Cuadrado... ¿Sigue?",
+            "answerOptions": [
+                {
+                    "text": "Círculo",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Cuadrado",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Triángulo",
+                    "rationale": "Patrón de repetición simple de 3 elementos: Círculo-Cuadrado-Triángulo. Sigue Triángulo.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Rombo",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "c",
+            "rationale": "Patrón de repetición simple de 3 elementos: Círculo-Cuadrado-Triángulo. Sigue Triángulo.",
+            "hint": "RAZONAMIENTO CUANTITATIVO PREPARÁNDONOS PARA EL CONCURSO DOCENTE"
+        },
+        {
+            "questionNumber": 152,
+            "category": "Convivencia",
+            "difficulty": "expert",
+            "question": "La mediación escolar busca:",
+            "answerOptions": [
+                {
+                    "text": "Determinar quién es el culpable para castigarlo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Que un tercero neutral ayude a las partes a encontrar una solución negociada y pacífica al conflicto.",
+                    "rationale": "La mediación es una estrategia alternativa de resolución de conflictos basada en el diálogo y la autocomposición asistida.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Que el director decida por ellos.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ignorar el problema.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La mediación es una estrategia alternativa de resolución de conflictos basada en el diálogo y la autocomposición asistida.",
+            "hint": "Manual de Funciones - Convivencia"
+        },
+        {
+            "questionNumber": 153,
+            "category": "Evaluación",
+            "difficulty": "expert",
+            "question": "La coevaluación es:",
+            "answerOptions": [
+                {
+                    "text": "Evaluación del docente al alumno.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Evaluación entre pares (estudiante a estudiante) con criterios definidos.",
+                    "rationale": "La coevaluación fomenta la crítica constructiva, la responsabilidad compartida y el aprendizaje social entre compañeros.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Evaluación del alumno a sí mismo.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Evaluación del coordinador.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La coevaluación fomenta la crítica constructiva, la responsabilidad compartida y el aprendizaje social entre compañeros.",
+            "hint": "02 - CARTILLA DE PREGUNTAS DOCENTE PRIMARIA"
+        },
+        {
+            "questionNumber": 154,
+            "category": "Pedagogía",
+            "difficulty": "expert",
+            "question": "El aprendizaje basado en la indagación (STEAM) promueve:",
+            "answerOptions": [
+                {
+                    "text": "Copiar experimentos hechos.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "La curiosidad, formulación de preguntas, investigación y construcción de respuestas basadas en evidencia.",
+                    "rationale": "La indagación pone al estudiante en el rol de investigador activo, desarrollando pensamiento científico y crítico.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Leer libros de ciencia ficción.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Ver documentales pasivamente.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La indagación pone al estudiante en el rol de investigador activo, desarrollando pensamiento científico y crítico.",
+            "hint": "Material de estudio Concurso docente 2026"
+        },
+        {
+            "questionNumber": 155,
+            "category": "Gestión",
+            "difficulty": "expert",
+            "question": "Un docente quiere implementar TIC pero no hay internet. Actitud proactiva:",
+            "answerOptions": [
+                {
+                    "text": "No hacer nada hasta que pongan internet.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Usar recursos offline (contenidos precargados, software local), aprendizaje móvil o recursos desconectados.",
+                    "rationale": "La competencia tecnológica incluye la capacidad de adaptar el uso de TIC a las condiciones reales (offline/online) para no detener la innovación.",
+                    "isCorrect": true
+                },
+                {
+                    "text": "Quejarse todo el día.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                },
+                {
+                    "text": "Pedir traslado.",
+                    "rationale": "Opción incorrecta según el planteamiento pedagógico.",
+                    "isCorrect": false
+                }
+            ],
+            "correctAnswer": "b",
+            "rationale": "La competencia tecnológica incluye la capacidad de adaptar el uso de TIC a las condiciones reales (offline/online) para no detener la innovación.",
+            "hint": "Simulacro gratis concurso de ascenso docente"
         }
     ]
 };
 
-// Metadata for export (Node.js)
-if (typeof module !== 'undefined') {
-    module.exports = RAW_QUIZ_DATA_2;
-}
-
-// Metadata for browser global (if needed explicitly, though const in global scope works)
 if (typeof window !== 'undefined') {
     window.RAW_QUIZ_DATA_2 = RAW_QUIZ_DATA_2;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { RAW_QUIZ_DATA_2 };
 }

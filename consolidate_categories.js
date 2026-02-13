@@ -16,43 +16,39 @@ const data = eval('(' + match[1] + ')');
 
 // Mapping Logic
 function getNewCategory(oldCat) {
-    if (!oldCat) return "Sin Categoría";
+    if (!oldCat) return "Estrategias Pedagógicas"; // Default for nulls
     const c = oldCat.trim();
 
     // 1. Evaluación y Retroalimentación
     if (c.match(/Evaluación|Retroalimentación/i)) return "Evaluación y Retroalimentación";
 
-    // 2. Estrategias Pedagógicas
-    if (c.match(/Didáctica|Pedagógica|Aprendizaje|Metodología|Enseñanza|Aula|Motivación|Metacognición|TIC|Ética/i) && !c.match(/Inclusión|NEE|EIB|Planificación|Gestión/i)) return "Estrategias Pedagógicas";
+    // 2. Inclusión y Diversidad
+    if (c.match(/Inclusión|NEE|EIB|Diversidad|Diferenciación|Equidad|Acceso/i)) return "Inclusión y Diversidad";
 
-    // 3. Inclusión y Diversidad
-    if (c.match(/Inclusión|NEE|EIB|Diversidad|Diferenciación/i)) return "Inclusión y Diversidad";
+    // 3. Convivencia y Valores
+    if (c.match(/Convivencia|Restaurativas|Valores|Ciudadanía|Ambiente de Aula|Democracia|Paz/i)) return "Convivencia y Valores";
 
-    // 4. Convivencia y Valores
-    if (c.match(/Convivencia|Restaurativas|Valores|Ciudadanía|Ambiente de Aula/i)) return "Convivencia y Valores";
+    // 4. Marco Legal y Normativo
+    if (c.match(/Normativo|Legislación|Decreto|Ley|Manual|Estatuto|Constitu/i)) return "Marco Legal y Normativo";
 
-    // 5. Marco Legal y Normativo
-    if (c.match(/Normativo|Legislación|Decreto|Ley|Manual/i)) return "Marco Legal y Normativo";
+    // 5. Gestión Institucional
+    if (c.match(/Gestión|Rectoría|PEI|Liderazgo|Organización|Administrativa|Situacional/i)) return "Gestión Institucional";
 
-    // 6. Gestión Institucional
-    if (c.match(/Gestión|Rectoría|PEI|Liderazgo/i)) return "Gestión Institucional";
+    // 6. Planificación Curricular
+    if (c.match(/Planificación|Curriculum|Curricular|Diseño|Secuencia/i)) return "Planificación Curricular";
 
-    // 7. Planificación Curricular
-    if (c.match(/Planificación|Curriculum|Curricular/i)) return "Planificación Curricular";
+    // 7. Razonamiento Lógico
+    if (c.match(/Razonamiento|Cuantitativo|Lógico|Matemático|Abstracto|Números|Series/i)) return "Razonamiento Lógico";
 
-    // 8. Razonamiento Lógico (Math/Abstract)
-    if (c.match(/Razonamiento|Cuantitativo|Lógico|Matemático|Abstracto/i)) return "Razonamiento Lógico";
+    // 8. Competencias Específicas
+    if (c.match(/Aptitud Verbal|Comprensión|Saber|Disciplina|Contenido|Científica|Sociales|Lenguaje/i)) return "Competencias Específicas";
 
-    // 9. Competencias Específicas (Subject Knowledge / Verbal / General Skills)
-    if (c.match(/Aptitud Verbal|Comprensión|Sinónimos|Antónimos|Analogías|Oraciones|Ordenamiento/i)) return "Competencias Específicas";
+    // 9. Desarrollo Cognitivo
+    if (c.match(/Psicotécnica|Orientación|Soft Skills|Socioemocional|Neuro|Cognitivo|Habilidades/i)) return "Desarrollo Cognitivo";
 
-    // 10. Desarrollo Cognitivo (Psychotech / Soft Skills)
-    if (c.match(/Psicotécnica|Orientación|Trabajo en Equipo|Habilidades/i)) return "Desarrollo Cognitivo";
-
-    // Fallbacks
-    if (c.match(/Situacional/i)) return "Gestión Institucional"; // Often situational leadership/management
-
-    return "Estrategias Pedagógicas"; // Default safe
+    // 10. Estrategias Pedagógicas (The broad bucket)
+    // Default for everything else pedagogy related
+    return "Estrategias Pedagógicas";
 }
 
 // Transform
