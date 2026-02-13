@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=83">
+    <link rel="stylesheet" href="style.css?v=84">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                 <button class="profile-button" id="profileBtn" aria-label="Perfil">
                     <img id="user-avatar" src="" alt="User" style="display: none;">
                     <div id="user-initials" class="user-initials" style="display: none;"></div>
-                    <span class="version-tag">Experto v83</span>
+                    <span class="version-tag">Experto v84</span>
                 </button>
                 <div class="profile-menu" id="profileMenu">
                     <div class="profile-info" onclick="switchView('profile')" style="cursor: pointer;">
@@ -497,15 +497,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/@sweetalert2/sweetalert2@11"></script>
+    <!-- SweetAlert2 (Fixed CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=83" defer></script>
+    <script src="app.js?v=84" defer></script>
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=83')
+                navigator.serviceWorker.register('./sw.js?v=84')
                     .then(reg => {
                         console.log('✓ SW v83 registrado');
 

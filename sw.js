@@ -1,10 +1,11 @@
-const CACHE_NAME = 'docente-quiz-v83'; // Matches index.html version
+const CACHE_NAME = 'docente-quiz-v84'; // Matches index.html version
 const ASSETS = [
     './',
-    './index.html',
-    './style.css?v=83',
-    './app.js?v=83',
+    './index.html?v=84',
+    './style.css?v=84',
+    './app.js?v=84',
     './sw.js?v=83',
+    './quizData.js?v=84',
     './quizData.js?v=83',
     './quizData2.js?v=83',
     './quizData3.js?v=83',
