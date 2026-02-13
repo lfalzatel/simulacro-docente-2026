@@ -4,1402 +4,1502 @@ const RAW_QUIZ_DATA = {
     {
       "questionNumber": 1,
       "category": "Evaluación y Retroalimentación",
-      "question": "Un docente observa que sus estudiantes tienen dificultades para aplicar un nuevo concepto. ¿Cuál es la acción más apropiada según los principios de la **Evaluación Formativa**?",
+      "difficulty": "Experto",
+      "question": "En una sesión de aprendizaje de Ciencias, un docente nota que la mayoría de los estudiantes aplica incorrectamente la ley de conservación de la materia en problemas de estequiometría, a pesar de haber aprobado la evaluación teórica previa. ¿Cuál es el curso de acción más coherente con un enfoque de **Evaluación Formativa** de desempeño avanzado?",
       "answerOptions": [
         {
-          "text": "Asignarles más tarea para la casa como castigo por no comprender.",
-          "rationale": "La evaluación formativa se centra en mejorar el proceso, no en el castigo.",
-          "isCorrect": false
-        },
-        {
-          "text": "Tomar una prueba escrita inmediatamente para registrarlos como no logrados.",
-          "rationale": "Tomar una prueba solo para registrar un resultado interrumpe el proceso de mejora.",
-          "isCorrect": false
-        },
-        {
-          "text": "Modificar la estrategia de enseñanza, brindar retroalimentación específica y permitir la oportunidad de mejora.",
-          "rationale": "Esta es la esencia de la evaluación formativa: ajustar la enseñanza y ofrecer feedback.",
+          "text": "Diseñar una actividad de andamiaje que permita a los estudiantes modelar procesos químicos reales, facilitando la identificación autónoma de la brecha entre su comprensión teórica y la aplicación práctica.",
+          "rationale": "CORRECTA. La evaluación formativa avanzada busca que el estudiante sea consciente de su brecha cognitiva mediante la mediación y el ajuste de la estrategia de enseñanza basada en evidencia.",
           "isCorrect": true
         },
         {
-          "text": "Ignorar la dificultad, ya que deben resolverla por sí mismos.",
-          "rationale": "El docente tiene el rol de mediador y debe intervenir para guiar el aprendizaje.",
+          "text": "Asignar un trabajo de investigación exhaustivo sobre los antecedentes históricos de la ley para que comprendan su importancia y no vuelvan a cometer errores en la práctica.",
+          "rationale": "Saturar con información histórica no resuelve la dificultad técnica de aplicación; no ataca la causa raíz de la confusión en la resolución de problemas.",
+          "isCorrect": false
+        },
+        {
+          "text": "Anular la evaluación teórica anterior y aplicar una nueva prueba con mayor nivel de exigencia para asegurar que solo avancen quienes realmente dominan el concepto.",
+          "rationale": "El enfoque punitivo ignora el proceso de aprendizaje y no ofrece herramientas de mejora, solo sanciona la falta de dominio en un momento dado.",
+          "isCorrect": false
+        },
+        {
+          "text": "Proporcionar la resolución correcta detallada de todos los ejercicios fallidos en la pizarra para que los estudiantes copien y fijen el procedimiento adecuado.",
+          "rationale": "La retroalimentación correctiva simple o dirigida al producto limita la metacognición y el aprendizaje por descubrimiento, fomentando la reproducción mecánica.",
           "isCorrect": false
         }
       ],
-      "hint": "Recuerde que el objetivo principal es la mejora del aprendizaje a través del feedback."
+      "hint": "Criterio: Uso de la evaluación para regular el aprendizaje y ajustar la enseñanza.",
+      "rationale": "La evaluación formativa se define por su capacidad de transformar la práctica pedagógica en tiempo real para cerrar brechas de aprendizaje detectadas."
     },
     {
       "questionNumber": 2,
       "category": "Estrategias Pedagógicas",
-      "question": "¿Cuál es el principal objetivo del **Enfoque por Competencias** en el currículo educativo?",
+      "difficulty": "Experto",
+      "question": "Al diseñar un proyecto bajo el **Enfoque por Competencias**, un docente se enfrenta a la tensión entre cubrir los contenidos del currículo y dedicar tiempo a la resolución de un problema comunitario complejo. Según los lineamientos de desempeño avanzado, ¿cuál debe ser la prioridad estratégica?",
       "answerOptions": [
         {
-          "text": "Acumular la mayor cantidad de información teórica en la memoria del estudiante.",
-          "rationale": "La acumulación de información es característica de enfoques más tradicionales.",
+          "text": "Simplificar el problema comunitario para que se ajuste perfectamente a los contenidos teóricos previstos, asegurando que no queden temas sin tratar en el bimestre.",
+          "rationale": "Subordinar la competencia al contenido desnaturaliza el enfoque, convirtiéndolo nuevamente en un modelo enciclopedista fragmentado.",
           "isCorrect": false
         },
         {
-          "text": "Lograr que el estudiante resuelva problemas de manera pertinente y ética, movilizando diversos recursos y saberes.",
-          "rationale": "Una competencia implica la movilización compleja de capacidades y actitudes para contextos reales.",
+          "text": "Priorizar la movilización ética y pertinente de capacidades frente al reto real, utilizando los contenidos como medios y no como fines en sí mismos para la transformación de la realidad.",
+          "rationale": "CORRECTA. La competencia se demuestra en la acción sobre la realidad; el contenido es el recurso que se moviliza para lograr una solución eficaz y ética.",
           "isCorrect": true
         },
         {
-          "text": "Memorizar únicamente las definiciones clave de cada área de estudio.",
-          "rationale": "La memorización es solo una capacidad dentro de una competencia; no es su objetivo principal.",
+          "text": "Dividir el tiempo de clase de manera equitativa: 50% para la teoría tradicional y 50% para el proyecto, garantizando un equilibrio entre conocimiento y práctica.",
+          "rationale": "El enfoque por competencias no es una suma de partes, sino una integración sistémica. La teoría debe emerger y servir a la resolución del reto.",
           "isCorrect": false
         },
         {
-          "text": "Preparar al estudiante exclusivamente para el ingreso a la universidad.",
-          "rationale": "El enfoque busca formar ciudadanos integrales capaces de desempeñarse en cualquier ámbito.",
+          "text": "Delegar la resolución del problema a las horas extracurriculares para no afectar el avance del sílabo oficial de la institución educativa.",
+          "rationale": "Aislar la resolución de problemas del tiempo lectivo principal comunica que la competencia es algo secundario frente a la memorización de información.",
           "isCorrect": false
         }
       ],
-      "hint": "Piense en qué debe ser capaz de hacer el estudiante al finalizar un ciclo."
+      "hint": "Criterio: Gestión del proceso de aprendizaje centrado en el desarrollo de competencias.",
+      "rationale": "Ser competente implica 'saber hacer' en contextos inciertos, movilizando saberes de forma crítica para resolver problemas significativos."
     },
     {
       "questionNumber": 3,
       "category": "Estrategias Pedagógicas",
-      "question": "En el marco del **Constructivismo Social** (basado en autores como Vygotsky), ¿cuál es el rol principal del docente en el proceso de enseñanza-aprendizaje?",
+      "difficulty": "Experto",
+      "question": "En una experiencia de aprendizaje basada en el **Constructivismo Social**, el docente identifica que un grupo de estudiantes no logra avanzar en una tarea de programación lógica a pesar de trabajar colaborativamente. ¿Cuál es la intervención de andamiaje más eficaz?",
       "answerOptions": [
         {
-          "text": "Ser el único transmisor de conocimientos a los estudiantes.",
-          "rationale": "El Constructivismo Social enfatiza que el conocimiento se construye socialmente.",
+          "text": "Disolver el grupo y asignar tareas individuales de menor complejidad para asegurar que cada estudiante logre un éxito mínimo y no se desmotive.",
+          "rationale": "Esta acción elimina el conflicto cognitivo y la interacción social, pilares del constructivismo vygotskiano para el crecimiento intelectual.",
           "isCorrect": false
         },
         {
-          "text": "Facilitador, mediador y generador de desafíos en la **Zona de Desarrollo Próximo (ZDP)**.",
-          "rationale": "El docente actúa como un andamiaje que ayuda al estudiante a pasar de lo que sabe a lo nuevo.",
+          "text": "Proporcionar una 'pista semántica' o un ejemplo análogo que active sus esquemas previos sin resolver el problema, reorientándolos hacia la autorregulación dentro de su ZDP.",
+          "rationale": "CORRECTA. El andamiaje efectivo es temporal y ajustable; busca que el estudiante logre autonomía mediante una mediación que no sustituye su pensamiento.",
           "isCorrect": true
         },
         {
-          "text": "Limitarse a supervisar y aplicar medidas disciplinarias estrictas.",
-          "rationale": "Aunque la disciplina es necesaria, el rol principal es pedagógico.",
+          "text": "Elegir al estudiante líder del grupo y explicarle la solución completa para que él se encargue de transmitirla y enseñarla a sus compañeros.",
+          "rationale": "Esto fomenta la dependencia y reduce el aprendizaje a una transmisión de información entre pares, perdiendo el proceso de co-construcción.",
           "isCorrect": false
         },
         {
-          "text": "Asegurar que el estudiante aprenda por sí mismo sin ninguna ayuda o guía.",
-          "rationale": "La ayuda es crucial en la ZDP; sin mediación, el aprendizaje significativo podría no ocurrir.",
+          "text": "Aumentar el tiempo de entrega y esperar a que el conflicto cognitivo se resuelva de forma natural por la maduración biológica de los integrantes.",
+          "rationale": "El constructivismo social requiere mediación activa; esperar pasivamente ignora el rol del docente como catalizador en la Zona de Desarrollo Próximo.",
           "isCorrect": false
         }
       ],
-      "hint": "Recuerde la importancia del entorno social y la Zona de Desarrollo Próximo."
+      "hint": "Criterio: Mediación del aprendizaje en la Zona de Desarrollo Próximo.",
+      "rationale": "La mediación pedagógica es el puente que permite al estudiante alcanzar niveles de pensamiento que no lograría por sí solo."
     },
     {
       "questionNumber": 4,
-      "category": "Inclusión y Diversidad",
-      "question": "Para fomentar un clima de aula positivo y de **convivencia democrática**, ¿qué estrategia debe priorizar el docente?",
+      "category": "Convivencia y Valores",
+      "difficulty": "Experto",
+      "question": "En el proceso de construcción de normas de convivencia, un grupo de estudiantes de secundaria propone que no se sancione el uso de celulares en clase. El docente sabe que esto afecta la concentración. ¿Cómo debe proceder para fortalecer la **convivencia democrática**?",
       "answerOptions": [
         {
-          "text": "Establecer normas de manera unilateral y castigar inmediatamente cualquier incumplimiento.",
-          "rationale": "Unilateralidad y castigo estricto minan la participación y la autonomía.",
+          "text": "Aceptar la propuesta para ganar la confianza de los estudiantes, confiando en que ellos mismos autorregularán su uso por compromiso ético con el docente.",
+          "rationale": "La democracia escolar no es permisividad; requiere metas claras. La falta de límites puede comprometer el derecho fundamental al aprendizaje.",
           "isCorrect": false
         },
         {
-          "text": "Promover la participación de los estudiantes en la construcción y validación de los acuerdos y normas.",
-          "rationale": "La participación en la construcción de normas hace que los estudiantes las interioricen mejor.",
+          "text": "Promover un debate basado en evidencias sobre los efectos del celular en el aprendizaje, guiándolos a establecer acuerdos fundamentados sobre usos pedagógicos y tiempos de desconexión.",
+          "rationale": "CORRECTA. La democracia implica deliberación racional y búsqueda del bien común. Se otorga voz a los estudiantes pero bajo criterios de responsabilidad y propósito educativo.",
           "isCorrect": true
         },
         {
-          "text": "Ignorar los conflictos menores entre estudiantes para no perder tiempo de clase.",
-          "rationale": "Ignorar conflictos permite que escalen y deteriora el clima de aula.",
+          "text": "Rechazar de inmediato la propuesta apelando al reglamento institucional superior, explicando que hay normas que no son sujetas a discusión por seguridad académica.",
+          "rationale": "El enfoque autoritario cierra el espacio de aprendizaje ciudadano. Las normas impuestas suelen generar mayor resistencia y menor cumplimiento real.",
           "isCorrect": false
         },
         {
-          "text": "Mantener un silencio absoluto y desincentivar cualquier interacción entre compañeros.",
-          "rationale": "La interacción y el diálogo respetuoso son fundamentales para el aprendizaje social.",
+          "text": "Someter la decisión a una votación simple y acatar el resultado de la mayoría, independientemente de si la norma favorece o no los objetivos pedagógicos del área.",
+          "rationale": "Confunde democracia con 'mayoritarismo' irreflexivo. En la escuela, las decisiones deben estar alineadas con el principio del interés superior del niño y el aprendizaje.",
           "isCorrect": false
         }
       ],
-      "hint": "Piense en cómo se construyen las reglas en una sociedad democrática."
+      "hint": "Criterio: Promoción de la participación democrática en la gestión del aula.",
+      "rationale": "La participación ciudadana en la escuela se entrena mediante la deliberación y la construcción colectiva de sentidos sobre la norma."
     },
     {
       "questionNumber": 5,
-      "category": "Convivencia y Valores",
-      "question": "Al realizar la **planificación curricular**, ¿cuál de los siguientes elementos debe ser el punto de partida para garantizar la pertinencia?",
+      "category": "Planificación Curricular",
+      "difficulty": "Experto",
+      "question": "Al iniciar el año lectivo, un docente de una zona rural con alta deserción escolar debe realizar la **Planificación Curricular**. ¿Cuál es la acción pedagógica más pertinente para garantizar la equidad y la retención?",
       "answerOptions": [
         {
-          "text": "Los libros de texto o materiales educativos disponibles en el colegio.",
-          "rationale": "Los recursos son importantes, pero no son el punto de partida pedagógico.",
-          "isCorrect": false
-        },
-        {
-          "text": "Los intereses, necesidades, contextos y saberes previos de los estudiantes.",
-          "rationale": "Una planificación pertinente se centra en quién aprende para que el proceso sea relevante.",
+          "text": "Desarrollar un diagnóstico profundo de las barreras de aprendizaje y los activos culturales de la comunidad, integrando sus saberes locales en situaciones significativas de alta demanda cognitiva.",
+          "rationale": "CORRECTA. La relevancia curricular previene la deserción al conectar la escuela con la vida. El alto desafío mantiene la motivación y respeta el potencial del estudiante.",
           "isCorrect": true
         },
         {
-          "text": "Las directivas del director y de la UGEL/DRE sin posibilidad de modificación local.",
-          "rationale": "La adaptación al contexto local es esencial para la relevancia pedagógica.",
+          "text": "Simplificar los estándares de aprendizaje nacionales para que sean más fáciles de alcanzar, compensando así las carencias del contexto socioeconómico difícil.",
+          "rationale": "Bajar las expectativas es una forma de exclusión encubierta (efecto Pigmalión negativo). La equidad se logra con más apoyo, no con menos exigencia académica.",
           "isCorrect": false
         },
         {
-          "text": "El temario más extenso y complejo posible para desafiar a todos.",
-          "rationale": "La extensión no garantiza la calidad; debe ser ajustada a las necesidades reales.",
+          "text": "Priorizar la enseñanza de habilidades técnicas inmediatas que permitan a los estudiantes trabajar rápidamente, dejando las competencias académicas para escuelas urbanas.",
+          "rationale": "Vulnera el derecho a una educación integral. La escuela pública debe garantizar que todos tengan acceso a las mismas oportunidades de desarrollo intelectual.",
+          "isCorrect": false
+        },
+        {
+          "text": "Seguir rigurosamente la secuencia de los textos escolares oficiales para asegurar que no haya brechas de conocimiento respecto a otras regiones del país.",
+          "rationale": "La rigidez curricular ignora el contexto y las necesidades específicas, lo que suele derivar en desinterés y pérdida de sentido de la educación para el alumno rural.",
           "isCorrect": false
         }
       ],
-      "hint": "Una planificación efectiva responde primero a la pregunta: ¿Para quién estoy planificando?"
+      "hint": "Criterio: Planificación del aprendizaje con enfoque en la diversidad y pertinencia.",
+      "rationale": "La planificación es un acto político y pedagógico que debe responder a 'quiénes' son los estudiantes para poder ser verdaderamente liberadora."
     },
     {
       "questionNumber": 6,
-      "category": "Competencias Específicas",
-      "question": "Un estudiante con necesidades educativas especiales (NEE) presenta dificultades en la comprensión lectora. ¿Qué acción de **adaptación curricular** sería la más adecuada?",
+      "category": "Inclusión y Diversidad",
+      "difficulty": "Experto",
+      "question": "Un estudiante con discapacidad intelectual está incluido en un aula regular. Al trabajar la competencia de resolución de problemas matemáticos, el docente nota que el estudiante no logra operar con números abstractos. ¿Cuál es el enfoque de **Diseño Universal para el Aprendizaje (DUA)** más apropiado?",
       "answerOptions": [
         {
-          "text": "Eximirlo de las evaluaciones de lectura y reducir sus exigencias al mínimo.",
-          "rationale": "Eximirlo no promueve el desarrollo de la competencia.",
-          "isCorrect": false
-        },
-        {
-          "text": "Reducir la cantidad de texto sin modificar la complejidad del vocabulario.",
-          "rationale": "Reducir cantidad ayuda, pero la clave es mediar el acceso a la complejidad del contenido.",
-          "isCorrect": false
-        },
-        {
-          "text": "Proporcionar textos en formatos alternativos, simplificar el vocabulario y usar apoyos visuales.",
-          "rationale": "Las adaptaciones deben ofrecer múltiples formas de acceso al contenido.",
+          "text": "Permitir que el estudiante use material concreto y aplicaciones gráficas para representar las cantidades, evaluando su capacidad de razonamiento lógico sobre el resultado numérico.",
+          "rationale": "CORRECTA. El DUA busca eliminar barreras proporcionando múltiples formas de representación y acción, permitiendo que el estudiante demuestre el logro de la competencia por vías alternativas.",
           "isCorrect": true
         },
         {
-          "text": "Pedirle que aprenda lo mismo que el resto pero en menos tiempo.",
-          "rationale": "Darle menos tiempo cuando ya tiene dificultades es contraproducente.",
+          "text": "Retirar al estudiante del aula durante la hora de matemáticas para que reciba una enseñanza personalizada y aislada en el departamento de psicología o educación especial.",
+          "rationale": "La segregación no es inclusión. El derecho es aprender con sus pares en el mismo entorno físico y social, con las adaptaciones necesarias.",
+          "isCorrect": false
+        },
+        {
+          "text": "Dictarle los pasos exactos de la operación para que los memorice y reproduzca mecánicamente, garantizando que 'termine' la actividad al mismo tiempo que sus compañeros.",
+          "rationale": "La reproducción mecánica no es aprendizaje. Sustituir el razonamiento del estudiante por instrucciones directas inhibe su desarrollo cognitivo real.",
+          "isCorrect": false
+        },
+        {
+          "text": "Eximirlo de participar en las clases de matemáticas, enfocando su tiempo en áreas donde muestra mayor facilidad, para evitarle sentimientos de frustración y baja autoestima.",
+          "rationale": "Excluir del acceso al currículo es una barrera pedagógica grave. El rol docente es encontrar el ajuste razonable para que el aprendizaje ocurra.",
           "isCorrect": false
         }
       ],
-      "hint": "La inclusión busca la participación y el progreso de todos con apoyos necesarios."
+      "hint": "Criterio: Atención a la diversidad con enfoque inclusivo y eliminación de barreras.",
+      "rationale": "La inclusión real transforma el entorno y la estrategia para que la diversidad sea un activo del aprendizaje colectivo."
     },
     {
       "questionNumber": 7,
-      "category": "Estrategias Pedagógicas",
-      "question": "¿Qué característica define a la **retroalimentación por descubrimiento** o reflexiva?",
+      "category": "Evaluación y Retroalimentación",
+      "difficulty": "Experto",
+      "question": "Durante un experimento de química, un estudiante obtiene un resultado inesperado que contradice su hipótesis inicial. El docente, al observar el error de procedimiento, decide intervenir. ¿Qué acción caracteriza una **retroalimentación por descubrimiento** de alto nivel?",
       "answerOptions": [
         {
-          "text": "Indicar la respuesta correcta inmediatamente para que el estudiante la memorice.",
-          "rationale": "Esto es retroalimentación correctiva simple, no promueve la reflexión profunda.",
+          "text": "Señalar directamente el paso exacto del protocolo donde se cometió el error y pedirle que lo repita de forma correcta inmediatamente.",
+          "rationale": "Esto es retroalimentación correctiva simple; le dice qué hacer pero no estimula el pensamiento crítico sobre la causa del error.",
           "isCorrect": false
         },
         {
-          "text": "Corregir directamente el error del estudiante sin darle explicaciones.",
-          "rationale": "La corrección directa limita el proceso metacognitivo del estudiante.",
-          "isCorrect": false
-        },
-        {
-          "text": "Plantear preguntas o pistas que guíen al estudiante a identificar su error y corregirlo por sí mismo.",
-          "rationale": "Busca que el estudiante sea el protagonista de su mejora mediante la reflexión.",
+          "text": "Formular una pregunta que obligue al estudiante a contrastar sus datos con la teoría y a revisar su bitácora de registro, permitiéndole identificar y explicar por sí mismo la falla.",
+          "rationale": "CORRECTA. Promueve la metacognición y convierte el error en una oportunidad genuina de aprendizaje profundo y autonomía científica.",
           "isCorrect": true
         },
         {
-          "text": "Comparar el desempeño del estudiante con el de sus compañeros más avanzados.",
-          "rationale": "La retroalimentación debe ser individual y comparada con criterios de logro.",
+          "text": "Felicitar al estudiante por su esfuerzo, pero indicarle que debido al error su calificación no podrá ser satisfactoria en este criterio de evaluación.",
+          "rationale": "La retroalimentación se reduce a la calificación. El feedback afectivo sin guía técnica no ayuda al cierre de la brecha de aprendizaje.",
+          "isCorrect": false
+        },
+        {
+          "text": "Permitir que otro compañero que sí logró el resultado le explique cómo hacerlo, delegando la responsabilidad de la retroalimentación técnica al par más aventajado.",
+          "rationale": "Si bien el aprendizaje entre pares es valioso, el docente debe ser quien medie los procesos reflexivos complejos para asegurar el rigor conceptual.",
           "isCorrect": false
         }
       ],
-      "hint": "Este tipo de retroalimentación se enfoca en que el estudiante tome conciencia de su proceso."
+      "hint": "Criterio: Retroalimentación reflexiva para la mejora autónoma del aprendizaje.",
+      "rationale": "La retroalimentación reflexiva es el motor de la metacognición, permitiendo que el estudiante sea arquitecto de su propia comprensión."
     },
     {
       "questionNumber": 8,
-      "category": "Competencias Específicas",
-      "question": "¿Cuál es el principal beneficio del **trabajo colegiado** entre docentes?",
+      "category": "Liderazgo y Comunidad",
+      "difficulty": "Experto",
+      "question": "En una reunión de **Trabajo Colegiado**, los docentes de un grado identifican que los niveles de comprensión lectora son bajos en todas las áreas. ¿Cuál es el enfoque de liderazgo pedagógico más efectivo para abordar esta problemática sistémica?",
       "answerOptions": [
         {
-          "text": "Reducir la carga horaria individual de cada docente al compartir tareas.",
-          "rationale": "Su principal beneficio es pedagógico, no solo logístico o de carga laboral.",
+          "text": "Asignar la responsabilidad exclusiva al área de Comunicación, solicitándoles que aumenten las horas de lectura mientras las otras áreas avanzan en sus propios temarios.",
+          "rationale": "Fragmenta el aprendizaje y desconoce que la comunicación es una competencia transversal. El aislamiento de áreas debilita el impacto pedagógico.",
           "isCorrect": false
         },
         {
-          "text": "Aumentar la competencia para ver quién logra mejores resultados en su aula.",
-          "rationale": "El trabajo colegiado busca la colaboración y la mejora mutua.",
-          "isCorrect": false
-        },
-        {
-          "text": "Promover la reflexión conjunta sobre la práctica y compartir estrategias efectivas.",
-          "rationale": "El beneficio clave es la mejora profesional al reflexionar juntos sobre el aula.",
+          "text": "Co-diseñar una estrategia de alfabetización disciplinar donde cada área enseñe a leer sus propios textos específicos, articulando criterios comunes de evaluación y seguimiento.",
+          "rationale": "CORRECTA. Reconoce que leer un problema matemático es diferente a leer un informe histórico o un protocolo de ciencias. El trabajo interdisciplinario potencia el logro.",
           "isCorrect": true
         },
         {
-          "text": "Limitarse únicamente a coordinar eventos sociales o festividades escolares.",
-          "rationale": "La coordinación de eventos es una función secundaria del trabajo colegiado.",
+          "text": "Contratar a un experto externo para que dicte un taller intensivo de tres días a los estudiantes, descargando a los docentes de la tarea de planificación de este refuerzo.",
+          "rationale": "La mejora real es endógena y progresiva. Los expertos externos pueden dar ideas, pero el cambio ocurre en la práctica cotidiana mediada por los docentes de aula.",
+          "isCorrect": false
+        },
+        {
+          "text": "Establecer un sistema de competencia entre aulas, otorgando un bono especial de materiales al docente que logre subir los promedios de su grupo en la prueba de salida.",
+          "rationale": "La competencia erosiona el clima institucional y fomenta prácticas de 'enseñar para la prueba' en lugar de un aprendizaje auténtico y colaborativo.",
           "isCorrect": false
         }
       ],
-      "hint": "El foco del trabajo en equipo docente debe estar en la mejora continua de la enseñanza."
+      "hint": "Criterio: Participación en el trabajo colegiado para la mejora de la práctica pedagógica.",
+      "rationale": "El liderazgo pedagógico compartido transforma la escuela en una comunidad de aprendizaje profesional capaz de resolver sus propios desafíos."
     },
     {
       "questionNumber": 9,
-      "category": "Competencias Específicas",
-      "question": "Dos estudiantes discuten acaloradamente. ¿Cuál es el enfoque más efectivo para la **resolución de conflictos** formativa?",
+      "category": "Convivencia y Valores",
+      "difficulty": "Experto",
+      "question": "Tras un conflicto violento entre dos estudiantes fuera de la escuela, se genera un ambiente de tensión en el aula. ¿Cuál es la respuesta pedagógica más coherente con un enfoque de **Resolución de Conflictos** con sentido ético y formativo?",
       "answerOptions": [
         {
-          "text": "Expulsar a ambos inmediatamente del aula para dar un ejemplo de autoridad.",
-          "rationale": "La expulsión no fomenta la reflexión ni enseña habilidades de resolución.",
+          "text": "Ignorar el suceso por haber ocurrido fuera del recinto escolar, recordándoles a todos que dentro del aula solo se deben discutir temas académicos estrictos.",
+          "rationale": "La escuela no puede aislarse de la realidad socioemocional de sus miembros. Ignorar la tensión deteriora el clima de aprendizaje y la seguridad.",
           "isCorrect": false
         },
         {
-          "text": "Ignorar la situación esperando que el conflicto se resuelva solo.",
-          "rationale": "Ignorar puede hacer que el conflicto escale o deteriore el clima del aula.",
-          "isCorrect": false
-        },
-        {
-          "text": "Aplicar una sanción sin escuchar a ninguna de las partes involucradas.",
-          "rationale": "La resolución formativa requiere escuchar y buscar la reparación, no solo la sanción.",
-          "isCorrect": false
-        },
-        {
-          "text": "Fomentar que ambos dialoguen, identifiquen las causas y propongan soluciones justas.",
-          "rationale": "Promueve la autonomía, empatía y gestión constructiva de conflictos.",
+          "text": "Facilitar un proceso de justicia restaurativa donde los involucrados reconozcan el daño al tejido grupal y la comunidad reflexione sobre el pacto de no agresión y cuidado mutuo.",
+          "rationale": "CORRECTA. Va más allá de la sanción individual; busca restaurar vínculos, desarrollar la empatía y fortalecer la cultura de paz en toda la comunidad.",
           "isCorrect": true
+        },
+        {
+          "text": "Aplicar la máxima sanción permitida en el manual de convivencia de forma automática para sentar un precedente de tolerancia cero hacia la violencia institucional.",
+          "rationale": "El punitivismo automático sin proceso reflexivo suele ser ineficaz para la transformación de conductas y puede generar mayores resentimientos en el grupo.",
+          "isCorrect": false
+        },
+        {
+          "text": "Trasladar de sección a uno de los implicados de forma definitiva para evitar el contacto visual y prevenir nuevos enfrentamientos en el futuro inmediato.",
+          "rationale": "Es una medida paliativa de gestión administrativa que evade el conflicto en lugar de resolverlo pedagógicamente. No enseña habilidades de mediación.",
+          "isCorrect": false
         }
       ],
-      "hint": "La gestión formativa busca educar en valores como la escucha y la responsabilidad."
+      "hint": "Criterio: Resolución de conflictos mediante el diálogo y la mediación formativa.",
+      "rationale": "La resolución ética de conflictos en la escuela debe priorizar la reconstrucción de la subjetividad y del lazo social."
     },
     {
       "questionNumber": 10,
-      "category": "Competencias Específicas",
-      "question": "Según David Ausubel, el **Aprendizaje Significativo** ocurre cuando:",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "Un docente desea fomentar el **Aprendizaje Significativo** en el área de Historia. Al abordar la época colonial, nota que los estudiantes muestran desinterés por los datos memorísticos tradicionales. ¿Cuál es la estrategia más potente para lograr una conexión sustancial?",
       "answerOptions": [
         {
-          "text": "La nueva información se memoriza de forma aislada sin conexión.",
-          "rationale": "La memorización aislada es lo opuesto al aprendizaje significativo.",
+          "text": "Organizar un juego de trivia donde los estudiantes compitan por premios basándose en quién recuerda la mayor cantidad de fechas y nombres de virreyes.",
+          "rationale": "Es una gamificación superficial que premia la memoria a corto plazo pero no genera un anclaje significativo en la estructura cognitiva profunda.",
           "isCorrect": false
         },
         {
-          "text": "El estudiante relaciona de manera sustancial los nuevos conocimientos con los que ya posee.",
-          "rationale": "Se basa en el anclaje de información en la estructura cognitiva preexistente.",
+          "text": "Proponer el análisis de las continuidades y rupturas de las estructuras sociales coloniales en su comunidad actual, permitiendo que investiguen el origen de sus propias tradiciones.",
+          "rationale": "CORRECTA. Se cumple la premisa de Ausubel: integrar el nuevo conocimiento con saberes previos y contexto real, dotándolo de sentido personal y social.",
           "isCorrect": true
         },
         {
-          "text": "Se utiliza únicamente el juego como estrategia didáctica en el aula.",
-          "rationale": "El juego es una herramienta, pero no la condición única para la significatividad.",
+          "text": "Pedir que elaboren un mural artístico con dibujos de barcos y personajes de la época sin profundizar en el análisis crítico de los procesos sociales vividos.",
+          "rationale": "La actividad manual sin carga cognitiva alta es activismo pedagógico estético, pero no garantiza la construcción de conceptos complejos.",
           "isCorrect": false
         },
         {
-          "text": "El docente expone la lección de forma magistral y autoritaria.",
-          "rationale": "La significatividad depende de la conexión que hace el estudiante con el saber.",
+          "text": "Incrementar las horas de clase magistral para explicar con mayor pasión los detalles históricos, asumiendo que el desinterés es por falta de información del docente.",
+          "rationale": "El aprendizaje significativo depende de lo que el estudiante hace con la información, no de la brillantez de la exposición del docente.",
           "isCorrect": false
         }
       ],
-      "hint": "Piense en la necesidad de que los nuevos saberes se 'conecten' con lo previo."
+      "hint": "Criterio: Facilitación del aprendizaje significativo mediante la problematización y el contexto.",
+      "rationale": "El conocimiento solo se vuelve significativo cuando el estudiante descubre que ese saber le sirve para entenderse a sí mismo y a su mundo."
     },
     {
       "questionNumber": 11,
-      "category": "Competencias Específicas",
-      "question": "Al planificar una unidad didáctica, ¿cuál es la función principal de los **Estándares de Aprendizaje**?",
+      "category": "Planificación Curricular",
+      "difficulty": "Experto",
+      "question": "Un equipo docente de Ciclo VI (secundaria) revisa los **Estándares de Aprendizaje** para planificar una unidad sobre sostenibilidad. Notan que muchos estudiantes ya superan el estándar esperado para su grado. ¿Cuál es la decisión curricular más coherente con un liderazgo pedagógico avanzado?",
       "answerOptions": [
         {
-          "text": "Servir como una lista exhaustiva de contenidos que deben ser enseñados.",
-          "rationale": "Los contenidos son medios, no el propósito principal de los estándares.",
+          "text": "Mantener la planificación según el estándar del grado para asegurar que todos consoliden los mismos conocimientos mínimos y no generar brechas de aprendizaje en el aula.",
+          "rationale": "Esto limita el potencial de los estudiantes talentosos y contradice el principio de atención a la diversidad y altas expectativas.",
           "isCorrect": false
         },
         {
-          "text": "Establecer la descripción de los niveles crecientes de complejidad de las competencias.",
-          "rationale": "Definen qué se espera que logren los estudiantes al finalizar cada ciclo.",
+          "text": "Utilizar el estándar del ciclo siguiente como referente para diseñar desafíos de mayor complejidad, promoviendo proyectos de investigación-acción que profundicen en la competencia.",
+          "rationale": "CORRECTA. Los estándares son referentes de progresión. Si el estudiante ya los alcanzó, el docente debe mediar hacia niveles superiores de complejidad cognitiva.",
           "isCorrect": true
         },
         {
-          "text": "Constituir el único instrumento de evaluación, reemplazando a las rúbricas.",
-          "rationale": "Los estándares son referentes; las rúbricas se derivan de ellos.",
+          "text": "Eximir a los estudiantes aventajados de las clases de la unidad, permitiéndoles realizar actividades libres mientras el docente se enfoca en quienes están bajo el nivel.",
+          "rationale": "El abandono pedagógico de los estudiantes talentosos es una forma de negligencia curricular. Todos tienen derecho a ser desafiados en su ZDP.",
           "isCorrect": false
         },
         {
-          "text": "Determinar exclusivamente el currículo de las áreas técnicas.",
-          "rationale": "Los estándares aplican a todas las áreas curriculares y competencias.",
+          "text": "Solicitar a los estudiantes que superan el nivel que dicten las clases teóricas a sus compañeros, asumiendo que enseñar es la mejor forma de consolidar lo que ya saben.",
+          "rationale": "Si bien el aprendizaje entre pares es bueno, no sustituye la necesidad de que el estudiante talentoso reciba nuevos retos cognitivos acordes a su nivel.",
           "isCorrect": false
         }
       ],
-      "hint": "Piense en los estándares como los metas de desarrollo a largo plazo."
+      "hint": "Criterio: Uso de los estándares para la planificación y diversificación curricular.",
+      "rationale": "El estándar es un piso, no un techo. La planificación debe ser lo suficientemente flexible para potenciar a cada estudiante desde su punto de partida real."
     },
     {
       "questionNumber": 12,
-      "category": "Competencias Específicas",
-      "question": "En Ciencias Sociales, ¿cuál situación representa mejor el desarrollo de una competencia de **Ciudadanía Activa**?",
+      "category": "Liderazgo y Comunidad",
+      "difficulty": "Experto",
+      "question": "En el marco del desarrollo de la **Ciudadanía Activa**, un grupo de estudiantes identifica que el parque local está contaminado. Proponen realizar una campaña de limpieza. ¿Cuál es la mediación docente que mejor promueve el pensamiento sistémico?",
       "answerOptions": [
         {
-          "text": "Memorizar la lista de derechos fundamentales en la Constitución.",
-          "rationale": "La memorización es básica; la ciudadanía activa requiere aplicación práctica.",
+          "text": "Organizar la jornada de limpieza de inmediato, gestionando los permisos y materiales necesarios para asegurar que los estudiantes vean resultados tangibles rápidamente.",
+          "rationale": "El activismo sin reflexión limita el aprendizaje. El docente resuelve la gestión en lugar de que lo hagan los estudiantes como ejercicio ciudadano.",
           "isCorrect": false
         },
         {
-          "text": "Organizar un debate donde investigan y fundamentan posturas sobre un problema local.",
-          "rationale": "Esta situación moviliza deliberación, manejo de información y participación.",
+          "text": "Guiar a los estudiantes a investigar las causas estructurales de la contaminación, identificar a los actores sociales involucrados y proponer soluciones de gestión ante las autoridades locales.",
+          "rationale": "CORRECTA. La ciudadanía activa requiere comprender la complejidad del problema (causas, actores, leyes) y participar en los canales institucionales de cambio.",
           "isCorrect": true
         },
         {
-          "text": "Copiar de la pizarra un esquema sobre los poderes del Estado.",
-          "rationale": "Copiar es una actividad pasiva que no involucra el ejercicio ciudadano.",
+          "text": "Pedirles que elaboren carteles con mensajes reflexivos sobre el cuidado del agua para pegarlos en el aula, evitando que salgan del colegio por razones de seguridad.",
+          "rationale": "Aislar la ciudadanía del territorio real reduce la competencia a un ejercicio escolar estético y declarativo sin impacto en la realidad social.",
           "isCorrect": false
         },
         {
-          "text": "Estudiar la biografía de líderes políticos del siglo pasado.",
-          "rationale": "Se centra en el pasado y no promueve la intervención en la realidad presente.",
+          "text": "Sugerir que escriban una carta al alcalde y esperar respuesta antes de realizar cualquier acción, enseñándoles que la burocracia es la única vía del cambio social.",
+          "rationale": "Si bien la gestión institucional es clave, el enfoque debe empoderar al estudiante como agente de cambio directo y reflexivo, no solo como solicitante pasivo.",
           "isCorrect": false
         }
       ],
-      "hint": "La ciudadanía activa no es solo saber, sino participar en la transformación de la realidad."
+      "hint": "Criterio: Promoción de la participación ciudadana y el pensamiento crítico.",
+      "rationale": "Ejercer la ciudadanía es aprender a intervenir en la res pública con argumentos, organización y conciencia del sistema social."
     },
     {
       "questionNumber": 13,
-      "category": "Competencias Específicas",
-      "question": "Si los estudiantes cometen errores sistemáticos en Matemáticas, ¿cuál es la mejor acción según la **Pedagogía de la Reflexión**?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "Un estudiante de primaria comete errores recurrentes en la resolución de problemas de fracciones, confundiendo el numerador con el denominador. Según la **Pedagogía del Error**, ¿cuál es la acción mediadora más potente?",
       "answerOptions": [
         {
-          "text": "Aumentar la cantidad de ejercicios repetitivos hasta que dominen el procedimiento.",
-          "rationale": "La repetición sin reflexión no ayuda a identificar la causa del error conceptual.",
+          "text": "Proporcionar una tabla con las definiciones correctas y pedirle que la copie cinco veces cada vez que cometa un error para reforzar el concepto por repetición.",
+          "rationale": "La repetición mecánica no ataca la confusión perceptual o conceptual; puede generar rechazo hacia el área sin lograr una comprensión real.",
           "isCorrect": false
         },
         {
-          "text": "Pedir a un estudiante destacado que resuelva los problemas en la pizarra para copiar.",
-          "rationale": "Copia un procedimiento pero no fuerza a los demás a reflexionar sobre su razonamiento.",
-          "isCorrect": false
-        },
-        {
-          "text": "Promover un análisis grupal de los errores, contrastando el razonamiento fallido con el correcto.",
-          "rationale": "El análisis del error como fuente de aprendizaje es central en la reflexión pedagógica.",
+          "text": "Utilizar material concreto (regletas o círculos) para que el estudiante modele la fracción y verbalice la relación entre las partes y el todo, analizando dónde surge la confusión.",
+          "rationale": "CORRECTA. Trabajar desde lo concreto permite al estudiante 'ver' su error de razonamiento y reestructurar su esquema mental de forma comprensiva.",
           "isCorrect": true
         },
         {
-          "text": "Calificar los exámenes con baja nota para motivarlos a estudiar más.",
-          "rationale": "Una calificación punitiva no ofrece guía específica para la mejora.",
+          "text": "Calificar los ejercicios con una 'X' roja y pedirle que revise el libro de texto en su casa para que sus padres le expliquen el tema correctamente.",
+          "rationale": "La sanción visual sin feedback pedagógico desmotiva. Derivar la enseñanza a la familia ignora la responsabilidad profesional del docente de aula.",
+          "isCorrect": false
+        },
+        {
+          "text": "Permitir que el estudiante use una calculadora de fracciones para que obtenga siempre el resultado correcto, priorizando su autoestima sobre el dominio conceptual.",
+          "rationale": "El uso de la tecnología debe potenciar el pensamiento, no sustituirlo. Evadir el conflicto cognitivo impide que el estudiante supere su brecha de aprendizaje.",
           "isCorrect": false
         }
       ],
-      "hint": "El error, en el enfoque reflexivo, es una oportunidad de aprendizaje."
+      "hint": "Criterio: Uso del error como oportunidad de aprendizaje y reflexión.",
+      "rationale": "El error es un indicador valioso de la lógica del estudiante; el docente exitoso es aquel que sabe 'leer' el error para guiar la comprensión."
     },
     {
       "questionNumber": 14,
-      "category": "Planificación Curricular",
-      "question": "¿Cuál es la principal función del **PEI** en la autonomía pedagógica del colegio?",
+      "category": "Gestión Institucional",
+      "difficulty": "Experto",
+      "question": "Un nuevo directivo encuentra que el **Proyecto Educativo Institucional (PEI)** fue elaborado hace 5 años y no refleja los desafíos actuales de la comunidad (migración y brecha digital). ¿Cuál es la ruta de actualización más pertinente?",
       "answerOptions": [
         {
-          "text": "Resumir únicamente los resultados de la gestión administrativa y financiera.",
-          "rationale": "El PEI incluye lo pedagógico y lo administrativo de forma integral.",
+          "text": "Encargar a la comisión de gestión administrativa que redacte un nuevo PEI basado en modelos exitosos de otras regiones y lo presente al consejo para su aprobación rápida.",
+          "rationale": "Un PEI 'importado' carece de identidad y pertinencia. La actualización debe emerger de la propia realidad institucional y comunitaria.",
           "isCorrect": false
         },
         {
-          "text": "Establecer la visión compartida, objetivos estratégicos y orientar decisiones pedagógicas.",
-          "rationale": "Es la herramienta que permite a la escuela definir su identidad y formación propia.",
+          "text": "Liderar un proceso participativo de autoevaluación institucional que involucre a estudiantes, padres y docentes para redefinir la identidad y metas ante las nuevas realidades.",
+          "rationale": "CORRECTA. El PEI es un compromiso colectivo. Solo mediante la participación real de todos los actores se logra una visión compartida y un compromiso con la mejora.",
           "isCorrect": true
         },
         {
-          "text": "Reemplazar al Currículo Nacional con estándares propios.",
-          "rationale": "El PEI contextualiza el Currículo Nacional, no lo reemplaza.",
+          "text": "Mantener el PEI actual para no generar inestabilidad normativa, pero crear anexos secretos con las nuevas estrategias para que solo los docentes las conozcan.",
+          "rationale": "La gestión educativa debe ser transparente y coherente. Los documentos de gestión deben guiar la práctica pública de toda la comunidad educativa.",
           "isCorrect": false
         },
         {
-          "text": "Ser un documento de uso exclusivo para la supervisión externa de la UGEL.",
-          "rationale": "Es un instrumento de toda la comunidad para la autogestión y mejora interna.",
+          "text": "Solicitar a la UGEL que designe una consultora externa para que realice el diagnóstico y entregue el documento final listo para ser impreso y archivado.",
+          "rationale": "Prioriza el producto (documento) sobre el proceso (reflexión colectiva). Los PEI hechos 'por encargo' suelen quedar archivados sin impactar en el aula.",
           "isCorrect": false
         }
       ],
-      "hint": "El PEI es la carta de navegación de la escuela, el marco que da coherencia."
+      "hint": "Criterio: Gestión participativa para la actualización de los instrumentos de gestión.",
+      "rationale": "El PEI es la expresión de la autonomía institucional; actualizarlo es volver a pensar el sentido de la escuela para sus estudiantes."
     },
     {
       "questionNumber": 15,
-      "category": "Competencias Específicas",
-      "question": "Desde la **Neurociencia**, ¿qué factor afectivo debe priorizar el docente para reactivar la motivación intrínseca?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "Considerando los aportes de la **Neuroeducación**, un docente de secundaria planifica una sesión de dos horas sobre funciones matemáticas. ¿Qué estructura de sesión favorece mejor los procesos de atención y memoria a largo plazo?",
       "answerOptions": [
         {
-          "text": "Usar exámenes sorpresa para generar presión y obligar a estudiar.",
-          "rationale": "El miedo y el estrés inhiben los procesos de memoria a largo plazo.",
+          "text": "Empezar con una explicación teórica de 60 minutos, seguida de una práctica individual silenciosa de 40 minutos y un cierre de 20 minutos de corrección.",
+          "rationale": "Excede los ciclos de atención sostenida del cerebro adolescente. La pasividad prolongada inhibe la dopamina y dificulta la consolidación de la memoria.",
           "isCorrect": false
         },
         {
-          "text": "Ignorar la falta de interés esperando que el rigor del temario lo obligue.",
-          "rationale": "Se necesita un entorno emocionalmente seguro y estimulante para el cerebro.",
-          "isCorrect": false
-        },
-        {
-          "text": "Conectar el contenido con sus intereses, promover autonomía y ofrecer desafíos manejables.",
-          "rationale": "Autonomía y relevancia son pilares neurocientíficos de la motivación intrínseca.",
+          "text": "Segmentar la sesión en ciclos de 20 minutos con cambios de estímulo, incorporando retos rápidos, movimiento físico breve y espacios de reflexión metacognitiva.",
+          "rationale": "CORRECTA. Respeta los ritmos circadianos de atención y utiliza la novedad y el movimiento para mantener el estado de alerta y facilitar la neuroplasticidad.",
           "isCorrect": true
         },
         {
-          "text": "Aumentar el uso de recompensas externas como premios materiales.",
-          "rationale": "Las recompensas externas son menos efectivas que la motivación intrínseca.",
+          "text": "Mantener un silencio absoluto durante las dos horas para evitar distracciones, enfocando toda la energía del aula en la resolución de una guía de 50 ejercicios repetitivos.",
+          "rationale": "El aislamiento social y la monotonía generan estrés y aburrimiento, estados emocionales que activan la amígdala y bloquean las funciones ejecutivas del córtex prefrontal.",
+          "isCorrect": false
+        },
+        {
+          "text": "Permitir que los estudiantes escuchen música con audífonos mientras el docente atiende solo a quienes levantan la mano, promoviendo la autonomía individual extrema.",
+          "rationale": "Si bien la autonomía es buena, el aprendizaje significativo requiere interacción social y mediación docente activa para garantizar el rigor y la retroalimentación.",
           "isCorrect": false
         }
       ],
-      "hint": "El cerebro aprende mejor cuando el contenido tiene significado y autonomía."
+      "hint": "Criterio: Aplicación de principios neuropsicológicos para la optimización del aprendizaje.",
+      "rationale": "El cerebro no aprende por exposición, sino por emoción, relevancia y alternancia de estímulos."
     },
     {
       "questionNumber": 16,
-      "category": "Competencias Específicas",
-      "question": "Identificar la intención del autor y el propósito comunicativo pertenece a qué etapa del **Proceso de Comprensión Lectora**?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "Al trabajar la **Comprensión Lectora** de alto nivel, un docente presenta un editorial periodístico polémico. ¿Qué actividad promueve mejor la competencia de 'Reflexiona y evalúa la forma, el contenido y contexto del texto'?",
       "answerOptions": [
         {
-          "text": "Antes de la lectura (Predicción).",
-          "rationale": "Esta etapa se centra en la preparación y motivación inicial.",
+          "text": "Solicitar que los estudiantes subrayen todas las palabras desconocidas y busquen su significado en el diccionario para mejorar el vocabulario técnico del área.",
+          "rationale": "Es una actividad de nivel literal y léxico que no alcanza la reflexión crítica sobre la intención o el sesgo del autor.",
           "isCorrect": false
         },
         {
-          "text": "Durante la lectura (Monitoreo).",
-          "rationale": "Se enfoca en la decodificación y seguimiento del texto.",
-          "isCorrect": false
-        },
-        {
-          "text": "Después de la lectura (Reflexión y evaluación).",
-          "rationale": "El análisis de la intención del autor es un nivel superior de evaluación crítica.",
+          "text": "Pedirles que identifiquen los argumentos ocultos del autor, analicen a quién beneficia su postura y escriban un contra-argumento fundamentado en fuentes fiables.",
+          "rationale": "CORRECTA. Exige una lectura profunda y crítica, evaluando el impacto del texto en su contexto social y movilizando el pensamiento crítico del estudiante.",
           "isCorrect": true
         },
         {
-          "text": "En la evaluación inicial (Diagnóstico).",
-          "rationale": "Mide el punto de partida, no el análisis profundo del texto actual.",
+          "text": "Realizar un resumen de tres párrafos que sintetice fielmente la postura del autor sin emitir juicios personales para garantizar la objetividad frente al texto.",
+          "rationale": "El resumen es comprensión inferencial/literal. La competencia evaluada requiere ir más allá de la síntesis y entrar en la valoración del texto.",
+          "isCorrect": false
+        },
+        {
+          "text": "Organizar una lectura coral en voz alta cuidando la dicción y la entonación para apreciar la belleza del lenguaje utilizado por el editorialista.",
+          "rationale": "Se centra en la forma estética/auditiva de la lectura, pero ignora la carga semántica, ideológica y contextual necesaria para la reflexión crítica.",
           "isCorrect": false
         }
       ],
-      "hint": "La intención del autor es un elemento de la lectura crítica y metacomprensión."
+      "hint": "Criterio: Promoción del pensamiento crítico y la alfabetización mediática.",
+      "rationale": "Leer críticamente es descubrir lo que el texto dice, lo que calla y por qué lo dice de esa manera específica."
     },
     {
       "questionNumber": 17,
-      "category": "Inclusión y Diversidad",
-      "question": "En el uso de **andamiaje cognitivo** en Álgebra, ¿cuál es la secuencia más efectiva?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "En el marco de la enseñanza de las Ciencias, un docente desea aplicar un **Andamiaje Cognitivo** para que sus estudiantes comprendan el concepto de densidad. ¿Cuál es la ruta de mediación más coherente con el desarrollo del pensamiento abstracto?",
       "answerOptions": [
         {
-          "text": "Exponer la fórmula abstracta y evaluar con un problema complejo.",
-          "rationale": "Esto omite el apoyo gradual y la conexión con lo concreto.",
+          "text": "Presentar una infografía con la fórmula D=m/v y pedirles que resuelvan 20 ejercicios matemáticos para que se familiaricen con el uso de las variables.",
+          "rationale": "Empieza por lo abstracto y lo reduce a una operación matemática, sin permitir que el estudiante construya el significado físico del concepto.",
           "isCorrect": false
         },
         {
-          "text": "Pasar de la manipulación de objetos concretos a la representación semigráfica y luego simbólica.",
-          "rationale": "Respeta el desarrollo cognitivo moviéndose de lo tangible a lo abstracto.",
+          "text": "Permitir la experimentación libre con diversos líquidos y objetos para que observen la flotabilidad, guiándolos luego a matematizar sus observaciones mediante el análisis de datos.",
+          "rationale": "CORRECTA. Respeta el transito de lo concreto-empírico a lo abstracto-simbólico, permitiendo que el concepto emerja de la experiencia mediada.",
           "isCorrect": true
         },
         {
-          "text": "Solicitar que memoricen la definición de variable y sus reglas.",
-          "rationale": "La memorización no facilita el tránsito cognitivo hacia la abstracción.",
+          "text": "Dictar una conferencia magistral sobre la historia del principio de Arquímedes y pedir que realicen un ensayo sobre la importancia de la densidad en la construcción naval.",
+          "rationale": "La información es interesante pero no sustituye el proceso cognitivo de construcción del concepto de densidad mediante la indagación científica.",
           "isCorrect": false
         },
         {
-          "text": "Realizar la tarea él mismo y que los estudiantes tomen nota de los pasos.",
-          "rationale": "La inactividad del estudiante no es andamiaje; el estudiante debe ser guiado pero activo.",
+          "text": "Dividir el aula en grupos y pedir que cada uno busque la definición de densidad en internet para luego exponerla ante sus compañeros usando diapositivas creativas.",
+          "rationale": "La búsqueda de información y exposición no es andamiaje cognitivo; suele quedarse en la reproducción de definiciones sin comprensión profunda del fenómeno.",
           "isCorrect": false
         }
       ],
-      "hint": "El andamiaje debe seguir el principio de lo concreto a lo abstracto."
+      "hint": "Criterio: Mediación para el tránsito del pensamiento concreto al pensamiento formal.",
+      "rationale": "El andamiaje pedagógico es la estructura temporal que sostiene el aprendizaje hasta que el estudiante puede internalizar la lógica del concepto."
     },
     {
       "questionNumber": 18,
-      "category": "Evaluación y Retroalimentación",
-      "question": "Según la **Ética Docente**, ¿cuál es el deber fundamental frente a los resultados de evaluación?",
+      "category": "Normatividad y Ética",
+      "difficulty": "Experto",
+      "question": "Un docente descubre que un grupo de estudiantes ha plagiado un proyecto final utilizando Inteligencia Artificial. Ante esta situación, ¿cuál es la respuesta que mejor integra la **ética profesional** con el propósito formativo de la escuela?",
       "answerOptions": [
         {
-          "text": "Registrar las notas y publicarlas únicamente al final del periodo.",
-          "rationale": "La evaluación debe ser transparente y comunicada constantemente.",
+          "text": "Anular el trabajo y asignar una nota mínima definitiva (0), reportando el caso al comité de disciplina para que se aplique el reglamento con el máximo rigor posible.",
+          "rationale": "Respuesta puramente punitiva que ignora la oportunidad pedagógica de discutir el uso ético de la tecnología y la integridad académica en el siglo XXI.",
           "isCorrect": false
         },
         {
-          "text": "Usar los resultados para clasificar a los estudiantes en buenos y malos.",
-          "rationale": "La evaluación tiene un fin formativo, no de clasificación punitiva.",
-          "isCorrect": false
-        },
-        {
-          "text": "Analizar los resultados para ajustar la enseñanza y garantizar retroalimentación.",
-          "rationale": "Exige que el docente utilice la evaluación como insumo para autorreflexión.",
+          "text": "Abrir un espacio de diálogo sobre la integridad y el valor del pensamiento original, permitiendo que los estudiantes rehagan el trabajo demostrando su propio proceso creativo mediado por el docente.",
+          "rationale": "CORRECTA. La ética docente es formativa. Busca que el estudiante comprenda el error ético y tenga una vía de reparación mediante el esfuerzo y el aprendizaje real.",
           "isCorrect": true
         },
         {
-          "text": "Culpar a los padres de familia por la falta de apoyo en casa.",
-          "rationale": "El docente es responsable de buscar estrategias pedagógicas dentro del aula.",
+          "text": "Ignorar el plagio para no entrar en conflictos con los padres de familia, asumiendo que el uso de IA es una competencia tecnológica necesaria para el futuro laboral.",
+          "rationale": "Falta a la ética profesional y al deber de guía. La honestidad académica es un valor fundamental que la escuela debe resguardar sin excepciones por comodidad.",
+          "isCorrect": false
+        },
+        {
+          "text": "Felicitar a los estudiantes por su habilidad para usar herramientas modernas, validando que el resultado final es lo que importa independientemente de cómo se obtuvo el contenido.",
+          "rationale": "Vulnera el principio de formación integral y ciudadana. Confunde la habilidad técnica con la competencia ética y el pensamiento crítico profundo.",
           "isCorrect": false
         }
       ],
-      "hint": "El rol ético del docente se centra en la responsabilidad profesional y mejora continua."
+      "hint": "Criterio: Ejercicio de la ética docente en situaciones de deshonestidad académica.",
+      "rationale": "La ética en la escuela no se enseña con castigos, sino con ejemplos y procesos de reflexión que permitan internalizar la importancia de la integridad."
     },
     {
       "questionNumber": 19,
-      "category": "Estrategias Pedagógicas",
-      "question": "En la **programación curricular a corto plazo**, ¿qué se define inmediatamente después de la situación significativa?",
+      "category": "Planificación Curricular",
+      "difficulty": "Experto",
+      "question": "Al realizar la **Planificación Curricular**, un docente decide aplicar el modelo de **Diseño Inverso (Backward Design)**. ¿Cuál es el orden lógico de decisiones pedagógicas que debe seguir para asegurar la alineación entre metas y enseñanza?",
       "answerOptions": [
         {
-          "text": "Elaborar la lista de actividades lúdicas de inicio.",
-          "rationale": "Las actividades se definen después de establecer la meta de aprendizaje.",
+          "text": "1. Seleccionar materiales y juegos divertidos; 2. Crear las actividades de clase; 3. Definir al final qué se va a evaluar según lo que se alcanzó a enseñar.",
+          "rationale": "Este es el modelo tradicional sesgado al activismo, donde la evaluación es un apéndice y no el motor del diseño pedagógico.",
           "isCorrect": false
         },
         {
-          "text": "Seleccionar las Competencias, Capacidades y Desempeños a movilizar.",
-          "rationale": "El paso inmediato es seleccionar los aprendizajes esperados que responden al reto.",
+          "text": "1. Identificar las metas de aprendizaje (competencias); 2. Determinar las evidencias de logro (evaluación); 3. Planificar las experiencias de aprendizaje (actividades).",
+          "rationale": "CORRECTA. El diseño inverso garantiza que todas las actividades y recursos estén alineados con lo que realmente se espera que el estudiante logre demostrar.",
           "isCorrect": true
         },
         {
-          "text": "Diseñar la evaluación final sumativa del bimestre.",
-          "rationale": "El foco inmediato debe ser la evaluación formativa de la unidad.",
+          "text": "1. Revisar el temario del libro de texto; 2. Programar las fechas de los exámenes parciales; 3. Diseñar las tareas de investigación para los estudiantes.",
+          "rationale": "Se centra en el contenido y la administración del tiempo, descuidando el desarrollo de competencias y la alineación con evidencias de aprendizaje.",
           "isCorrect": false
         },
         {
-          "text": "Determinar los recursos y materiales de toda la unidad.",
-          "rationale": "Los recursos se seleccionan en función de los desempeños, no son el primer paso.",
+          "text": "1. Realizar un diagnóstico socioemocional; 2. Definir las normas de convivencia; 3. Dejar que los estudiantes decidan cada día qué tema quieren abordar.",
+          "rationale": "Si bien el diagnóstico es clave, la falta de una estructura de metas y evidencias claras convierte la planificación en un proceso errático sin objetivos definidos.",
           "isCorrect": false
         }
       ],
-      "hint": "La meta debe estar clara antes de diseñar el camino."
+      "hint": "Criterio: Aplicación de modelos de planificación centrados en resultados de aprendizaje.",
+      "rationale": "Planificar en reversa es empezar con el fin en mente; saber a dónde vamos permite diseñar el mejor camino para llegar."
     },
     {
       "questionNumber": 20,
-      "category": "Planificación Curricular",
-      "question": "¿Cuál es el propósito de la **observación sistemática** durante una sesión de aprendizaje?",
+      "category": "Evaluación y Retroalimentación",
+      "difficulty": "Experto",
+      "question": "En una sesión de debate sobre dilemas éticos, el docente utiliza una **Lista de Cotejo** para observar la participación. ¿Cuál es la mayor limitación de este instrumento frente a una **Rúbrica Analítica** para evaluar competencias?",
       "answerOptions": [
         {
-          "text": "Asegurar que todos los estudiantes estén en silencio y sentados.",
-          "rationale": "El objetivo no es el control disciplinario sino recoger evidencia de aprendizaje.",
+          "text": "La lista de cotejo es más difícil de elaborar porque requiere detallar cada comportamiento observable de forma aislada.",
+          "rationale": "Al contrario, la lista de cotejo es técnicamente más sencilla; el problema no es la dificultad de elaboración sino la calidad de la información recopilada.",
           "isCorrect": false
         },
         {
-          "text": "Recoger evidencias de cómo los estudiantes movilizan sus capacidades.",
-          "rationale": "Sirve para captar el desempeño real y ajustar la enseñanza en el momento.",
+          "text": "La lista de cotejo solo permite registrar la presencia o ausencia del desempeño (dicotómica), mientras que la rúbrica describe niveles progresivos de calidad y complejidad.",
+          "rationale": "CORRECTA. Para evaluar competencias complejas, se requiere identificar 'qué tan bien' lo hace el estudiante, no solo si lo hizo o no.",
           "isCorrect": true
         },
         {
-          "text": "Tener material para justificar una nota desaprobatoria.",
-          "rationale": "El registro tiene un fin formativo (mejorar), no punitivo.",
+          "text": "La rúbrica consume más papel y tiempo de impresión en la gestión administrativa del colegio, siendo menos eficiente para el docente.",
+          "rationale": "Es una limitación logística irrelevante para la calidad del proceso pedagógico. La eficiencia pedagógica se mide por la precisión del diagnóstico del aprendizaje.",
           "isCorrect": false
         },
         {
-          "text": "Determinar qué estudiante es más inteligente que el resto.",
-          "rationale": "La evaluación se enfoca en el progreso individual respecto al desempeño.",
+          "text": "Las listas de cotejo son obligatorias por ley en todas las sesiones, mientras que las rúbricas son una sugerencia opcional para proyectos bimestrales.",
+          "rationale": "No existe tal normativa. La elección del instrumento depende del propósito evaluativo y de la naturaleza de la competencia a observar.",
           "isCorrect": false
         }
       ],
-      "hint": "La observación se utiliza para obtener evidencia concreta del proceso."
+      "hint": "Criterio: Selección y uso de instrumentos de evaluación pertinentes al enfoque por competencias.",
+      "rationale": "La rúbrica es el instrumento de excelencia para la evaluación formativa porque funciona como un mapa de desarrollo para el estudiante."
     },
     {
       "questionNumber": 21,
       "category": "Convivencia y Valores",
-      "question": "¿Cuál es el riesgo de abordar un **tema transversal** (ej. ambiental) solo como contenido temático?",
+      "difficulty": "Experto",
+      "question": "En una institución educativa, los docentes abordan el **Enfoque Transversal Ambiental** realizando una charla sobre el reciclaje. Sin embargo, no hay tachos diferenciados y el personal quema la basura en el patio. ¿Cuál es el impacto pedagógico de esta inconsistencia?",
       "answerOptions": [
         {
-          "text": "Que el estudiante tenga demasiados conocimientos y se confunda.",
-          "rationale": "El riesgo es de superficialidad, no de exceso de información.",
+          "text": "Los estudiantes aprenden la teoría del reciclaje con mayor claridad porque ven en la práctica lo que NO se debe hacer (aprendizaje por contraste).",
+          "rationale": "El aprendizaje de valores no ocurre por contraste negativo sistemático, sino por la observación de modelos coherentes y la vivencia de la cultura escolar.",
           "isCorrect": false
         },
         {
-          "text": "Que se pierda el carácter de actitud y valor, limitándolo al saber declarativo.",
-          "rationale": "Los enfoques transversales buscan influir en el comportamiento y valores.",
+          "text": "Se produce una disonancia cognitiva que debilita el desarrollo de la conciencia ética, ya que el currículo oculto (las acciones) contradice el currículo oficial (la charla).",
+          "rationale": "CORRECTA. Los enfoques transversales se vivencian. Si no hay coherencia entre lo que se dice y lo que se hace en la gestión escolar, el valor no se internaliza.",
           "isCorrect": true
         },
         {
-          "text": "Que no se pueda evaluar con instrumentos tradicionales.",
-          "rationale": "Las actitudes también pueden evaluarse mediante observación y rúbricas.",
+          "text": "No tiene impacto, ya que los estudiantes comprenden que la escuela tiene limitaciones logísticas y lo importante es que conozcan la información científica.",
+          "rationale": "Subestima el poder del entorno educativo. La escuela educa en cada rincón; si el entorno es incoherente, el mensaje pedagógico pierde toda credibilidad.",
           "isCorrect": false
         },
         {
-          "text": "Que los padres de familia no lo consideren importante para el futuro profesional.",
-          "rationale": "El valor pedagógico no depende de la percepción externa sino de la coherencia curricular.",
+          "text": "Es una oportunidad para que los estudiantes propongan soluciones administrativas, siempre y cuando no cuestionen la autoridad de los directivos que ordenan quemar basura.",
+          "rationale": "La ciudadanía crítica requiere poder cuestionar prácticas insostenibles. Limitar el cuestionamiento impide el desarrollo del pensamiento crítico y ético.",
           "isCorrect": false
         }
       ],
-      "hint": "Los enfoques transversales están ligados a valores y actitudes."
+      "hint": "Criterio: Coherencia entre el currículo oficial y el currículo oculto en valores.",
+      "rationale": "Un enfoque transversal no es un tema, es una forma de vivir y gestionar la escuela con coherencia ética."
     },
     {
       "questionNumber": 22,
-      "category": "Estrategias Pedagógicas",
-      "question": "¿Por qué priorizar los **Círculos de Interaprendizaje Profesional (CIP)** como estrategia de desarrollo?",
+      "category": "Liderazgo y Comunidad",
+      "difficulty": "Experto",
+      "question": "Un grupo de docentes decide formar una **Comunidad de Aprendizaje Profesional (CAP)** para mejorar sus estrategias de retroalimentación. ¿Cuál es la condición fundamental para que este espacio transforme realmente la práctica de aula?",
       "answerOptions": [
         {
-          "text": "Son más económicos que contratar expertos externos.",
-          "rationale": "Aunque es un factor económico, la razón principal debe ser pedagógica.",
+          "text": "Contar con un cronograma estricto de reuniones semanales y un sistema de control de asistencia firmado por el director para garantizar el cumplimiento normativo.",
+          "rationale": "La formalidad administrativa no garantiza la transformación pedagógica. Sin reflexión profunda, las reuniones se vuelven burocracia.",
           "isCorrect": false
         },
         {
-          "text": "Permiten que los docentes con más experiencia impongan sus métodos.",
-          "rationale": "El CIP busca la construcción colectiva, no la imposición jerárquica.",
-          "isCorrect": false
-        },
-        {
-          "text": "Fomentan la reflexión crítica entre pares contextualizada a la escuela.",
-          "rationale": "Aseguran que la formación esté vinculada a los desafíos reales del aula específica.",
+          "text": "Fomentar una cultura de confianza y crítica reflexiva donde se observen las clases de los colegas y se analicen evidencias reales del aprendizaje de los estudiantes.",
+          "rationale": "CORRECTA. La CAP requiere 'abrir el aula'. La observación entre pares y el análisis de evidencias son los motores reales de la mejora de la enseñanza.",
           "isCorrect": true
         },
         {
-          "text": "Cumplen con la normativa legal de tener reuniones periódicas.",
-          "rationale": "Deben tener un objetivo pedagógico de mejora, no solo de cumplimiento normativo.",
+          "text": "Asegurar que todos los docentes sigan una única metodología estandarizada diseñada por el docente con mayor antigüedad para mantener la unidad institucional.",
+          "rationale": "La estandarización mata la innovación y la autonomía. La CAP debe valorar la diversidad de enfoques para enriquecer el análisis pedagógico.",
+          "isCorrect": false
+        },
+        {
+          "text": "Utilizar el tiempo de la CAP para organizar eventos sociales y celebraciones que mejoren el clima laboral, asumiendo que un docente feliz enseña mejor automáticamente.",
+          "rationale": "Si bien el clima es importante, el propósito central de la CAP es el aprendizaje profesional enfocado en la mejora de los resultados de los estudiantes.",
           "isCorrect": false
         }
       ],
-      "hint": "Aprovechan la experiencia interna y se centran en la contextualización."
+      "hint": "Criterio: Fomento del aprendizaje colaborativo y la reflexión sobre la práctica.",
+      "rationale": "La mejora de la educación ocurre cuando los docentes dejan de trabajar aislados y empiezan a aprender unos de otros a partir de la práctica real."
     },
     {
       "questionNumber": 23,
-      "category": "Competencias Específicas",
-      "question": "En Matemáticas, pedir a los estudiantes resolver con sus propias estrategias antes de formalizar es:",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "En una sesión de Matemáticas sobre probabilidad, un docente aplica la **Heurística de Polya**. ¿Cuál es la intervención docente más adecuada durante la fase de 'Búsqueda de una estrategia'?",
       "answerOptions": [
         {
-          "text": "Formalización y transferencia.",
-          "rationale": "La formalización ocurre después de que el estudiante ha explorado soluciones.",
+          "text": "Identificar el error en el razonamiento del estudiante y explicarle de inmediato la fórmula correcta para que no pierda tiempo valioso de la sesión.",
+          "rationale": "Intervenir resolviendo el problema anula el proceso cognitivo del estudiante. El docente debe mediar, no sustituir el pensamiento.",
           "isCorrect": false
         },
         {
-          "text": "Familiarización con el problema y búsqueda de estrategias.",
-          "rationale": "La búsqueda de estrategias propias es central antes de recibir la fórmula docente.",
+          "text": "Plantear preguntas orientadoras que ayuden al estudiante a relacionar el problema con otros similares resueltos anteriormente, sin sugerirle un camino único.",
+          "rationale": "CORRECTA. La heurística busca que el estudiante desarrolle su propio repertorio de estrategias mediante la reflexión y la conexión de saberes.",
           "isCorrect": true
         },
         {
-          "text": "Revisión de conocimientos previos.",
-          "rationale": "Aunque se activan previos, el énfasis aquí está en la exploración del nuevo reto.",
+          "text": "Permitir que el estudiante trabaje en silencio absoluto durante 40 minutos, sin intervenir bajo ninguna circunstancia para respetar su autonomía total.",
+          "rationale": "La autonomía requiere mediación. El abandono pedagógico no es fomentar la independencia; el estudiante necesita andamiaje para no frustrarse.",
           "isCorrect": false
         },
         {
-          "text": "Evaluación sumativa de la competencia.",
-          "rationale": "Es parte del proceso de enseñanza formativo, no de una prueba final.",
+          "text": "Copiar en la pizarra tres ejemplos resueltos de problemas idénticos para que el estudiante elija uno y cambie los datos por los de su ejercicio actual.",
+          "rationale": "Esto fomenta la imitación mecánica y el aprendizaje algorítmico, pero no desarrolla el pensamiento heurístico ni la capacidad de resolución de problemas.",
           "isCorrect": false
         }
       ],
-      "hint": "El estudiante es el constructor de su solución antes de la formalización docente."
+      "hint": "Criterio: Mediación en los procesos de resolución de problemas matemáticos.",
+      "rationale": "Enseñar a pensar en matemáticas es más importante que enseñar a operar; el reto es que el estudiante aprenda a diseñar sus propias rutas de solución."
     },
     {
       "questionNumber": 24,
-      "category": "Competencias Específicas",
-      "question": "¿Cómo se garantiza la **coherencia vertical** del currículo en una institución?",
+      "category": "Planificación Curricular",
+      "difficulty": "Experto",
+      "question": "Para garantizar la **Coherencia Vertical** del currículo en el área de Comunicación, ¿qué deben asegurar los docentes de primaria y secundaria en su planificación articulada?",
       "answerOptions": [
         {
-          "text": "Asegurarse de que el contenido temático sea idéntico en todos los grados.",
-          "rationale": "Esto generaría repetición; la coherencia se centra en la progresión de competencias.",
+          "text": "Que los textos que se leen en primer grado sean exactamente los mismos que se leen en quinto de secundaria, aumentando solo la cantidad de páginas.",
+          "rationale": "La coherencia vertical no es repetición, sino progresión. Usar los mismos textos anula el interés y no respeta la madurez cognitiva de los ciclos.",
           "isCorrect": false
         },
         {
-          "text": "Coordinar contenidos entre docentes de un mismo grado y área.",
-          "rationale": "Esto es coherencia horizontal; la verticalidad es entre distintos grados/ciclos.",
-          "isCorrect": false
-        },
-        {
-          "text": "Garantizar que los desempeños sean una progresión incremental del estándar anterior.",
-          "rationale": "Asegura que la competencia se construya de forma progresiva a lo largo de los años.",
+          "text": "Que las capacidades de la competencia se desarrollen con niveles crecientes de complejidad, alineados a la progresión descrita en el Estándar de cada ciclo.",
+          "rationale": "CORRECTA. La verticalidad implica que el aprendizaje se construye sobre lo anterior, aumentando la profundidad, autonomía y sofisticación del desempeño.",
           "isCorrect": true
         },
         {
-          "text": "Evaluar a los estudiantes de forma estandarizada usando solo opción múltiple.",
-          "rationale": "El instrumento de evaluación no garantiza por sí solo la coherencia del diseño.",
+          "text": "Que todos los docentes utilicen la misma editorial de libros de texto para que el formato visual de las actividades sea idéntico durante toda la vida escolar.",
+          "rationale": "La coherencia reside en los procesos cognitivos y metas de aprendizaje, no en el formato de los materiales o la marca de los textos escolares.",
+          "isCorrect": false
+        },
+        {
+          "text": "Que se eliminen los temas difíciles del currículo de primaria para que los docentes de secundaria tengan más tiempo de explicarlos desde cero con mayor rigor.",
+          "rationale": "Esto rompe la continuidad. Todas las competencias deben movilizarse desde los primeros años adaptando la complejidad al desarrollo del niño.",
           "isCorrect": false
         }
       ],
-      "hint": "La coherencia vertical se refiere a la secuencia y progresión a través de los ciclos."
+      "hint": "Criterio: Articulación y progresión curricular a lo largo de los ciclos educativos.",
+      "rationale": "El currículo es un espiral; volvemos a las mismas competencias pero cada vez con mayor profundidad y herramientas de análisis."
     },
     {
       "questionNumber": 25,
-      "category": "Competencias Específicas",
-      "question": "En Ciencia y Tecnología, ¿cuál es la justificación pedagógica de diseñar y construir un prototipo?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "En una sesión de Ciencia y Tecnología sobre el cambio climático, un docente plantea la pregunta: \"¿Cómo influye la temperatura del agua en el deshielo de los glaciares artificiales?\". ¿Qué proceso cognitivo está priorizando?",
       "answerOptions": [
         {
-          "text": "Permitir el uso de material reciclado por economía institucional.",
-          "rationale": "Es una ventaja colateral, pero la justificación principal es el desarrollo de habilidades.",
+          "text": "La recuperación de saberes previos, ya que los estudiantes deben recordar qué es un glaciar y a qué temperatura se congela el agua.",
+          "rationale": "Aunque se activan saberes, la pregunta está diseñada para iniciar una investigación, no solo para listar conocimientos memorizados anteriormente.",
           "isCorrect": false
         },
         {
-          "text": "Desarrollar la competencia de Diseño de soluciones tecnológicas movilizando saberes.",
-          "rationale": "El prototipo es la expresión de la competencia de resolver problemas con tecnología.",
+          "text": "La formulación de una pregunta investigable que delimita variables (dependiente e independiente) para iniciar un proceso de indagación científica.",
+          "rationale": "CORRECTA. Es el punto de partida del método científico escolar: identificar un fenómeno y proponer una forma de medir la relación entre sus causas y efectos.",
           "isCorrect": true
         },
         {
-          "text": "Evitar la teoría y enfocarse únicamente en el trabajo manual.",
-          "rationale": "El enfoque requiere movilizar teoría para la solución práctica, no ignorarla.",
+          "text": "La transferencia del aprendizaje, porque el estudiante debe aplicar lo aprendido en geografía para entender un fenómeno físico-químico complejo.",
+          "rationale": "La transferencia ocurre al final, cuando usamos lo aprendido en un contexto nuevo. Aquí estamos en la fase de planteamiento del problema.",
           "isCorrect": false
         },
         {
-          "text": "Asegurar una nota alta por la presentación visual del prototipo.",
-          "rationale": "El foco es la funcionalidad y el proceso de diseño, no solo la estética.",
+          "text": "La evaluación sumativa, ya que si el estudiante no sabe responder a la pregunta se evidencia que no ha estudiado el temario del bimestre correspondiente.",
+          "rationale": "Confunde una pregunta de indagación con una pregunta de examen. En indagación, el 'no saber' es el motor que impulsa la búsqueda de evidencia.",
           "isCorrect": false
         }
       ],
-      "hint": "Se centra en la indagación y el diseño de soluciones a problemas concretos."
+      "hint": "Criterio: Promoción de la indagación científica mediante el planteamiento de problemas.",
+      "rationale": "Saber preguntar es la mitad del camino en ciencias; una buena pregunta guiará todo el diseño experimental posterior del estudiante."
     },
     {
       "questionNumber": 26,
-      "category": "Competencias Específicas",
-      "question": "¿Qué pregunta orienta mejor la **Reflexión sobre la Práctica** hacia una mejora sistémica?",
+      "category": "Liderazgo y Comunidad",
+      "difficulty": "Experto",
+      "question": "Durante una sesión de **Reflexión sobre la Práctica**, un docente analiza un video de su propia clase y nota que solo da la palabra a los estudiantes que se sientan en las primeras filas. ¿Qué nivel de reflexión está alcanzando?",
       "answerOptions": [
         {
-          "text": "¿Qué parte del temario me faltó cubrir por falta de tiempo?",
-          "rationale": "Se centra en cobertura de contenidos, no en calidad del aprendizaje.",
+          "text": "Nivel Descriptivo: simplemente está relatando lo que ve en la pantalla sin emitir juicios ni buscar causas bajo el principio de objetividad absoluta.",
+          "rationale": "El docente ya ha identificado un patrón o sesgo (dar la palabra solo a unos pocos), lo que implica que ya superó la mera descripción de hechos superficiales.",
           "isCorrect": false
         },
         {
-          "text": "¿Cómo puedo culpar a los estudiantes por no haber estudiado lo previo?",
-          "rationale": "Desplaza la responsabilidad y no conduce a la mejora docente.",
-          "isCorrect": false
-        },
-        {
-          "text": "¿Qué evidencias demuestran el logro de competencia y qué ajustes debo hacer?",
-          "rationale": "Vincula evidencias, logros y necesidad de ajuste en la práctica.",
+          "text": "Nivel Crítico: está cuestionando sus propios sesgos inconscientes y analizando cómo su práctica afecta la equidad y el derecho de todos a participar.",
+          "rationale": "CORRECTA. La reflexión crítica implica mirar las estructuras de poder, los prejuicios y el impacto ético de las decisiones pedagógicas en el aula.",
           "isCorrect": true
         },
         {
-          "text": "¿Fui más popular que el docente de la otra aula al dar mi clase?",
-          "rationale": "Se centra en percepción personal, no en efectividad pedagógica.",
+          "text": "Nivel Administrativo: se preocupa por si los estudiantes de atrás están haciendo ruido y busca formas de controlarlos mejor para que la clase sea más silenciosa.",
+          "rationale": "Se enfoca en el control disciplinario, que es un nivel de preocupación por la gestión básica, pero no alcanza la dimensión pedagógica del aprendizaje equitativo.",
+          "isCorrect": false
+        },
+        {
+          "text": "Nivel Técnico: busca una aplicación de software que le permita elegir estudiantes al azar mediante un sorteo digital para no tener que pensar en a quién elegir.",
+          "rationale": "Busca una solución instrumental (herramienta) pero no reflexiona sobre la causa raíz de su comportamiento ni sobre el sentido de la interacción humana en el aula.",
           "isCorrect": false
         }
       ],
-      "hint": "Conecta la acción (práctica) con el resultado (aprendizaje)."
+      "hint": "Criterio: Desarrollo de la práctica reflexiva docente y la deconstrucción de sesgos.",
+      "rationale": "El docente que se observa a sí mismo con honestidad crítica es el que realmente puede transformar su enseñanza para hacerla más justa."
     },
     {
       "questionNumber": 27,
-      "category": "Competencias Específicas",
-      "question": "En un enfoque **EIB** (Intercultural Bilingüe), ¿cuál es la función principal del docente?",
+      "category": "Inclusión y Diversidad",
+      "difficulty": "Experto",
+      "question": "En un aula con estudiantes de diversas regiones y lenguas (contexto de **Interculturalidad Crítica**), surge una burla hacia el acento de un estudiante migrante. ¿Cuál es la intervención docente más coherente?",
       "answerOptions": [
         {
-          "text": "Enseñar solo castellano y prohibir la lengua originaria para integrar.",
-          "rationale": "El enfoque EIB promueve el desarrollo de ambas lenguas y valora la cultura local.",
+          "text": "Castigar al estudiante que se burló con la suspensión de un recreo, prohibiendo que se vuelva a mencionar el tema para 'limpiar' el ambiente del aula rápidamente.",
+          "rationale": "El castigo silencia el síntoma pero no educa sobre la raíz del prejuicio. La interculturalidad requiere diálogo y comprensión, no solo represión del conflicto.",
           "isCorrect": false
         },
         {
-          "text": "Utilizar la lengua materna como medio de enseñanza y desarrollar ambas lenguas.",
-          "rationale": "Usa la lengua materna para construir conocimiento y desarrolla el castellano simultáneamente.",
+          "text": "Convertir el incidente en una sesión de aprendizaje sobre la sociolingüística y el valor de las lenguas, promoviendo el reconocimiento de la identidad de cada estudiante como riqueza.",
+          "rationale": "CORRECTA. El enfoque crítico aprovecha el conflicto para visibilizar las relaciones de poder y asimetrías, construyendo respeto desde el entendimiento profundo.",
           "isCorrect": true
         },
         {
-          "text": "Limitar el currículo a saberes ancestrales ignorando el conocimiento universal.",
-          "rationale": "Busca articular saberes locales con conocimientos universales.",
+          "text": "Pedir al estudiante afectado que trate de hablar de forma 'más neutra' para evitar futuras burlas, asumiendo que la adaptación es responsabilidad única del que es diferente.",
+          "rationale": "Es una forma de violencia pedagógica (asimilacionismo). Refuerza la idea de que hay formas de hablar 'correctas' y 'superiores', violentando la identidad del alumno.",
           "isCorrect": false
         },
         {
-          "text": "Aplicar el mismo plan de estudios estandarizado sin adecuación cultural.",
-          "rationale": "La EIB requiere una contextualización profunda a la realidad cultural del alumno.",
+          "text": "Organizar una feria gastronómica donde todos traigan platos típicos, creyendo que probar comida diferente resolverá automáticamente los prejuicios lingüísticos y sociales.",
+          "rationale": "Es interculturalidad funcional o 'folclórica'. Se queda en la superficie estética y no aborda las tensiones, prejuicios y discriminación real que ocurren en la interacción.",
           "isCorrect": false
         }
       ],
-      "hint": "Se enfoca en el uso de lengua materna y valoración cultural."
+      "hint": "Criterio: Promoción de la valoración de la diversidad y el enfoque de interculturalidad crítica.",
+      "rationale": "La riqueza de un país pluricultural reside en sus voces; la escuela es el espacio para aprender a escucharlas todas con igual dignidad."
     },
     {
       "questionNumber": 28,
-      "category": "Planificación Curricular",
-      "question": "¿Qué capacidad fomenta la retroalimentación descriptiva: 'revisa el párrafo 3 e incluye la referencia'?",
+      "category": "Evaluación y Retroalimentación",
+      "difficulty": "Experto",
+      "question": "Un estudiante entrega un ensayo con excelentes argumentos pero con graves deficiencias en la ortografía y el uso de conectores. ¿Qué tipo de **retroalimentación** favorece mejor su autonomía?",
       "answerOptions": [
         {
-          "text": "La capacidad de memorización de conceptos teóricos.",
-          "rationale": "El foco es la aplicación de la norma, no la memorización pura.",
+          "text": "Corregir todos los errores con lapicero rojo y escribir la palabra correcta encima de cada falla para que el estudiante vea exactamente cómo debe quedar el texto final.",
+          "rationale": "Es retroalimentación correctiva total que anula el esfuerzo de revisión del estudiante. No genera aprendizaje sobre el proceso de escritura.",
           "isCorrect": false
         },
         {
-          "text": "La autorregulación y la autoevaluación al indicar la acción correctiva.",
-          "rationale": "Permite al estudiante monitorear y ajustar su propio proceso.",
+          "text": "Resaltar los párrafos donde la cohesión es débil y pedir al estudiante que identifique los conectores que faltan, ofreciéndole una guía de consulta para que él mismo decida el ajuste.",
+          "rationale": "CORRECTA. Proporciona andamiaje (guía de consulta) pero mantiene la responsabilidad de la acción en el estudiante, promoviendo la autorregulación.",
           "isCorrect": true
         },
         {
-          "text": "La capacidad de copiar correctamente de un modelo dado.",
-          "rationale": "Busca que el estudiante entienda el porqué de la mejora.",
+          "text": "Bajar un punto por cada error ortográfico y devolver el trabajo sin comentarios, asumiendo que la nota es el mensaje suficiente para que el estudiante comprenda que debe mejorar.",
+          "rationale": "La evaluación punitiva sin comentario pedagógico no ofrece información sobre qué mejorar ni cómo hacerlo. Es opaca y desmotivadora.",
           "isCorrect": false
         },
         {
-          "text": "El enfoque en la calificación final sumativa.",
-          "rationale": "Es inherentemente formativa, enfocada en el proceso.",
+          "text": "Felicitarlo por sus grandes ideas y decirle que no se preocupe por la ortografía, ya que lo importante en la vida es el contenido y no la forma escrita de los mensajes.",
+          "rationale": "Incurre en falta de rigor profesional. La competencia comunicativa es integral; descuidar la forma impide que el mensaje sea comprendido con eficiencia en contextos formales.",
           "isCorrect": false
         }
       ],
-      "hint": "Ayuda al estudiante a tomar el control de su propio aprendizaje."
+      "hint": "Criterio: Retroalimentación para la autorregulación y la mejora de la producción escrita.",
+      "rationale": "La retroalimentación debe ser un espejo que permita al estudiante verse a sí mismo trabajando y descubrir sus propias rutas de mejora."
     },
     {
       "questionNumber": 29,
-      "category": "Competencias Específicas",
-      "question": "¿Cuál es la ventaja pedagógica de organizar el currículo en **Ciclos**?",
+      "category": "Planificación Curricular",
+      "difficulty": "Experto",
+      "question": "En el marco de la **Gestión del Tiempo Escolar**, un docente nota que las transiciones entre actividades consumen 15 minutos de la sesión. ¿Cuál es la decisión pedagógica más eficaz para optimizar el aprendizaje?",
       "answerOptions": [
         {
-          "text": "Permite que los docentes de cada grado trabajen de forma aislada.",
-          "rationale": "Exige mayor coordinación para asegurar la progresión.",
+          "text": "Eliminar el tiempo de trabajo grupal para que los estudiantes no tengan que moverse de sus carpetas y así evitar cualquier ruido o desorden en el aula.",
+          "rationale": "Sacrifica la calidad pedagógica (trabajo colaborativo) por una paz sepulcral ineficiente. El orden no es el fin, sino una condición para el aprendizaje.",
           "isCorrect": false
         },
         {
-          "text": "Facilita la evaluación masiva con pruebas estandarizadas.",
-          "rationale": "La principal ventaja es la flexibilidad para el aprendizaje, no la evaluación externa.",
-          "isCorrect": false
-        },
-        {
-          "text": "Reconoce que el desarrollo de competencias es continuo y otorga flexibilidad.",
-          "rationale": "Respeta los ritmos de aprendizaje en un periodo de dos años.",
+          "text": "Diseñar rutinas de transición claras y predecibles (co-construidas con los estudiantes), convirtiendo la organización del espacio en un ejercicio de autonomía y respeto.",
+          "rationale": "CORRECTA. La gestión del aula es parte del currículo. Enseñar a transitar con eficiencia y respeto ahorra tiempo y desarrolla competencias socioemocionales.",
           "isCorrect": true
         },
         {
-          "text": "Obliga a lograr el 100% de los contenidos de todos los grados.",
-          "rationale": "El foco es el logro de la competencia, no solo contenidos.",
+          "text": "Gritar con mayor fuerza y usar un silbato para imponer el silencio inmediato, castigando al último grupo que logre organizarse según sus instrucciones.",
+          "rationale": "Genera un clima de estrés y miedo que bloquea el aprendizaje. La autoridad basada en el grito es frágil y no desarrolla autorregulación en los alumnos.",
+          "isCorrect": false
+        },
+        {
+          "text": "Aceptar que el tiempo se pierde inevitablemente y reducir los objetivos de aprendizaje de la sesión para ajustarlos al tiempo real que queda disponible.",
+          "rationale": "Falta de liderazgo pedagógico. El docente tiene la responsabilidad de gestionar los recursos (incluyendo el tiempo) para maximizar las oportunidades de aprendizaje del estudiante.",
           "isCorrect": false
         }
       ],
-      "hint": "Están diseñados para dar tiempo y flexibilidad al proceso."
+      "hint": "Criterio: Gestión del aula y optimización del tiempo para el aprendizaje significativo.",
+      "rationale": "Un aula bien gestionada es aquella donde el tiempo fluye a favor del pensamiento y no de la burocracia del movimiento."
     },
     {
       "questionNumber": 30,
-      "category": "Competencias Específicas",
-      "question": "En **Personal Social**, para reconocerse como sujeto de derechos, ¿qué proceso debe priorizar el docente?",
+      "category": "Convivencia y Valores",
+      "difficulty": "Experto",
+      "question": "En el área de Personal Social, un docente busca que sus estudiantes se reconozcan como **Sujetos de Derecho**. ¿Qué situación de aprendizaje es más potente para este propósito desde una ciudadanía activa?",
       "answerOptions": [
         {
-          "text": "La memorización de las leyes internacionales de derechos humanos.",
-          "rationale": "La memorización es pasiva; el enfoque requiere vivencia y análisis.",
+          "text": "Realizar una exposición magistral sobre la historia de la ONU y la Declaración Universal de los Derechos Humanos, exigiendo la memorización de los 30 artículos.",
+          "rationale": "La información histórica es valiosa pero el reconocimiento como sujeto de derecho requiere vivencia y acción, no solo recepción pasiva de datos lejanos.",
           "isCorrect": false
         },
         {
-          "text": "La deliberación, el análisis de dilemas éticos y la toma de postura.",
-          "rationale": "El desarrollo de ciudadanía se logra a través del análisis crítico de la realidad.",
+          "text": "Identificar una problemática real del entorno escolar (ej: falta de espacios verdes) y organizar una asamblea deliberativa para proponer soluciones ante el municipio escolar.",
+          "rationale": "CORRECTA. El ejercicio de la ciudadanía se aprende ejerciendo el poder de propuesta y la participación real en la transformación del entorno cercano.",
           "isCorrect": true
         },
         {
-          "text": "El diseño de un mapa mental de las estructuras de gobierno locales.",
-          "rationale": "Esto es conocimiento declarativo, no ejercicio de derechos.",
+          "text": "Diseñar un periódico mural con dibujos coloridos sobre los derechos de los niños para que toda la comunidad educativa vea que la escuela cumple con la normativa.",
+          "rationale": "Es una actividad de sensibilización visual que se queda en la superficie folclórica del derecho, sin movilizar capacidades de análisis crítico o incidencia social.",
           "isCorrect": false
         },
         {
-          "text": "La realización de actividades físicas para el autocuidado.",
-          "rationale": "Es parte de otra competencia, aunque relacionada con la salud.",
+          "text": "Ver un documental sobre niños en situación de vulnerabilidad en otros continentes para generar sentimientos de caridad y agradecimiento por la situación propia.",
+          "rationale": "Enfoca el derecho desde la lástima o la comparación externa, lo que no fortalece la identidad del propio estudiante como actor político y social con derechos exigibles.",
           "isCorrect": false
         }
       ],
-      "hint": "Requiere que el estudiante analice y participe activamente."
+      "hint": "Criterio: Desarrollo de la ciudadanía activa y el reconocimiento de la dignidad humana.",
+      "rationale": "Ser sujeto de derecho significa tener voz, capacidad de participar y responsabilidad en la construcción de la justicia social."
     },
     {
       "questionNumber": 31,
-      "category": "Convivencia y Valores",
-      "question": "¿Qué estrategia debe EVITAR un docente en un conflicto de valores desde una perspectiva formativa?",
+      "category": "Normatividad y Ética",
+      "difficulty": "Experto",
+      "question": "Un docente detecta que un estudiante ha copiado un ensayo argumentativo de una página web de inteligencia artificial. ¿Cuál es el abordaje ético-pedagógico más avanzado para este incidente?",
       "answerOptions": [
         {
-          "text": "Facilitar un espacio de diálogo para exponer sentimientos.",
-          "rationale": "El diálogo es esencial para la mediación formativa.",
+          "text": "Asignar la calificación mínima reglamentaria (00) de forma inmediata y citar al padre de familia para que firme un compromiso de honestidad académica bajo amenaza de expulsión.",
+          "rationale": "El enfoque punitivo-administrativo cierra la puerta al aprendizaje ético. No indaga sobre la causa ni enseña el valor real de la producción intelectual original.",
           "isCorrect": false
         },
         {
-          "text": "Orientar la reflexión hacia las normas y consecuencias.",
-          "rationale": "La reflexión sobre normas es componente clave de la resolución.",
-          "isCorrect": false
-        },
-        {
-          "text": "Imponer un castigo ejemplar sin indagar el origen ni proponer soluciones.",
-          "rationale": "Evita la reflexión y reparación, siendo contrario a la finalidad formativa.",
+          "text": "Dialogar con el estudiante sobre el sentido de la producción de pensamiento propio, analizando cómo el plagio vulnera su proceso de aprendizaje y el respeto por los autores.",
+          "rationale": "CORRECTA. La formación ética requiere reflexión sobre el sentido de las acciones. Es una oportunidad para profundizar en la integridad y el propósito de la escuela.",
           "isCorrect": true
         },
         {
-          "text": "Ayudar a generar soluciones cooperativas que satisfagan a ambos.",
-          "rationale": "La búsqueda de soluciones ganar-ganar es el objetivo de la mediación.",
+          "text": "Permitir que el estudiante conserve el ensayo si logra explicar verbalmente lo que la inteligencia artificial escribió, validando el producto final sobre el proceso.",
+          "rationale": "Incurre en falta de rigor y normaliza la deshonestidad. El aprendizaje no es solo saber repetir información ajena, sino ser capaz de construirla y sustentarla.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ignorar el hecho para no entrar en conflicto con la familia, asumiendo que el uso de la tecnología es inevitable y que el docente no puede competir con las máquinas.",
+          "rationale": "Abandono pedagógico y falta de liderazgo ético. El docente debe mediar en el uso responsable de la tecnología y defender los valores de la formación humana.",
           "isCorrect": false
         }
       ],
-      "hint": "En la resolución formativa, la reflexión y participación son innegociables."
+      "hint": "Criterio: Abordaje formativo de la ética y la integridad académica en el entorno digital.",
+      "rationale": "La integridad no se impone con multas; se construye comprendiendo el valor de nuestra propia voz en el mundo."
     },
     {
       "questionNumber": 32,
-      "category": "Planificación Curricular",
-      "question": "¿Cuál es el principal indicador de que el **PEI** es efectivo y pertinente?",
+      "category": "Gestión Institucional",
+      "difficulty": "Experto",
+      "question": "En la elaboración del **Proyecto Educativo Institucional (PEI)**, el equipo detecta que la misión institucional declara un enfoque humanista, pero el reglamento interno se basa en sanciones pecuniarias y punitivas. ¿Qué acción liderar?",
       "answerOptions": [
         {
-          "text": "El número de reuniones de docentes realizadas en el año.",
-          "rationale": "Es un indicador de gestión administrativa, no de impacto pedagógico.",
+          "text": "Modificar la misión para que se ajuste a la realidad punitiva de la escuela, evitando así contradicciones internas y problemas legales con las autoridades.",
+          "rationale": "Implica una renuncia a los fines pedagógicos transformadores. El PEI debe orientar la práctica hacia lo ideal, no reducir el ideal a la práctica deficiente.",
           "isCorrect": false
         },
         {
-          "text": "Que los resultados de aprendizaje se alineen con la visión y objetivos del PEI.",
-          "rationale": "La efectividad se mide por el impacto real en el logro de competencias de los alumnos.",
+          "text": "Revisar participativamente el Reglamento Interno para alinearlo con el enfoque humanista, transformando las sanciones en procesos de reparación y reflexión ética.",
+          "rationale": "CORRECTA. La gestión escolar debe ser coherente. Si el fin es humanista, los medios (la gestión de la convivencia) deben serlo también para ser educativos.",
           "isCorrect": true
         },
         {
-          "text": "La cantidad de dinero invertido en infraestructura nueva.",
-          "rationale": "La inversión es un medio; la efectividad es el logro de fines educativos.",
+          "text": "Mantener ambos documentos como están bajo el principio de que la 'misión' es filosófica y el 'reglamento' es práctico, por lo que no requieren coherencia absoluta.",
+          "rationale": "La incoherencia sistémica genera confusión y desconfianza en la comunidad. La escuela educa por lo que dice y fundamentalmente por lo que hace legalmente.",
           "isCorrect": false
         },
         {
-          "text": "El nivel de cumplimiento estricto de los horarios propuestos.",
-          "rationale": "La rigidez administrativa no es el objetivo de la gestión pedagógica.",
+          "text": "Contratar a un consultor externo para que redacte un nuevo PEI que use términos modernos de gestión pero que no cambie la estructura real de poder en la escuela.",
+          "rationale": "Es una gestión cosmética o 'maquillaje institucional'. El PEI solo es efectivo cuando es producto de una reflexión real y compartida de la propia comunidad.",
           "isCorrect": false
         }
       ],
-      "hint": "Se mide por el impacto que tiene en el aprendizaje de los estudiantes."
+      "hint": "Criterio: Coherencia entre los instrumentos de gestión escolar y el enfoque pedagógico institucional.",
+      "rationale": "El PEI es la carta de navegación; si la brújula y el timón van en sentidos opuestos, la escuela pierde su rumbo formativo."
     },
     {
       "questionNumber": 33,
-      "category": "Competencias Específicas",
-      "question": "¿Cuál es el propósito de la **Textualización** en la producción de textos?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "Durante la etapa de **Textualización** de un cuento, un grupo de estudiantes de primaria se detiene constantemente para discutir sobre la tildación de las palabras, perdiendo el hilo de su historia. ¿Cuál es la mediación docente más pertinente?",
       "answerOptions": [
         {
-          "text": "Definir el propósito comunicativo y el destinatario.",
-          "rationale": "Esta es la fase de Planificación.",
+          "text": "Entregarles de inmediato un diccionario y una lista de reglas ortográficas tildativas para que las memoricen antes de continuar con la escritura del borrador.",
+          "rationale": "Interrumpe el pensamiento creativo y focaliza en la forma gramatical aislada en un momento donde el reto principal es la fluidez y coherencia de las ideas.",
           "isCorrect": false
         },
         {
-          "text": "Revisar y reescribir el borrador para ajustarlo a la coherencia.",
-          "rationale": "Esta es la fase de Revisión.",
-          "isCorrect": false
-        },
-        {
-          "text": "Plasmar las ideas planificadas en un borrador coherente y cohesionado.",
-          "rationale": "Es la acción de convertir el plan en el primer escrito con lenguaje adecuado.",
+          "text": "Sugerirles que prioricen el registro de sus ideas y el flujo de la narración en el borrador, recordándoles que habrá una etapa posterior de revisión específica de ortografía.",
+          "rationale": "CORRECTA. Es fundamental diferenciar las demandas cognitivas de la textualización frente a la revisión. La fluidez en el primer borrador favorece la construcción de sentido.",
           "isCorrect": true
         },
         {
-          "text": "Buscar información adicional para enriquecer el tema.",
-          "rationale": "Suele ser parte de la Planificación.",
+          "text": "Corregirles las tildes en el acto para evitar que 'aprendan mal' y fijen errores ortográficos en su memoria visual durante la sesión de clase actual.",
+          "rationale": "No permite que el estudiante desarrolle autonomía ni se enfoque en el proceso de composición. La corrección externa inmediata no garantiza aprendizaje ortográfico real.",
+          "isCorrect": false
+        },
+        {
+          "text": "Permitir que ignoren la ortografía para siempre, asumiendo que el enfoque por competencias solo valora el mensaje y no el uso formal de la convención de la escritura.",
+          "rationale": "Es una interpretación errónea del enfoque Comunicativo. Las convenciones son necesarias para la comprensión; el tema no es ignorarlas, sino saber cuándo abordarlas.",
           "isCorrect": false
         }
       ],
-      "hint": "Es la fase de escritura del borrador donde las ideas se convierten en texto."
+      "hint": "Criterio: Mediación en los procesos de producción de textos según el enfoque comunicativo.",
+      "rationale": "Escribir es un proceso recursivo; no podemos exigir perfección técnica y creatividad profunda en el mismo segundo."
     },
     {
       "questionNumber": 34,
       "category": "Inclusión y Diversidad",
-      "question": "Ante un estudiante con ritmo de aprendizaje más rápido, ¿cuál es la acción más inclusiva?",
+      "difficulty": "Experto",
+      "question": "En un aula inclusiva, se identifica a un estudiante con **Alta Dotación (Talento y Superdotación)**. ¿Cuál es la estrategia de enriquecimiento más adecuada para evitar su desmotivación y potenciar su desarrollo?",
       "answerOptions": [
         {
-          "text": "Asignarle tareas repetitivas para que espere al resto.",
-          "rationale": "Esto limita su potencial y genera desmotivación.",
+          "text": "Pedirle que actúe sistemáticamente como tutor de sus compañeros que van más lento, asumiendo que enseñar a otros es el máximo reto que necesita un talento.",
+          "rationale": "Si bien la tutoría es valiosa, no puede ser la única respuesta. El estudiante talentoso también tiene derecho a recibir desafíos que lo saquen de su propia zona de confort.",
           "isCorrect": false
         },
         {
-          "text": "Asignarle una calificación sobresaliente sin modificar el currículo.",
-          "rationale": "No es suficiente; requiere intervención para desarrollar niveles superiores.",
-          "isCorrect": false
-        },
-        {
-          "text": "Ofrecerle oportunidades de enriquecimiento y profundización curricular.",
-          "rationale": "La inclusión debe potenciar a los estudiantes talentosos con mayores desafíos.",
+          "text": "Diseñar tareas paralelas de mayor complejidad cognitiva y proyectos de investigación autónomos que permitan profundizar en las competencias según sus intereses.",
+          "rationale": "CORRECTA. La inclusión es para todos. Los estudiantes talentosos requieren ajustes curriculares de ampliación y enriquecimiento para seguir aprendiendo significativamente.",
           "isCorrect": true
         },
         {
-          "text": "Ignorar su ritmo ya que los recursos deben ir a quienes tienen dificultades.",
-          "rationale": "La inclusión abarca todos los rangos, incluidos los acelerados.",
+          "text": "Adelantarlo de grado administrativo inmediatamente sin realizar ninguna evaluación socioemocional, priorizando únicamente su velocidad de procesamiento de información.",
+          "rationale": "La aceleración debe ser una decisión integral. Pasar a un niño de secundaria muy joven sin madurez emocional puede ser traumático y contraproducente a largo plazo.",
+          "isCorrect": false
+        },
+        {
+          "text": "Exigirle que haga el doble de ejercicios que el resto del grupo para mantenerlo ocupado y que no distraiga a los compañeros que sí necesitan tiempo del profesor.",
+          "rationale": "Es 'activismo' ineficiente. Más de lo mismo no es profundización; es carga administrativa que genera rechazo hacia el aprendizaje y la escuela.",
           "isCorrect": false
         }
       ],
-      "hint": "Se aplica tanto a superación de barreras como a potenciación del talento."
+      "hint": "Criterio: Atención a la diversidad mediante estrategias de enriquecimiento y profundización curricular.",
+      "rationale": "La inclusión significa que el techo de la planificación siempre debe estar un paso más allá de lo que el estudiante más hábil ya sabe."
     },
     {
       "questionNumber": 35,
-      "category": "Competencias Específicas",
-      "question": "En Educación Física, para desarrollar 'Interactúa a través de habilidades sociomotrices', el docente prioriza:",
+      "category": "Desarrollo Socioemocional",
+      "difficulty": "Experto",
+      "question": "En Educación Física, para desarrollar la competencia de **Interactuar a través de sus habilidades sociomotrices**, ¿qué tipo de actividad es la más pertinente?",
       "answerOptions": [
         {
-          "text": "Evaluar la memorización de las reglas de deportes populares.",
-          "rationale": "La competencia es saber interactuar en el juego, no solo saber reglas.",
+          "text": "Carreras de velocidad de 100 metros planos donde se mida el registro individual de cada estudiante para generar un ranking institucional de rendimiento físico.",
+          "rationale": "Esto evalúa capacidades físicas individuales pero no moviliza la interacción social ni la resolución colectiva de problemas motrices.",
           "isCorrect": false
         },
         {
-          "text": "Organizar actividades que requieran cooperación y toma de decisiones colectivas.",
-          "rationale": "Implica coordinar acciones propias con las de otros para resolver problemas.",
+          "text": "Juegos modificados o cooperativos que requieran crear estrategias grupales, comunicarse con el equipo y tomar decisiones colectivas para resolver un reto táctico.",
+          "rationale": "CORRECTA. La sociomotricidad implica el pensamiento táctico compartido y la gestión de relaciones sociales dentro de la acción motriz específica.",
           "isCorrect": true
         },
         {
-          "text": "Medir exclusivamente la velocidad y resistencia física individual.",
-          "rationale": "Esto se centra en desempeño individual, no en interacción social.",
+          "text": "Sesiones de calentamiento estático y ejercicios de técnica individual de baloncesto frente a una pared para asegurar que todos dominen el fundamento antes de jugar.",
+          "rationale": "Se queda en la fase técnica y analítica. La competencia se desarrolla en la interacción real con otros, no en el aislamiento repetitivo de un movimiento.",
           "isCorrect": false
         },
         {
-          "text": "Realizar ejercicios estáticos de estiramiento la mayor parte de la clase.",
-          "rationale": "Son preparatorios pero no desarrollan la interacción dinámica.",
+          "text": "Lectura y resumen de la biografía de deportistas famosos que han demostrado grandes valores éticos, enfocándose en la teoría de la convivencia deportiva.",
+          "rationale": "Confunde la teoría de los valores con la competencia sociomotriz, que es procedimental y vivencial. Los valores se demuestran en el juego, no en el resumen.",
           "isCorrect": false
         }
       ],
-      "hint": "Se desarrolla cuando el cuerpo coopera para un objetivo común."
+      "hint": "Criterio: Promoción del aprendizaje cooperativo y la resolución de situaciones motrices estratégicas.",
+      "rationale": "En el deporte escolar, el equipo es el laboratorio donde se aprenden las habilidades para convivir en sociedad."
     },
     {
       "questionNumber": 36,
       "category": "Evaluación y Retroalimentación",
-      "question": "¿Cuál dato es la evidencia más potente para decidir la necesidad de un refuerzo pedagógico?",
+      "difficulty": "Experto",
+      "question": "En el marco de la **Evaluación Formativa**, el docente identifica que el 70% del aula no logra inferir el propósito de un texto. ¿Cuál es la toma de decisiones pedagógicas más potente basada en esta evidencia?",
       "answerOptions": [
         {
-          "text": "La opinión de los docentes sobre temas difíciles de enseñar.",
-          "rationale": "Es subjetiva; se necesitan datos objetivos sobre el aprendizaje.",
+          "text": "Continuar con la sesión de aprendizaje programada para no retrasar el avance del sílabo, confiando en que los estudiantes que fallaron se nivelarán de forma autónoma en sus hogares.",
+          "rationale": "Ignorar la evidencia anula el sentido de la evaluación formativa. Avanzar sin asegurar la base cognitiva genera brechas de aprendizaje insuperables.",
           "isCorrect": false
         },
         {
-          "text": "El número de inasistencias de los estudiantes en el último mes.",
-          "rationale": "Es un indicador de asistencia, no de logro de competencia.",
-          "isCorrect": false
-        },
-        {
-          "text": "El análisis desagregado de evaluaciones diagnósticas identificando capacidades bajas.",
-          "rationale": "Identifica específicamente dónde fallan los alumnos permitiendo refuerzo dirigido.",
+          "text": "Diseñar una sesión de refuerzo específico (andamiaje) utilizando textos de menor complejidad que permitan modelar el proceso de inferencia antes de volver al desafío original.",
+          "rationale": "CORRECTA. La evaluación formativa sirve para ajustar la enseñanza en tiempo real. Retroceder estratégicamente para asegurar el proceso es una decisión de alta eficacia.",
           "isCorrect": true
         },
         {
-          "text": "La cantidad de libros prestados en la biblioteca escolar.",
-          "rationale": "Es indicador de uso de recursos, no de necesidad de refuerzo.",
+          "text": "Asignar una calificación baja a los estudiantes que no lograron la competencia para motivarlos a esforzarse más en la siguiente evaluación sumativa del bimestre.",
+          "rationale": "Calificar no es retroalimentar. El uso punitivo de la evaluación genera ansiedad y no proporciona las herramientas cognitivas necesarias para mejorar el desempeño.",
+          "isCorrect": false
+        },
+        {
+          "text": "Eliminar la capacidad de inferencia de la planificación anual, asumiendo que es un proceso demasiado complejo para el nivel de madurez actual del grupo de estudiantes.",
+          "rationale": "Bajar las expectativas vulnera el derecho al aprendizaje. La labor docente es mediar para que lo complejo sea alcanzable, no eliminar los retos cognitivos del currículo.",
           "isCorrect": false
         }
       ],
-      "hint": "Exige datos objetivos que midan directamente el aprendizaje."
+      "hint": "Criterio: Uso de los resultados de la evaluación para la toma de decisiones y el ajuste de la enseñanza.",
+      "rationale": "La evidencia solo es útil si se traduce en un cambio en la estrategia del docente para responder a la necesidad real del alumno."
     },
     {
       "questionNumber": 37,
-      "category": "Evaluación y Retroalimentación",
-      "question": "¿Cuál es la forma más efectiva de realizar **Rendición de Cuentas** sobre el aprendizaje?",
+      "category": "Gestión Institucional",
+      "difficulty": "Experto",
+      "question": "Durante la **Jornada de Reflexión Institucional**, el director presenta metas de aprendizaje basadas solo en promedios generales. ¿Qué perspectiva debe proponer un liderazgo pedagógico docente avanzado?",
       "answerOptions": [
         {
-          "text": "Publicar solo la lista de estudiantes con mejores notas y premiarlos.",
-          "rationale": "Debe ser integral sobre logros y desafíos de toda la escuela.",
+          "text": "Aceptar los promedios como el único indicador válido, ya que son fáciles de comunicar a los padres de familia y a las autoridades de la instancia superior.",
+          "rationale": "Los promedios ocultan la dispersión. Una escuela puede tener un buen promedio pero estar dejando atrás a los estudiantes más vulnerables de forma sistemática.",
           "isCorrect": false
         },
         {
-          "text": "Presentar un informe detallado sobre el progreso en relación a metas del PEI.",
-          "rationale": "Identifica áreas de mejora y compromete a la comunidad con el plan futuro.",
+          "text": "Proponer un análisis por quintiles o niveles de logro para identificar qué grupos de estudiantes no están progresando, diseñando estrategias diferenciadas de soporte.",
+          "rationale": "CORRECTA. El liderazgo pedagógico busca la equidad. Analizar quiénes están en los niveles de 'inicio' permite una gestión de recursos y apoyos mucho más justa.",
           "isCorrect": true
         },
         {
-          "text": "Mostrar solo el monto de gastos financieros y recursos materiales.",
-          "rationale": "La rendición educativa debe priorizar resultados pedagógicos.",
+          "text": "Sugerir que se oculten los promedios bajos para proteger la imagen institucional y evitar que la escuela sea percibida como deficiente por la comunidad externa.",
+          "rationale": "Incurre en falta de integridad y falta de transparencia académica. La rendición de cuentas debe basarse en la verdad para poder mejorar los procesos reales.",
           "isCorrect": false
         },
         {
-          "text": "Reunir a los padres solo para exigir más apoyo en casa.",
-          "rationale": "Debe basarse en análisis de resultados escolares, no solo transferir responsabilidad.",
+          "text": "Enfocarse únicamente en los estudiantes que ya están en el nivel 'satisfactorio' para potenciarlos y asegurar que ganen concursos externos de conocimiento.",
+          "rationale": "El elitismo pedagógico contradice el principio de inclusión. La gestión escolar debe garantizar niveles óptimos de desarrollo para el 100% de la población estudiantil.",
           "isCorrect": false
         }
       ],
-      "hint": "Se centra en compromiso y transparencia sobre resultados educativos."
+      "hint": "Criterio: Rendición de cuentas y uso de datos para la mejora de la equidad en el aprendizaje.",
+      "rationale": "Los datos deben ser una lupa para ver a quienes la estadística general suele invisibilizar en los sistemas educativos."
     },
     {
       "questionNumber": 38,
       "category": "Planificación Curricular",
-      "question": "En la **Planificación Inversa (Backward Design)**, ¿cuál es el segundo paso tras identificar resultados?",
+      "difficulty": "Experto",
+      "question": "En la metodología de **Diseño Invertido (Backward Design)**, un docente ha definido las metas de aprendizaje. ¿Cuál es el error más común que debe evitar en el siguiente paso lógico?",
       "answerOptions": [
         {
-          "text": "Diseñar las actividades de inicio de la sesión.",
-          "rationale": "Las actividades son el último paso tras definir la evaluación.",
-          "isCorrect": false
-        },
-        {
-          "text": "Determinar las evidencias de evaluación y tareas auténticas.",
-          "rationale": "Decidir cómo se verá el logro garantiza alineación de la enseñanza.",
+          "text": "Pensar primero en las actividades divertidas que realizará en clase antes de definir cómo evaluará si los estudiantes alcanzaron las metas propuestas.",
+          "rationale": "CORRECTA. El error típico es saltar a las actividades. El diseño invertido exige definir primero las evidencias de éxito para que las actividades estén realmente alineadas.",
           "isCorrect": true
         },
         {
-          "text": "Buscar los recursos tecnológicos más avanzados.",
-          "rationale": "Los recursos se seleccionan en función de actividades ya planeadas.",
+          "text": "Elegir un instrumento de evaluación que sea excesivamente riguroso y que contenga preguntas de alta demanda cognitiva para estresar el pensamiento del alumno.",
+          "rationale": "El rigor no es un error en sí mismo si está graduado. El error crítico en esta metodología específica es la falta de alineación por no priorizar la evidencia.",
           "isCorrect": false
         },
         {
-          "text": "Leer el libro de texto para definir contenidos teóricos.",
-          "rationale": "El contenido es posterior a la definición de la evaluación.",
+          "text": "Consultar el currículo nacional para verificar las competencias, asumiendo que el currículo es una guía superior que limita la creatividad del docente en el aula.",
+          "rationale": "Consultar el currículo es un acierto, no un error. El currículo brinda el marco de derechos y metas que el docente debe aterrizar creativamente en su contexto.",
+          "isCorrect": false
+        },
+        {
+          "text": "Invitar a los estudiantes a que propongan qué les gustaría aprender, creyendo que la voz del alumno es secundaria frente a la autoridad del programa oficial.",
+          "rationale": "Integrar la voz del alumno ayuda a la motivación, pero el error procedimental del diseño invertido se refiere a la secuencia: Meta -> Evidencia -> Actividad.",
           "isCorrect": false
         }
       ],
-      "hint": "Se enfoca primero en la meta y luego en la prueba de esa meta."
+      "hint": "Criterio: Aplicación de la planificación inversa para asegurar la alineación entre metas y evaluación.",
+      "rationale": "La planificación efectiva empieza por el final: ¿Qué quiero que logren y cómo probaré que lo hicieron? Luego se diseña el camino."
     },
     {
       "questionNumber": 39,
       "category": "Inclusión y Diversidad",
-      "question": "Para un estudiante con **TDAH**, ¿cuál es la mejor medida de soporte en el aula?",
+      "difficulty": "Experto",
+      "question": "Un estudiante con **Trastorno de Déficit de Atención con Hiperactividad (TDAH)** muestra frustración recurrente durante tareas de lectura larga. ¿Qué ajuste razonable de acceso es el más pertinente?",
       "answerOptions": [
         {
-          "text": "Permitirle moverse por el aula sin ninguna restricción.",
-          "rationale": "La falta de estructura total puede ser contraproducente.",
+          "text": "Exonerarlo de todas las tareas de comunicación para evitar que su autoestima se deteriore por no poder completar las lecturas al mismo ritmo que sus pares.",
+          "rationale": "La exoneración es exclusión. El estudiante tiene derecho a desarrollar la competencia comunicativa mediante apoyos adecuados, no a ser privado del aprendizaje.",
           "isCorrect": false
         },
         {
-          "text": "Sentarlo al fondo lejos del docente para que no distraiga.",
-          "rationale": "Esto lo aísla; debe estar cerca del docente y lejos de distractores.",
-          "isCorrect": false
-        },
-        {
-          "text": "Asignarle un asiento con poca distracción y ofrecer descansos activos estructurados.",
-          "rationale": "La previsibilidad y gestión de estímulos son cruciales para el TDAH.",
+          "text": "Segmentar la lectura en bloques cortos con metas intermedias de comprensión, permitiendo pausas de movimiento controlado antes de pasar al siguiente fragmento.",
+          "rationale": "CORRECTA. Los ajustes para TDAH deben enfocarse en la gestión del tiempo, la estructura y la dosis de esfuerzo cognitivo para mantener el foco sin agotamiento.",
           "isCorrect": true
         },
         {
-          "text": "Exigirle que se mantenga sentado más tiempo que el resto del grupo.",
-          "rationale": "Es irrealista dado su diagnóstico; se deben segmentar tiempos.",
+          "text": "Solicitar que el estudiante realice sus lecturas en un aula vacía y aislada, creyendo que el silencio absoluto es la única forma de que logre concentrarse eficazmente.",
+          "rationale": "El aislamiento estigmatiza. Se deben buscar entornos controlados dentro del aula regular (ej: un rincón con menos estímulos visuales) para fomentar la inclusión social.",
+          "isCorrect": false
+        },
+        {
+          "text": "Asignarle un compañero tutor que le lea el texto en voz alta y le dé las respuestas, asumiendo que el estudiante con TDAH no puede procesar información escrita por sí mismo.",
+          "rationale": "Esto genera dependencia excesiva. El andamiaje debe buscar la autonomía; el apoyo del par debe ser mediador, no sustituto de la capacidad del alumno.",
           "isCorrect": false
         }
       ],
-      "hint": "Requiere estructura, previsibilidad y manejo de estímulos."
+      "hint": "Criterio: Implementación de ajustes razonables y medidas de soporte en el aula inclusiva.",
+      "rationale": "La inclusión real no cambia la meta, cambia los apoyos para que todos puedan llegar a ella respetando su propia condición."
     },
     {
       "questionNumber": 40,
-      "category": "Competencias Específicas",
-      "question": "Tras formular hipótesis y diseñar experimento en **Indagación Científica**, ¿cuál es el paso siguiente?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "En el ciclo de **Indagación Científica**, un grupo de estudiantes ha obtenido datos que contradicen su hipótesis inicial. ¿Cuál es la mediación docente más coherente con el pensamiento científico?",
       "answerOptions": [
         {
-          "text": "Comunicar resultados en un congreso internacional.",
-          "rationale": "Es la última fase tras realizar prueba y análisis.",
+          "text": "Sugerirles que cambien los datos obtenidos en sus apuntes para que coincidan con la teoría del libro y así no tengan problemas al presentar su informe final.",
+          "rationale": "Fomenta la deshonestidad intelectual y destruye el sentido de la ciencia. El error o la contradicción son fuentes valiosas de nuevo conocimiento.",
           "isCorrect": false
         },
         {
-          "text": "Validar su hipótesis buscando la respuesta en un libro.",
-          "rationale": "Requiere generar datos propios mediante experimentación.",
-          "isCorrect": false
-        },
-        {
-          "text": "Generar y registrar los datos mediante la implementación del diseño experimental.",
-          "rationale": "El paso lógico es ejecutar el diseño para recopilar datos para análisis.",
+          "text": "Animarlos a analizar las posibles fuentes de error o variables no controladas, valorando que una hipótesis refutada es un avance real en el conocimiento científico.",
+          "rationale": "CORRECTA. La ciencia avanza refutando ideas. Analizar por qué los datos no coinciden con lo esperado desarrolla pensamiento crítico y rigor metodológico.",
           "isCorrect": true
         },
         {
-          "text": "Cuestionar el título de la competencia y proponer uno nuevo.",
-          "rationale": "No es parte del proceso didáctico de indagación científica.",
+          "text": "Pedirles que repitan el experimento exactamente igual una y otra vez hasta que el resultado sea el que el docente sabe que es el 'correcto' según la física clásica.",
+          "rationale": "La repetición sin análisis es mecánica. El aprendizaje ocurre cuando se reflexiona sobre las condiciones que llevaron a ese resultado inesperado.",
+          "isCorrect": false
+        },
+        {
+          "text": "Finalizar la indagación en ese punto y asignar una calificación media, asumiendo que el grupo falló en la competencia de 'Diseña estrategias' al no prever el resultado.",
+          "rationale": "Confunde un resultado experimental negativo con un fallo pedagógico. El logro de la competencia se ve en la capacidad de procesar y analizar esos resultados.",
           "isCorrect": false
         }
       ],
-      "hint": "La ciencia se basa en evidencia obtenida de experimentación."
+      "hint": "Criterio: Mediación en los procesos de indagación y tratamiento pedagógico del error científico.",
+      "rationale": "En el laboratorio escolar, aprender que la realidad puede desafiar nuestras ideas es la lección de humildad y rigor más importante."
     },
     {
       "questionNumber": 41,
       "category": "Planificación Curricular",
-      "question": "¿Cuál es el principal aporte del **PCI** a la coordinación horizontal entre docentes?",
+      "difficulty": "Experto",
+      "question": "Al elaborar la **Programación Curricular Anual**, un docente decide priorizar los miedos y preocupaciones de los estudiantes tras una emergencia ambiental cercana. ¿Qué principio está aplicando?",
       "answerOptions": [
         {
-          "text": "Establecer la visión de futuro de la escuela a 5 años.",
-          "rationale": "Esto es función del PEI.",
+          "text": "El principio de rigidez administrativa, para asegurar que se cubran los temas de geografía física antes de que termine el primer trimestre reglamentario.",
+          "rationale": "Es lo opuesto. Priorizar el contexto emocional frente a la estructura rígida del programa es un acto de flexibilidad y pertinencia pedagógica.",
           "isCorrect": false
         },
         {
-          "text": "Definir criterios de evaluación y secuencia de contenidos comunes para el grado.",
-          "rationale": "Brinda lineamientos metodológicos para que docentes de un nivel trabajen coherentes.",
+          "text": "El principio de pertinencia y situación significativa, partiendo de la realidad del estudiante para movilizar competencias en un contexto con sentido real.",
+          "rationale": "CORRECTA. El aprendizaje es más potente cuando responde a retos del entorno. Una emergencia es un 'momento pedagógico' que da sentido a las competencias.",
           "isCorrect": true
         },
         {
-          "text": "Determinar montos de dinero para la compra de materiales por área.",
-          "rationale": "Es función del presupuesto o PAT.",
+          "text": "El principio de neutralidad escolar, según el cual la escuela no debe tratar temas polémicos o dolorosos para no afectar la sensibilidad de los padres de familia.",
+          "rationale": "La escuela no es neutra; debe formar ciudadanos capaces de actuar en su realidad. Ignorar el entorno desconecta a la escuela de la vida del alumno.",
           "isCorrect": false
         },
         {
-          "text": "Establecer la jornada laboral del personal administrativo.",
-          "rationale": "Es gestión administrativa, no pedagógica curricular.",
+          "text": "El principio de simplificación curricular, asumiendo que en situaciones de crisis los estudiantes pierden capacidad cognitiva y solo pueden aprender temas básicos.",
+          "rationale": "Bajo estrés, el apoyo emocional es clave, pero la competencia puede seguir siendo de alta demanda si se vincula con la resolución de la crisis enfrentada.",
           "isCorrect": false
         }
       ],
-      "hint": "Es el puente que aterriza la visión al qué y cómo se enseña coordinadamente."
+      "hint": "Criterio: Diversificación curricular y construcción de situaciones significativas contextualizadas.",
+      "rationale": "Un currículo vivo es aquel que se atreve a dejar el papel para responder a lo que está sucediendo en la calle y en el corazón de los alumnos."
     },
     {
       "questionNumber": 42,
       "category": "Evaluación y Retroalimentación",
-      "question": "¿Ventaja de compartir la **Rúbrica** con estudiantes ANTES del proyecto?",
+      "difficulty": "Experto",
+      "question": "En una sesión de coevaluación usando una **Rúbrica**, un estudiante califica a su compañero con la nota máxima a pesar de que el trabajo está incompleto. ¿Cuál debe ser el rol del docente?",
       "answerOptions": [
         {
-          "text": "Reduce la cantidad de trabajo de calificación para el docente.",
-          "rationale": "Es ventaja logística, pero el beneficio principal es pedagógico.",
+          "text": "Anular de inmediato el proceso de coevaluación y asumir él mismo la calificación, explicando que los estudiantes no son capaces de ser objetivos ni honestos.",
+          "rationale": "Anular el proceso elimina la oportunidad de aprendizaje. La falta de objetividad es un problema de mediación y entrenamiento, no una incapacidad innata.",
           "isCorrect": false
         },
         {
-          "text": "Permite enfocar el esfuerzo en criterios claros y fomenta autoevaluación.",
-          "rationale": "Al conocer niveles de calidad, el alumno puede monitorear su propio trabajo.",
+          "text": "Mediar en un diálogo sobre la importancia de la honestidad intelectual y la retroalimentación constructiva para que el compañero realmente pueda mejorar su desempeño.",
+          "rationale": "CORRECTA. La coevaluación es una competencia ética y social. El docente debe enseñar a evaluar basándose en evidencias y no en la amistad o el miedo al conflicto.",
           "isCorrect": true
         },
         {
-          "text": "Garantiza que todos los estudiantes obtengan la misma nota.",
-          "rationale": "Garantiza objetividad, no igualdad de resultados finales.",
+          "text": "Fomentar que se mantenga la nota alta bajo el principio de 'empatía' y 'solidaridad' entre pares, asumiendo que las relaciones sociales son más importantes que el aprendizaje.",
+          "rationale": "Confunde empatía con complicidad. La verdadera solidaridad académica es ayudar al otro a identificar sus fallos para que pueda crecer intelectualmente.",
           "isCorrect": false
         },
         {
-          "text": "Limita la creatividad al obligar a seguir instrucciones detalladas.",
-          "rationale": "Define la calidad, no limita la creatividad de la solución.",
+          "text": "Establecer un sistema de castigos por el cual el estudiante que califique mal a otro reciba él mismo una sanción en su nota final del bimestre correspondiente.",
+          "rationale": "La evaluación no debe usarse como arma punitiva. Esto genera un ambiente de hostilidad que bloquea los procesos de colaboración y mejora mutua.",
           "isCorrect": false
         }
       ],
-      "hint": "Se convierte en una guía de aprendizaje para el estudiante."
+      "hint": "Criterio: Mediación en procesos de evaluación participativa (coevaluación) y desarrollo de la ética evaluativa.",
+      "rationale": "Aprender a evaluar al otro es aprender a mirar el mundo con ojos de mejora y responsabilidad compartida."
     },
     {
       "questionNumber": 43,
-      "category": "Desarrollo Cognitivo",
-      "question": "Desde Vygotsky, ¿beneficio de tareas complejas en grupos de niveles mixtos?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "Desde el enfoque del **Socio-constructivismo**, ¿cuál es la función primordial del conflicto cognitivo en una sesión participativa?",
       "answerOptions": [
         {
-          "text": "Permite que el docente evalúe menos productos finales.",
-          "rationale": "El beneficio principal es el aprendizaje social, no reducir carga.",
+          "text": "Generar una situación de fracaso para que el estudiante comprenda que el docente es el único que posee la verdad técnica y el conocimiento científico.",
+          "rationale": "Es una visión autoritaria. El conflicto no busca el fracaso personal, sino la necesidad de reestructurar las ideas previas que resultan insuficientes.",
           "isCorrect": false
         },
         {
-          "text": "Fuerza a los estudiantes más hábiles a hacer todo el trabajo.",
-          "rationale": "Debe gestionarse para asegurar participación activa de todos.",
-          "isCorrect": false
-        },
-        {
-          "text": "Promueve interacción donde los más competentes actúan como andamios.",
-          "rationale": "La interacción social en la ZDP es motor del desarrollo cognitivo.",
+          "text": "Desencadenar el desequilibrio entre lo que el estudiante sabe y el nuevo reto, impulsando la búsqueda activa de nuevas explicaciones más complejas.",
+          "rationale": "CORRECTA. El conflicto es el motor del aprendizaje; sin esa sensación de que 'algo no cuadra', el alumno no siente la necesidad de cambiar sus esquemas previos.",
           "isCorrect": true
         },
         {
-          "text": "Genera competencia sana que aumenta motivación extrínseca.",
-          "rationale": "El foco está en colaboración intragrupal para aprendizaje mutuo.",
+          "text": "Asegurar que la clase sea dinámica y divertida, usando el conflicto como una estrategia de marketing pedagógico para mantener la atención de los adolescentes.",
+          "rationale": "Reduce un proceso psicológico profundo a una técnica de animación. El conflicto cognitivo es una demanda de pensamiento, no solo un recurso de entretenimiento.",
+          "isCorrect": false
+        },
+        {
+          "text": "Evaluar de forma rápida quiénes son los estudiantes más inteligentes del aula basándose en la velocidad con la que resuelven la contradicción que se les plantea.",
+          "rationale": "Equivoca el fin. El aprendizaje es un proceso de construcción individual y social, no una carrera de velocidad para etiquetar capacidades innatas.",
           "isCorrect": false
         }
       ],
-      "hint": "Clave en cómo los pares se ayudan a alcanzar niveles superiores."
+      "hint": "Criterio: Promoción del aprendizaje mediante el desequilibrio cognitivo y la mediación pedagógica.",
+      "rationale": "Aprender duele un poco porque implica dejar ir una idea vieja para dejar entrar una nueva más poderosa."
     },
     {
       "questionNumber": 44,
-      "category": "Competencias Específicas",
-      "question": "¿Cuál es el rol de la **apreciación crítica** en Arte y Cultura?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "En el área de Arte y Cultura, al evaluar la competencia de **Crea proyectos desde los lenguajes artísticos**, ¿qué aspecto del proceso es el más relevante?",
       "answerOptions": [
         {
-          "text": "Aprender a tocar un instrumento musical a nivel técnico.",
-          "rationale": "Corresponde a la competencia de Crear proyectos artísticos.",
+          "text": "La imitación perfecta de una técnica clásica de pintura renacentista, asegurando que todos los estudiantes logren un producto visualmente idéntico al modelo.",
+          "rationale": "La imitación no es creación. El enfoque actual valora la exploración y el uso de lenguajes para expresar ideas propias, no la copia mecánica de modelos.",
           "isCorrect": false
         },
         {
-          "text": "Interpretar y emitir juicios vinculando contexto, forma y significado.",
-          "rationale": "Implica analizar la obra y fundamentar su impacto y mensaje.",
+          "text": "La toma de decisiones consciente sobre el uso de materiales, técnicas y elementos del lenguaje para comunicar una intención o mensaje personal.",
+          "rationale": "CORRECTA. Crear implica elegir. El estudiante moviliza recursos para dar forma a una idea, evaluando constantemente si su producto refleja lo que quiere transmitir.",
           "isCorrect": true
         },
         {
-          "text": "Memorizar nombres de obras y autores reconocidos.",
-          "rationale": "Memorización de datos no es el objetivo de apreciación crítica.",
+          "text": "El bajo costo de los materiales utilizados, premiando a los estudiantes que logran terminar su obra sin generar ningún gasto adicional a la institución educativa.",
+          "rationale": "Es criterio administrativo o de gestión de recursos, pero no define el nivel de logro de la competencia de creación artística como proceso cognitivo.",
           "isCorrect": false
         },
         {
-          "text": "Asegurar que el estudiante se convierta en artista profesional.",
-          "rationale": "Busca formar ciudadanos sensibles, no necesariamente artistas.",
+          "text": "El tiempo de ejecución, asumiendo que los estudiantes que terminan más rápido sus dibujos poseen un talento superior que debe ser calificado con nota máxima.",
+          "rationale": "La velocidad no es arte. El proceso de creación artística requiere tiempo de exploración, ensayo y refinamiento, ritmos que varían en cada estudiante.",
           "isCorrect": false
         }
       ],
-      "hint": "Requiere análisis, interpretación y juicio fundamentado."
+      "hint": "Criterio: Valoración del proceso creativo y la intencionalidad expresiva en las artes.",
+      "rationale": "En arte, el 'qué quiero decir' guía al 'cómo lo voy a hacer'; la técnica está al servicio de la expresión humana."
     },
     {
       "questionNumber": 45,
-      "category": "Competencias Específicas",
-      "question": "En Gestión de Riesgos, ¿qué estrategia es más pertinente para Personal Social?",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "En una unidad sobre **Gestión de Riesgos de Desastres**, los estudiantes identifican que el colegio tiene zonas seguras bloqueadas por muebles. ¿Cuál es el paso pedagógicamente más formativo?",
       "answerOptions": [
         {
-          "text": "Leer artículos informativos sobre desastres en otros países.",
-          "rationale": "Falta de contextualización limita la toma de conciencia práctica.",
+          "text": "Que el docente mueva los muebles discretamente después de clases para evitar que los estudiantes se distraigan de los contenidos teóricos sobre geología.",
+          "rationale": "Es una acción administrativa que invisibiliza el problema frente a los estudiantes y anula la oportunidad de ejercer responsabilidad y ciudadanía real.",
           "isCorrect": false
         },
         {
-          "text": "Promover simulación de evacuación y deliberación de roles.",
-          "rationale": "Requiere acción y toma de decisiones contextualizada en el aula.",
+          "text": "Liderar un proceso de análisis de riesgos con los estudiantes, donde ellos mismos propongan y ejecuten la liberación de espacios y sensibilicen a la comunidad.",
+          "rationale": "CORRECTA. El aprendizaje se consolida en la acción ciudadana. Gestionar el riesgo implica identificar, proponer y actuar sobre el entorno de forma participativa.",
           "isCorrect": true
         },
         {
-          "text": "Pedir memorizar teléfonos de emergencia de Defensa Civil.",
-          "rationale": "Es una capacidad, no el desarrollo de la competencia de gestión.",
+          "text": "Escribir una amonestación en el cuaderno de control de todos los estudiantes, responsabilizándolos a ellos del desorden sin haber realizado ningún análisis previo.",
+          "rationale": "Es punitivo y no formativo. La responsabilidad se construye desde la conciencia del riesgo y el compromiso, no desde la culpa por un entorno que ellos no diseñaron.",
           "isCorrect": false
         },
         {
-          "text": "Realizar exposición magistral sobre geología de sismos.",
-          "rationale": "Es conocimiento de Ciencia; Social requiere acción ciudadana.",
+          "text": "Dictar una charla magistral sobre la importancia de la seguridad civil citando las normas de INDECI, asumiendo que el conocimiento técnico cambiará el comportamiento.",
+          "rationale": "La información no es acción. Saber que el bloqueo es peligroso no desarrolla la competencia si no se movilizan capacidades de organización y mejora del entorno.",
           "isCorrect": false
         }
       ],
-      "hint": "Es una competencia práctica de responsabilidad social."
+      "hint": "Criterio: Fomento de la cultura de prevención y la participación ciudadana en la gestión del riesgo.",
+      "rationale": "Una escuela segura es aquella donde cada estudiante sabe que sus acciones pueden salvar vidas."
     },
     {
       "questionNumber": 46,
       "category": "Convivencia y Valores",
-      "question": "Ante un patrón de bullying, ¿intervención más formativa para el agresor?",
+      "difficulty": "Experto",
+      "question": "Se detecta un incidente de discriminación por origen étnico en el aula. Siguiendo los **Protocolos de Convivencia Escolar**, ¿qué acción debe priorizar el docente en la fase de atención?",
       "answerOptions": [
         {
-          "text": "Expulsarlo permanentemente de forma inmediata.",
-          "rationale": "No ofrece oportunidad de aprendizaje y reinserción social.",
+          "text": "Realizar un careo público entre el agresor y el agredido para que el resto del aula vea las consecuencias de la discriminación y aprenda por escarmiento social.",
+          "rationale": "El careo revictimiza y es altamente peligroso emocionalmente. Los protocolos prohíben acciones que pongan en riesgo la integridad emocional de las partes involucradas.",
           "isCorrect": false
         },
         {
-          "text": "Implementar mediación y reparación del daño fomentando empatía.",
-          "rationale": "Se centra en que tome conciencia del daño y se comprometa a reparar.",
+          "text": "Detener la agresión, brindar protección inmediata a la víctima y abrir un espacio de diálogo separado para comprender los hechos bajo un enfoque de derechos.",
+          "rationale": "CORRECTA. La prioridad absoluta es el bienestar y la seguridad. La mediación y los pasos formativos deben garantizar que no haya más daño para ninguna de las partes.",
           "isCorrect": true
         },
         {
-          "text": "Ignorar la situación ya que deben resolverlo solos.",
-          "rationale": "Es grave y la escuela debe educar al agresor y proteger a víctima.",
+          "text": "Minimizar el hecho diciendo que son 'bromas de adolescentes' para no generar conflictos con las familias ni activar trámites administrativos complejos en el Siseve.",
+          "rationale": "La discriminación nunca es una broma. La omisión del docente es una vulneración de los derechos del estudiante y un incumplimiento de sus deberes éticos y legales.",
           "isCorrect": false
         },
         {
-          "text": "Sancionarlo públicamente para que sirva de escarmiento.",
-          "rationale": "Humillar es contrario al enfoque formativo y de dignidad humana.",
+          "text": "Expulsar preventivamente a ambos estudiantes de la clase para que reflexionen en sus casas, asumiendo que el tiempo fuera resolverá el conflicto por sí solo.",
+          "rationale": "Es una medida administrativa ineficaz que no educa. El docente debe gestionar el conflicto dentro del marco pedagógico y no simplemente eliminar a los actores del aula.",
           "isCorrect": false
         }
       ],
-      "hint": "Busca la reparación y el desarrollo de la empatía."
+      "hint": "Criterio: Aplicación de protocolos de convivencia para la atención de situaciones de violencia escolar.",
+      "rationale": "La escuela debe ser el lugar donde todos se sientan seguros de ser quienes son."
     },
     {
       "questionNumber": 47,
-      "category": "Competencias Específicas",
-      "question": "Evaluar claridad, volumen y postura en una exposición oral desarrolla:",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "En una exposición sobre historia local, un docente observa que un estudiante lee diapositivas con mucho texto. ¿Cuál es el feedback más formativo para mejorar su **competencia comunicativa oral**?",
       "answerOptions": [
         {
-          "text": "Adecuación del texto oral (contenido).",
-          "rationale": "Adecuación se refiere a propósito, no a recursos no verbales.",
+          "text": "\"Tu exposición fue muy aburrida porque leíste demasiado. Debes estudiar más para la próxima vez y traer menos diapositivas al salón de clase.\"",
+          "rationale": "Es un juicio de valor negativo que no ofrece un camino claro de mejora. Un buen feedback debe ser descriptivo y orientador, no solo sancionador.",
           "isCorrect": false
         },
         {
-          "text": "Utilización de recursos verbales (gramática).",
-          "rationale": "Claridad y postura son recursos no verbales o paraverbales.",
-          "isCorrect": false
-        },
-        {
-          "text": "Inferencia del propósito comunicativo.",
-          "rationale": "Inferencia se refiere a intención del mensaje profundo.",
-          "isCorrect": false
-        },
-        {
-          "text": "Reflexión sobre forma, contenido y contexto (recursos).",
-          "rationale": "Evaluar cómo se transmite el mensaje es capacidad de comunicación oral.",
+          "text": "\"He notado que tus diapositivas capturaron tu mirada; ¿cómo podrías reorganizar tu material para que puedas conectar visualmente con tu audiencia mientras explicas?\"",
+          "rationale": "CORRECTA. Es un feedback reflexivo que identifica el punto a mejorar (el uso del recurso de apoyo) y lanza una pregunta para que el alumno busque su propia solución.",
           "isCorrect": true
+        },
+        {
+          "text": "\"Ignoré que estabas leyendo porque el contenido histórico era muy preciso, así que te pondré la nota máxima por la veracidad de tus datos geográficos y cronológicos.\"",
+          "rationale": "Valora solo el contenido (el qué) y deja de lado la forma (el cómo), que es el corazón de la competencia de comunicación oral. Ignora la oportunidad de mejora.",
+          "isCorrect": false
+        },
+        {
+          "text": "\"La próxima vez escribiré yo tus diapositivas para asegurar que no contengan demasiado texto y así tu nota no baje por culpa de un diseño visual deficiente.\"",
+          "rationale": "Incurre en sobreprotección pedagógica. El docente sustituye el esfuerzo del alumno en lugar de mediar para que él aprenda a diseñar mejores recursos de apoyo.",
+          "isCorrect": false
         }
       ],
-      "hint": "Evaluar la forma de comunicación es metacognición comunicativa."
+      "hint": "Criterio: Provisión de retroalimentación reflexiva y descriptiva para el desarrollo de competencias comunicativas.",
+      "rationale": "La palabra del docente debe ser un espejo donde el estudiante vea no solo lo que hizo, sino lo que es capaz de llegar a hacer."
     },
     {
       "questionNumber": 48,
       "category": "Gestión Institucional",
-      "question": "El fin principal del **Monitoreo de la Práctica Docente** es:",
+      "difficulty": "Experto",
+      "question": "El director invita a los docentes a realizar **Visitas de Interaprendizaje (Pasantías)** en las aulas de sus propios compañeros. ¿Cuál es el principal valor pedagógico de esta estrategia de acompañamiento?",
       "answerOptions": [
         {
-          "text": "Comprobar cumplimiento de horarios y asistencia.",
-          "rationale": "Es supervisión administrativa, no monitoreo pedagógico.",
+          "text": "Identificar los errores que cometen otros docentes para sentirse más seguros de la propia práctica y evitar ser cuestionados por el equipo directivo.",
+          "rationale": "Es una visión basada en la superioridad o la comparación negativa. La visita busca el aprendizaje colaborativo, no el espionaje de fallos externos.",
           "isCorrect": false
         },
         {
-          "text": "Recoger evidencias para justificar el despido del personal.",
-          "rationale": "El fin es mejora y acompañamiento, no la sanción laboral.",
-          "isCorrect": false
-        },
-        {
-          "text": "Brindar acompañamiento y retroalimentación para mejora continua.",
-          "rationale": "Proceso formativo centrado en impacto de estrategias en estudiantes.",
+          "text": "Construir comunidades de aprendizaje profesional donde se compartan estrategias exitosas y se reflexione críticamente sobre cómo mejorar el logro de las competencias.",
+          "rationale": "CORRECTA. El interaprendizaje es una forma de desarrollo profesional entre pares. Rompe el aislamiento del aula y fomenta la innovación basada en la evidencia local.",
           "isCorrect": true
         },
         {
-          "text": "Calificar capacidad del docente para decorar su aula.",
-          "rationale": "No es indicador clave de la calidad de enseñanza real.",
+          "text": "Ayudar al director a calificar el desempeño de los docentes sin que él tenga que entrar a las aulas, delegando así sus funciones de supervisión administrativa.",
+          "rationale": "Confunde acompañamiento con fiscalización delegada. El valor es pedagógico para los pares, no un atajo para la labor administrativa del directivo.",
+          "isCorrect": false
+        },
+        {
+          "text": "Asegurar que todas las aulas estén decoradas de la misma manera y que todos los docentes usen el mismo tono de voz para estandarizar la imagen del colegio.",
+          "rationale": "La estandarización estética es superficial. La visita debe centrarse en los procesos de mediación del aprendizaje y no en detalles logísticos o decorativos.",
           "isCorrect": false
         }
       ],
-      "hint": "Se enfoca en acompañamiento y feedback para mejora."
+      "hint": "Criterio: Promoción del trabajo colegiado y el aprendizaje entre pares para la mejora de la práctica docente.",
+      "rationale": "Nadie enseña mejor a un docente que otro docente que comparte sus mismos retos y esperanzas cotidianas."
     },
     {
       "questionNumber": 49,
-      "category": "Desarrollo Cognitivo",
-      "question": "En Primaria (Piaget), pedir abstracción compleja sin casos reales vulnera:",
+      "category": "Estrategias Pedagógicas",
+      "difficulty": "Experto",
+      "question": "En un aula de 4 años, la docente propone un juego donde deben clasificar bloques por forma y color simultáneamente. Nota que la mayoría solo logra clasificar por un solo criterio. ¿Qué decisión es más respetuosa del **desarrollo cognitivo**?",
       "answerOptions": [
         {
-          "text": "El principio de individualización del aprendizaje.",
-          "rationale": "No es la base de este error de desarrollo cognitivo específico.",
+          "text": "Etiquetar a los estudiantes como 'retrasados en su madurez' y solicitar intervención inmediata de un neurólogo para tratar su falta de atención selectiva profunda.",
+          "rationale": "Es una patologización del desarrollo normal. A los 4 años, la centración es un proceso típico descrito por Piaget; no es una enfermedad, es una etapa.",
           "isCorrect": false
         },
         {
-          "text": "Necesidad de partir de experiencia concreta y observable.",
-          "rationale": "Niños en esta etapa requieren lo tangible para construir conceptos.",
+          "text": "Aceptar que se encuentran en la etapa de centración, modelar la clasificación con paciencia y proponer retos de un solo criterio antes de pasar a la bicausalidad.",
+          "rationale": "CORRECTA. El respeto a los ritmos y etapas de desarrollo es clave. Forzar abstracciones que biológicamente no están maduras solo genera frustración en el niño.",
           "isCorrect": true
         },
         {
-          "text": "El principio de interdisciplinariedad de contenidos.",
-          "rationale": "No es el error central aquí, sino la violación del desarrollo.",
+          "text": "Obligarlos a quedarse sentados sin recreo hasta que logren ver ambos criterios al mismo tiempo, asumiendo que el aprendizaje es una cuestión de voluntad y disciplina.",
+          "rationale": "La maduración cognitiva no es voluntaria. El castigo por no alcanzar un nivel de pensamiento inaccesible es una forma de maltrato pedagógico ineficaz.",
           "isCorrect": false
         },
         {
-          "text": "El principio de evaluación sumativa final.",
-          "rationale": "Evaluación no se relaciona con conflicto de etapa de desarrollo.",
+          "text": "Pedir a los padres de familia que compren bloques electrónicos con luces que indiquen la respuesta correcta para saltarse el proceso natural de pensamiento del niño.",
+          "rationale": "La tecnología no debe sustituir el proceso de construcción de conceptos. El niño necesita manipular y descubrir por sí mismo para desarrollar su inteligencia.",
           "isCorrect": false
         }
       ],
-      "hint": "Los niños en esta etapa se apoyan en lo físico para razonar."
+      "hint": "Criterio: Aplicación de los principios de la psicología cognitiva y del desarrollo en la mediación del aprendizaje.",
+      "rationale": "La educación no es una carrera de velocidad, es un proceso orgánico de florecimiento intelectual."
     },
     {
       "questionNumber": 50,
       "category": "Estrategias Pedagógicas",
-      "question": "Para **Gestionar el Aprendizaje Autónomo**, ¿qué preguntas promover?",
+      "difficulty": "Experto",
+      "question": "Al finalizar una unidad de aprendizaje, un docente pide a sus estudiantes que respondan: \"¿Qué estrategia mnemotécnica te funcionó mejor para recordar este concepto y por qué?\". ¿Qué está promoviendo?",
       "answerOptions": [
         {
-          "text": "Preguntas de respuesta cerrada que evalúan memoria de hechos.",
-          "rationale": "No fomentan reflexión sobre el propio proceso de aprender.",
+          "text": "La memoria a corto plazo, ya que centrarse en trucos para recordar datos es el nivel más bajo de la taxonomía de Bloom y no genera aprendizaje real.",
+          "rationale": "Confunde el uso de la mnemotecnia con el acto reflexivo sobre ella. Preguntar 'por qué le funcionó' eleva la acción a un nivel de análisis superior.",
           "isCorrect": false
         },
         {
-          "text": "Preguntas de metacognición: ¿Cómo aprendiste? ¿Qué dificultades tuviste?",
-          "rationale": "Requiere que el alumno sea consciente de su proceso y estrategias.",
+          "text": "La metacognición y la autorregulación, haciendo que el estudiante sea consciente de sus propias herramientas intelectuales para aprender a aprender de forma autónoma.",
+          "rationale": "CORRECTA. La metacognición no es solo reflexionar sobre el acierto, sino sobre el proceso técnico y emocional que llevó al éxito del aprendizaje.",
           "isCorrect": true
         },
         {
-          "text": "Preguntas que comparen desempeño con compañeros destacados.",
-          "rationale": "Suele ser desmotivador y no fomenta la autorreflexión propia.",
+          "text": "La evaluación sumativa de tipo cuantitativo, donde se premiará con puntos extra a quienes tengan la técnica de memoria más original y creativa del salón.",
+          "rationale": "No es un concurso de creatividad. El fin es el autoconocimiento cognitivo del alumno para que pueda replicar sus éxitos en futuros retos académicos.",
           "isCorrect": false
         },
         {
-          "text": "Preguntas que exigen repetición literal de lo dicho por profesor.",
-          "rationale": "No requiere gestión autónoma sino reproducción pasiva.",
+          "text": "La reducción de la carga de trabajo del profesor, ya que al pedir que ellos analicen su proceso, el docente no tiene que corregir el contenido de la sesión.",
+          "rationale": "La metacognición requiere una mediación activa del docente para guiar la reflexión. No es una forma de delegar la enseñanza, sino de profundizar en ella.",
           "isCorrect": false
         }
       ],
-      "hint": "Se relaciona con conciencia de cómo se aprende y monitoreo propio."
+      "hint": "Criterio: Fomento del aprendizaje autónomo mediante el desarrollo de habilidades metacognitivas.",
+      "rationale": "El estudiante que se conoce a sí mismo como aprendiz es el que nunca deja de crecer intelectualmente."
     },
     {
       "questionNumber": 51,

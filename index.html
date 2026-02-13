@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=77">
+    <link rel="stylesheet" href="style.css?v=81">
 </head>
 
 <body>
@@ -88,7 +88,7 @@
                      -->
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
                         <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                            v77 (Categorías Completas)
+                            v81 (Simulacro 3 Experto)
                         </div>
                     </div>
                 </div>
@@ -120,10 +120,10 @@
                 </div>
 
                 <div class="features-list">
-                    <div class="feature-item">✓ 140 preguntas actualizadas</div>
+                    <div class="feature-item">✓ 200+ preguntas actualizadas</div>
+                    <div class="feature-item">✓ 3 Simulacros (General, Premium, Experto)</div>
                     <div class="feature-item">✓ Progreso guardado en la nube</div>
-                    <div class="feature-item">✓ Retroalimentación inmediata</div>
-                    <div class="feature-item">✓ Acceso desde cualquier dispositivo</div>
+                    <div class="feature-item">✓ Retroalimentación pedagógica profunda</div>
                 </div>
 
                 <p class="info-text">
@@ -433,9 +433,10 @@
     <!-- Floating Save Status -->
     <div id="save-status"></div>
 
-    <!-- Data Script -->
+    <!-- Data Scripts -->
     <script src="quizData.js"></script>
     <script src="quizData2.js"></script>
+    <script src="quizData3.js"></script>
 
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -449,9 +450,9 @@
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=77')
+                navigator.serviceWorker.register('./sw.js?v=78')
                     .then(reg => {
-                        console.log('✓ SW v77 registrado');
+                        console.log('✓ SW v78 registrado');
 
                         // Handle updates cleanly without infinite loops
                         if (reg.waiting) {

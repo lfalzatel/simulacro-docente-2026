@@ -327,6 +327,15 @@ async function loadSimulacros() {
                     total_preguntas: 35, // Updated to match actual available
                     es_premium: true,
                     activo: true
+                },
+                {
+                    id: 'fixed_sim_3',
+                    numero: 3,
+                    titulo: 'Simulacro Experto',
+                    descripcion: 'Preguntas de alta complejidad y análisis curricular profundo.',
+                    total_preguntas: 60,
+                    es_premium: true,
+                    activo: true
                 }
             ];
         }
@@ -352,6 +361,13 @@ async function loadSimulacros() {
             if (sim2) {
                 sim2.total_preguntas = RAW_QUIZ_DATA_2.questions.length;
                 console.log(`✓ Sync Sim 2 count: ${sim2.total_preguntas}`);
+            }
+        }
+        if (typeof RAW_QUIZ_DATA_3 !== 'undefined' && RAW_QUIZ_DATA_3.questions) {
+            const sim3 = simulacrosCatalog.find(s => s.numero === 3);
+            if (sim3) {
+                sim3.total_preguntas = RAW_QUIZ_DATA_3.questions.length;
+                console.log(`✓ Sync Sim 3 count: ${sim3.total_preguntas}`);
             }
         }
 
@@ -436,6 +452,14 @@ async function loadSimulacroContext(simulacro) {
             return false;
         }
         window.currentQuizData = window.RAW_QUIZ_DATA_2;
+    } else if (simulacro.numero === 3) {
+        // Simulacro 3: usa quizData3 (experto - 60 preguntas)
+        if (!window.RAW_QUIZ_DATA_3) {
+            console.error('RAW_QUIZ_DATA_3 no está definido');
+            alert('Error: No se pudo cargar el simulacro 3. Por favor, recarga la página.');
+            return false;
+        }
+        window.currentQuizData = window.RAW_QUIZ_DATA_3;
     } else {
         alert(`Simulacro ${simulacro.numero} próximamente disponible.`);
         return false;
