@@ -1203,45 +1203,41 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
         // but here we just want to ensure UI clears.
 
         try {
-            const { data: { user } } = await supabaseApp.auth.getUser();
-            if (user) {
-                await supabaseApp.from('simulacro_progress').upsert({
-                    user_id: user.id,
-                    progress_data: userProgress,
-                    score: score,
-                    last_index: preguntaIdx,
-                    updated_at: new Date().toISOString()
-                }, { onConflict: 'user_id' });
-                console.log(`☁️ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
+            // LEGACY SYNC REMOVED (Table 'simulacro_progress' deleted)
+            // We now rely on 'guardarProgresoCompleto' (V2 Unified) which is called periodically
+            // or on specific events. 
+            console.log("ℹ️ Sync V1 omitido (Migración a V2 completa)");
 
-                if (statusEl) {
-                    statusEl.innerHTML = "☁️ Guardado";
-                }
-            }
-        } catch (error) {
-            console.error('❌ Error al guardar en cloud:', error);
+            console.log(`☁️ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
+
             if (statusEl) {
-                statusEl.innerHTML = "⚠️ Offline (Local OK)";
-            }
-        } finally {
-            // ALWAYS Clear Status after delay
-            if (statusEl) {
-                setTimeout(() => {
-                    statusEl.classList.remove('visible');
-                    // Optional: clear text after hidden transition
-                }, 2000);
+                statusEl.innerHTML = "☁️ Guardado";
             }
         }
-    } else {
-        // If no supabase or secondary sim, clear immediately after short delay
+        } catch (error) {
+        console.error('❌ Error al guardar en cloud:', error);
         if (statusEl) {
-            if (currentSimulacroId) statusEl.innerHTML = "💾 Local OK";
+            statusEl.innerHTML = "⚠️ Offline (Local OK)";
+        }
+    } finally {
+        // ALWAYS Clear Status after delay
+        if (statusEl) {
             setTimeout(() => {
                 statusEl.classList.remove('visible');
-                statusEl.innerHTML = ""; // Clear text too
-            }, 1500);
+                // Optional: clear text after hidden transition
+            }, 2000);
         }
     }
+} else {
+    // If no supabase or secondary sim, clear immediately after short delay
+    if (statusEl) {
+        if (currentSimulacroId) statusEl.innerHTML = "💾 Local OK";
+        setTimeout(() => {
+            statusEl.classList.remove('visible');
+            statusEl.innerHTML = ""; // Clear text too
+        }, 1500);
+    }
+}
 }
 
 async function guardarProgresoCompleto(silent = false) {
