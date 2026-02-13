@@ -1,13 +1,13 @@
-const CACHE_NAME = 'quiz-app-v81'; // Matches index.html version
+const CACHE_NAME = 'docente-quiz-v83'; // Matches index.html version
 const ASSETS = [
     './',
     './index.html',
-    './style.css?v=81',
-    './app.js?v=81',
-    './sw.js?v=81',
-    './quizData.js?v=81',
-    './quizData2.js?v=81',
-    './quizData3.js?v=81',
+    './style.css?v=83',
+    './app.js?v=83',
+    './sw.js?v=83',
+    './quizData.js?v=83',
+    './quizData2.js?v=83',
+    './quizData3.js?v=83',
     './pwa_icon_192.svg',
     'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap'
 ];
