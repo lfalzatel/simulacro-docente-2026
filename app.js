@@ -1370,28 +1370,14 @@ async function cargarProgreso(user = null) {
                 .select('*')
                 .eq('user_id', user.id)
                 .eq('simulacro_id', currentSimulacroId)
-                .single();
+                .eq('user_id', user.id)
+                .eq('simulacro_id', currentSimulacroId)
+                .maybeSingle(); // Use maybeSingle to avoid 406 error if empty
 
             let { data, error } = await Promise.race([queryPromise, timeoutPromise]);
 
-            // Fallback for Sim 1: Check Legacy Table if V2 is empty
-            if (isSim1 && (error || !data)) {
-                console.log("⚠️ Sim 1 V2 vacío/error, buscando en Legacy (simulacro_progress)...");
-                const legacyQuery = supabaseApp
-                    .from('simulacro_progress')
-                    .select('*')
-                    .eq('user_id', user.id)
-                    .single();
-
-                const legacyResult = await legacyQuery;
-                if (legacyResult.data && !legacyResult.error) {
-                    console.log("♻️ Encontrado en Legacy. Usando datos antiguos.");
-                    data = legacyResult.data;
-                    // It will be migrated to V2 on next save
-                    // We need to shape it like V2? V2 has 'progress_data', V1 has 'progress_data' (jsonb). 
-                    // They are compatible enough for read.
-                }
-            }
+            // Legacy Table (simulacro_progress) is DELETED. 
+            // Removed fallback to prevent 404 errors in console.
 
             if (data && !error) {
                 console.log(`☁️ Datos encontrados para Sim ${window.currentSimulacroNum || 1}`);
