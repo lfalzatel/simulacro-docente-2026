@@ -1211,33 +1211,32 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
             console.log(`☁️ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
 
             if (statusEl) {
-                statusEl.innerHTML = "☁️ Guardado";
+                statusEl.innerHTML = "☁️ Guardado (V2)";
+            }
+        } catch (error) {
+            console.error('❌ Error al guardar en cloud:', error);
+            if (statusEl) {
+                statusEl.innerHTML = "⚠️ Offline (Local OK)";
+            }
+        } finally {
+            // ALWAYS Clear Status after delay
+            if (statusEl) {
+                setTimeout(() => {
+                    statusEl.classList.remove('visible');
+                    // Optional: clear text after hidden transition
+                }, 2000);
             }
         }
-        } catch (error) {
-        console.error('❌ Error al guardar en cloud:', error);
+    } else {
+        // If no supabase or secondary sim, clear immediately after short delay
         if (statusEl) {
-            statusEl.innerHTML = "⚠️ Offline (Local OK)";
-        }
-    } finally {
-        // ALWAYS Clear Status after delay
-        if (statusEl) {
+            if (currentSimulacroId) statusEl.innerHTML = "💾 Local OK";
             setTimeout(() => {
                 statusEl.classList.remove('visible');
-                // Optional: clear text after hidden transition
-            }, 2000);
+                statusEl.innerHTML = ""; // Clear text too
+            }, 1500);
         }
     }
-} else {
-    // If no supabase or secondary sim, clear immediately after short delay
-    if (statusEl) {
-        if (currentSimulacroId) statusEl.innerHTML = "💾 Local OK";
-        setTimeout(() => {
-            statusEl.classList.remove('visible');
-            statusEl.innerHTML = ""; // Clear text too
-        }, 1500);
-    }
-}
 }
 
 async function guardarProgresoCompleto(silent = false) {
