@@ -1406,3 +1406,40 @@ header {
     height: 8px;
     border-radius: 50%;
 }
+
+/* ADMIN PANEL STYLES */
+.role-badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.role-badge.free {
+    background: var(--bg-body-start);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.role-badge.premium {
+    background: linear-gradient(135deg, #FCD34D, #F59E0B);
+    color: #78350F;
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+}
+
+.role-badge.admin {
+    background: #1e293b;
+    color: white;
+    border: 1px solid #475569;
+}
+
+#admin-user-card {
+    transition: all 0.3s ease;
+}
+
+#admin-user-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
