@@ -421,14 +421,17 @@ async function getUserRole(user) {
     // 🛡️ SUPER ADMIN BYPASS: Always admin for owner
     if (user.email === 'lfalzatel@gmail.com') {
         console.log("👑 Super Admin detectado (Hardcoded)");
-        // Sync Admin Role to DB to ensure RLS works
-        const { error } = await supabaseApp.from('user_roles').upsert({
+        // Sync Admin Role to DB to ensure RLS works (Background)
+        supabaseApp.from('user_roles').upsert({
             user_id: user.id,
             email: user.email,
             role: 'admin',
             updated_at: new Date()
+        }).then(({ error }) => {
+            if (error) console.error("Error syncing admin role:", error);
+            else console.log("✓ Admin role synced to DB");
         });
-        if (error) console.error("Error syncing admin role:", error);
+
         return 'admin';
     }
 
@@ -459,11 +462,13 @@ async function getUserRole(user) {
         }
 
         // ALWAYS SYNC EMAIL (in case it changed or wasn't there)
-        // This ensures the Admin Panel can find this user by email
-        await supabaseApp.from('user_roles').update({
+        // This ensures the Admin Panel can find this user by email (Background)
+        supabaseApp.from('user_roles').update({
             email: user.email,
             updated_at: new Date()
-        }).eq('user_id', user.id);
+        }).eq('user_id', user.id).then(({ error }) => {
+            if (error) console.warn("Background email sync failed (likely RLS):", error.message);
+        });
 
         return data?.role || 'free';
     } catch (err) {
