@@ -675,7 +675,21 @@ async function loadSimulacroContext(simulacro) {
     console.log('✅ Quiz data cargado:', window.currentQuizData.questions.length, 'preguntas');
 
     // Reset global variables for new context
-    quizData = window.currentQuizData.questions;
+    quizData = JSON.parse(JSON.stringify(window.currentQuizData.questions)); // Deep clone to avoid mutating raw data
+    
+    // Randomize Answer Options
+    quizData.forEach(q => {
+        if (q.answerOptions) {
+            // Add originalIndex to maintain compatibility with saved progress
+            q.answerOptions = q.answerOptions.map((opt, idx) => ({
+                ...opt,
+                originalIndex: idx
+            }));
+            // Shuffle
+            shuffleArray(q.answerOptions);
+        }
+    });
+
     score = 0;
     currentQuestionIndex = 0;
 
@@ -1036,7 +1050,7 @@ function selectOption(el, isCorrect, rationale, allOptions, optionIndex) {
         }
     }
 
-    // Guardar respuesta con índice y timestamp
+    // Guardar respuesta con índice original y timestamp
     guardarRespuesta(currentQuestionIndex, isCorrect, optionIndex);
 
     const nextBtn = document.getElementById('next-btn');
@@ -1085,7 +1099,7 @@ function updateUI() {
     const isAnswered = savedAnswer !== undefined;
 
     optionsContainer.innerHTML = '';
-    q.answerOptions.forEach((opt, idx) => {
+    q.answerOptions.forEach((opt) => {
         const optDiv = document.createElement('div');
         optDiv.className = 'option';
         optDiv.innerText = opt.text;
@@ -1093,34 +1107,23 @@ function updateUI() {
         // If answered, apply styles immediately
         if (isAnswered) {
             optDiv.style.cursor = 'default';
-            // Don't attach onclick
-
-            // Re-apply visual state
-            if (savedAnswer.selectedOptionIndex === idx) {
+            // Re-apply visual state using originalIndex
+            if (savedAnswer.selectedOptionIndex === opt.originalIndex) {
                 optDiv.classList.add(savedAnswer.isCorrect ? 'correct' : 'wrong');
             }
             if (!savedAnswer.isCorrect && opt.isCorrect) {
                 optDiv.classList.add('correct');
             }
         } else {
-            // Normal interaction
-            optDiv.onclick = () => selectOption(optDiv, opt.isCorrect, opt.rationale, q.answerOptions, idx);
+            // Normal interaction - pass originalIndex
+            optDiv.onclick = () => selectOption(optDiv, opt.isCorrect, opt.rationale, q.answerOptions, opt.originalIndex);
         }
 
         optionsContainer.appendChild(optDiv);
     });
 
-    // If answered, show rationale and next button
-    if (isAnswered) {
-        // Find rationale from options if not saved explicitly (assuming implicit from question)
-        // Since we don't save rationale text, we pick it from the correct option or the selected one?
-        // Code originally passed `opt.rationale` specific to the option? 
-        // Looking at data, usually rationale is per question or correct option.
-        // Let's use the selected option's rationale logic from before.
-
-        // Find the option we selected to get its rationale, OR the correct one. 
-        // Original code passed `opt.rationale` on click.
-        const selectedOpt = q.answerOptions[savedAnswer.selectedOptionIndex];
+        // Find the option we selected to get its rationale
+        const selectedOpt = q.answerOptions.find(opt => opt.originalIndex === savedAnswer.selectedOptionIndex);
         if (selectedOpt) {
             rationaleBox.style.display = 'block';
             rationaleBox.innerText = selectedOpt.rationale || "Explicación no disponible.";
@@ -1129,6 +1132,17 @@ function updateUI() {
         nextBtn.style.display = 'block';
         hintTrigger.style.display = 'none'; // Hide hint if answered
     }
+}
+
+/**
+ * Fisher-Yates Shuffle Algorithm
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 // Navigation Functions
