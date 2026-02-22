@@ -261,7 +261,7 @@ async function searchUser() {
         return;
     }
 
-    resultsContainer.style.display = 'none';
+    resultsContainer.classList.add('hidden');
 
     try {
         const { data, error } = await supabaseApp
@@ -276,7 +276,7 @@ async function searchUser() {
         }
 
         renderAdminUserCard(data);
-        resultsContainer.style.display = 'block';
+        resultsContainer.classList.remove('hidden');
 
     } catch (err) {
         console.error("Error searching user:", err);
@@ -286,38 +286,84 @@ async function searchUser() {
 
 function renderAdminUserCard(user) {
     const card = document.getElementById('admin-user-card');
-    const isSelf = user.user_id === supabaseApp.auth.getUser()?.data?.user?.id; // Rough check
 
     card.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem;">
             <div>
-                <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-primary);">${user.email}</div>
-                <div style="font-size: 0.85rem; color: var(--text-secondary);">ID: ${user.user_id}</div>
-                <div style="margin-top: 0.5rem;">
-                   Role Actual: <span class="role-badge ${user.role}">${user.role.toUpperCase()}</span>
+                <div style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary);">${user.email}</div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary); family: monospace;">USER_ID: ${user.user_id}</div>
+                <div style="margin-top: 0.75rem;">
+                   <span class="role-badge ${user.role}">${user.role.toUpperCase()}</span>
                 </div>
             </div>
-            <div style="text-align: right; font-size: 0.8rem; color: var(--text-secondary);">
-                <div>Creado: ${new Date(user.created_at).toLocaleDateString()}</div>
-                <div>Actualizado: ${new Date(user.updated_at).toLocaleDateString()}</div>
+            <div style="text-align: right; font-size: 0.75rem; color: var(--text-secondary);">
+                <div>Registrado: ${new Date(user.created_at).toLocaleDateString()}</div>
+                <div>Último acceso: ${new Date(user.updated_at).toLocaleDateString()}</div>
             </div>
         </div>
 
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <button onclick="updateUserRole('${user.user_id}', 'free')" 
-                style="padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border-color); background: white; cursor: pointer; ${user.role === 'free' ? 'opacity: 0.5; pointer-events: none;' : ''}">
-                🔽 Asignar FREE
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; background: rgba(0,0,0,0.03); padding: 1rem; border-radius: 10px;">
+            <button onclick="updateUserRole('${user.user_id}', 'free')" class="btn-role-update" 
+                style="padding: 0.5rem 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); background: white; cursor: pointer; ${user.role === 'free' ? 'opacity: 0.5; pointer-events: none;' : ''}">
+                🔽 Free
             </button>
-            <button onclick="updateUserRole('${user.user_id}', 'premium')" 
-                style="padding: 0.5rem 1rem; border-radius: 8px; border: none; background: linear-gradient(135deg, #FCD34D, #F59E0B); color: #78350F; font-weight: 700; cursor: pointer; ${user.role === 'premium' ? 'opacity: 0.5; pointer-events: none;' : ''}">
-                ⭐ Asignar PREMIUM
+            <button onclick="updateUserRole('${user.user_id}', 'premium')" class="btn-role-update"
+                style="padding: 0.5rem 0.8rem; border-radius: 6px; border: none; background: linear-gradient(135deg, #FCD34D, #F59E0B); color: #78350F; font-weight: 700; cursor: pointer; ${user.role === 'premium' ? 'opacity: 0.5; pointer-events: none;' : ''}">
+                ⭐ Premium
             </button>
-            <button onclick="updateUserRole('${user.user_id}', 'admin')" 
-                style="padding: 0.5rem 1rem; border-radius: 8px; border: none; background: #1e293b; color: white; cursor: pointer; ${user.role === 'admin' ? 'opacity: 0.5; pointer-events: none;' : ''}">
-                🛡️ Asignar ADMIN
+            <button onclick="updateUserRole('${user.user_id}', 'admin')" class="btn-role-update"
+                style="padding: 0.5rem 0.8rem; border-radius: 6px; border: none; background: #1e293b; color: white; cursor: pointer; ${user.role === 'admin' ? 'opacity: 0.5; pointer-events: none;' : ''}">
+                🛡️ Admin
             </button>
         </div>
     `;
+}
+
+async function loadAllUsers() {
+    const listContainer = document.getElementById('admin-user-list');
+    if (!listContainer) return;
+
+    try {
+        const { data, error } = await supabaseApp
+            .from('user_roles')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        renderUserList(data);
+    } catch (err) {
+        console.error("Error loading all users:", err);
+        listContainer.innerHTML = `<div style="color: var(--error-text); text-align: center; padding: 1rem;">❌ Error cargando usuarios: ${err.message}</div>`;
+    }
+}
+
+function renderUserList(users) {
+    const listContainer = document.getElementById('admin-user-list');
+    if (!listContainer) return;
+
+    if (!users || users.length === 0) {
+        listContainer.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--text-secondary);">No hay usuarios registrados.</div>';
+        return;
+    }
+
+    listContainer.innerHTML = users.map(user => `
+        <div class="user-list-item">
+            <div class="user-item-info">
+                <span class="user-item-email">${user.email}</span>
+                <span class="user-item-id">ID: ${user.user_id.substring(0, 8)}...</span>
+            </div>
+            <div class="user-item-actions">
+                <span class="role-badge ${user.role}">${user.role}</span>
+                <select class="role-select-mini" onchange="updateUserRole('${user.user_id}', this.value)">
+                    <option value="" disabled selected>Cambiar...</option>
+                    <option value="free" ${user.role === 'free' ? 'disabled' : ''}>Free</option>
+                    <option value="premium" ${user.role === 'premium' ? 'disabled' : ''}>Premium</option>
+                    <option value="admin" ${user.role === 'admin' ? 'disabled' : ''}>Admin</option>
+                </select>
+            </div>
+        </div>
+    `).join('');
 }
 
 async function updateUserRole(targetUserId, newRole) {
@@ -337,8 +383,9 @@ async function updateUserRole(targetUserId, newRole) {
             showConfirmButton: false
         });
 
-        // Refresh search
+        // Refresh search and list
         searchUser();
+        loadAllUsers();
 
     } catch (err) {
         console.error("Error updating role:", err);
@@ -417,10 +464,50 @@ async function resetSimulacroProgress() {
     }
 }
 
+async function forceRefresh() {
+    Swal.fire({
+        title: 'Actualizando...',
+        text: 'Limpiando caché y recargando la aplicación',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    try {
+        // 1. Unregister all Service Workers
+        if ('serviceWorker' in navigator) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            for (let registration of registrations) {
+                await registration.unregister();
+            }
+        }
+
+        // 2. Clear all Caches
+        if ('caches' in window) {
+            const cacheNames = await caches.keys();
+            for (let name of cacheNames) {
+                await caches.delete(name);
+            }
+        }
+
+        // 3. Clear some specific local storage if needed (optional)
+        // localStorage.removeItem('some_cache_key');
+
+        // 4. Hard reload
+        window.location.reload(true);
+    } catch (err) {
+        console.error("Error in force refresh:", err);
+        window.location.reload();
+    }
+}
+
 // Bind new functions
 window.searchUser = searchUser;
 window.updateUserRole = updateUserRole;
 window.resetSimulacroProgress = resetSimulacroProgress;
+window.loadAllUsers = loadAllUsers;
+window.forceRefresh = forceRefresh;
 
 async function getUserRole(user) {
     if (!user) return 'free';
@@ -676,7 +763,7 @@ async function loadSimulacroContext(simulacro) {
 
     // Reset global variables for new context
     quizData = JSON.parse(JSON.stringify(window.currentQuizData.questions)); // Deep clone to avoid mutating raw data
-    
+
     // Randomize Answer Options
     quizData.forEach(q => {
         if (q.answerOptions) {
@@ -826,6 +913,7 @@ function switchView(viewId) {
     document.getElementById('results-view').classList.add('hidden');
     document.getElementById('profile-view').classList.add('hidden');
     document.getElementById('reports-view').classList.add('hidden');
+    document.getElementById('admin-view').classList.add('hidden');
 
     if (viewId === 'docs') {
         document.getElementById('docs-view').classList.remove('hidden');
@@ -840,6 +928,7 @@ function switchView(viewId) {
         document.getElementById('reports-view').classList.remove('hidden');
     } else if (viewId === 'admin') {
         document.getElementById('admin-view').classList.remove('hidden');
+        loadAllUsers(); // Auto-load user list
     }
 
     // Show/hide back arrow in header
@@ -1122,13 +1211,13 @@ function updateUI() {
         optionsContainer.appendChild(optDiv);
     });
 
-        // Find the option we selected to get its rationale
+    // Handle rationale and next button if already answered
+    if (isAnswered) {
         const selectedOpt = q.answerOptions.find(opt => opt.originalIndex === savedAnswer.selectedOptionIndex);
         if (selectedOpt) {
             rationaleBox.style.display = 'block';
             rationaleBox.innerText = selectedOpt.rationale || "Explicación no disponible.";
         }
-
         nextBtn.style.display = 'block';
         hintTrigger.style.display = 'none'; // Hide hint if answered
     }

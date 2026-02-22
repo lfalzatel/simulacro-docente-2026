@@ -87,6 +87,10 @@
                         <span>🚪</span>
                         <span>Cerrar Sesión</span>
                     </div>
+                    <div class="menu-item" onclick="forceRefresh()" style="color: var(--accent-secondary);">
+                        <span>🔄</span>
+                        <span>Forzar Actualización</span>
+                    </div>
                     <!--
                     <div class="menu-item logout" onclick="sincronizarDatos()" style="color: var(--accent-secondary);">
                         <span>🔄</span>
@@ -431,35 +435,47 @@
 
         <!-- Admin View -->
         <div id="admin-view" class="dashboard hidden">
-            <div class="welcome-section"
-                style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; border: 2px solid #334155;">
-                <h1 class="welcome-title" style="color: white;">🛠️ Panel de Administración</h1>
-                <p class="welcome-text" style="color: #94a3b8;">Gestión de usuarios y permisos.</p>
-                <button class="back-btn" onclick="switchView('dashboard')"
-                    style="background: rgba(255,255,255,0.1); color: white; margin-top: 1rem;">
-                    ← Volver al Dashboard
-                </button>
+            <div class="welcome-section admin-hero">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h1 class="welcome-title">🛠️ Panel de Administración</h1>
+                        <p class="welcome-text">Gestión centralizada de usuarios, roles y accesos.</p>
+                    </div>
+                    <button class="back-btn" onclick="switchView('dashboard')"
+                        style="background: var(--surface); color: var(--text-primary);">
+                        ← Dashboard
+                    </button>
+                </div>
             </div>
 
-            <div class="stat-card">
-                <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Buscar Usuario</h3>
-                <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem;">
+            <!-- Admin Stats / Search -->
+            <div class="stat-card admin-panel-card">
+                <h3 class="section-subtitle">🔍 Buscar Usuario</h3>
+                <div class="search-box-row">
                     <input type="email" id="admin-search-input" placeholder="Correo electrónico del usuario..."
-                        style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-body-start); color: var(--text-primary);">
-                    <button onclick="searchUser()" class="start-btn"
-                        style="width: auto; margin: 0; background: var(--accent-primary); color: white;">
-                        🔍 Buscar
+                        class="admin-input">
+                    <button onclick="searchUser()" class="btn-primary-small">
+                        Buscar
                     </button>
                 </div>
 
-                <div id="admin-results-container" style="display: none;">
-                    <h3
-                        style="font-size: 1.1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
-                        Resultados</h3>
-                    <div id="admin-user-card"
-                        style="background: var(--bg-body-start); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                <div id="admin-results-container" class="search-results hidden">
+                    <h4 class="mini-title">Resultado de búsqueda</h4>
+                    <div id="admin-user-card" class="user-detail-card">
                         <!-- User details injected here -->
                     </div>
+                </div>
+            </div>
+
+            <!-- User List Section -->
+            <div class="stat-card admin-panel-card" style="margin-top: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 class="section-subtitle">👥 Lista de Usuarios</h3>
+                    <button onclick="loadAllUsers()" class="refresh-btn" title="Refrescar lista">🔄</button>
+                </div>
+                <div id="admin-user-list" class="admin-user-list-container">
+                    <div class="loading-spinner">Cargando usuarios...</div>
                 </div>
             </div>
         </div>
