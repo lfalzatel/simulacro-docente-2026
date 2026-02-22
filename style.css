@@ -512,6 +512,7 @@ header {
     font-size: 2rem;
     font-weight: 700;
     color: var(--text-primary);
+    /* color: white; */
     margin-bottom: 0.5rem;
     white-space: normal;
     word-wrap: break-word;
@@ -522,6 +523,7 @@ header {
 
 .welcome-text {
     color: var(--text-secondary);
+    /* color: white; */
     font-size: 1rem;
     line-height: 1.6;
     white-space: normal;
@@ -1447,7 +1449,7 @@ header {
 /* ==================== ADMIN PANEL STYLES ==================== */
 
 .admin-hero {
-    background: linear-gradient(135deg, var(--earth-dark) 0%, var(--earth-medium) 100%) !important;
+    /* background: linear-gradient(135deg, var(--earth-dark) 0%, var(--earth-medium) 100%) !important; */
     border-color: var(--highlight) !important;
 }
 
@@ -1641,16 +1643,40 @@ header {
     padding: 1.5rem;
 }
 
+.btn-delete {
+    background: none;
+    border: none;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+    border-radius: 50%;
+    color: var(--text-secondary);
+    width: 40px;
+    height: 40px;
+}
+
+.btn-delete:hover {
+    transform: scale(1.1) rotate(5deg);
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
 @media (max-width: 640px) {
     .user-list-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
     }
+
     .user-item-actions {
         width: 100%;
         justify-content: space-between;
     }
+
     .admin-panel-card {
         padding: 1rem !important;
     }

@@ -302,7 +302,7 @@ function renderAdminUserCard(user) {
             </div>
         </div>
 
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; background: rgba(0,0,0,0.03); padding: 1rem; border-radius: 10px;">
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; background: rgba(0,0,0,0.03); padding: 1rem; border-radius: 10px; align-items: center;">
             <button onclick="updateUserRole('${user.user_id}', 'free')" class="btn-role-update" 
                 style="padding: 0.5rem 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); background: white; cursor: pointer; ${user.role === 'free' ? 'opacity: 0.5; pointer-events: none;' : ''}">
                 🔽 Free
@@ -314,6 +314,10 @@ function renderAdminUserCard(user) {
             <button onclick="updateUserRole('${user.user_id}', 'admin')" class="btn-role-update"
                 style="padding: 0.5rem 0.8rem; border-radius: 6px; border: none; background: #1e293b; color: white; cursor: pointer; ${user.role === 'admin' ? 'opacity: 0.5; pointer-events: none;' : ''}">
                 🛡️ Admin
+            </button>
+            <div style="flex-grow: 1;"></div>
+            <button onclick="deleteUser('${user.user_id}', '${user.email}')" class="btn-delete" title="Eliminar Usuario">
+                🗑️
             </button>
         </div>
     `;
@@ -361,9 +365,69 @@ function renderUserList(users) {
                     <option value="premium" ${user.role === 'premium' ? 'disabled' : ''}>Premium</option>
                     <option value="admin" ${user.role === 'admin' ? 'disabled' : ''}>Admin</option>
                 </select>
+                <button onclick="deleteUser('${user.user_id}', '${user.email}')" class="btn-delete" title="Eliminar">
+                    🗑️
+                </button>
             </div>
         </div>
     `).join('');
+}
+
+async function deleteUser(targetUserId, email) {
+    const result = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: `Estás a punto de eliminar el acceso de ${email}. Esta acción no se puede deshacer.`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    });
+
+    if (!result.isConfirmed) return;
+
+    Swal.fire({
+        title: 'Eliminando...',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    try {
+        const { error } = await supabaseApp
+            .from('user_roles')
+            .delete()
+            .eq('user_id', targetUserId);
+
+        if (error) throw error;
+
+        Swal.fire({
+            title: '¡Eliminado!',
+            text: 'El usuario ha sido removido con éxito.',
+            icon: 'success',
+            timer: 2000,
+            showConfirmButton: false
+        });
+
+        // Hide search result if it was this user
+        const resultsContainer = document.getElementById('admin-results-container');
+        if (!resultsContainer.classList.contains('hidden')) {
+            // Check if search input email matches deleted email
+            const searchEmail = document.getElementById('admin-search-input').value.trim();
+            if (searchEmail === email) {
+                resultsContainer.classList.add('hidden');
+            }
+        }
+
+        // Refresh list
+        loadAllUsers();
+
+    } catch (err) {
+        console.error("Error deleting user:", err);
+        Swal.fire('Error', 'No se pudo eliminar el usuario. ' + err.message, 'error');
+    }
 }
 
 async function updateUserRole(targetUserId, newRole) {
@@ -508,6 +572,7 @@ window.updateUserRole = updateUserRole;
 window.resetSimulacroProgress = resetSimulacroProgress;
 window.loadAllUsers = loadAllUsers;
 window.forceRefresh = forceRefresh;
+window.deleteUser = deleteUser;
 
 async function getUserRole(user) {
     if (!user) return 'free';
