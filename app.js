@@ -287,7 +287,7 @@ function renderUserList(users) {
 
     listContainer.innerHTML = users.map(user => {
         const initials = (user.full_name || user.email || 'UU').substring(0, 2).toUpperCase();
-        const displayName = user.full_name || user.email.split('@')[0];
+        const displayName = user.full_name || (user.email ? user.email.split('@')[0] : 'Usuario');
 
         return `
         <div class="user-list-card ${user.role === 'premium' ? 'premium-card' : ''}">
@@ -302,7 +302,7 @@ function renderUserList(users) {
                         <span class="admin-user-name">${displayName}</span>
                         <span class="role-badge ${user.role}">${user.role.toUpperCase()}</span>
                     </div>
-                    <div class="admin-user-email">${user.email}</div>
+                    <div class="admin-user-email">${user.email || 'Sin correo'}</div>
                 </div>
             </div>
 
