@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=84">
+    <link rel="stylesheet" href="style.css?v=85">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                 <button class="profile-button" id="profileBtn" aria-label="Perfil">
                     <img id="user-avatar" src="" alt="User" style="display: none;">
                     <div id="user-initials" class="user-initials" style="display: none;"></div>
-                    <span class="version-tag">Experto v84</span>
+                    <span class="version-tag">Experto v85</span>
                 </button>
                 <div class="profile-menu" id="profileMenu">
                     <div class="profile-info" onclick="switchView('profile')" style="cursor: pointer;">
@@ -99,7 +99,7 @@
                      -->
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
                         <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                            v83 (Simulacro 1 & 3 Experto)
+                            v85 (Simulacro 1 & 3 Experto)
                         </div>
                     </div>
                 </div>
@@ -501,9 +501,9 @@
     <div id="save-status"></div>
 
     <!-- Data Scripts -->
-    <script src="quizData.js"></script>
-    <script src="quizData2.js"></script>
-    <script src="quizData3.js"></script>
+    <script src="quizData.js?v=85"></script>
+    <script src="quizData2.js?v=85"></script>
+    <script src="quizData3.js?v=85"></script>
 
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -513,14 +513,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=84" defer></script>
+    <script src="app.js?v=85" defer></script>
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=84')
+                navigator.serviceWorker.register('./sw.js?v=85')
                     .then(reg => {
-                        console.log('✓ SW v83 registrado');
+                        console.log('✓ SW v85 registrado');
 
                         // Handle updates cleanly without infinite loops
                         if (reg.waiting) {

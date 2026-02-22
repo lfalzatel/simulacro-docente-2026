@@ -328,16 +328,21 @@ async function loadAllUsers() {
     if (!listContainer) return;
 
     try {
+        console.log("👥 Cargando lista de usuarios...");
         const { data, error } = await supabaseApp
             .from('user_roles')
             .select('*')
             .order('created_at', { ascending: false });
 
-        if (error) throw error;
+        if (error) {
+            console.error("❌ Error de Supabase al cargar usuarios:", error);
+            throw error;
+        }
 
+        console.log(`✓ ${data?.length || 0} usuarios recuperados`);
         renderUserList(data);
     } catch (err) {
-        console.error("Error loading all users:", err);
+        console.error("❌ Error crítico en loadAllUsers:", err);
         listContainer.innerHTML = `<div style="color: var(--error-text); text-align: center; padding: 1rem;">❌ Error cargando usuarios: ${err.message}</div>`;
     }
 }
@@ -558,11 +563,13 @@ async function forceRefresh() {
         // 3. Clear some specific local storage if needed (optional)
         // localStorage.removeItem('some_cache_key');
 
-        // 4. Hard reload
-        window.location.reload(true);
+        // 4. Hard reload with Cache-Busting
+        const currentUrl = window.location.href.split('?')[0];
+        window.location.href = currentUrl + '?update=' + new Date().getTime();
     } catch (err) {
         console.error("Error in force refresh:", err);
-        window.location.reload();
+        const currentUrl = window.location.href.split('?')[0];
+        window.location.href = currentUrl + '?error_update=' + new Date().getTime();
     }
 }
 
@@ -992,8 +999,12 @@ function switchView(viewId) {
     } else if (viewId === 'reports') {
         document.getElementById('reports-view').classList.remove('hidden');
     } else if (viewId === 'admin') {
-        document.getElementById('admin-view').classList.remove('hidden');
-        loadAllUsers(); // Auto-load user list
+        console.log("🛠️ Entrando a Panel Admin");
+        const adminView = document.getElementById('admin-view');
+        if (adminView) {
+            adminView.classList.remove('hidden');
+            loadAllUsers(); // Auto-load user list
+        }
     }
 
     // Show/hide back arrow in header

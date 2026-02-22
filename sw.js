@@ -1,14 +1,13 @@
-const CACHE_NAME = 'docente-quiz-v84'; // Matches index.html version
+const CACHE_NAME = 'docente-quiz-v85'; // Matches index.html version
 const ASSETS = [
     './',
-    './index.html?v=84',
-    './style.css?v=84',
-    './app.js?v=84',
-    './sw.js?v=83',
-    './quizData.js?v=84',
-    './quizData.js?v=83',
-    './quizData2.js?v=83',
-    './quizData3.js?v=83',
+    './index.html?v=85',
+    './style.css?v=85',
+    './app.js?v=85',
+    './sw.js?v=85',
+    './quizData.js?v=85',
+    './quizData2.js?v=85',
+    './quizData3.js?v=85',
     './pwa_icon_192.svg',
     'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap'
 ];

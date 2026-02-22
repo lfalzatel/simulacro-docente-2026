@@ -1130,6 +1130,11 @@ header {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .welcome-section {
+        padding: 1.5rem 1rem !important;
+        /* Reduced from default */
+    }
+
     header {
         padding: 1rem 1.5rem;
     }
@@ -1512,7 +1517,9 @@ header {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    max-height: 500px;
+    max-height: 60vh;
+    /* More flexible height on mobile */
+    min-height: 200px;
     overflow-y: auto;
     padding-right: 0.5rem;
 }
@@ -1540,6 +1547,8 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: all 0.2s;
+    word-break: break-word;
+    /* Prevent long emails from breaking layout */
 }
 
 .user-list-item:hover {
@@ -1679,5 +1688,10 @@ header {
 
     .admin-panel-card {
         padding: 1rem !important;
+    }
+
+    .admin-user-list-container {
+        max-height: 400px;
+        /* Specific limit for smaller screens */
     }
 }
