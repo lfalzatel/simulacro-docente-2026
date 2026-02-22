@@ -631,8 +631,8 @@ async function getUserRole(user) {
 
     // Metadata for sync
     const metadata = {
-        full_name: user.user_metadata?.full_name || null,
-        avatar_url: user.user_metadata?.avatar_url || null,
+        full_name: user.user_metadata?.full_name || user.user_metadata?.name || null,
+        avatar_url: user.user_metadata?.avatar_url || user.user_metadata?.picture || null,
         email: user.email,
         updated_at: new Date()
     };
