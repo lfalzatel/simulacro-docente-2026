@@ -587,21 +587,27 @@ async function forceRefresh() {
     });
 
     try {
-        // 1. Unregister all Service Workers
-        if ('serviceWorker' in navigator) {
-            const registrations = await navigator.serviceWorker.getRegistrations();
-            for (let registration of registrations) {
-                await registration.unregister();
+        // 1. Unregister all Service Workers & Clear all Caches with a Timeout
+        const cleanupPromise = (async () => {
+            if ('serviceWorker' in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                for (let registration of registrations) {
+                    await registration.unregister();
+                }
             }
-        }
+            if ('caches' in window) {
+                const cacheNames = await caches.keys();
+                for (let name of cacheNames) {
+                    await caches.delete(name);
+                }
+            }
+        })();
 
-        // 2. Clear all Caches
-        if ('caches' in window) {
-            const cacheNames = await caches.keys();
-            for (let name of cacheNames) {
-                await caches.delete(name);
-            }
-        }
+        // Wait for cleanup but force reload after 2000ms if it hangs
+        await Promise.race([
+            cleanupPromise,
+            new Promise(r => setTimeout(r, 2000))
+        ]);
 
         // 3. Clear some specific local storage if needed (optional)
         // localStorage.removeItem('some_cache_key');
@@ -2140,7 +2146,7 @@ async function loginWithGoogle() {
                 skipBrowserRedirect: false, // Always use browser redirect (works in PWA)
                 queryParams: {
                     access_type: 'offline',
-                    prompt: 'consent',
+                    prompt: 'select_account',
                 }
             }
         });
