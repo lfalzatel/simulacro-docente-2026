@@ -2272,6 +2272,11 @@ if (installBtn) {
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
+    // Show the install button when the browser is ready to prompt
+    if (installBtn) {
+        installBtn.style.display = 'block';
+    }
+    console.log("📱 PWA install prompt is ready and button is visible.");
 });
 
 // ==================== UNIVERSAL SIMULATOR SELECTOR ====================

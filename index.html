@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docente 2026 v92</title>
+    <title>Docente 2026 v93</title>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=92">
+    <link rel="stylesheet" href="style.css?v=93">
 </head>
 
 <body>
@@ -513,14 +513,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=92" defer></script>
+    <script src="app.js?v=93" defer></script>
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=92')
+                navigator.serviceWorker.register('./sw.js?v=93')
                     .then(reg => {
-                        console.log('✓ SW v92 registrado');
+                        console.log('✓ SW v93 registrado');
 
                         // Handle updates cleanly without infinite loops
                         if (reg.waiting) {
