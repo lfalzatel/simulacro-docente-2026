@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docente 2026 v90</title>
+    <title>Docente 2026 v91</title>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=90">
+    <link rel="stylesheet" href="style.css?v=91">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                 <button class="profile-button" id="profileBtn" aria-label="Perfil">
                     <img id="user-avatar" src="" alt="User" style="display: none;">
                     <div id="user-initials" class="user-initials" style="display: none;"></div>
-                    <span class="version-tag">Experto v90</span>
+                    <span class="version-tag">Experto v91</span>
                 </button>
                 <div class="profile-menu" id="profileMenu">
                     <div class="profile-info" onclick="switchView('profile')" style="cursor: pointer;">
@@ -98,7 +98,7 @@
                     </div>
                      -->
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                        v90 (Simulacro 1 & 3 Experto)
+                        v91 (Simulacro 1 & 3 Experto)
                     </div>
                 </div>
         </header>
@@ -244,7 +244,7 @@
                     ℹ️ Sistema de Puntuación</div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                     <div style="text-align: center; padding: 1rem; background: var(--success-bg); border-radius: 8px;">
-                        <span style="font-size: 0.7rem; opacity: 0.5;">v90</span>
+                        <span style="font-size: 0.7rem; opacity: 0.5;">v91</span>
                         <span style="font-size: 0.9rem; color: var(--success-text);">Respuesta Correcta</span>
                     </div>
                     <div style="text-align: center; padding: 1rem; background: var(--error-bg); border-radius: 8px;">
@@ -508,14 +508,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=90" defer></script>
+    <script src="app.js?v=91" defer></script>
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=90')
+                navigator.serviceWorker.register('./sw.js?v=91')
                     .then(reg => {
-                        console.log('✓ SW v90 registrado');
+                        console.log('✓ SW v91 registrado');
 
                         // Handle updates cleanly without infinite loops
                         if (reg.waiting) {

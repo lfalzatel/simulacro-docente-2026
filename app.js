@@ -675,13 +675,13 @@ async function getUserRole(user) {
             return 'free';
         }
 
-        // Sync Metadata for existing users (Background)
-        supabaseApp.from('user_roles')
-            .update(metadata)
-            .eq('user_id', user.id)
-            .then(({ error }) => {
-                if (error) console.error("Error updating user metadata:", error);
-            });
+        // Sync Metadata for existing users (Background) via RPC
+        supabaseApp.rpc('update_user_profile', {
+            new_name: metadata.full_name,
+            new_avatar: metadata.avatar_url
+        }).then(({ error }) => {
+            if (error) console.error("Error syncing metadata via RPC:", error);
+        });
 
         return data.role;
     } catch (err) {
