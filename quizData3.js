@@ -313,7 +313,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 11,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "¿Cuál es el resultado de calcular los tres cuartos de los 4/6 de la mitad de 600?",
             "answerOptions": [
@@ -344,7 +344,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 12,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "En un curso de 36 alumnos, el 50% son hombres. De las mujeres, la sexta parte son calificadas como 'altas'. De los hombres, la tercera parte son calificados como 'bajos'. ¿Cuál de las siguientes afirmaciones es CORRECTA?",
             "answerOptions": [
@@ -375,7 +375,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 13,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "A Bertha le regalan la quinta parte de una bolsa de 85 dulces, pero luego recibe 3 dulces adicionales. ¿Cuántos dulces tiene Bertha en total?",
             "answerOptions": [
@@ -406,7 +406,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 14,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Enrique distribuye su herencia: el 50% para Ricardo y el 40% para Rafael. El saldo restante, que equivale a $800.000, es entregado a José. ¿A cuánto asciende el monto total de la herencia?",
             "answerOptions": [
@@ -747,7 +747,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 25,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "En una competencia de atletismo, Juan llega después de Pedro, pero antes que Luis. Si además sabemos que Pedro llegó después de Carlos, ¿quién ganó la competencia?",
             "answerOptions": [
@@ -778,7 +778,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 26,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Si por cada 3 horas de estudio un estudiante responde 15 preguntas correctamente, ¿cuántas horas debe estudiar para responder 120 preguntas con el mismo ritmo?",
             "answerOptions": [
@@ -809,7 +809,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 27,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Un tanque de agua está lleno hasta sus 2/5 partes. Si se le agregan 300 litros, llega a la mitad de su capacidad. ¿Cuál es la capacidad total del tanque?",
             "answerOptions": [
@@ -933,7 +933,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 31,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "¿Cuál es el quinto número en la siguiente sucesión lógica: 3, 7, 15, 31, ...?",
             "answerOptions": [
@@ -1180,7 +1180,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 39,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "Experto",
             "question": "Un docente con 15 años de servicio es asignado a una sede rural de difícil acceso. Siente que es un 'castigo'. ¿Cuál es la perspectiva normativa y profesional correcta sobre este traslado?",
             "answerOptions": [
@@ -1241,7 +1241,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 41,
-            "category": "Lectura Crítica",
+            "category": "Competencias Específicas",
             "difficulty": "Experto",
             "question": "En el ensayo 'La Rebelión de las Masas', Ortega y Gasset afirma: 'Masa es todo aquel que no se valora a sí mismo —en bien o en mal— por razones especiales, sino que se siente \"como todo el mundo\", y, sin embargo, no se angustia, se siente a sabor al saberse idéntico a los demás'. Según el autor, ¿cuál es la característica fundamental del hombre-masa?",
             "answerOptions": [
@@ -1272,7 +1272,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 42,
-            "category": "Psicotécnico",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Imagine que usted es el coordinador de disciplina. Dos docentes tienen un fuerte desacuerdo público sobre el uso de un laboratorio. Un grupo de estudiantes observa la discusión. ¿Cuál es su acción inmediata más idónea?",
             "answerOptions": [
@@ -1427,7 +1427,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 47,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Un tanque de agua tiene dos llaves de llenado. La llave A llena el tanque en 4 horas y la llave B en 6 horas. Si se abren ambas llaves simultáneamente, ¿cuánto tiempo tardará en llenarse el tanque?",
             "answerOptions": [
@@ -1520,7 +1520,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 50,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "Experto",
             "question": "Según la Ley 1620, ante una situación de Violencia Sexual contra un estudiante (Situación Tipo III), el primer paso absoluto que debe tomar el docente que conoce el caso es:",
             "answerOptions": [
@@ -1551,7 +1551,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 51,
-            "category": "Lectura Crítica",
+            "category": "Competencias Específicas",
             "difficulty": "Experto",
             "question": "Lea el siguiente fragmento de Paulo Freire: 'La educación es comunicación, diálogo, en la medida en que no es transferencia de saber, sino un encuentro de sujetos interlocutores que buscan la significación de los significados'. ¿Qué concepto de aprendizaje subyace en esta frase?",
             "answerOptions": [
@@ -1582,7 +1582,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 52,
-            "category": "Psicotécnico",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Usted descubre que un grupo de docentes está utilizando el tiempo de la jornada pedagógica para realizar ventas por catálogo en la sala de profesores. ¿Cómo actúa desde su liderazgo docente?",
             "answerOptions": [
@@ -1737,7 +1737,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 57,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "En un pueblo la población se duplica cada 10 años. Si en el año 2000 había 5.000 habitantes, ¿en qué año la población llegará a 80.000 habitantes?",
             "answerOptions": [
@@ -1830,7 +1830,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 60,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "Experto",
             "question": "De acuerdo con el Decreto 1290, la escala de valoración nacional se compone de cuatro niveles. ¿Cuál es el orden jerárquico correcto de menor a mayor?",
             "answerOptions": [
@@ -1923,7 +1923,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 63,
-            "category": "Liderazgo y Comunidad",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "Usted dispone de un bloque de tiempo de planeación antes de un consejo académico crítico. Desde la perspectiva de la **Autogestión y el Desarrollo Profesional**, ¿cuál es el uso más estratégico y de mayor impacto institucional para este tiempo?",
             "answerOptions": [
@@ -2264,7 +2264,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 74,
-            "category": "Tecnologías en Educación",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "El docente Pedro es designado para liderar la implementación de una plataforma de comunicación digital con las familias, pero confiesa tener un conocimiento tecnológico básico. Su acción de **Liderazgo Pedagógico** más efectiva es:",
             "answerOptions": [
@@ -2326,7 +2326,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 76,
-            "category": "Desarrollo Socioemocional",
+            "category": "Convivencia y Valores",
             "difficulty": "Experto",
             "question": "Rosa, una docente recién egresada, confiesa sentirse abrumada por la complejidad de algunos casos de su aula. Como docente mentor con trayectoria, ¿cuál es el consejo de **Desarrollo Profesional** más potente que puede ofrecerle?",
             "answerOptions": [
@@ -2450,7 +2450,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 80,
-            "category": "Liderazgo y Comunidad",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "Ramona lidera un proyecto de gran escala y nota que su salud física y emocional se está deteriorando por la carga de trabajo. Como profesional con **Competencia de Autogestión**, ¿cuál es su actuación más equilibrada?",
             "answerOptions": [
@@ -2481,7 +2481,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 81,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "En una institución que declara el 'Aprendizaje Basado en Proyectos' (ABP) como su eje central, un docente insiste en calificar solo mediante exámenes de selección múltiple al final de cada periodo. ¿Cuál es la inconsistencia técnica más grave?",
             "answerOptions": [
@@ -2512,7 +2512,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 82,
-            "category": "Evaluación del Aprendizaje",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "Experto",
             "question": "Un estudiante con discapacidad cognitiva leve muestra avances significativos en su expresión oral, pero reprueba los objetivos de escritura estándar del grado. Como docente evaluador experto, ¿qué acción es técnica y éticamente pertinente?",
             "answerOptions": [
@@ -2543,7 +2543,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 83,
-            "category": "Práctica Pedagógica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "Durante una clase de Ciencias Sociales, un estudiante cuestiona la veracidad de un hecho histórico basándose en un video 'viral' de redes sociales que contradice la fuente académica. El docente debe:",
             "answerOptions": [
@@ -2574,7 +2574,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 84,
-            "category": "Gestión Escolar",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "El Consejo Directivo analiza el bajo rendimiento en Matemáticas. Una minoría propone aumentar las horas de clase quitando tiempo a las artes. La decisión experta, basada en el Bienestar Estudiantil, sería:",
             "answerOptions": [
@@ -2636,7 +2636,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 86,
-            "category": "Dificultades de Aprendizaje",
+            "category": "Inclusión y Diversidad",
             "difficulty": "Experto",
             "question": "Un docente nota que un estudiante de 3° lee con fluidez mecánica, pero no logra explicar de qué trataba el texto ni responder preguntas de nivel inferencial. ¿Cuál es el diagnóstico pedagógico preliminar?",
             "answerOptions": [
@@ -2667,7 +2667,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 87,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "Se propone cambiar el sistema de calificación numérica (1.0 a 5.0) por uno cualitativo basado en 'Niveles de Desempeño' (Bajo, Básico, Alto, Superior). El principal beneficio pedagógico de este cambio es:",
             "answerOptions": [
@@ -2698,7 +2698,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 88,
-            "category": "Liderazgo y Comunidad",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "En una reunión de padres de familia, un sector exige que se retire de la biblioteca escolar un libro sobre diversidad de género por considerarlo 'inapropiado'. La postura del rector/director debe ser:",
             "answerOptions": [
@@ -2729,7 +2729,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 89,
-            "category": "Práctica Pedagógica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "Un docente experto utiliza el 'Error' de sus estudiantes como una herramienta didáctica central. ¿Cómo se manifiesta esto en el aula?",
             "answerOptions": [
@@ -2760,7 +2760,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 90,
-            "category": "Gestión Directiva",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "La deserción escolar aumenta en grados 9° y 10°. El equipo directivo decide investigar. ¿Cuál es el enfoque de recolección de datos más potente para una solución?",
             "answerOptions": [
@@ -2791,7 +2791,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 91,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "¿Cuál es la diferencia fundamental entre 'Integración' e 'Inclusión' en el marco del sistema educativo actual?",
             "answerOptions": [
@@ -2822,7 +2822,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 92,
-            "category": "Evaluación del Aprendizaje",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "Experto",
             "question": "Un examen de Matemáticas arroja que el 80% del grupo respondió mal la misma pregunta sobre fracciones. La reacción de un docente de nivel experto es:",
             "answerOptions": [
@@ -2853,7 +2853,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 93,
-            "category": "Práctica Pedagógica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "En el uso de las TIC en el aula, un docente de nivel experto se caracteriza por:",
             "answerOptions": [
@@ -2884,7 +2884,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 94,
-            "category": "Gestión Escolar",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "El Proyecto Educativo Institucional (PEI) se considera un 'organismo vivo' porque:",
             "answerOptions": [
@@ -2946,7 +2946,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 96,
-            "category": "Dificultades de Aprendizaje",
+            "category": "Inclusión y Diversidad",
             "difficulty": "Experto",
             "question": "Un niño de 1° de primaria confunde la 'b' con la 'd' y la 'p' con la 'q' al escribir. ¿Cuál es el análisis más adecuado de su docente?",
             "answerOptions": [
@@ -2977,7 +2977,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 97,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "El 'Aprendizaje Invisible' (Cobo y Moravec) plantea que gran parte de lo que aprendemos sucede fuera de la escuela formal. Un docente experto integra esto cuando:",
             "answerOptions": [
@@ -3008,7 +3008,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 98,
-            "category": "Evaluación del Aprendizaje",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "Experto",
             "question": "¿Cuál es la función principal de la 'Rúbrica de Evaluación' en un proceso de aprendizaje por proyectos?",
             "answerOptions": [
@@ -3039,7 +3039,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 99,
-            "category": "Práctica Pedagógica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "Un docente nota que sus estudiantes están muy cansados y desmotivados en la última hora de clase del viernes. Su actuación pedagógica más estratégica es:",
             "answerOptions": [
@@ -3070,7 +3070,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 100,
-            "category": "Gestión Escolar",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "En la 'Autoevaluación Institucional' participativa, se detecta que los egresados sienten que el colegio no los preparó para la vida laboral. El colegio debe:",
             "answerOptions": [
@@ -3101,7 +3101,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 101,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "Un colegio adopta el 'Conectivismo' (George Siemens) como referente. ¿Qué cambio en el rol del docente es el más representativo de este enfoque?",
             "answerOptions": [
@@ -3132,7 +3132,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 102,
-            "category": "Evaluación del Aprendizaje",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "Experto",
             "question": "En una evaluación de desempeño docente, se valora la capacidad de 'Retroalimentación'. ¿Cuál de estos comentarios es 'nivel experto'?",
             "answerOptions": [
@@ -3163,7 +3163,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 103,
-            "category": "Práctica Pedagógica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "Un docente aplica la técnica de 'Aula Invertida' (Flipped Classroom). ¿Cuál es el principal riesgo si no se realiza un seguimiento experto?",
             "answerOptions": [
@@ -3194,7 +3194,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 104,
-            "category": "Gestión Escolar",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "El Consejo Académico nota que el área de Inglés tiene resultados excepcionales, mientras que Ciencias Naturales tiene resultados bajos. La decisión de gestión más profesional es:",
             "answerOptions": [
@@ -3287,7 +3287,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 107,
-            "category": "Dificultades de Aprendizaje",
+            "category": "Inclusión y Diversidad",
             "difficulty": "Experto",
             "question": "Un estudiante de secundaria muestra un alto coeficiente intelectual pero fracasa en todas las materias por falta de organización y olvido de tareas. ¿Qué es probable que esté ocurriendo?",
             "answerOptions": [
@@ -3318,7 +3318,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 108,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "¿Cuál es la esencia de la 'Evaluación Auténtica' en un entorno de formación por competencias?",
             "answerOptions": [
@@ -3349,7 +3349,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 109,
-            "category": "Liderazgo y Comunidad",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "En el marco del 'Gobierno Escolar', el rol de los representantes estudiantiles ante el Consejo Directivo debe ser:",
             "answerOptions": [
@@ -3380,7 +3380,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 110,
-            "category": "Práctica Pedagógica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "Un docente experto aplica la 'Diferenciación de la Instrucción'. Ante un tema complejo, esto significa:",
             "answerOptions": [
@@ -3411,7 +3411,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 111,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "El concepto de 'Zona de Desarrollo Próximo' (Vygotsky) es fundamental para un docente experto porque le permite:",
             "answerOptions": [
@@ -3442,7 +3442,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 112,
-            "category": "Evaluación del Aprendizaje",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "Experto",
             "question": "¿Cuál es la principal ventaja de la 'Evaluación por Pares' (Co-evaluación) bien dirigida?",
             "answerOptions": [
@@ -3473,7 +3473,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 113,
-            "category": "Práctica Pedagógica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "En una clase de Matemáticas sobre estadística, el docente pide a los estudiantes recolectar datos sobre el precio de la canasta básica en su barrio. Este diseño es experto porque:",
             "answerOptions": [
@@ -3504,7 +3504,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 114,
-            "category": "Gestión Escolar",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "Un docente nuevo llega a la institución y se siente abrumado por la cultura escolar tradicionalista. El directivo docente experto debe:",
             "answerOptions": [
@@ -3566,7 +3566,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 116,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "El 'Pensamiento Crítico' se define en un nivel avanzado como la capacidad de:",
             "answerOptions": [
@@ -3597,7 +3597,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 117,
-            "category": "Evaluación del Aprendizaje",
+            "category": "Evaluación y Retroalimentación",
             "difficulty": "Experto",
             "question": "Un docente experto prioriza la 'Autoevaluación'. ¿Cuál es el mayor beneficio real para el aprendizaje del estudiante?",
             "answerOptions": [
@@ -3628,7 +3628,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 118,
-            "category": "Práctica Pedagógica",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "En un aula con 8 estudiantes que hablan una lengua indígena diferente al español, un docente experto debe:",
             "answerOptions": [
@@ -3659,7 +3659,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 119,
-            "category": "Gestión Escolar",
+            "category": "Gestión Institucional",
             "difficulty": "Experto",
             "question": "La 'Rendición de Cuentas' en una institución educativa pública de nivel experto implica:",
             "answerOptions": [
@@ -3690,7 +3690,7 @@ const RAW_QUIZ_DATA_3 = {
         },
         {
             "questionNumber": 120,
-            "category": "Modelo Pedagógico",
+            "category": "Estrategias Pedagógicas",
             "difficulty": "Experto",
             "question": "La 'Meta-Evaluación' (evaluación de la evaluación) sirve para que el docente experto:",
             "answerOptions": [
@@ -5586,3 +5586,5 @@ const RAW_QUIZ_DATA_3 = {
 if (typeof window !== 'undefined') {
     window.RAW_QUIZ_DATA_3 = RAW_QUIZ_DATA_3;
 }
+
+

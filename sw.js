@@ -1,15 +1,15 @@
-const CACHE_NAME = 'docente-quiz-v85'; // Matches index.html version
+const CACHE_NAME = 'simulacro-v87';
+const ASSETS_VERSION = 'v87';
+// Matches index.html version
 const ASSETS = [
     './',
-    './index.html?v=85',
-    './style.css?v=85',
-    './app.js?v=85',
-    './sw.js?v=85',
-    './quizData.js?v=85',
-    './quizData2.js?v=85',
-    './quizData3.js?v=85',
-    './pwa_icon_192.svg',
-    'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400;600&display=swap'
+    './index.html?v=87',
+    './style.css?v=87',
+    './app.js?v=87',
+    './sw.js?v=87',
+    './quizData.js?v=86',
+    './quizData2.js?v=86',
+    './quizData3.js?v=86'
 ];
 
 self.addEventListener('install', (event) => {

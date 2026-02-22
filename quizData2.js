@@ -127,7 +127,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 5,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según el Decreto 1278 de 2002, la evaluación de desempeño de un docente en período de prueba debe considerar múltiples dimensiones. Un coordinador académico observa que un docente recién nombrado tiene excelente dominio disciplinar y preparación de clases, pero dificultades significativas en la comunicación con padres de familia y colegas. ¿Qué acción es más coherente con los criterios del Decreto 1278?",
             "answerOptions": [
@@ -313,7 +313,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 11,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según los Derechos Básicos de Aprendizaje (DBA) y los lineamientos curriculares colombianos, un docente debe diseñar currículo para 5° grado. Los DBA son muy específicos, mientras los lineamientos dan orientaciones generales. ¿Cuál es la relación adecuada entre ambos según el MEN?",
             "answerOptions": [
@@ -438,7 +438,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 15,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según la Ley 1620 de 2013 (Sistema Nacional de Convivencia Escolar), un docente observa acoso escolar sistemático hacia un estudiante LGBTQ+. El manual de convivencia institucional no menciona explícitamente orientación sexual. ¿Cuál es la acción más apropiada según el marco normativo colombiano?",
             "answerOptions": [
@@ -624,7 +624,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 21,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "Según el Decreto 1290 de 2009, un estudiante reprobó el año académico y solicita graduación mediante 'validación' de todo el grado en examen único. ¿Es esto procedente según la norma?",
             "answerOptions": [
@@ -903,7 +903,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 30,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "Director declara que proyecto educativo institucional (PEI) enfatizará 'excelencia académica tradicional' y no incluirá 'educación sexual moderna ni ideologías de género' porque 'son temas familiares, no escolares'. Según Ley 115 de 1994 y jurisprudencia constitucional, ¿cuál es el problema LEGAL con esta postura?",
             "answerOptions": [
@@ -1089,7 +1089,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 36,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Un caracol debe llegar a la cima de un muro de 9 metros de alto; pero tiene la particularidad que en el día sube 3 metros y en la noche resbala un metro. ¿El día que llegará el caracol a la cima del muro es el?",
             "answerOptions": [
@@ -1151,7 +1151,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 38,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "NUBE : EVAPORACIÓN ::",
             "answerOptions": [
@@ -1213,7 +1213,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 40,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si dentro de 20 años tendré el triple de la edad que tenía hace 20 años, entonces tengo:",
             "answerOptions": [
@@ -1275,7 +1275,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 42,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "Ordene las frases sobre 'La investigación cualitativa': 1. es altamente interpretativa 2. pero puede ser una rica fuente 3. se reúnen datos y se examinan 4. no puede arrojar conclusiones generales 5. toma una ruta exploratoria 6. en lugar de generar hipótesis previas.",
             "answerOptions": [
@@ -1306,7 +1306,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 43,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "4 obreros trabajando 7 horas diarias construyen un muro en 3 días. ¿Cuántos días tardarán 2 obreros trabajando 6 horas diarias en construir un muro igual?",
             "answerOptions": [
@@ -1399,7 +1399,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 46,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si por 12 camisetas pago 96 euros, ¿cuánto pagaré por 57 camisetas?",
             "answerOptions": [
@@ -1430,7 +1430,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 47,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "La investigación cualitativa toma una ruta ________ más flexible, en lugar de generar hipótesis a partir de la investigación ________.",
             "answerOptions": [
@@ -1492,7 +1492,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 49,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Ana va a la biblioteca cada 5 días y Miguel cada 3 días. Si hoy coincidieron, ¿en cuántos días volverán a coincidir?",
             "answerOptions": [
@@ -1523,7 +1523,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 50,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "hard",
             "question": "¿Cuál es la ley general que rige los fines de la educación en Colombia?",
             "answerOptions": [
@@ -1554,7 +1554,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 51,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si un ladrillo pesa 4 kg, el peso de un ladrillito del mismo material cuyas dimensiones son 4 veces menores es:",
             "answerOptions": [
@@ -1616,7 +1616,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 53,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "BAQUIANO",
             "answerOptions": [
@@ -1647,7 +1647,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 54,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Juan vende limonada ganando $180 por vaso. Si vende 20 vasos por día, para ganar $12.600 tardará:",
             "answerOptions": [
@@ -1709,7 +1709,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 56,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "¿Qué hora es cuando el reloj marca los 5/6 de la mitad del triple de las 8:00 am?",
             "answerOptions": [
@@ -1771,7 +1771,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 58,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Mario debe 5/8 de $16.000.000 y paga los 3/4 de la deuda. ¿Cuánto debe aún?",
             "answerOptions": [
@@ -1802,7 +1802,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 59,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "DILAPIDAR",
             "answerOptions": [
@@ -1864,7 +1864,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 61,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Patricia es mayor que Claudia, y menor que Cristina, quien tiene la misma edad de Gloria. ¿Quién es la menor?",
             "answerOptions": [
@@ -1926,7 +1926,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 63,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Ayer 2 camiones transportaron mercancía. Hoy 3 camiones iguales harán 6 viajes para mover la misma cantidad. ¿Cuántos viajes hicieron ayer los 2 camiones?",
             "answerOptions": [
@@ -1988,7 +1988,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 65,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si 10 autos consumen 10 galones en 10 horas, ¿cuántos galones consume 1 auto en 1 hora?",
             "answerOptions": [
@@ -2019,7 +2019,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 66,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "Los perros, gatos y otras plagas _____ también los animales de granja, son especies que dependen para su supervivencia de la especie humana _____ por su alto grado de domesticación.",
             "answerOptions": [
@@ -2081,7 +2081,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 68,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Se sabe que tres obreros tardan 8, 6 y 4 horas en pintar una casa individualmente. ¿Cuánto tiempo tardan juntos?",
             "answerOptions": [
@@ -2143,7 +2143,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 70,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "El 20% del 40% de una cantidad equivale al:",
             "answerOptions": [
@@ -2205,7 +2205,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 72,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Un padre tiene 3 veces la edad de su hijo. Hace 10 años tenía 5 veces la edad. ¿Edad del hijo?",
             "answerOptions": [
@@ -2267,7 +2267,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 74,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Pedro usa 1/4 del día en tareas, 1/6 en deporte y 1/9 con amigos. ¿Qué parte le queda libre?",
             "answerOptions": [
@@ -2329,7 +2329,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 76,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Tres anuncios se encienden a intervalos de 12, 15 y 18 minutos. Si coinciden a las 2:00 pm, ¿a qué hora repiten?",
             "answerOptions": [
@@ -2391,7 +2391,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 78,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "Si un texto argumentativo defiende la eutanasia, una idea contraria sería:",
             "answerOptions": [
@@ -2453,7 +2453,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 80,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Una familia de 6 adultos tiene comida para 15 días. Llegan 3  adultos más. ¿Para cuántos días alcanza ahora?",
             "answerOptions": [
@@ -2515,7 +2515,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 82,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "El largo del puente A es 3 veces el largo del puente B. Si suman 120 metros, el puente más largo mide:",
             "answerOptions": [
@@ -2577,7 +2577,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 84,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Un tanque de 1200 cm3 está lleno 3/4 en invierno y 2/3 en verano. La diferencia es:",
             "answerOptions": [
@@ -2608,7 +2608,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 85,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "Ordene la oración: 1. lleva 2. esa 3. alegre 4. muñeca 5. a 6. su 7. infancia 8. la",
             "answerOptions": [
@@ -2670,7 +2670,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 87,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si un círculo tiene radio 10 cm, su área es (pi = 3.14):",
             "answerOptions": [
@@ -2732,7 +2732,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 89,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "En una reunión, la mitad son mujeres, de ellas 1/6 son altas. Si hay 36 personas, ¿cuántas mujeres NO son altas?",
             "answerOptions": [
@@ -2794,7 +2794,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 91,
-            "category": "Aptitud Verbal",
+            "category": "Competencias Específicas",
             "difficulty": "hard",
             "question": "En un texto sobre 'El futuro del libro', si el autor dice que el libro es una extensión de la memoria, implica que:",
             "answerOptions": [
@@ -2825,7 +2825,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 92,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Si a/b = 2/3 y b/c = 3/5, entonces a/c es:",
             "answerOptions": [
@@ -2887,7 +2887,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 94,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "hard",
             "question": "Un vendedor recibe un sueldo base más 10% de comisión. Si vendió 10 millones y recibió 2 millones en total, su sueldo base es:",
             "answerOptions": [
@@ -3507,7 +3507,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 114,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "Según el Decreto 1278, ¿cuál es el propósito principal de la Evaluación de Desempeño Anual?",
             "answerOptions": [
@@ -3693,7 +3693,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 120,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "expert",
             "question": "Si 'Todos los filósofos son racionales' y 'Algún racional es matemático', se puede concluir con certeza que:",
             "answerOptions": [
@@ -3879,7 +3879,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 126,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "expert",
             "question": "En una carrera, A llegó antes que B, pero después que C. D llegó antes que C. ¿Quién llegó último?",
             "answerOptions": [
@@ -4189,7 +4189,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 136,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "expert",
             "question": "Un padre tiene 40 años y su hijo 10. ¿Dentro de cuántos años la edad del padre será el doble de la del hijo?",
             "answerOptions": [
@@ -4220,7 +4220,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 137,
-            "category": "Normatividad y Legislación",
+            "category": "Marco Legal y Normativo",
             "difficulty": "expert",
             "question": "¿Qué ley establece el Código de la Infancia y la Adolescencia en Colombia?",
             "answerOptions": [
@@ -4437,7 +4437,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 144,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "expert",
             "question": "Si sube el precio de la gasolina, sube el transporte. Si sube el transporte, suben los alimentos. Subió la gasolina. Conclusión:",
             "answerOptions": [
@@ -4654,7 +4654,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 151,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "expert",
             "question": "Serie gráfica: Círculo, Cuadrado, Triángulo, Círculo, Cuadrado... ¿Sigue?",
             "answerOptions": [
@@ -4854,7 +4854,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 159,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "A 4 corredores se les asignan números consecutivos. Si la suma de estos números es 98, el tercer número más grande es:",
             "answerOptions": [
@@ -4869,7 +4869,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 160,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Una ardilla sube 50 cm, baja 70 cm, sube 80 cm, baja 45 cm y baja 12 cm. Con respecto al punto inicial se encuentra:",
             "answerOptions": [
@@ -5004,7 +5004,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 169,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "En un salón, el número de niñas duplica al de niños. Si se hacen grupos de 6, sobran 3 estudiantes y se forman 8 grupos. El número de niños es:",
             "answerOptions": [
@@ -5019,7 +5019,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 170,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Javier cambia aceite cada 7.500 km. El último fue a los 32.800 km. Ahora el odómetro marca 38.700 km. El próximo cambio debe ser en:",
             "answerOptions": [
@@ -5034,7 +5034,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 171,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Las clases inician a las 7:00 am y terminan a la 1:00 pm, con dos descansos de 30 minutos. Descontando descansos, el minutero del reloj recorrió un ángulo de:",
             "answerOptions": [
@@ -5139,7 +5139,7 @@ const RAW_QUIZ_DATA_2 = {
         },
         {
             "questionNumber": 178,
-            "category": "Razonamiento Lógico / Cuantitativo",
+            "category": "Razonamiento Lógico",
             "difficulty": "Experto",
             "question": "Una guarnición de 400 soldados tiene víveres para 180 días (900g/hombre). Llegan 100 soldados más. No habrá víveres hasta dentro de 240 días. ¿A cuánto se debe reducir la ración diaria?",
             "answerOptions": [
@@ -5188,3 +5188,4 @@ const RAW_QUIZ_DATA_2 = {
 if (typeof window !== 'undefined') {
     window.RAW_QUIZ_DATA_2 = RAW_QUIZ_DATA_2;
 }
+

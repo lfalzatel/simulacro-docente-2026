@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulacro Docente 2026</title>
+    <title>Docente 2026 v87</title>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -39,7 +39,7 @@
                 <button class="profile-button" id="profileBtn" aria-label="Perfil">
                     <img id="user-avatar" src="" alt="User" style="display: none;">
                     <div id="user-initials" class="user-initials" style="display: none;"></div>
-                    <span class="version-tag">Experto v85</span>
+                    <span class="version-tag">Experto v87</span>
                 </button>
                 <div class="profile-menu" id="profileMenu">
                     <div class="profile-info" onclick="switchView('profile')" style="cursor: pointer;">
@@ -98,9 +98,7 @@
                     </div>
                      -->
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                        <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                            v85 (Simulacro 1 & 3 Experto)
-                        </div>
+                        v87 (Simulacro 1 & 3 Experto)
                     </div>
                 </div>
         </header>
@@ -246,7 +244,7 @@
                     ℹ️ Sistema de Puntuación</div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                     <div style="text-align: center; padding: 1rem; background: var(--success-bg); border-radius: 8px;">
-                        <span style="font-size: 1.5rem; display: block;">✅ +1</span>
+                        <span style="font-size: 0.7rem; opacity: 0.5;">v87</span>
                         <span style="font-size: 0.9rem; color: var(--success-text);">Respuesta Correcta</span>
                     </div>
                     <div style="text-align: center; padding: 1rem; background: var(--error-bg); border-radius: 8px;">
@@ -449,11 +447,8 @@
             <div class="stat-card admin-panel-card">
                 <h3 class="section-subtitle">🔍 Buscar Usuario</h3>
                 <div class="search-box-row">
-                    <input type="email" id="admin-search-input" placeholder="Correo electrónico del usuario..."
-                        class="admin-input">
-                    <button onclick="searchUser()" class="btn-primary-small">
-                        Buscar
-                    </button>
+                    <input type="text" id="admin-search-input" oninput="handleAdminSearch(this.value)"
+                        placeholder="Buscar por nombre, correo o teléfono..." class="admin-input">
                 </div>
 
                 <div id="admin-results-container" class="search-results hidden">

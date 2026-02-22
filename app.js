@@ -249,78 +249,92 @@ async function updateDashboardStats() {
 }
 
 // ==================== ADMIN PANEL LOGIC ====================
+let allUsersCache = []; // Local cache for real-time filtering
 
-async function searchUser() {
-    const emailInput = document.getElementById('admin-search-input');
-    const email = emailInput.value.trim();
-    const resultsContainer = document.getElementById('admin-results-container');
-    const userCard = document.getElementById('admin-user-card');
+/**
+ * Real-time filter for the admin user list
+ */
+function handleAdminSearch(query) {
+    const listContainer = document.getElementById('admin-user-list');
+    if (!listContainer || !allUsersCache) return;
 
-    if (!email) {
-        Swal.fire('Error', 'Por favor ingresa un correo electrónico', 'error');
+    if (!query) {
+        renderUserList(allUsersCache);
         return;
     }
 
-    resultsContainer.classList.add('hidden');
+    const q = query.toLowerCase();
+    const filtered = allUsersCache.filter(u =>
+        (u.email && u.email.toLowerCase().includes(q)) ||
+        (u.full_name && u.full_name.toLowerCase().includes(q)) ||
+        (u.phone && u.phone.includes(q))
+    );
 
-    try {
-        const { data, error } = await supabaseApp
-            .from('user_roles')
-            .select('*')
-            .eq('email', email)
-            .single();
-
-        if (error || !data) {
-            Swal.fire('No encontrado', 'No se encontró ningún usuario con ese correo.', 'warning');
-            return;
-        }
-
-        renderAdminUserCard(data);
-        resultsContainer.classList.remove('hidden');
-
-    } catch (err) {
-        console.error("Error searching user:", err);
-        Swal.fire('Error', 'Ocurrió un error al buscar.', 'error');
-    }
+    renderUserList(filtered);
 }
 
-function renderAdminUserCard(user) {
-    const card = document.getElementById('admin-user-card');
+/**
+ * Enhanced user card rendering for the admin list
+ */
+function renderUserList(users) {
+    const listContainer = document.getElementById('admin-user-list');
+    if (!listContainer) return;
 
-    card.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem;">
-            <div>
-                <div style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary);">${user.email}</div>
-                <div style="font-size: 0.8rem; color: var(--text-secondary); family: monospace;">USER_ID: ${user.user_id}</div>
-                <div style="margin-top: 0.75rem;">
-                   <span class="role-badge ${user.role}">${user.role.toUpperCase()}</span>
+    if (!users || users.length === 0) {
+        listContainer.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--text-secondary);">No se encontraron usuarios.</div>';
+        return;
+    }
+
+    listContainer.innerHTML = users.map(user => {
+        const initials = (user.full_name || user.email || 'UU').substring(0, 2).toUpperCase();
+        const displayName = user.full_name || user.email.split('@')[0];
+
+        return `
+        <div class="user-list-card ${user.role === 'premium' ? 'premium-card' : ''}">
+            <div class="user-card-header">
+                <div class="user-avatar-container">
+                    ${user.avatar_url ?
+                `<img src="${user.avatar_url}" class="admin-user-photo" alt="Foto">` :
+                `<div class="admin-user-initials">${initials}</div>`}
+                </div>
+                <div class="user-main-info">
+                    <div class="user-name-row">
+                        <span class="admin-user-name">${displayName}</span>
+                        <span class="role-badge ${user.role}">${user.role.toUpperCase()}</span>
+                    </div>
+                    <div class="admin-user-email">${user.email}</div>
                 </div>
             </div>
-            <div style="text-align: right; font-size: 0.75rem; color: var(--text-secondary);">
-                <div>Registrado: ${new Date(user.created_at).toLocaleDateString()}</div>
-                <div>Último acceso: ${new Date(user.updated_at).toLocaleDateString()}</div>
+
+            <div class="user-card-details">
+                <div class="detail-item">
+                    <span class="detail-icon">📞</span>
+                    <span class="detail-text">${user.phone || '<span class="empty-val">Sin teléfono</span>'}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🕒</span>
+                    <span class="detail-text">Vence: ${user.notes || '<span class="empty-val">Pagar plan</span>'}</span>
+                </div>
+            </div>
+
+            <div class="user-card-actions">
+                <select class="role-select-premium" onchange="updateUserRole('${user.user_id}', this.value)">
+                    <option value="" disabled selected>Cambiar Rol...</option>
+                    <option value="free" ${user.role === 'free' ? 'disabled' : ''}>🆓 Free</option>
+                    <option value="premium" ${user.role === 'premium' ? 'disabled' : ''}>⭐ Premium</option>
+                    <option value="admin" ${user.role === 'admin' ? 'disabled' : ''}>🛡️ Admin</option>
+                </select>
+                <div class="action-buttons-row">
+                    <button onclick="editUserMetadata('${user.user_id}')" class="btn-edit-user" title="Editar datos">
+                        ✏️ Editar
+                    </button>
+                    <button onclick="deleteUser('${user.user_id}', '${user.email}')" class="btn-delete-user" title="Eliminar">
+                        🗑️
+                    </button>
+                </div>
             </div>
         </div>
-
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; background: rgba(0,0,0,0.03); padding: 1rem; border-radius: 10px; align-items: center;">
-            <button onclick="updateUserRole('${user.user_id}', 'free')" class="btn-role-update" 
-                style="padding: 0.5rem 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); background: white; cursor: pointer; ${user.role === 'free' ? 'opacity: 0.5; pointer-events: none;' : ''}">
-                🔽 Free
-            </button>
-            <button onclick="updateUserRole('${user.user_id}', 'premium')" class="btn-role-update"
-                style="padding: 0.5rem 0.8rem; border-radius: 6px; border: none; background: linear-gradient(135deg, #FCD34D, #F59E0B); color: #78350F; font-weight: 700; cursor: pointer; ${user.role === 'premium' ? 'opacity: 0.5; pointer-events: none;' : ''}">
-                ⭐ Premium
-            </button>
-            <button onclick="updateUserRole('${user.user_id}', 'admin')" class="btn-role-update"
-                style="padding: 0.5rem 0.8rem; border-radius: 6px; border: none; background: #1e293b; color: white; cursor: pointer; ${user.role === 'admin' ? 'opacity: 0.5; pointer-events: none;' : ''}">
-                🛡️ Admin
-            </button>
-            <div style="flex-grow: 1;"></div>
-            <button onclick="deleteUser('${user.user_id}', '${user.email}')" class="btn-delete" title="Eliminar Usuario">
-                🗑️
-            </button>
-        </div>
-    `;
+    `}).join('');
 }
 
 async function loadAllUsers() {
@@ -329,53 +343,82 @@ async function loadAllUsers() {
 
     try {
         console.log("👥 Cargando lista de usuarios...");
+        listContainer.innerHTML = '<div class="loader-container"><div class="dot-loader"></div></div>';
+
         const { data, error } = await supabaseApp
             .from('user_roles')
             .select('*')
             .order('created_at', { ascending: false });
 
-        if (error) {
-            console.error("❌ Error de Supabase al cargar usuarios:", error);
-            throw error;
-        }
+        if (error) throw error;
 
-        console.log(`✓ ${data?.length || 0} usuarios recuperados`);
+        allUsersCache = data; // Save for local search
         renderUserList(data);
+        console.log(`✓ ${data.length} usuarios cargados`);
+
     } catch (err) {
-        console.error("❌ Error crítico en loadAllUsers:", err);
-        listContainer.innerHTML = `<div style="color: var(--error-text); text-align: center; padding: 1rem;">❌ Error cargando usuarios: ${err.message}</div>`;
+        console.error("❌ Error en loadAllUsers:", err);
+        listContainer.innerHTML = `<div class="error-msg">Error cargando usuarios: ${err.message}</div>`;
     }
 }
 
-function renderUserList(users) {
-    const listContainer = document.getElementById('admin-user-list');
-    if (!listContainer) return;
+/**
+ * Edit phone and notes (expiration) via SweetAlert2
+ */
+async function editUserMetadata(userId) {
+    const user = allUsersCache.find(u => u.user_id === userId);
+    if (!user) return;
 
-    if (!users || users.length === 0) {
-        listContainer.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--text-secondary);">No hay usuarios registrados.</div>';
-        return;
+    const { value: formValues } = await Swal.fire({
+        title: '✏️ Editar Usuario',
+        html: `
+            <div style="text-align: left; margin-bottom: 0.5rem; font-weight: bold;">Teléfono:</div>
+            <input id="swal-phone" class="swal2-input" placeholder="Ej: +57 321..." value="${user.phone || ''}">
+            <div style="text-align: left; margin-top: 1rem; margin-bottom: 0.5rem; font-weight: bold;">Plan / Vencimiento / Notas:</div>
+            <input id="swal-notes" class="swal2-input" placeholder="Ej: Vence 20-Mar-2024" value="${user.notes || ''}">
+        `,
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'Guardar cambios',
+        cancelButtonText: 'Cancelar',
+        preConfirm: () => {
+            return {
+                phone: document.getElementById('swal-phone').value.trim(),
+                notes: document.getElementById('swal-notes').value.trim()
+            }
+        }
+    });
+
+    if (formValues) {
+        saveUserMetadata(userId, formValues.phone, formValues.notes);
     }
+}
 
-    listContainer.innerHTML = users.map(user => `
-        <div class="user-list-item">
-            <div class="user-item-info">
-                <span class="user-item-email">${user.email}</span>
-                <span class="user-item-id">ID: ${user.user_id.substring(0, 8)}...</span>
-            </div>
-            <div class="user-item-actions">
-                <span class="role-badge ${user.role}">${user.role}</span>
-                <select class="role-select-mini" onchange="updateUserRole('${user.user_id}', this.value)">
-                    <option value="" disabled selected>Cambiar...</option>
-                    <option value="free" ${user.role === 'free' ? 'disabled' : ''}>Free</option>
-                    <option value="premium" ${user.role === 'premium' ? 'disabled' : ''}>Premium</option>
-                    <option value="admin" ${user.role === 'admin' ? 'disabled' : ''}>Admin</option>
-                </select>
-                <button onclick="deleteUser('${user.user_id}', '${user.email}')" class="btn-delete" title="Eliminar">
-                    🗑️
-                </button>
-            </div>
-        </div>
-    `).join('');
+async function saveUserMetadata(userId, phone, notes) {
+    Swal.fire({ title: 'Guardando...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+
+    try {
+        const { error } = await supabaseApp
+            .from('user_roles')
+            .update({ phone, notes, updated_at: new Date() })
+            .eq('user_id', userId);
+
+        if (error) throw error;
+
+        // Update local cache
+        const index = allUsersCache.findIndex(u => u.user_id === userId);
+        if (index !== -1) {
+            allUsersCache[index].phone = phone;
+            allUsersCache[index].notes = notes;
+        }
+
+        Swal.fire('¡Éxito!', 'Datos actualizados correctamente.', 'success');
+        renderUserList(allUsersCache); // Refresh UI
+
+    } catch (err) {
+        console.error("Error saving metadata:", err);
+        Swal.fire('Error', 'No se pudo guardar la información.', 'error');
+    }
 }
 
 async function deleteUser(targetUserId, email) {
@@ -584,30 +627,34 @@ window.deleteUser = deleteUser;
 async function getUserRole(user) {
     if (!user) return 'free';
 
+    // Metadata for sync
+    const metadata = {
+        full_name: user.user_metadata?.full_name || null,
+        avatar_url: user.user_metadata?.avatar_url || null,
+        email: user.email,
+        updated_at: new Date()
+    };
+
     // 🛡️ SUPER ADMIN BYPASS: Always admin for owner
     if (user.email === 'lfalzatel@gmail.com') {
         console.log("👑 Super Admin detectado (Hardcoded)");
-        // Sync Admin Role to DB to ensure RLS works (Background)
         supabaseApp.from('user_roles').upsert({
             user_id: user.id,
-            email: user.email,
             role: 'admin',
-            updated_at: new Date()
+            ...metadata
         }).then(({ error }) => {
-            if (error) console.error("Error syncing admin role:", error);
-            else console.log("✓ Admin role synced to DB");
+            if (error) console.error("Error syncing admin metadata:", error);
+            else console.log("✓ Admin metadata synced to DB");
         });
 
         return 'admin';
     }
 
     try {
-        // Timeout promise
         const timeoutPromise = new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('Timeout getting user role')), 3000)
+            setTimeout(() => reject(new Error('Timeout getting user role')), 4000)
         );
 
-        // Fetch promise
         const fetchPromise = supabaseApp
             .from('user_roles')
             .select('role')
@@ -618,27 +665,25 @@ async function getUserRole(user) {
 
         if (error) {
             console.warn('⚠️ No role found, creating free role:', error.message);
-            // Auto-create free role for new users AND sync email
             await supabaseApp.from('user_roles').insert({
                 user_id: user.id,
-                email: user.email,
-                role: 'free'
+                role: 'free',
+                ...metadata
             });
             return 'free';
         }
 
-        // ALWAYS SYNC EMAIL (in case it changed or wasn't there)
-        // This ensures the Admin Panel can find this user by email (Background)
-        supabaseApp.from('user_roles').update({
-            email: user.email,
-            updated_at: new Date()
-        }).eq('user_id', user.id).then(({ error }) => {
-            if (error) console.warn("Background email sync failed (likely RLS):", error.message);
-        });
+        // Sync Metadata for existing users (Background)
+        supabaseApp.from('user_roles')
+            .update(metadata)
+            .eq('user_id', user.id)
+            .then(({ error }) => {
+                if (error) console.error("Error updating user metadata:", error);
+            });
 
-        return data?.role || 'free';
+        return data.role;
     } catch (err) {
-        console.error('❌ Error getting user role:', err);
+        console.error("Error in getUserRole:", err);
         return 'free';
     }
 }
@@ -1799,20 +1844,28 @@ function renderCategoryStats() {
 /*                              Reports View Logic                            */
 /* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
+/*                              Reports View Logic                            */
+/* -------------------------------------------------------------------------- */
+
 function renderReportsView() {
     const activeQuizData = window.currentQuizData ? window.currentQuizData.questions : (quizData || []);
     if (!activeQuizData || activeQuizData.length === 0) return;
 
     // Calculate overall statistics
-    let totalQuestions = 0, correctAnswers = 0, incorrectAnswers = 0;
+    let totalQuestionsAnswered = 0, correctAnswers = 0, incorrectAnswers = 0;
     Object.values(userProgress).forEach(answer => {
-        totalQuestions++;
-        answer.isCorrect ? correctAnswers++ : incorrectAnswers++;
+        if (answer && typeof answer === 'object') {
+            totalQuestionsAnswered++;
+            answer.isCorrect ? correctAnswers++ : incorrectAnswers++;
+        }
     });
-    const accuracy = totalQuestions > 0 ? ((correctAnswers / totalQuestions) * 100).toFixed(1) : 0;
+
+    const accuracy = totalQuestionsAnswered > 0 ? ((correctAnswers / totalQuestionsAnswered) * 100).toFixed(1) : 0;
 
     // Update overall stats
-    document.getElementById('report-total-questions').textContent = totalQuestions;
+    const totalPossibleQuestions = activeQuizData.length;
+    document.getElementById('report-total-questions').textContent = totalQuestionsAnswered; // This shows answered in the ID, maybe clarify label in HTML later
     document.getElementById('report-correct').textContent = correctAnswers;
     document.getElementById('report-incorrect').textContent = incorrectAnswers;
     document.getElementById('report-accuracy').textContent = accuracy + '%';
@@ -1824,22 +1877,34 @@ function renderReportsView() {
         if (!cat || cat.trim() === '') cat = defaultCategory;
         if (!stats[cat]) stats[cat] = { total: 0, correct: 0, incorrect: 0, unanswered: 0, accuracy: 0 };
         stats[cat].total++;
+
         const answer = userProgress[index];
-        if (answer) answer.isCorrect ? stats[cat].correct++ : stats[cat].incorrect++;
-        else stats[cat].unanswered++;
+        if (answer) {
+            answer.isCorrect ? stats[cat].correct++ : stats[cat].incorrect++;
+        } else {
+            stats[cat].unanswered++;
+        }
     });
 
-    // Calculate accuracy for each category
-    Object.keys(stats).forEach(cat => {
-        const data = stats[cat], answered = data.correct + data.incorrect;
-        data.accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(1) : 0;
-    });
+    // Category Color Mapping (Reused/Standardized)
+    const categoryColors = {
+        "Evaluación y Retroalimentación": "var(--accent-color)",
+        "Estrategias Pedagógicas": "var(--secondary-color)",
+        "Planificación Curricular": "#16a085",
+        "Inclusión y Diversidad": "var(--success-color)",
+        "Convivencia y Valores": "#e67e22",
+        "Marco Legal y Normativo": "var(--warning-color)",
+        "Gestión Institucional": "#2c3e50",
+        "Competencias Específicas": "#9b59b6",
+        "Desarrollo Cognitivo": "#2980b9",
+        "Razonamiento Lógico": "#8e44ad",
+        "General": "var(--text-secondary)"
+    };
 
-    // Sort categories by accuracy (lowest first) - Changed to sort by score (lowest coverage first)
-    // To prioritize weak areas where score is low (either low accuracy or low participation)
-    const categories = Object.keys(stats).sort((a, b) => {
-        const scoreA = (stats[a].correct / stats[a].total);
-        const scoreB = (stats[b].correct / stats[b].total);
+    // Sort categories (by score coverage, lowest first)
+    const categoriesSorted = Object.keys(stats).sort((a, b) => {
+        const scoreA = stats[a].total > 0 ? (stats[a].correct / stats[a].total) : 0;
+        const scoreB = stats[b].total > 0 ? (stats[b].correct / stats[b].total) : 0;
         return scoreA - scoreB;
     });
 
@@ -1847,42 +1912,46 @@ function renderReportsView() {
     const categoryContainer = document.getElementById('reports-category-stats-container');
     if (categoryContainer) {
         categoryContainer.innerHTML = '';
-        categories.forEach(cat => {
-            const data = stats[cat], answered = data.correct + data.incorrect;
+        categoriesSorted.forEach(cat => {
+            const data = stats[cat];
+            const answered = data.correct + data.incorrect;
+            const score = data.total > 0 ? ((data.correct / data.total) * 100).toFixed(0) : 0;
+            const accuracyVal = answered > 0 ? ((data.correct / answered) * 100).toFixed(0) : 0;
 
-            // Percentage of TOTAL questions (Coverage/Score)
             const correctPct = (data.correct / data.total) * 100;
             const incorrectPct = (data.incorrect / data.total) * 100;
-            const unansweredPct = 100 - correctPct - incorrectPct;
-
-            // Accuracy of answered questions (Qualitative)
-            const accuracy = answered > 0 ? ((data.correct / answered) * 100).toFixed(0) : 0;
-            const score = ((data.correct / data.total) * 100).toFixed(0);
+            const color = categoryColors[cat] || categoryColors["General"];
 
             const html = `
-                <div style="padding: 1rem; background: var(--success-bg); border-radius: 8px; border: 1px solid var(--border); background-color: var(--bg-card);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <div style="font-weight: 600; color: var(--text-primary); max-width: 60%;">${cat}</div>
-                        <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                            <span style="font-size: 1.1rem; font-weight: bold; color: ${score >= 70 ? 'var(--success-text)' : score >= 50 ? 'var(--accent-secondary)' : 'var(--error-text)'};">${score}%</span>
-                            <span style="font-size: 0.75rem; color: var(--text-secondary);">Puntaje Global</span>
+                <div class="category-stat-item" style="border-left: 4px solid ${color}; padding: 1.25rem; background: var(--bg-card); border-radius: 12px; margin-bottom: 0.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                        <div style="max-width: 70%;">
+                            <div style="font-weight: 700; color: ${color}; font-size: 1rem; line-height: 1.2;">${cat}</div>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                ${data.correct} Correctas de ${data.total}
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.25rem; font-weight: 800; color: ${score >= 70 ? 'var(--success-text)' : score >= 50 ? 'var(--accent-secondary)' : 'var(--error-text)'};">
+                                ${score}%
+                            </div>
+                            <div style="font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Puntaje</div>
                         </div>
                     </div>
                     
-                    <div style="height: 12px; background: var(--bg-body-start); border-radius: 6px; overflow: hidden; display: flex; margin-bottom: 0.5rem; border: 1px solid var(--border-color);">
+                    <div class="cat-progress-track" style="height: 10px; background: var(--bg-body-start); border-radius: 5px; overflow: hidden; display: flex; margin-bottom: 0.75rem;">
                         <div style="width: ${correctPct}%; background: var(--success-text);" title="Correctas: ${data.correct}"></div>
                         <div style="width: ${incorrectPct}%; background: var(--error-text);" title="Incorrectas: ${data.incorrect}"></div>
-                         <!-- Implicit gray space for unanswered -->
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-secondary);">
-                        <div style="display: flex; gap: 1rem;">
-                            <span>✅ ${data.correct}</span>
-                            <span>❌ ${data.incorrect}</span>
-                            <span>⏳ ${data.unanswered}</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
+                        <div style="display: flex; gap: 0.75rem; color: var(--text-secondary);">
+                             <span>✅ ${data.correct}</span>
+                             <span>❌ ${data.incorrect}</span>
+                             <span>⏳ ${data.unanswered}</span>
                         </div>
-                        <div>
-                             ${answered > 0 ? `Precisión: <b>${accuracy}%</b>` : 'Sin actividad'}
+                        <div style="color: var(--text-primary); font-weight: 500;">
+                            ${answered > 0 ? `Precisión: ${accuracyVal}%` : 'Sin actividad'}
                         </div>
                     </div>
                 </div>
@@ -1895,21 +1964,33 @@ function renderReportsView() {
     const recommendationsContainer = document.getElementById('recommendations-container');
     if (recommendationsContainer) {
         recommendationsContainer.innerHTML = '';
-        const weakCategories = categories.filter(cat => {
+        const weakCategories = categoriesSorted.filter(cat => {
             const data = stats[cat], answered = data.correct + data.incorrect;
-            return answered > 0 && data.accuracy < 70;
-        }).slice(0, 5);
+            const accuracyVal = answered > 0 ? (data.correct / answered) * 100 : 0;
+            return (answered > 0 && accuracyVal < 70) || (data.total > 0 && (data.correct / data.total) < 0.4);
+        }).slice(0, 4);
 
         if (weakCategories.length === 0) {
-            recommendationsContainer.innerHTML = '<div style="padding: 1rem; background: var(--success-bg); border-radius: 8px; color: var(--success-text); text-align: center;">🎉 ¡Excelente trabajo! Tienes un rendimiento sólido en todas las categorías.</div>';
+            recommendationsContainer.innerHTML = `
+                <div style="padding: 1.5rem; background: rgba(16, 185, 129, 0.1); border-radius: 12px; color: var(--success-text); text-align: center; border: 1px dashed var(--success-color);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
+                    <div style="font-weight: 700;">¡Rendimiento Excelente!</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Estás dominando todas las categorías actuales de este simulacro.</div>
+                </div>
+            `;
         } else {
             weakCategories.forEach(cat => {
                 const data = stats[cat];
+                const answered = data.correct + data.incorrect;
+                const accuracyVal = answered > 0 ? ((data.correct / answered) * 100).toFixed(0) : 0;
+                const color = categoryColors[cat] || categoryColors["General"];
+
                 recommendationsContainer.insertAdjacentHTML('beforeend', `
-                    <div style="padding: 0.75rem; background: var(--bg-body-start); border-left: 3px solid var(--accent-secondary); border-radius: 4px;">
-                        <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem;">${cat}</div>
-                        <div style="font-size: 0.85rem; color: var(--text-secondary);">
-                            Precisión: ${data.accuracy}% - Refuerza este tema con preguntas adicionales y repaso de conceptos clave.
+                    <div style="padding: 1rem; background: var(--bg-card); border-left: 4px solid ${color}; border-radius: 8px; box-shadow: var(--shadow-sm);">
+                        <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">${cat}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+                            ${answered > 0 ? `Tu precisión es del ${accuracyVal}%.` : 'Aún no has practicado este tema.'} 
+                            Se recomienda repasar los conceptos clave de esta área para mejorar tu puntaje global.
                         </div>
                     </div>
                 `);

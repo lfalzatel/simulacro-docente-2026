@@ -213,7 +213,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 8,
-      "category": "Liderazgo y Comunidad",
+      "category": "Gestión Institucional",
       "difficulty": "Experto",
       "question": "En una reunión de **Trabajo Colegiado**, los docentes de un grado identifican que los niveles de comprensión lectora son bajos en todas las áreas. ¿Cuál es el enfoque de liderazgo pedagógico más efectivo para abordar esta problemática sistémica?",
       "answerOptions": [
@@ -333,7 +333,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 12,
-      "category": "Liderazgo y Comunidad",
+      "category": "Gestión Institucional",
       "difficulty": "Experto",
       "question": "En el marco del desarrollo de la **Ciudadanía Activa**, un grupo de estudiantes identifica que el parque local está contaminado. Proponen realizar una campaña de limpieza. ¿Cuál es la mediación docente que mejor promueve el pensamiento sistémico?",
       "answerOptions": [
@@ -513,7 +513,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 18,
-      "category": "Normatividad y Ética",
+      "category": "Marco Legal y Normativo",
       "difficulty": "Experto",
       "question": "Un docente descubre que un grupo de estudiantes ha plagiado un proyecto final utilizando Inteligencia Artificial. Ante esta situación, ¿cuál es la respuesta que mejor integra la **ética profesional** con el propósito formativo de la escuela?",
       "answerOptions": [
@@ -633,7 +633,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 22,
-      "category": "Liderazgo y Comunidad",
+      "category": "Gestión Institucional",
       "difficulty": "Experto",
       "question": "Un grupo de docentes decide formar una **Comunidad de Aprendizaje Profesional (CAP)** para mejorar sus estrategias de retroalimentación. ¿Cuál es la condición fundamental para que este espacio transforme realmente la práctica de aula?",
       "answerOptions": [
@@ -753,7 +753,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 26,
-      "category": "Liderazgo y Comunidad",
+      "category": "Gestión Institucional",
       "difficulty": "Experto",
       "question": "Durante una sesión de **Reflexión sobre la Práctica**, un docente analiza un video de su propia clase y nota que solo da la palabra a los estudiantes que se sientan en las primeras filas. ¿Qué nivel de reflexión está alcanzando?",
       "answerOptions": [
@@ -903,7 +903,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 31,
-      "category": "Normatividad y Ética",
+      "category": "Marco Legal y Normativo",
       "difficulty": "Experto",
       "question": "Un docente detecta que un estudiante ha copiado un ensayo argumentativo de una página web de inteligencia artificial. ¿Cuál es el abordaje ético-pedagógico más avanzado para este incidente?",
       "answerOptions": [
@@ -1023,7 +1023,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 35,
-      "category": "Desarrollo Socioemocional",
+      "category": "Convivencia y Valores",
       "difficulty": "Experto",
       "question": "En Educación Física, para desarrollar la competencia de **Interactuar a través de sus habilidades sociomotrices**, ¿qué tipo de actividad es la más pertinente?",
       "answerOptions": [
@@ -1593,7 +1593,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 54,
-      "category": "Liderazgo y Comunidad",
+      "category": "Gestión Institucional",
       "difficulty": "Experto",
       "question": "En el marco de la descentralización educativa, se discute el rol de la **Unidad de Gestión Educativa Local (UGEL)** y la **Autonomía de la Institución Educativa**. ¿Cuál es la relación de liderazgo pedagógico más coherente con la normativa vigente?",
       "answerOptions": [
@@ -1653,7 +1653,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 56,
-      "category": "Liderazgo y Comunidad",
+      "category": "Gestión Institucional",
       "difficulty": "Experto",
       "question": "Un docente participa en una sesión de **Trabajo Colegiado** donde se analiza la Carrera Pública Magisterial. ¿Qué principio ético y profesional sustenta la evaluación de desempeño y los ascensos de escala según la Ley?",
       "answerOptions": [
@@ -1743,7 +1743,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 59,
-      "category": "Tecnologías en Educación",
+      "category": "Estrategias Pedagógicas",
       "difficulty": "Experto",
       "question": "En una institución educativa con brecha digital, el director propone implementar una estrategia de **Mentoría Inversa** para la capacitación docente. ¿En qué consiste fundamentalmente este enfoque de vanguardia?",
       "answerOptions": [
@@ -2223,7 +2223,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 75,
-      "category": "Normatividad y Ética",
+      "category": "Marco Legal y Normativo",
       "difficulty": "Experto",
       "question": "Un docente está experimentando altos niveles de estrés debido a la carga administrativa y la gestión de conflictos en el aula. ¿Cuál es la estrategia de **Autocuidado Docente** más coherente con el bienestar profesional ético?",
       "answerOptions": [
@@ -2313,7 +2313,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 78,
-      "category": "Liderazgo y Comunidad",
+      "category": "Gestión Institucional",
       "difficulty": "Experto",
       "question": "En una institución educativa, los docentes participan en sesiones de **Trabajo Colegiado**. ¿Cuál es la condición fundamental para que estas reuniones impacten positivamente en los aprendizajes?",
       "answerOptions": [
@@ -2403,7 +2403,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 81,
-      "category": "Tecnologías en Educación",
+      "category": "Estrategias Pedagógicas",
       "difficulty": "Experto",
       "question": "En la era de la información, un docente integra la **Alfabetización Mediática** en sus sesiones. ¿Cuál es el objetivo primordial de esta habilidad para la ciudadanía digital?",
       "answerOptions": [
@@ -2553,7 +2553,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 86,
-      "category": "Normatividad y Ética",
+      "category": "Marco Legal y Normativo",
       "difficulty": "Experto",
       "question": "En el marco de la Agenda 2030, ¿cuál es el vínculo más directo entre los procesos de **Ascenso Docente** y el Objetivo de Desarrollo Sostenible **(ODS) 4**?",
       "answerOptions": [
@@ -2673,7 +2673,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 90,
-      "category": "Tecnologías en Educación",
+      "category": "Estrategias Pedagógicas",
       "difficulty": "Experto",
       "question": "Desde un enfoque pedagógico contemporáneo, ¿cómo deben entenderse las **TIC** dentro del aula de clase para impactar positivamente en el aprendizaje?",
       "answerOptions": [
@@ -2793,7 +2793,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 94,
-      "category": "Normatividad y Ética",
+      "category": "Marco Legal y Normativo",
       "difficulty": "Experto",
       "question": "Ante un caso inminente de **Deserción Escolar** de un estudiante por problemas económicos familiares, ¿cuál es la responsabilidad ética y legal prioritaria del docente?",
       "answerOptions": [
@@ -4203,7 +4203,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 141,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "En la autoevaluación institucional, se identifica que el 40% de los estudiantes del grado 9° presentan bajo desempeño en matemáticas. ¿Cuál es la respuesta de liderazgo pedagógico más acertada?",
       "answerOptions": [
@@ -4233,7 +4233,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 142,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un estudiante de grado 11° con alta capacidad académica manifiesta que no participará más en el consejo estudiantil porque considera que 'no se hace nada'. ¿Cuál es la respuesta del orientador?",
       "answerOptions": [
@@ -4263,7 +4263,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 143,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Durante una clase de ciencias, un estudiante realiza una pregunta sobre sexualidad que genera risas y burlas en el resto del grupo. ¿Cómo debe actuar el docente?",
       "answerOptions": [
@@ -4293,7 +4293,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 144,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "En la entrega de boletines, un padre de familia agrede verbalmente a una docente porque su hijo reprobó tres materias. ¿Cuál es el protocolo institucional?",
       "answerOptions": [
@@ -4323,7 +4323,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 145,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un estudiante de una comunidad indígena se integra al aula y no domina completamente el idioma español. ¿Qué estrategia pedagógica es la más inclusiva?",
       "answerOptions": [
@@ -4353,7 +4353,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 146,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Se descubre que un grupo de docentes está vendiendo guías de estudio impresas de forma obligatoria a los estudiantes. ¿Cuál es la postura ética y legal del rector?",
       "answerOptions": [
@@ -4383,7 +4383,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 147,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un docente de ética propone a sus estudiantes realizar un debate sobre el aborto. Algunos padres envían una carta pidiendo que se cancele por ir en contra de sus creencias. ¿Cómo actuar?",
       "answerOptions": [
@@ -4413,7 +4413,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 148,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Una estudiante confiesa a su orientadora escolar que se siente acosada sexualmente por un docente. ¿Cuál es la primera acción de la orientadora?",
       "answerOptions": [
@@ -4443,7 +4443,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 149,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un directivo docente recibe una queja de que una docente llega frecuentemente con aliento alcohólico a clases. ¿Qué procedimiento administrativo debe seguir?",
       "answerOptions": [
@@ -4473,7 +4473,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 150,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "La institución recibe un presupuesto extra para la compra de libros. El rector decide comprar solo libros de una editorial de un familiar. ¿Cómo se tipifica esta acción?",
       "answerOptions": [
@@ -4503,7 +4503,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 151,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un estudiante con TDAH es expulsado constantemente del salón por 'moverse mucho'. ¿Qué ajuste razonable es el más adecuado?",
       "answerOptions": [
@@ -4533,7 +4533,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 152,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "En una jornada de votación para el presupuesto participativo escolar, se evidencia que los estudiantes de 6° están siendo presionados por los de 11° para votar por cierta propuesta. ¿Qué debe hacer el personero?",
       "answerOptions": [
@@ -4563,7 +4563,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 153,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Debido a una fuerte ola invernal, la sede rural de la escuela queda incomunicada. ¿Cómo debe proceder el rector?",
       "answerOptions": [
@@ -4593,7 +4593,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 154,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un docente detecta que un estudiante de 8° lleva un arma blanca en su morral. ¿Cuál es la respuesta de urgencia?",
       "answerOptions": [
@@ -4623,7 +4623,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 155,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "En el marco del Día de la Diversidad, una estudiante solicita realizar una presentación sobre su cultura religiosa que es diferente a la católica del pueblo. ¿Cuál es el deber del rector?",
       "answerOptions": [
@@ -4653,7 +4653,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 156,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Se descubre que un docente está plagiando contenidos de internet para sus publicaciones académicas oficiales del colegio. ¿Cómo afecta esto su labor?",
       "answerOptions": [
@@ -4683,7 +4683,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 157,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un estudiante llega con síntomas claros de depresión y manifiesta que no le encuentra sentido a la vida. ¿Cuál es el protocolo prioritario?",
       "answerOptions": [
@@ -4713,7 +4713,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 158,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un grupo de estudiantes de grado 11 solicita permiso para realizar una protesta pacífica contra una decisión gubernamental. ¿Cuál es la respuesta correcta?",
       "answerOptions": [
@@ -4743,7 +4743,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 159,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Se descubre que el bibliotecario está prestando libros a cambio de dinero a personas ajenas a la institución. ¿Cuál es la consecuencia?",
       "answerOptions": [
@@ -4773,7 +4773,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 160,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un estudiante en condición de discapacidad motriz no puede participar en la salida pedagógica al museo porque el bus contratado no tiene rampa. ¿Cuál es la respuesta institucional correcta?",
       "answerOptions": [
@@ -4803,7 +4803,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 161,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un docente detecta que un grupo de estudiantes está utilizando una aplicación de Inteligencia Artificial para resolver un ensayo crítico. ¿Qué enfoque pedagógico es el más adecuado?",
       "answerOptions": [
@@ -4833,7 +4833,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 162,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Se descubre que un docente está compartiendo opiniones políticas radicales en su cuenta personal de redes sociales, y algunos padres se quejan por su influencia. ¿Cuál es el procedimiento?",
       "answerOptions": [
@@ -4863,7 +4863,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 163,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "En una zona de conflicto, un grupo armado exige que se suspenda la jornada escolar para realizar un mitin. ¿Qué debe priorizar el rector?",
       "answerOptions": [
@@ -4893,7 +4893,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 164,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un estudiante de 16 años confiesa a su orientador que tiene planes de abandonar la escuela para trabajar y ayudar económicamente a su familia. ¿Cuál es el paso correcto?",
       "answerOptions": [
@@ -4923,7 +4923,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 165,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Durante una reunión de profesores, se evidencia un conflicto interpersonal fuerte entre dos docentes que afecta el clima laboral del grado. ¿Cómo debe intervenir el líder de área?",
       "answerOptions": [
@@ -4953,7 +4953,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 166,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "La institución recibe una donación de equipos tecnológicos que no están en el inventario actual. ¿Qué acción asegura la transparencia?",
       "answerOptions": [
@@ -4983,7 +4983,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 167,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un padre de familia reclama que su hijo no ha avanzado en lectura debido a la metodología 'constructivista' del docente, exigiendo una enseñanza tradicional. ¿Qué debe hacer el coordinador?",
       "answerOptions": [
@@ -5013,7 +5013,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 168,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "En la planeación curricular de ciencias naturales, se propone un tema sobre educación sexual que genera controversia en un sector religioso de la comunidad. ¿Cómo proceder?",
       "answerOptions": [
@@ -5043,7 +5043,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 169,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un docente observa que una estudiante de 12 años llega frecuentemente con moretones y se muestra retraída. ¿Cuál es la ruta de atención obligatoria?",
       "answerOptions": [
@@ -5073,7 +5073,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 170,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Se detecta un posible caso de 'sexting' (envío de fotos íntimas) entre estudiantes de bachillerato. ¿Qué acción pedagógica es prioritaria?",
       "answerOptions": [
@@ -5103,7 +5103,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 171,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un estudiante con alto desempeño académico se vuelve agresivo repentinamente. El docente sospecha consumo de sustancias. ¿Qué debe hacer?",
       "answerOptions": [
@@ -5133,7 +5133,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 172,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "En el marco de la 'Inclusión', un docente se niega a realizar los ajustes razonables (PIAR) para un niño con autismo alegando que no está capacitado. ¿Qué debe hacer el rector?",
       "answerOptions": [
@@ -5163,7 +5163,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 173,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un grupo de padres de familia recoge firmas para pedir que se retire a un estudiante extranjero de la institución por 'choques culturales'. ¿Cuál es la postura institucional?",
       "answerOptions": [
@@ -5193,7 +5193,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 174,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Se descubre que un docente está utilizando los materiales del laboratorio del colegio para dar clases particulares remuneradas los fines de semana. ¿Cómo se califica esta acción?",
       "answerOptions": [
@@ -5223,7 +5223,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 175,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un estudiante de grado 11 solicita que en su diploma de grado aparezca su nombre identitario y no su nombre legal, pues está en proceso de transición de género. ¿Qué dice la norma?",
       "answerOptions": [
@@ -5253,7 +5253,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 176,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Durante un examen nacional, el rector permite que se les dé la respuesta a los estudiantes para mejorar el promedio de la institución. ¿Qué tipo de liderazgo ejerce?",
       "answerOptions": [
@@ -5283,7 +5283,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 177,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "En el comité de convivencia escolar, un docente propone sancionar a una estudiante que está embarazada prohibiéndole asistir al acto de graduación. ¿Cuál debe ser la decisión?",
       "answerOptions": [
@@ -5313,7 +5313,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 178,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Un docente se pensiona y el rector decide dejar su plaza vacante para usar ese sueldo en la reparación de los techos del colegio. ¿Es una decisión viable?",
       "answerOptions": [
@@ -5343,7 +5343,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 179,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Ante un desacuerdo irreconciliable entre el Consejo Directivo y el Rector sobre el uso de excedentes financieros, ¿quién tiene la última palabra?",
       "answerOptions": [
@@ -5373,7 +5373,7 @@ const RAW_QUIZ_DATA = {
     },
     {
       "questionNumber": 180,
-      "category": "Juicio Situacional",
+      "category": "Competencias Específicas",
       "difficulty": "Experto",
       "question": "Al finalizar el año escolar, el rector decide otorgar una bonificación en dinero a los mejores docentes usando recursos de la tienda escolar. ¿Qué norma está omitiendo?",
       "answerOptions": [
@@ -5408,3 +5408,5 @@ const RAW_QUIZ_DATA = {
 if (typeof window !== 'undefined') {
   window.RAW_QUIZ_DATA = RAW_QUIZ_DATA;
 }
+
+
