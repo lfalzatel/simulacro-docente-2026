@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docente 2026 v93</title>
+    <title>Docente 2026 v94</title>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=93">
+    <link rel="stylesheet" href="style.css?v=94">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                 <button class="profile-button" id="profileBtn" aria-label="Perfil">
                     <img id="user-avatar" src="" alt="User" style="display: none;">
                     <div id="user-initials" class="user-initials" style="display: none;"></div>
-                    <span class="version-tag">Experto v93</span>
+                    <span class="version-tag">Experto v94</span>
                 </button>
                 <div class="profile-menu" id="profileMenu">
                     <div class="profile-info" onclick="switchView('profile')" style="cursor: pointer;">
@@ -47,7 +47,7 @@
                         <div class="profile-email" id="userEmail">Ver mi perfil completo →</div>
                     </div>
 
-                    <div id="installAppBtn" class="menu-item highlight">
+                    <div class="menu-item highlight installAppBtn">
                         <span>📲</span>
                         <span>Instalar App</span>
                     </div>
@@ -98,7 +98,7 @@
                     </div>
                      -->
                     <div style="font-size: 0.7rem; color: #666; text-align: center; padding: 10px;">
-                        v93 (Simulacro 1 & 3 Experto)
+                        v94 (Simulacro 1 & 3 Experto)
                     </div>
                 </div>
         </header>
@@ -125,7 +125,7 @@
                 </button>
 
                 <!-- Install App Button -->
-                <button class="action-btn" id="installAppBtn" style="width: 100%; margin-top: 10px; display: none;">
+                <button class="action-btn installAppBtn" style="width: 100%; margin-top: 10px; display: none;">
                     📱 Instalar Aplicación
                 </button>
 
@@ -249,7 +249,7 @@
                     ℹ️ Sistema de Puntuación</div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                     <div style="text-align: center; padding: 1rem; background: var(--success-bg); border-radius: 8px;">
-                        <span style="font-size: 0.7rem; opacity: 0.5;">v93</span>
+                        <span style="font-size: 0.7rem; opacity: 0.5;">v94</span>
                         <span style="font-size: 0.9rem; color: var(--success-text);">Respuesta Correcta</span>
                     </div>
                     <div style="text-align: center; padding: 1rem; background: var(--error-bg); border-radius: 8px;">
@@ -513,14 +513,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App Logic -->
-    <script src="app.js?v=93" defer></script>
+    <script src="app.js?v=94" defer></script>
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js?v=93')
+                navigator.serviceWorker.register('./sw.js?v=94')
                     .then(reg => {
-                        console.log('✓ SW v93 registrado');
+                        console.log('✓ SW v94 registrado');
 
                         // Handle updates cleanly without infinite loops
                         if (reg.waiting) {

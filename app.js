@@ -2246,36 +2246,34 @@ document.addEventListener('DOMContentLoaded', () => {
 // Removed duplicate registration to prevent loops
 
 let deferredPrompt;
-const installBtn = document.getElementById('installAppBtn');
+const installBtns = document.querySelectorAll('.installAppBtn');
 
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-    if (installBtn) installBtn.style.display = 'none';
+    installBtns.forEach(btn => btn.style.display = 'none');
 }
 
 window.addEventListener('appinstalled', () => {
-    if (installBtn) installBtn.style.display = 'none';
+    installBtns.forEach(btn => btn.style.display = 'none');
 });
 
-if (installBtn) {
-    installBtn.addEventListener('click', () => {
+installBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
         if (deferredPrompt) {
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then(() => {
                 deferredPrompt = null;
             });
         } else {
-            alert('Para instalar: Chrome/Edge: Menú > Instalar app. Safari: Compartir > Agregar a inicio.');
+            alert('Para instalar:\n- Android/Chrome: Menú (⋮) > Instalar app o Agregar a inicio.\n- iOS/Safari: Compartir (cuaadrito con flecha) > Agregar a inicio.');
         }
     });
-}
+});
 
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    // Show the install button when the browser is ready to prompt
-    if (installBtn) {
-        installBtn.style.display = 'block';
-    }
+    // Show the install buttons when the browser is ready to prompt
+    installBtns.forEach(btn => btn.style.display = 'block');
     console.log("📱 PWA install prompt is ready and button is visible.");
 });
 

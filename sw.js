@@ -1,12 +1,12 @@
-const CACHE_NAME = 'simulacro-v93';
-const ASSETS_VERSION = 'v93';
+const CACHE_NAME = 'simulacro-v94';
+const ASSETS_VERSION = 'v94';
 // Matches index.html version
 const ASSETS = [
     './',
-    './index.html?v=93',
-    './style.css?v=93',
-    './app.js?v=93',
-    './sw.js?v=93',
+    './index.html?v=94',
+    './style.css?v=94',
+    './app.js?v=94',
+    './sw.js?v=94',
     './quizData.js?v=86',
     './quizData2.js?v=86',
     './quizData3.js?v=86'
