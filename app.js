@@ -286,16 +286,17 @@ function renderUserList(users) {
     }
 
     listContainer.innerHTML = users.map(user => {
-        const initials = (user.full_name || user.email || 'UU').substring(0, 2).toUpperCase();
+        // Fallback for names: Prefer real name, then email prefix, then 'Usuario'
         const displayName = user.full_name || (user.email ? user.email.split('@')[0] : 'Usuario');
+
+        // Fallback for avatar: Prefer real photo, then app logo
+        const avatarImg = user.avatar_url || 'pwa_icon_192.svg';
 
         return `
         <div class="user-list-card ${user.role === 'premium' ? 'premium-card' : ''}">
             <div class="user-card-header">
                 <div class="user-avatar-container">
-                    ${user.avatar_url ?
-                `<img src="${user.avatar_url}" class="admin-user-photo" alt="Foto">` :
-                `<div class="admin-user-initials">${initials}</div>`}
+                    <img src="${avatarImg}" class="admin-user-photo" alt="Foto" onerror="this.onerror=null; this.src='pwa_icon_192.svg';">
                 </div>
                 <div class="user-main-info">
                     <div class="user-name-row">
@@ -311,9 +312,9 @@ function renderUserList(users) {
                     <span class="detail-icon">📞</span>
                     <span class="detail-text">${user.phone || '<span class="empty-val">Sin teléfono</span>'}</span>
                 </div>
-                <div class="detail-item">
-                    <span class="detail-icon">🕒</span>
-                    <span class="detail-text">Vence: ${user.notes || '<span class="empty-val">Pagar plan</span>'}</span>
+                <div class="detail-item" title="Nota de vencimiento o plan">
+                    <span class="detail-icon">📅</span>
+                    <span class="detail-text">${user.notes || '<span class="empty-val">Pagar plan</span>'}</span>
                 </div>
             </div>
 

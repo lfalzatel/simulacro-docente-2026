@@ -1695,3 +1695,201 @@ header {
         /* Specific limit for smaller screens */
     }
 }
+
+/* ==================== NEW ENHANCED ADMIN CARDS ==================== */
+.user-list-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.user-list-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-primary);
+}
+
+.user-list-card.premium-card {
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    background: linear-gradient(to bottom right, var(--bg-card), rgba(252, 211, 77, 0.05));
+}
+
+.user-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.user-avatar-container {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-body-start);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid var(--border-color);
+}
+
+.admin-user-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-user-initials {
+    font-weight: 700;
+    color: var(--accent-primary);
+    font-size: 1.2rem;
+}
+
+.user-main-info {
+    flex: 1;
+}
+
+.user-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.admin-user-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.admin-user-email {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.user-card-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.02);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-icon {
+    font-size: 1rem;
+}
+
+.detail-text {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.empty-val {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.user-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.role-select-premium {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.6rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-body-start);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.action-buttons-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-edit-user {
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    background: var(--bg-body-start);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-edit-user:hover {
+    background: var(--border-color);
+    border-color: var(--accent-primary);
+}
+
+.btn-delete-user {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-delete-user:hover {
+    background: #ef4444;
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .user-card-details {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .user-card-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .role-select-premium {
+        width: 100%;
+    }
+
+    .action-buttons-row {
+        justify-content: space-between;
+    }
+
+    .btn-edit-user {
+        flex: 1;
+        justify-content: center;
+    }
+}
