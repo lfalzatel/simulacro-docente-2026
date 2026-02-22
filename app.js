@@ -495,8 +495,7 @@ async function updateUserRole(targetUserId, newRole) {
             showConfirmButton: false
         });
 
-        // Refresh search and list
-        searchUser();
+        // Refresh list
         loadAllUsers();
 
     } catch (err) {
@@ -616,8 +615,10 @@ async function forceRefresh() {
     }
 }
 
-// Bind new functions
-window.searchUser = searchUser;
+// Bind functions to window
+window.handleAdminSearch = handleAdminSearch;
+window.editUserMetadata = editUserMetadata;
+window.saveUserMetadata = saveUserMetadata;
 window.updateUserRole = updateUserRole;
 window.resetSimulacroProgress = resetSimulacroProgress;
 window.loadAllUsers = loadAllUsers;
