@@ -1,19 +1,16 @@
-# Simulacro Docente 2026 - PWA
+# EvaluaSeguro (Antes Simulacro Docente 2026) - PWA
 
-Este proyecto es una aplicación web progresiva (PWA) diseñada para ayudar a los docentes a prepararse para el concurso de ascenso y reubicación. Incluye autenticación con Google y sincronización de progreso en la nube.
+Este proyecto es una plataforma web progresiva (PWA) segura diseñada para la evaluación de estudiantes y simulacros docentes. Incluye autenticación con Google mediante Firebase y un sistema anti-fraude para dispositivos móviles y de escritorio.
 
 ## Características
 
 *   **PWA**: Instalable en dispositivos móviles y de escritorio. Funciona offline.
-*   **Autenticación**: Inicio de sesión con Google (vía Supabase).
-*   **Sincronización**: Guarda el progreso (puntaje y respuestas) en la nube para acceder desde múltiples dispositivos.
+*   **Autenticación**: Inicio de sesión con Google (vía Firebase Auth).
+*   **Anti-Fraude (Proctoring)**: 
+    * Bloqueo de selección de texto y menú contextual (evita copiar/pegar).
+    * Detección de salida de la aplicación (cambio de pestaña) con sistema de advertencia y anulación automática de exámenes.
 *   **Simulacro**: Cuestionario interactivo con retroalimentación inmediata.
-*   **Recursos**: Enlaces a normativa vigente (Decreto 1278, Ley 115, etc.).
-
-## Novedades (V2.0)
-- **Diseño Premium**: Interfaz moderna "Earth & Sage" diseñada para reducir la fatiga visual.
-- **Modo PWA (Móvil)**: Instálala en tu celular para practicar sin conexión.
-- **Temas Personalizables**: Día, Noche, Deep Focus y Escritorio.
+*   **Temas Personalizables**: Día, Noche, Deep Focus y Escritorio.
 
 ## Configuración Local
 
@@ -25,52 +22,49 @@ Este proyecto es una aplicación web progresiva (PWA) diseñada para ayudar a lo
     *   `quizData.js`
     *   `manifest.json`
     *   `sw.js`
-    *   `pwa_icon_192.svg`
-3.  Para probar la funcionalidad PWA y Auth, necesitas un servidor local.
+3.  Para probar la funcionalidad localmente:
     *   Si usas **VS Code**, instala la extensión "Live Server" y da clic en "Go Live".
-    *   O usa `npx serve` en la terminal.
+    *   O simplemente abre el `index.html` en tu navegador.
 
-## Configuración de Supabase (Google Auth)
+## Configuración de Firebase (Autenticación y Base de Datos)
 
-El proyecto está configurado para usar un proyecto existente de Supabase. Para que el inicio de sesión con Google funcione:
+El proyecto está migrando de Supabase a Firebase. Para configurarlo:
 
-1.  Ve a tu [Supabase Dashboard](https://supabase.com/dashboard).
-2.  Selecciona el proyecto activo (coincide con la URL en `app.js`).
-3.  Ve a **Authentication > Providers**.
-4.  Habilita **Google**.
-5.  Configura el **Client ID** y **Client Secret** (obtenidos de Google Cloud Console).
-6.  En **URL Configuration** (Authentication > URL Configuration), agrega tu URL de producción (Vercel) y tu URL local (ej. `http://localhost:3000`) en "Redirect URLs".
+1. Ve a tu consola de [Firebase](https://console.firebase.google.com/).
+2. En tu proyecto (ej. `evaluaseguro-31c51`), ve a **Authentication** y habilita el proveedor **Google**.
+3. Ve a **Firestore Database** y créala en modo de prueba.
+4. El bloque de configuración (`firebaseConfig`) ya está integrado en el archivo `index.html`.
 
-### Solución de Problemas: "No se ha podido iniciar sesión"
+## Despliegue en Firebase Hosting
 
-Si ves el error de Google con `app_domain` en la URL:
+Para desplegar la aplicación a internet de forma gratuita y segura:
 
-1.  **Supabase**: Ve a Authentication > URL Configuration -> **Redirect URLs**.
-    *   Asegúrate de que `http://localhost:3000` (o tu puerto actual) esté en la lista.
-    *   Añade también `http://localhost:3000/**`.
-    *   **Nota:** Puedes tener múltiples URLs (ej. la de San Andrés y la de este concurso) sin problemas. Supabase usará la que la app solicite específicamente.
-2.  **Google Cloud Console**: Ve a Credentials -> OAuth 2.0 Client ID.
-    *   **Authorized JavaScript origins**: Debe incluir `http://localhost:3000`.
-    *   **Authorized redirect URIs**: Debe incluir `https://sqkogiitljnoaxirhrwq.supabase.co/auth/v1/callback`.
-
-## Despliegue en GitHub y Vercel
-
-1.  **Subir cambios a GitHub**:
+1.  **Instalar Firebase Tools**:
     ```bash
-    git push -u origin main
+    npm install -g firebase-tools
     ```
-2.  **Conectar con Vercel**:
-    *   Ve a [Vercel Dashboard](https://vercel.com/dashboard).
-    *   "Add New..." -> Project.
-    *   Importa el repositorio `simulacro-docente-2026`.
-    *   Deploy.
-3.  **Actualizar URLs en Supabase/Google**:
-    *   Una vez desplegado, obtén la URL de Vercel (ej. `https://simulacro-docente.vercel.app`).
-    *   Añádela a las **Redirect URLs** en Supabase y **Authorized origins** en Google Cloud.
+2.  **Iniciar Sesión**:
+    ```bash
+    firebase login
+    ```
+3.  **Inicializar Proyecto**:
+    ```bash
+    firebase init hosting
+    ```
+    * Selecciona tu proyecto (`evaluaseguro`).
+    * Directorio público: `.` (un punto).
+    * Single-page app: `n`
+    * GitHub deploys: `n`
+    * Sobreescribir index.html: `n` (NO sobreescribir).
+4.  **Desplegar**:
+    ```bash
+    firebase deploy --only hosting
+    ```
 
 ## Estructura de Archivos
 
-*   `app.js`: Lógica principal, manejo de Auth y Service Worker.
-*   `quizData.js`: Banco de preguntas (140 preguntas).
-*   `style.css`: Estilos visuales (Dark mode, Glassmorphism).
-*   `sw.js`: Service Worker para caché y modo offline.
+*   `index.html`: UI principal, inicialización de Firebase y Auth.
+*   `app.js`: Lógica principal, interacción con DOM y mecánicas anti-fraude.
+*   `quizData.js`: Banco de preguntas.
+*   `style.css`: Estilos visuales (Dark mode, Glassmorphism, CSS Anti-selección).
+*   `sw.js`: Service Worker para caché y modo offline PWA.

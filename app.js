@@ -21,37 +21,37 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 // Initialize App
 async function init() {
     try {
-        console.log("🚀 Iniciando aplicación...");
+        console.log("ð Iniciando aplicaciÃ³n...");
 
         // Load quiz data FIRST
         if (typeof RAW_QUIZ_DATA !== 'undefined') {
             quizData = RAW_QUIZ_DATA.questions;
             document.getElementById('quiz-title-display').innerText = RAW_QUIZ_DATA.quizTitle || 'Simulador Docente';
-            console.log(`✓ ${quizData.length} preguntas cargadas`);
+            console.log(`â ${quizData.length} preguntas cargadas`);
         } else {
-            console.error("❌ RAW_QUIZ_DATA no definido");
+            console.error("â RAW_QUIZ_DATA no definido");
         }
 
         // Init Firebase Auth Listener
         if (typeof auth !== 'undefined') {
-            console.log("✓ Firebase Auth inicializado");
+            console.log("â Firebase Auth inicializado");
 
             auth.onAuthStateChanged(async (user) => {
                 if (user) {
-                    const email = user.email || '(sin sesión)';
-                    console.log(`🔔 Evento Auth: SIGNED_IN ${email}`);
+                    const email = user.email || '(sin sesiÃ³n)';
+                    console.log(`ð Evento Auth: SIGNED_IN ${email}`);
                     
                     if (window.location.hash) {
                         window.history.replaceState(null, '', window.location.pathname);
                     }
 
                     if (lastAuthUserId === user.uid) {
-                        console.log("🔄 Usuario ya inicializado, omitiendo recarga dashboard.");
+                        console.log("ð Usuario ya inicializado, omitiendo recarga dashboard.");
                         return;
                     }
                     lastAuthUserId = user.uid;
 
-                    console.log("✓ Sesión inicial:", user.email);
+                    console.log("â SesiÃ³n inicial:", user.email);
                     
                     // Normalize user object for backward compatibility in app.js
                     const sessionUser = { id: user.uid, email: user.email, ...user };
@@ -62,24 +62,24 @@ async function init() {
                     // await cargarProgreso(sessionUser); 
                     // await setupRealtimeSync(sessionUser); 
                 } else {
-                    console.log("→ Sesión cerrada / No hay sesión");
+                    console.log("â SesiÃ³n cerrada / No hay sesiÃ³n");
                     lastAuthUserId = null;
                     showLogin();
                 }
             });
         } else {
-            console.warn("⚠ Firebase Auth no cargado. Usando modo local.");
+            console.warn("â  Firebase Auth no cargado. Usando modo local.");
             showLogin();
         }
 
     } catch (error) {
-        console.error('❌ Error init:', error);
+        console.error('â Error init:', error);
         showLogin();
     }
 }
 
 function showLogin() {
-    console.log("📱 Mostrando Login");
+    console.log("ð± Mostrando Login");
     document.getElementById('loginPage').classList.remove('hidden');
     document.getElementById('dashboard').classList.add('hidden');
     document.getElementById('header').classList.add('hidden');
@@ -90,7 +90,7 @@ function showLogin() {
 }
 
 async function showDashboard(user) {
-    console.log("📊 Mostrando Dashboard para:", user.email);
+    console.log("ð Mostrando Dashboard para:", user.email);
     document.getElementById('loginPage').classList.add('hidden');
     document.getElementById('dashboard').classList.remove('hidden');
     document.getElementById('header').classList.remove('hidden');
@@ -119,7 +119,7 @@ async function showDashboard(user) {
 
     // Load user role and render simulator selector
     userRole = await getUserRole(user);
-    console.log(`✓ Rol asignado: ${userRole}`);
+    console.log(`â Rol asignado: ${userRole}`);
 
     // Show Admin Menu Item if applicable
     const adminBtn = document.getElementById('admin-menu-item');
@@ -157,7 +157,7 @@ async function updateWelcomeMessage() {
     const storageKey = `visitCount_${userId}`;
 
     const visitCount = parseInt(localStorage.getItem(storageKey) || '0');
-    const message = visitCount === 0 ? '¡Bienvenido! 👋' : '¡Hola de nuevo! 👋';
+    const message = visitCount === 0 ? 'Â¡Bienvenido! ð' : 'Â¡Hola de nuevo! ð';
     welcomeEl.textContent = message;
 
     // Increment visit count
@@ -165,7 +165,7 @@ async function updateWelcomeMessage() {
 }
 
 async function updateDashboardStats() {
-    // 🛡️ RECALCULATE SCORE from logical source of truth
+    // ð¡ï¸ RECALCULATE SCORE from logical source of truth
     let calculatedScore = 0;
     // Filter out metadata keys like safeLastIndex and totalTime
     const answeredCount = Object.keys(userProgress).filter(k => k !== 'safeLastIndex' && k !== 'totalTime').length;
@@ -201,7 +201,7 @@ async function updateDashboardStats() {
         timeEl.innerText = `${h}:${m}:${s}`;
     }
 
-    // Actualizar texto del botón
+    // Actualizar texto del botÃ³n
     const resumeText = document.getElementById('resumeText');
     if (resumeText) {
         if (answeredCount > 0 && answeredCount < totalQuestions) {
@@ -289,11 +289,11 @@ function renderUserList(users) {
 
             <div class="user-card-details">
                 <div class="detail-item">
-                    <span class="detail-icon">📞</span>
-                    <span class="detail-text">${user.phone || '<span class="empty-val">Sin teléfono</span>'}</span>
+                    <span class="detail-icon">ð</span>
+                    <span class="detail-text">${user.phone || '<span class="empty-val">Sin telÃ©fono</span>'}</span>
                 </div>
                 <div class="detail-item" title="Nota de vencimiento o plan">
-                    <span class="detail-icon">📅</span>
+                    <span class="detail-icon">ð</span>
                     <span class="detail-text">${user.notes || '<span class="empty-val">Pagar plan</span>'}</span>
                 </div>
             </div>
@@ -301,16 +301,16 @@ function renderUserList(users) {
             <div class="user-card-actions">
                 <select class="role-select-premium" onchange="updateUserRole('${user.user_id}', this.value)">
                     <option value="" disabled selected>Cambiar Rol...</option>
-                    <option value="free" ${user.role === 'free' ? 'disabled' : ''}>🆓 Free</option>
-                    <option value="premium" ${user.role === 'premium' ? 'disabled' : ''}>⭐ Premium</option>
-                    <option value="admin" ${user.role === 'admin' ? 'disabled' : ''}>🛡️ Admin</option>
+                    <option value="free" ${user.role === 'free' ? 'disabled' : ''}>ð Free</option>
+                    <option value="premium" ${user.role === 'premium' ? 'disabled' : ''}>â­ Premium</option>
+                    <option value="admin" ${user.role === 'admin' ? 'disabled' : ''}>ð¡ï¸ Admin</option>
                 </select>
                 <div class="action-buttons-row">
                     <button onclick="editUserMetadata('${user.user_id}')" class="btn-edit-user" title="Editar datos">
-                        ✏️ Editar
+                        âï¸ Editar
                     </button>
                     <button onclick="deleteUser('${user.user_id}', '${user.email}')" class="btn-delete-user" title="Eliminar">
-                        🗑️
+                        ðï¸
                     </button>
                 </div>
             </div>
@@ -323,7 +323,7 @@ async function loadAllUsers() {
     if (!listContainer) return;
 
     try {
-        console.log("👥 Cargando lista de usuarios...");
+        console.log("ð¥ Cargando lista de usuarios...");
         listContainer.innerHTML = '<div class="loader-container"><div class="dot-loader"></div></div>';
 
         const { data, error } = await supabaseApp
@@ -335,10 +335,10 @@ async function loadAllUsers() {
 
         allUsersCache = data; // Save for local search
         renderUserList(data);
-        console.log(`✓ ${data.length} usuarios cargados`);
+        console.log(`â ${data.length} usuarios cargados`);
 
     } catch (err) {
-        console.error("❌ Error en loadAllUsers:", err);
+        console.error("â Error en loadAllUsers:", err);
         listContainer.innerHTML = `<div class="error-msg">Error cargando usuarios: ${err.message}</div>`;
     }
 }
@@ -351,9 +351,9 @@ async function editUserMetadata(userId) {
     if (!user) return;
 
     const { value: formValues } = await Swal.fire({
-        title: '✏️ Editar Usuario',
+        title: 'âï¸ Editar Usuario',
         html: `
-            <div style="text-align: left; margin-bottom: 0.5rem; font-weight: bold;">Teléfono:</div>
+            <div style="text-align: left; margin-bottom: 0.5rem; font-weight: bold;">TelÃ©fono:</div>
             <input id="swal-phone" class="swal2-input" placeholder="Ej: +57 321..." value="${user.phone || ''}">
             <div style="text-align: left; margin-top: 1rem; margin-bottom: 0.5rem; font-weight: bold;">Plan / Vencimiento / Notas:</div>
             <input id="swal-notes" class="swal2-input" placeholder="Ej: Vence 20-Mar-2024" value="${user.notes || ''}">
@@ -393,24 +393,24 @@ async function saveUserMetadata(userId, phone, notes) {
             allUsersCache[index].notes = notes;
         }
 
-        Swal.fire('¡Éxito!', 'Datos actualizados correctamente.', 'success');
+        Swal.fire('Â¡Ãxito!', 'Datos actualizados correctamente.', 'success');
         renderUserList(allUsersCache); // Refresh UI
 
     } catch (err) {
         console.error("Error saving metadata:", err);
-        Swal.fire('Error', 'No se pudo guardar la información.', 'error');
+        Swal.fire('Error', 'No se pudo guardar la informaciÃ³n.', 'error');
     }
 }
 
 async function deleteUser(targetUserId, email) {
     const result = await Swal.fire({
-        title: '¿Estás seguro?',
-        text: `Estás a punto de eliminar el acceso de ${email}. Esta acción no se puede deshacer.`,
+        title: 'Â¿EstÃ¡s seguro?',
+        text: `EstÃ¡s a punto de eliminar el acceso de ${email}. Esta acciÃ³n no se puede deshacer.`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Sí, eliminar',
+        confirmButtonText: 'SÃ­, eliminar',
         cancelButtonText: 'Cancelar'
     });
 
@@ -433,8 +433,8 @@ async function deleteUser(targetUserId, email) {
         if (error) throw error;
 
         Swal.fire({
-            title: '¡Eliminado!',
-            text: 'El usuario ha sido removido con éxito.',
+            title: 'Â¡Eliminado!',
+            text: 'El usuario ha sido removido con Ã©xito.',
             icon: 'success',
             timer: 2000,
             showConfirmButton: false
@@ -469,7 +469,7 @@ async function updateUserRole(targetUserId, newRole) {
         if (error) throw error;
 
         Swal.fire({
-            title: '¡Rol Actualizado!',
+            title: 'Â¡Rol Actualizado!',
             text: `El usuario ahora es ${newRole.toUpperCase()}.`,
             icon: 'success',
             timer: 1500,
@@ -489,13 +489,13 @@ async function updateUserRole(targetUserId, newRole) {
 
 async function resetSimulacroProgress() {
     const result = await Swal.fire({
-        title: '¿Estás seguro?',
-        text: "¡Esto borrará TODO tu progreso en este simulacro! No podrás deshacerlo.",
+        title: 'Â¿EstÃ¡s seguro?',
+        text: "Â¡Esto borrarÃ¡ TODO tu progreso en este simulacro! No podrÃ¡s deshacerlo.",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Sí, borrar todo',
+        confirmButtonText: 'SÃ­, borrar todo',
         cancelButtonText: 'Cancelar'
     });
 
@@ -515,7 +515,7 @@ async function resetSimulacroProgress() {
 
         // 1. Clear Cloud Data
         if (user && currentSimulacroId) {
-            console.log("🗑️ Borrando progreso en nube para:", currentSimulacroId);
+            console.log("ðï¸ Borrando progreso en nube para:", currentSimulacroId);
             const { error } = await supabaseApp
                 .from('simulacro_progress_v2')
                 .delete()
@@ -528,7 +528,7 @@ async function resetSimulacroProgress() {
         // 2. Clear Local Data
         // CRITICAL: Use the exact same key generation logic as getStorageKey()
         const storageKey = getStorageKey();
-        console.log("🗑️ Borrando local:", storageKey);
+        console.log("ðï¸ Borrando local:", storageKey);
         localStorage.removeItem(storageKey);
 
         // Also clear potential legacy/migrated keys just in case
@@ -552,14 +552,14 @@ async function resetSimulacroProgress() {
 
     } catch (err) {
         console.error("Error resetting progress:", err);
-        Swal.fire('Error', 'Falló el restablecimiento. Intenta recargar la página.', 'error');
+        Swal.fire('Error', 'FallÃ³ el restablecimiento. Intenta recargar la pÃ¡gina.', 'error');
     }
 }
 
 async function forceRefresh() {
     Swal.fire({
         title: 'Actualizando...',
-        text: 'Limpiando caché y recargando la aplicación',
+        text: 'Limpiando cachÃ© y recargando la aplicaciÃ³n',
         allowOutsideClick: false,
         didOpen: () => {
             Swal.showLoading();
@@ -623,16 +623,16 @@ async function getUserRole(user) {
         updated_at: new Date()
     };
 
-    // 🛡️ SUPER ADMIN BYPASS: Always admin for owner
+    // ð¡ï¸ SUPER ADMIN BYPASS: Always admin for owner
     if (user.email === 'lfalzatel@gmail.com') {
-        console.log("👑 Super Admin detectado (Hardcoded)");
+        console.log("ð Super Admin detectado (Hardcoded)");
         supabaseApp.from('user_roles').upsert({
             user_id: user.id,
             role: 'admin',
             ...metadata
         }).then(({ error }) => {
             if (error) console.error("Error syncing admin metadata:", error);
-            else console.log("✓ Admin metadata synced to DB");
+            else console.log("â Admin metadata synced to DB");
         });
 
         return 'admin';
@@ -652,7 +652,7 @@ async function getUserRole(user) {
         const { data, error } = await Promise.race([fetchPromise, timeoutPromise]);
 
         if (error) {
-            console.warn('⚠️ No role found, creating free role:', error.message);
+            console.warn('â ï¸ No role found, creating free role:', error.message);
             await supabaseApp.from('user_roles').insert({
                 user_id: user.id,
                 role: 'free',
@@ -695,18 +695,18 @@ async function loadSimulacros() {
             const res = await Promise.race([fetchPromise, timeoutPromise]);
 
             data = res.data;
-            if (res.error) console.error('⚠️ Supabase error loadSimulacros:', res.error);
+            if (res.error) console.error('â ï¸ Supabase error loadSimulacros:', res.error);
         }
 
         // Fallback if data is missing or empty (Offline support)
         if (!data || data.length === 0) {
-            console.warn("⚠️ Usando catálogo local de respaldo (Offline/Error)");
+            console.warn("â ï¸ Usando catÃ¡logo local de respaldo (Offline/Error)");
             data = [
                 {
                     id: 'fixed_sim_1', // Dummy ID for fallback
                     numero: 1,
                     titulo: 'Simulacro General',
-                    descripcion: 'Evaluación completa de competencias para el concurso docente.',
+                    descripcion: 'EvaluaciÃ³n completa de competencias para el concurso docente.',
                     total_preguntas: 360,
                     es_premium: false,
                     activo: true
@@ -715,7 +715,7 @@ async function loadSimulacros() {
                     id: 'fixed_sim_2',
                     numero: 2,
                     titulo: 'Simulacro Premium',
-                    descripcion: 'Preguntas avanzadas y casos de estudio específicos.',
+                    descripcion: 'Preguntas avanzadas y casos de estudio especÃ­ficos.',
                     total_preguntas: 35, // Updated to match actual available
                     es_premium: true,
                     activo: true
@@ -724,7 +724,7 @@ async function loadSimulacros() {
                     id: 'fixed_sim_3',
                     numero: 3,
                     titulo: 'Simulacro Experto',
-                    descripcion: 'Preguntas de alta complejidad y análisis curricular profundo.',
+                    descripcion: 'Preguntas de alta complejidad y anÃ¡lisis curricular profundo.',
                     total_preguntas: 60,
                     es_premium: true,
                     activo: true
@@ -733,10 +733,10 @@ async function loadSimulacros() {
         }
 
         simulacrosCatalog = data || [];
-        console.log('✓ Simulacros cargados:', simulacrosCatalog.length);
+        console.log('â Simulacros cargados:', simulacrosCatalog.length);
         return simulacrosCatalog;
     } catch (err) {
-        console.error('❌ Error loading simulacros:', err);
+        console.error('â Error loading simulacros:', err);
         return [];
     } finally {
         // UPDATE QUESTION COUNTS FROM REAL DATA
@@ -745,21 +745,21 @@ async function loadSimulacros() {
             const sim1 = simulacrosCatalog.find(s => s.numero === 1);
             if (sim1) {
                 sim1.total_preguntas = RAW_QUIZ_DATA.questions.length;
-                console.log(`✓ Sync Sim 1 count: ${sim1.total_preguntas}`);
+                console.log(`â Sync Sim 1 count: ${sim1.total_preguntas}`);
             }
         }
         if (typeof RAW_QUIZ_DATA_2 !== 'undefined' && RAW_QUIZ_DATA_2.questions) {
             const sim2 = simulacrosCatalog.find(s => s.numero === 2);
             if (sim2) {
                 sim2.total_preguntas = RAW_QUIZ_DATA_2.questions.length;
-                console.log(`✓ Sync Sim 2 count: ${sim2.total_preguntas}`);
+                console.log(`â Sync Sim 2 count: ${sim2.total_preguntas}`);
             }
         }
         if (typeof RAW_QUIZ_DATA_3 !== 'undefined' && RAW_QUIZ_DATA_3.questions) {
             const sim3 = simulacrosCatalog.find(s => s.numero === 3);
             if (sim3) {
                 sim3.total_preguntas = RAW_QUIZ_DATA_3.questions.length;
-                console.log(`✓ Sync Sim 3 count: ${sim3.total_preguntas}`);
+                console.log(`â Sync Sim 3 count: ${sim3.total_preguntas}`);
             }
         }
 
@@ -800,15 +800,15 @@ async function renderSimulacroCards() {
                 <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">
                     ${sim.titulo}
                 </h3>
-                ${!canAccess ? '<div style="font-size: 1.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔒</div>' : ''}
+                ${!canAccess ? '<div style="font-size: 1.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">ð</div>' : ''}
                 ${sim.es_premium ? '<span style="background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%); color: #78350F; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700;">PREMIUM</span>' : '<span style="background: var(--success-bg); color: var(--success-text); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700;">GRATIS</span>'}
             </div>
             <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">
-                ${sim.descripcion || 'Prepárate con preguntas de alta calidad'}
+                ${sim.descripcion || 'PrepÃ¡rate con preguntas de alta calidad'}
             </p>
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span style="font-size: 0.85rem; color: var(--text-secondary);">
-                    📝 ${sim.total_preguntas} preguntas
+                    ð ${sim.total_preguntas} preguntas
                 </span>
                 <button class="start-btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;" ${!canAccess ? 'disabled' : ''}>
                     ${canAccess ? 'Iniciar' : 'Bloqueado'}
@@ -828,7 +828,7 @@ async function renderSimulacroCards() {
 
 // Helper to load simulator context WITHOUT starting quiz
 async function loadSimulacroContext(simulacro) {
-    console.log('� Cargando contexto para:', simulacro.titulo);
+    console.log('ï¿½ Cargando contexto para:', simulacro.titulo);
     currentSimulacroId = simulacro.id;
     window.currentSimulacroNum = simulacro.numero; // Track number for sync logic
 
@@ -839,32 +839,32 @@ async function loadSimulacroContext(simulacro) {
     } else if (simulacro.numero === 2) {
         // Simulacro 2: usa quizData2 (premium - 95 preguntas)
         if (!window.RAW_QUIZ_DATA_2) {
-            console.error('RAW_QUIZ_DATA_2 no está definido');
-            alert('Error: No se pudo cargar el simulacro 2. Por favor, recarga la página.');
+            console.error('RAW_QUIZ_DATA_2 no estÃ¡ definido');
+            alert('Error: No se pudo cargar el simulacro 2. Por favor, recarga la pÃ¡gina.');
             return false;
         }
         window.currentQuizData = window.RAW_QUIZ_DATA_2;
     } else if (simulacro.numero === 3) {
         // Simulacro 3: usa quizData3 (experto - 60 preguntas)
         if (!window.RAW_QUIZ_DATA_3) {
-            console.error('RAW_QUIZ_DATA_3 no está definido');
-            alert('Error: No se pudo cargar el simulacro 3. Por favor, recarga la página.');
+            console.error('RAW_QUIZ_DATA_3 no estÃ¡ definido');
+            alert('Error: No se pudo cargar el simulacro 3. Por favor, recarga la pÃ¡gina.');
             return false;
         }
         window.currentQuizData = window.RAW_QUIZ_DATA_3;
     } else {
-        alert(`Simulacro ${simulacro.numero} próximamente disponible.`);
+        alert(`Simulacro ${simulacro.numero} prÃ³ximamente disponible.`);
         return false;
     }
 
     // Validation
     if (!window.currentQuizData || !window.currentQuizData.questions) {
-        console.error('❌ Error crítico: Datos del quiz no encontrados', window.currentQuizData);
-        alert('Error crítico: No se pudieron cargar los datos del simulacro. Por favor, intenta de nuevo o recarga la página.');
+        console.error('â Error crÃ­tico: Datos del quiz no encontrados', window.currentQuizData);
+        alert('Error crÃ­tico: No se pudieron cargar los datos del simulacro. Por favor, intenta de nuevo o recarga la pÃ¡gina.');
         return false;
     }
 
-    console.log('✅ Quiz data cargado:', window.currentQuizData.questions.length, 'preguntas');
+    console.log('â Quiz data cargado:', window.currentQuizData.questions.length, 'preguntas');
 
     // Reset global variables for new context
     quizData = JSON.parse(JSON.stringify(window.currentQuizData.questions)); // Deep clone to avoid mutating raw data
@@ -886,7 +886,7 @@ async function loadSimulacroContext(simulacro) {
     currentQuestionIndex = 0;
 
     // FORCE RELOAD DATA (Fix context bleeding)
-    console.log(`🔄 Cambio de contexto: Cargando datos frescos para Simulacro ${simulacro.numero}...`);
+    console.log(`ð Cambio de contexto: Cargando datos frescos para Simulacro ${simulacro.numero}...`);
     userProgress = {}; // CRITICAL: Clear memory first
 
     // Pass current user to ensure we look up the right cloud record
@@ -900,7 +900,7 @@ async function startSimulacro(simulacro) {
     const loaded = await loadSimulacroContext(simulacro);
     if (!loaded) return;
 
-    // console.log('🚀 Iniciando simulacro:', simulacro.titulo); // Already logged in loadSimulacroContext
+    // console.log('ð Iniciando simulacro:', simulacro.titulo); // Already logged in loadSimulacroContext
 
 
     // Add version to menu
@@ -939,31 +939,31 @@ function showUpgradeModal() {
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         ">
             <div style="text-align: center; margin-bottom: 1.5rem;">
-                <div style="font-size: 4rem; margin-bottom: 1rem;">🔒</div>
+                <div style="font-size: 4rem; margin-bottom: 1rem;">ð</div>
                 <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
                     Contenido Premium
                 </h2>
                 <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
-                    Este simulacro está disponible solo para usuarios premium. Contáctanos para obtener acceso completo a todos los simulacros.
+                    Este simulacro estÃ¡ disponible solo para usuarios premium. ContÃ¡ctanos para obtener acceso completo a todos los simulacros.
                 </p>
             </div>
             
             <div style="background: var(--bg-body-start); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
                 <h3 style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">
-                    ¿Qué incluye Premium?
+                    Â¿QuÃ© incluye Premium?
                 </h3>
                 <ul style="list-style: none; padding: 0; margin: 0;">
                     <li style="padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
-                        ✅ Acceso a todos los simulacros
+                        â Acceso a todos los simulacros
                     </li>
                     <li style="padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
-                        ✅ 500+ preguntas de alta dificultad
+                        â 500+ preguntas de alta dificultad
                     </li>
                     <li style="padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
-                        ✅ Reportes detallados por categoría
+                        â Reportes detallados por categorÃ­a
                     </li>
                     <li style="padding: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem;">
-                        ✅ Actualizaciones mensuales
+                        â Actualizaciones mensuales
                     </li>
                 </ul>
             </div>
@@ -1032,7 +1032,7 @@ function switchView(viewId) {
     } else if (viewId === 'reports') {
         document.getElementById('reports-view').classList.remove('hidden');
     } else if (viewId === 'admin') {
-        console.log("🛠️ Entrando a Panel Admin");
+        console.log("ð ï¸ Entrando a Panel Admin");
         const adminView = document.getElementById('admin-view');
         if (adminView) {
             adminView.classList.remove('hidden');
@@ -1116,7 +1116,7 @@ window.switchView = switchView;
 window.logout = logout;
 window.toggleHint = toggleHint;
 window.nextQuestion = nextQuestion;
-window.prevQuestion = prevQuestion; // Nueva función
+window.prevQuestion = prevQuestion; // Nueva funciÃ³n
 window.restartQuiz = restartQuiz;
 
 function startQuiz() {
@@ -1135,15 +1135,15 @@ function startQuiz() {
     if (userProgress && typeof userProgress.safeLastIndex !== 'undefined' && userProgress.safeLastIndex >= 0) {
         const lastIndex = userProgress.safeLastIndex;
         if (lastIndex >= quizData.length - 1) {
-            if (confirm('¿Deseas reiniciar el simulacro desde el inicio?')) {
+            if (confirm('Â¿Deseas reiniciar el simulacro desde el inicio?')) {
                 restartQuiz();
                 return;
             }
         }
-        console.log("→ Continuando desde pregunta:", lastIndex + 1);
+        console.log("â Continuando desde pregunta:", lastIndex + 1);
         currentQuestionIndex = lastIndex;
     } else {
-        console.log("→ Iniciando nuevo simulacro");
+        console.log("â Iniciando nuevo simulacro");
         currentQuestionIndex = 0;
     }
 
@@ -1159,18 +1159,18 @@ function startTimer() {
 
         // Save every 30 seconds to cloud/local to prevent data loss
         if (userProgress.totalTime % 30 === 0) {
-            console.log("⏱️ Auto-guardando tiempo...");
+            console.log("â±ï¸ Auto-guardando tiempo...");
             guardarProgresoCompleto(true); // true = silent/background save
         }
     }, 1000);
-    console.log("⏱️ Timer iniciado");
+    console.log("â±ï¸ Timer iniciado");
 }
 
 function stopTimer() {
     if (studyTimer) {
         clearInterval(studyTimer);
         studyTimer = null;
-        console.log("⏱️ Timer detenido. Tiempo total:", userProgress.totalTime);
+        console.log("â±ï¸ Timer detenido. Tiempo total:", userProgress.totalTime);
         // Save time when stopping (changing view)
         guardarProgresoCompleto();
     }
@@ -1197,7 +1197,7 @@ function restartQuiz() {
 }
 
 function selectOption(el, isCorrect, rationale, allOptions, optionIndex) {
-    // 🔒 GUARD: Prevent re-answering if already answered
+    // ð GUARD: Prevent re-answering if already answered
     if (userProgress[currentQuestionIndex] !== undefined) return;
 
     if (document.getElementById('next-btn').style.display === 'block') return;
@@ -1211,22 +1211,22 @@ function selectOption(el, isCorrect, rationale, allOptions, optionIndex) {
     // Color Mapping (Unified for Sim 1 & 2)
     const categoryColors = {
         // Core Pedagogical & Evaluation
-        "Evaluación y Retroalimentación": "var(--accent-color)",
-        "Estrategias Pedagógicas": "var(--secondary-color)",
-        "Planificación Curricular": "#16a085", // Teal
+        "EvaluaciÃ³n y RetroalimentaciÃ³n": "var(--accent-color)",
+        "Estrategias PedagÃ³gicas": "var(--secondary-color)",
+        "PlanificaciÃ³n Curricular": "#16a085", // Teal
 
         // Inclusion & Values
-        "Inclusión y Diversidad": "var(--success-color)",
+        "InclusiÃ³n y Diversidad": "var(--success-color)",
         "Convivencia y Valores": "#e67e22", // Orange
 
         // Legal & Management
         "Marco Legal y Normativo": "var(--warning-color)",
-        "Gestión Institucional": "#2c3e50", // Dark Blue
+        "GestiÃ³n Institucional": "#2c3e50", // Dark Blue
 
         // Skills & Cognitive
-        "Competencias Específicas": "#9b59b6", // Purple
+        "Competencias EspecÃ­ficas": "#9b59b6", // Purple
         "Desarrollo Cognitivo": "#2980b9", // Blue
-        "Razonamiento Lógico": "#8e44ad", // Deep Purple
+        "Razonamiento LÃ³gico": "#8e44ad", // Deep Purple
 
         "General": "var(--text-secondary)"
     };
@@ -1248,7 +1248,7 @@ function selectOption(el, isCorrect, rationale, allOptions, optionIndex) {
         }
     }
 
-    // Guardar respuesta con índice original y timestamp
+    // Guardar respuesta con Ã­ndice original y timestamp
     guardarRespuesta(currentQuestionIndex, isCorrect, optionIndex);
 
     const nextBtn = document.getElementById('next-btn');
@@ -1325,7 +1325,7 @@ function updateUI() {
         const selectedOpt = q.answerOptions.find(opt => opt.originalIndex === savedAnswer.selectedOptionIndex);
         if (selectedOpt) {
             rationaleBox.style.display = 'block';
-            rationaleBox.innerText = selectedOpt.rationale || "Explicación no disponible.";
+            rationaleBox.innerText = selectedOpt.rationale || "ExplicaciÃ³n no disponible.";
         }
         nextBtn.style.display = 'block';
         hintTrigger.style.display = 'none'; // Hide hint if answered
@@ -1392,11 +1392,11 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
     // Update UI Status
     const statusEl = document.getElementById('save-status');
     if (statusEl) {
-        statusEl.innerHTML = "💾 Guardando...";
+        statusEl.innerHTML = "ð¾ Guardando...";
         statusEl.classList.add('visible');
     }
 
-    console.log(`💾 Progreso guardado localmente (${key}): Pregunta ${preguntaIdx + 1}, Score: ${score}`);
+    console.log(`ð¾ Progreso guardado localmente (${key}): Pregunta ${preguntaIdx + 1}, Score: ${score}`);
 
     // Flag to track if we are already syncing
     let isSyncing = false;
@@ -1407,7 +1407,7 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
 
     if (supabaseApp && isDefaultSim) {
         if (statusEl) {
-            statusEl.innerHTML = "☁️ Sincronizando...";
+            statusEl.innerHTML = "âï¸ Sincronizando...";
             statusEl.classList.add('visible');
         }
 
@@ -1418,17 +1418,17 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
             // LEGACY SYNC REMOVED (Table 'simulacro_progress' deleted)
             // We now rely on 'guardarProgresoCompleto' (V2 Unified) which is called periodically
             // or on specific events. 
-            console.log("ℹ️ Sync V1 omitido (Migración a V2 completa)");
+            console.log("â¹ï¸ Sync V1 omitido (MigraciÃ³n a V2 completa)");
 
-            console.log(`☁️ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
+            console.log(`âï¸ Sincronizado a la nube: ${preguntaIdx + 1}/${quizData.length}`);
 
             if (statusEl) {
-                statusEl.innerHTML = "☁️ Guardado (V2)";
+                statusEl.innerHTML = "âï¸ Guardado (V2)";
             }
         } catch (error) {
-            console.error('❌ Error al guardar en cloud:', error);
+            console.error('â Error al guardar en cloud:', error);
             if (statusEl) {
-                statusEl.innerHTML = "⚠️ Offline (Local OK)";
+                statusEl.innerHTML = "â ï¸ Offline (Local OK)";
             }
         } finally {
             // ALWAYS Clear Status after delay
@@ -1442,7 +1442,7 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
     } else {
         // If no supabase or secondary sim, clear immediately after short delay
         if (statusEl) {
-            if (currentSimulacroId) statusEl.innerHTML = "💾 Local OK";
+            if (currentSimulacroId) statusEl.innerHTML = "ð¾ Local OK";
             setTimeout(() => {
                 statusEl.classList.remove('visible');
                 statusEl.innerHTML = ""; // Clear text too
@@ -1454,7 +1454,7 @@ async function guardarRespuesta(preguntaIdx, esCorrecta, opcionIdx) {
 async function guardarProgresoCompleto(silent = false) {
     const statusEl = document.getElementById('save-status');
     if (!silent && statusEl) {
-        statusEl.innerHTML = "💾 Guardando...";
+        statusEl.innerHTML = "ð¾ Guardando...";
         statusEl.classList.add('visible');
     }
 
@@ -1468,7 +1468,7 @@ async function guardarProgresoCompleto(silent = false) {
 
     const key = getStorageKey();
     localStorage.setItem(key, JSON.stringify(progressData));
-    if (!silent) console.log(`💾 Progreso completo guardado localmente en ${key}`);
+    if (!silent) console.log(`ð¾ Progreso completo guardado localmente en ${key}`);
 
     // CLOUD SYNC: Unified V2 for ALL simulators
     // Legacy simulacro_progress is deprecated for writes.
@@ -1497,18 +1497,18 @@ async function guardarProgresoCompleto(silent = false) {
                 }, { onConflict: 'user_id, simulacro_id' }); // Relies on unique constraint
 
                 if (error) {
-                    console.error('❌ Error al guardar progreso V2:', error);
-                    if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Sync V2";
+                    console.error('â Error al guardar progreso V2:', error);
+                    if (!silent && statusEl) statusEl.innerHTML = "â ï¸ Error Sync V2";
                 } else {
                     if (!silent) {
-                        console.log(`☁️ Progreso V2 (${currentSimulacroId}) sincronizado`);
-                        if (statusEl) statusEl.innerHTML = "☁️ Sincronizado";
+                        console.log(`âï¸ Progreso V2 (${currentSimulacroId}) sincronizado`);
+                        if (statusEl) statusEl.innerHTML = "âï¸ Sincronizado";
                     }
                 }
             }
         } catch (error) {
-            console.error('❌ Error al sincronizar V2:', error);
-            if (!silent && statusEl) statusEl.innerHTML = "⚠️ Error Red V2";
+            console.error('â Error al sincronizar V2:', error);
+            if (!silent && statusEl) statusEl.innerHTML = "â ï¸ Error Red V2";
         } finally {
             if (!silent && statusEl) {
                 setTimeout(() => {
@@ -1519,17 +1519,17 @@ async function guardarProgresoCompleto(silent = false) {
     } else {
         // Fallback local if no supabase
         if (!silent && statusEl) {
-            statusEl.innerHTML = "💾 Guardado (Local)";
+            statusEl.innerHTML = "ð¾ Guardado (Local)";
             setTimeout(() => { statusEl.classList.remove('visible'); }, 2000);
         }
     }
 }
 
-// Nueva función para sincronizar manualmente
+// Nueva funciÃ³n para sincronizar manualmente
 async function sincronizarDatos() {
     const statusEl = document.getElementById('save-status');
     if (statusEl) {
-        statusEl.innerHTML = "🔄 Sincronizando...";
+        statusEl.innerHTML = "ð Sincronizando...";
         statusEl.classList.add('visible');
     }
 
@@ -1537,7 +1537,7 @@ async function sincronizarDatos() {
     updateDashboardStats(); // Refresh UI with new data
 
     if (statusEl) {
-        statusEl.innerHTML = "✅ Datos actualizados";
+        statusEl.innerHTML = "â Datos actualizados";
         setTimeout(() => {
             statusEl.classList.remove('visible');
         }, 2000);
@@ -1547,7 +1547,7 @@ async function sincronizarDatos() {
 // Bind to window
 window.sincronizarDatos = sincronizarDatos;
 async function cargarProgreso(user = null) {
-    console.log("📂 Cargando progreso...", user ? `(user: ${user.email})` : "(sin user)");
+    console.log("ð Cargando progreso...", user ? `(user: ${user.email})` : "(sin user)");
     const statusEl = document.getElementById('save-status');
 
     // Sim 1 -> simulacro_progress (Legacy) BUT we are migrating to V2
@@ -1557,12 +1557,12 @@ async function cargarProgreso(user = null) {
     // Force Sim 1 ID if not set (Migration Logic)
     if (isSim1 && !currentSimulacroId) {
         currentSimulacroId = 'd15c2a06-b97f-4349-817b-14e07377a0e6';
-        console.log("⚠️ Set fallback ID for Sim 1:", currentSimulacroId);
+        console.log("â ï¸ Set fallback ID for Sim 1:", currentSimulacroId);
     }
 
     if (supabaseApp && user) {
         try {
-            console.log("✓ Usuario provisto:", user.email);
+            console.log("â Usuario provisto:", user.email);
 
             // Add timeout to prevent hanging
             const timeoutPromise = new Promise((_, reject) =>
@@ -1570,7 +1570,7 @@ async function cargarProgreso(user = null) {
             );
 
             // ALWAYS try V2 first (Unified Architecture)
-            console.log(`✓ Consultando progreso Sim ${window.currentSimulacroNum || 1} (simulacro_progress_v2)...`);
+            console.log(`â Consultando progreso Sim ${window.currentSimulacroNum || 1} (simulacro_progress_v2)...`);
 
             let queryPromise = supabaseApp
                 .from('simulacro_progress_v2')
@@ -1587,7 +1587,7 @@ async function cargarProgreso(user = null) {
             // Removed fallback to prevent 404 errors in console.
 
             if (data && !error) {
-                console.log(`☁️ Datos encontrados para Sim ${window.currentSimulacroNum || 1}`);
+                console.log(`âï¸ Datos encontrados para Sim ${window.currentSimulacroNum || 1}`);
 
                 // Normalise data structure
                 // Sim 1: root object IS the record (data.score, data.progress_data, etc.)
@@ -1604,7 +1604,7 @@ async function cargarProgreso(user = null) {
                 const localAnswerCount = localData ? Object.keys(localData.answers || {}).length : 0;
                 const cloudAnswerCount = Object.keys(cloudProgress).length;
 
-                console.log(`� Comparando: Nube (${cloudAnswerCount} resp, ${new Date(cloudTime).toLocaleTimeString()}) vs Local (${localAnswerCount} resp, ${new Date(localTime).toLocaleTimeString()})`);
+                console.log(`ï¿½ Comparando: Nube (${cloudAnswerCount} resp, ${new Date(cloudTime).toLocaleTimeString()}) vs Local (${localAnswerCount} resp, ${new Date(localTime).toLocaleTimeString()})`);
                 console.log(` Comparando: Nube (${cloudAnswerCount} resp, ${new Date(cloudTime).toLocaleTimeString()}) vs Local (${localAnswerCount} resp, ${new Date(localTime).toLocaleTimeString()})`);
 
                 // DECISION LOGIC: CLOUD AUTHORITY (Requested by User)
@@ -1617,10 +1617,10 @@ async function cargarProgreso(user = null) {
                 if (Math.abs(cloudTime - localTime) > 10000) {
                     if (cloudTime > localTime) {
                         useCloud = true;
-                        syncReason = 'nube es más reciente (>10s)';
+                        syncReason = 'nube es mÃ¡s reciente (>10s)';
                     } else {
                         useCloud = false;
-                        syncReason = 'local es más reciente (>10s)';
+                        syncReason = 'local es mÃ¡s reciente (>10s)';
                     }
                 } else {
                     if (cloudAnswerCount >= localAnswerCount) {
@@ -1631,7 +1631,7 @@ async function cargarProgreso(user = null) {
                 }
                 */
 
-                console.log(`🔄 Decisión final: ${useCloud ? 'NUBE ☁️' : 'LOCAL 💾'} (${syncReason})`);
+                console.log(`ð DecisiÃ³n final: ${useCloud ? 'NUBE âï¸' : 'LOCAL ð¾'} (${syncReason})`);
 
                 if (useCloud) {
                     // USE CLOUD DATA
@@ -1653,9 +1653,9 @@ async function cargarProgreso(user = null) {
                         totalTime: userProgress.totalTime || cloudProgress.totalTime || 0
                     }));
 
-                    console.log(`☁️ USANDO NUBE: ${Object.keys(userProgress).length} respuestas, Score: ${score}`);
+                    console.log(`âï¸ USANDO NUBE: ${Object.keys(userProgress).length} respuestas, Score: ${score}`);
                     if (statusEl) {
-                        statusEl.innerHTML = "☁️ Restaurado";
+                        statusEl.innerHTML = "âï¸ Restaurado";
                         statusEl.classList.add('visible');
                         setTimeout(() => {
                             if (statusEl) statusEl.classList.remove('visible');
@@ -1664,11 +1664,11 @@ async function cargarProgreso(user = null) {
                 }
 
             } else if (error && error.code !== 'PGRST116') {
-                console.warn("⚠️ Error obteniendo progreso nube", error.message);
+                console.warn("â ï¸ Error obteniendo progreso nube", error.message);
                 cargarProgresoLocal();
             } else {
                 // No cloud data (PGRST116 or empty)
-                console.log("🆕 Sin datos en nube para este simulacro.");
+                console.log("ð Sin datos en nube para este simulacro.");
 
                 // Special check for Migration (only relevant for Sim 1 primarily, but let's leave it safe)
                 // Only try migration if we really have nothing locally either
@@ -1682,7 +1682,7 @@ async function cargarProgreso(user = null) {
                 }
             }
         } catch (error) {
-            console.error('❌ Error al cargar de cloud:', error);
+            console.error('â Error al cargar de cloud:', error);
             cargarProgresoLocal();
             if (statusEl) {
                 statusEl.classList.remove('visible');
@@ -1690,25 +1690,25 @@ async function cargarProgreso(user = null) {
         }
     } else {
         // No Supabase or No User
-        console.log("⚠️ Carga local (Sin usuario/Supabase o Sim Offline)");
+        console.log("â ï¸ Carga local (Sin usuario/Supabase o Sim Offline)");
         cargarProgresoLocal();
     }
 
     // Force dashboard update
-    console.log("📈 Actualizando dashboard con datos cargados...");
+    console.log("ð Actualizando dashboard con datos cargados...");
     await updateDashboardStats();
 
     // Sync UI if quiz is active
     if (!document.getElementById('quiz-view').classList.contains('hidden') && userProgress && userProgress.safeLastIndex > 0) {
         // Basic jump to last index
         if (currentQuestionIndex === 0 && (!userProgress[0] || Object.keys(userProgress).length > 0)) {
-            console.log("→ Saltando a pregunta guardada:", userProgress.safeLastIndex + 1);
+            console.log("â Saltando a pregunta guardada:", userProgress.safeLastIndex + 1);
             currentQuestionIndex = userProgress.safeLastIndex;
             updateUI();
 
             // Show toast
             if (statusEl) {
-                statusEl.innerHTML = "🔄 Progreso restaurado";
+                statusEl.innerHTML = "ð Progreso restaurado";
                 statusEl.classList.add('visible');
                 setTimeout(() => statusEl.classList.remove('visible'), 2000);
             }
@@ -1769,22 +1769,22 @@ function renderCategoryStats() {
     // Color Mapping (Unified for Sim 1 & 2)
     const categoryColors = {
         // Core Pedagogical & Evaluation
-        "Evaluación y Retroalimentación": "var(--accent-color)",
-        "Estrategias Pedagógicas": "var(--secondary-color)",
-        "Planificación Curricular": "#16a085", // Teal
+        "EvaluaciÃ³n y RetroalimentaciÃ³n": "var(--accent-color)",
+        "Estrategias PedagÃ³gicas": "var(--secondary-color)",
+        "PlanificaciÃ³n Curricular": "#16a085", // Teal
 
         // Inclusion & Values
-        "Inclusión y Diversidad": "var(--success-color)",
+        "InclusiÃ³n y Diversidad": "var(--success-color)",
         "Convivencia y Valores": "#e67e22", // Orange
 
         // Legal & Management
         "Marco Legal y Normativo": "var(--warning-color)",
-        "Gestión Institucional": "#2c3e50", // Dark Blue
+        "GestiÃ³n Institucional": "#2c3e50", // Dark Blue
 
         // Skills & Cognitive
-        "Competencias Específicas": "#9b59b6", // Purple
+        "Competencias EspecÃ­ficas": "#9b59b6", // Purple
         "Desarrollo Cognitivo": "#2980b9", // Blue
-        "Razonamiento Lógico": "#8e44ad", // Deep Purple
+        "Razonamiento LÃ³gico": "#8e44ad", // Deep Purple
 
         "General": "var(--text-secondary)"
     };
@@ -1876,16 +1876,16 @@ function renderReportsView() {
 
     // Category Color Mapping (Reused/Standardized)
     const categoryColors = {
-        "Evaluación y Retroalimentación": "var(--accent-color)",
-        "Estrategias Pedagógicas": "var(--secondary-color)",
-        "Planificación Curricular": "#16a085",
-        "Inclusión y Diversidad": "var(--success-color)",
+        "EvaluaciÃ³n y RetroalimentaciÃ³n": "var(--accent-color)",
+        "Estrategias PedagÃ³gicas": "var(--secondary-color)",
+        "PlanificaciÃ³n Curricular": "#16a085",
+        "InclusiÃ³n y Diversidad": "var(--success-color)",
         "Convivencia y Valores": "#e67e22",
         "Marco Legal y Normativo": "var(--warning-color)",
-        "Gestión Institucional": "#2c3e50",
-        "Competencias Específicas": "#9b59b6",
+        "GestiÃ³n Institucional": "#2c3e50",
+        "Competencias EspecÃ­ficas": "#9b59b6",
         "Desarrollo Cognitivo": "#2980b9",
-        "Razonamiento Lógico": "#8e44ad",
+        "Razonamiento LÃ³gico": "#8e44ad",
         "General": "var(--text-secondary)"
     };
 
@@ -1934,12 +1934,12 @@ function renderReportsView() {
 
                     <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
                         <div style="display: flex; gap: 0.75rem; color: var(--text-secondary);">
-                             <span>✅ ${data.correct}</span>
-                             <span>❌ ${data.incorrect}</span>
-                             <span>⏳ ${data.unanswered}</span>
+                             <span>â ${data.correct}</span>
+                             <span>â ${data.incorrect}</span>
+                             <span>â³ ${data.unanswered}</span>
                         </div>
                         <div style="color: var(--text-primary); font-weight: 500;">
-                            ${answered > 0 ? `Precisión: ${accuracyVal}%` : 'Sin actividad'}
+                            ${answered > 0 ? `PrecisiÃ³n: ${accuracyVal}%` : 'Sin actividad'}
                         </div>
                     </div>
                 </div>
@@ -1961,9 +1961,9 @@ function renderReportsView() {
         if (weakCategories.length === 0) {
             recommendationsContainer.innerHTML = `
                 <div style="padding: 1.5rem; background: rgba(16, 185, 129, 0.1); border-radius: 12px; color: var(--success-text); text-align: center; border: 1px dashed var(--success-color);">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
-                    <div style="font-weight: 700;">¡Rendimiento Excelente!</div>
-                    <div style="font-size: 0.9rem; opacity: 0.8;">Estás dominando todas las categorías actuales de este simulacro.</div>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">ð¯</div>
+                    <div style="font-weight: 700;">Â¡Rendimiento Excelente!</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">EstÃ¡s dominando todas las categorÃ­as actuales de este simulacro.</div>
                 </div>
             `;
         } else {
@@ -1977,8 +1977,8 @@ function renderReportsView() {
                     <div style="padding: 1rem; background: var(--bg-card); border-left: 4px solid ${color}; border-radius: 8px; box-shadow: var(--shadow-sm);">
                         <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">${cat}</div>
                         <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
-                            ${answered > 0 ? `Tu precisión es del ${accuracyVal}%.` : 'Aún no has practicado este tema.'} 
-                            Se recomienda repasar los conceptos clave de esta área para mejorar tu puntaje global.
+                            ${answered > 0 ? `Tu precisiÃ³n es del ${accuracyVal}%.` : 'AÃºn no has practicado este tema.'} 
+                            Se recomienda repasar los conceptos clave de esta Ã¡rea para mejorar tu puntaje global.
                         </div>
                     </div>
                 `);
@@ -2002,7 +2002,7 @@ function getStorageKey() {
     let baseKey = 'progresoUsuario';
 
     // Compatibilidad: Si es el simulacro 1, NO agregar ID para mantener compatibilidad con datos viejos
-    // Si estamos en otro simulacro (2, 3, etc), sí usamos el ID único
+    // Si estamos en otro simulacro (2, 3, etc), sÃ­ usamos el ID Ãºnico
     if (currentSimulacroId && window.currentSimulacroNum !== 1) {
         baseKey += `_${currentSimulacroId}`;
     }
@@ -2018,7 +2018,7 @@ function getStorageKey() {
 // Helper function to load from localStorage only
 function cargarProgresoLocal() {
     const key = getStorageKey();
-    console.log(`📂 Cargando local desde: ${key}`);
+    console.log(`ð Cargando local desde: ${key}`);
     const saved = localStorage.getItem(key);
 
     // If not found and we are in default/null state, try legacy
@@ -2041,12 +2041,12 @@ function cargarProgresoLocal() {
             }
 
             const answerCount = Object.keys(userProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
-            console.log(`✓ Progreso local (${key}): ${answerCount} respuestas, Score: ${score}`);
+            console.log(`â Progreso local (${key}): ${answerCount} respuestas, Score: ${score}`);
         } catch (e) {
-            console.error('❌ Error al parsear progreso local:', e);
+            console.error('â Error al parsear progreso local:', e);
         }
     } else {
-        console.log(`ℹ️ No hay progreso local en ${key}`);
+        console.log(`â¹ï¸ No hay progreso local en ${key}`);
         // Reset if starting fresh simulator
         if (currentSimulacroId) {
             userProgress = {};
@@ -2060,19 +2060,19 @@ function cargarProgresoLocal() {
 // Real-Time Sync - Listen for changes from other devices
 async function setupRealtimeSync(user) {
     if (!supabaseApp || !user) {
-        console.log("⚠️ No se puede configurar realtime: falta Supabase o usuario");
+        console.log("â ï¸ No se puede configurar realtime: falta Supabase o usuario");
         return;
     }
 
     // Cleanup existing channel if any
     if (realtimeChannel) {
-        console.log("🔌 Desconectando canal anterior...");
+        console.log("ð Desconectando canal anterior...");
         await supabaseApp.removeChannel(realtimeChannel);
         realtimeChannel = null;
     }
 
     // Subscribe to changes on this user's progress
-    console.log("📡 Configurando sincronización en tiempo real...");
+    console.log("ð¡ Configurando sincronizaciÃ³n en tiempo real...");
     realtimeChannel = supabaseApp
         .channel(`progress-${user.id}`)
         .on('postgres_changes', {
@@ -2081,7 +2081,7 @@ async function setupRealtimeSync(user) {
             table: 'simulacro_progress',
             filter: `user_id=eq.${user.id}`
         }, async (payload) => {
-            console.log('✨ Cambio detectado desde otro dispositivo');
+            console.log('â¨ Cambio detectado desde otro dispositivo');
             console.log('   Tipo:', payload.eventType);
 
             // Reload progress silently
@@ -2089,11 +2089,11 @@ async function setupRealtimeSync(user) {
         })
         .subscribe((status) => {
             if (status === 'SUBSCRIBED') {
-                console.log('🔔 Sincronización en tiempo real activada');
+                console.log('ð SincronizaciÃ³n en tiempo real activada');
             } else if (status === 'CHANNEL_ERROR') {
-                console.error('❌ Error en canal de sincronización');
+                console.error('â Error en canal de sincronizaciÃ³n');
             } else if (status === 'TIMED_OUT') {
-                console.warn('⏱️ Timeout en canal de sincronización');
+                console.warn('â±ï¸ Timeout en canal de sincronizaciÃ³n');
             }
         });
 }
@@ -2101,11 +2101,11 @@ async function setupRealtimeSync(user) {
 // Login con Google usando Firebase
 async function loginWithGoogle() {
     if (typeof auth === 'undefined') {
-        alert("Sistema de autenticación no disponible. Por favor recarga la página.");
+        alert("Sistema de autenticaciÃ³n no disponible. Por favor recarga la pÃ¡gina.");
         return;
     }
 
-    console.log("🔐 Iniciando login con Google (Firebase)...");
+    console.log("ð Iniciando login con Google (Firebase)...");
 
     try {
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -2121,37 +2121,37 @@ async function loginWithGoogle() {
              await auth.signInWithPopup(provider);
         }
     } catch (error) {
-        console.error("❌ Error inesperado:", error);
+        console.error("â Error inesperado:", error);
         alert("Error inesperado: " + error.message);
     }
 }
 
 async function logout() {
-    console.log("🖱️ Logout click! Forzando salida local...");
+    console.log("ð±ï¸ Logout click! Forzando salida local...");
 
     try {
         // 1. LIMPIEZA LOCAL INMEDIATA (Prioridad Usuario)
-        // localStorage.removeItem('progresoUsuario'); // ⚠️ DISABLED to prevent data loss of legacy data
+        // localStorage.removeItem('progresoUsuario'); // â ï¸ DISABLED to prevent data loss of legacy data
         userProgress = {};
         score = 0;
         currentQuestionIndex = 0;
 
         // 2. Mostrar Login YA MISMO
         showLogin();
-        console.log("✓ UI limpia y reseteada");
+        console.log("â UI limpia y reseteada");
 
-        // 3. Intentar cerrar sesión en servidor (Background - No bloqueante)
+        // 3. Intentar cerrar sesiÃ³n en servidor (Background - No bloqueante)
         if (typeof auth !== 'undefined') {
-            console.log("📡 Enviando signOut a Firebase (Background)...");
+            console.log("ð¡ Enviando signOut a Firebase (Background)...");
             auth.signOut().then(() => {
-                 console.log("✓ Sesión cerrada en servidor");
+                 console.log("â SesiÃ³n cerrada en servidor");
             }).catch((error) => {
-                 console.warn("⚠️ Error en signOut servidor:", error.message);
+                 console.warn("â ï¸ Error en signOut servidor:", error.message);
             });
         }
     } catch (error) {
-        console.error("❌ Error crítico en logout:", error);
-        // Fallback final: Recargar página para asegurar limpieza
+        console.error("â Error crÃ­tico en logout:", error);
+        // Fallback final: Recargar pÃ¡gina para asegurar limpieza
         window.location.reload();
     }
 }
@@ -2227,7 +2227,7 @@ installBtns.forEach(btn => {
                 deferredPrompt = null;
             });
         } else {
-            alert('Para instalar:\n- Android/Chrome: Menú (⋮) > Instalar app o Agregar a inicio.\n- iOS/Safari: Compartir (cuaadrito con flecha) > Agregar a inicio.');
+            alert('Para instalar:\n- Android/Chrome: MenÃº (â®) > Instalar app o Agregar a inicio.\n- iOS/Safari: Compartir (cuaadrito con flecha) > Agregar a inicio.');
         }
     });
 });
@@ -2237,7 +2237,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = e;
     // Show the install buttons when the browser is ready to prompt
     installBtns.forEach(btn => btn.style.display = 'block');
-    console.log("📱 PWA install prompt is ready and button is visible.");
+    console.log("ð± PWA install prompt is ready and button is visible.");
 });
 
 // ==================== UNIVERSAL SIMULATOR SELECTOR ====================
@@ -2311,8 +2311,8 @@ function updateAllSimulatorSelectors() {
             // Logic for locked/premium visualization
             const canAccess = canAccessSimulacro(sim);
             let label = sim.titulo;
-            if (!canAccess) label = `🔒 ${label}`;
-            // if (sim.es_premium) label = `⭐ ${label}`;
+            if (!canAccess) label = `ð ${label}`;
+            // if (sim.es_premium) label = `â­ ${label}`;
 
             option.textContent = label;
 
@@ -2327,33 +2327,34 @@ function updateAllSimulatorSelectors() {
 
 }
 
+
+
 // === SISTEMA ANTI-FRAUDE (PROCTORING) ===
 let infracciones = 0;
 const MAX_INFRACCIONES = 2;
 
 document.addEventListener('visibilitychange', () => {
-    // Solo actuar si hay una sesi�n activa y un examen en curso
+    // Solo actuar si hay una sesion activa y un examen en curso
     if (document.visibilityState === 'hidden' && !document.getElementById('quiz-view').classList.contains('hidden')) {
         infracciones++;
-        console.warn(Infracci�n detectada: Cambio de pesta�a/app (/));
+        console.warn(Infraccion detectada: Cambio de pestana/app (/));
 
         if (infracciones >= MAX_INFRACCIONES) {
             Swal.fire({
                 icon: 'error',
                 title: 'Examen Anulado',
-                text: 'Has superado el l�mite de salidas de la aplicaci�n. Tu intento ha sido anulado por motivos de seguridad.',
+                text: 'Has superado el limite de salidas de la aplicacion. Tu intento ha sido anulado por motivos de seguridad.',
                 confirmButtonText: 'Entendido',
                 allowOutsideClick: false
             }).then(() => {
                 switchView('dashboard');
-                infracciones = 0; // Resetear para el pr�ximo intento
-                // TODO: Registrar anulaci�n en la base de datos Firestore
+                infracciones = 0;
             });
         } else {
             Swal.fire({
                 icon: 'warning',
                 title: 'Advertencia Anti-Fraude',
-                text: 'Has salido de la aplicaci�n durante el examen. Una vez m�s y el examen ser� anulado autom�ticamente.',
+                text: 'Has salido de la aplicacion durante el examen. Una vez mas y el examen sera anulado automaticamente.',
                 confirmButtonText: 'Continuar Examen',
                 allowOutsideClick: false
             });
@@ -2361,9 +2362,8 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
-// Bloquear clic derecho y men� de copiar en m�viles
+// Bloquear clic derecho y menu de copiar en moviles
 document.addEventListener('contextmenu', (e) => {
-    // Solo bloquear si est� en el examen
     if (!document.getElementById('quiz-view').classList.contains('hidden')) {
         e.preventDefault();
     }
@@ -2372,7 +2372,6 @@ document.addEventListener('contextmenu', (e) => {
 document.addEventListener('copy', (e) => {
     if (!document.getElementById('quiz-view').classList.contains('hidden')) {
         e.preventDefault();
-        Swal.fire('Atenci�n', 'No est� permitido copiar texto durante el examen.', 'warning');
+        Swal.fire('Atencion', 'No esta permitido copiar texto durante el examen.', 'warning');
     }
 });
-
