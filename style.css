@@ -1894,3 +1894,14 @@ header {
         justify-content: center;
     }
 }
+
+/* === SISTEMA ANTI-FRAUDE === */
+.quiz-container {
+    /* Bloquear seleccion de texto para evitar copiado en PC y movil */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+}
+

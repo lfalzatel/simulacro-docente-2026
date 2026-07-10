@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docente 2026 v97</title>
+    <title>EvaluaSeguro v1.0</title>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json?v=97">
@@ -32,7 +32,7 @@
                     ←
                 </button>
                 <a href="#" class="logo" onclick="location.reload()">
-                    Simulacro Docente
+                    EvaluaSeguro
                 </a>
             </div>
             <div style="position: relative;">
@@ -107,8 +107,8 @@
         <div class="login-container" id="loginPage">
             <div class="login-card">
                 <div class="app-logo">📚</div>
-                <h1 class="login-title">Simulacro Docente 2026</h1>
-                <p class="login-subtitle">Preparación para el Concurso de Ascenso y Reubicación Docente</p>
+                <h1 class="login-title">EvaluaSeguro</h1>
+                <p class="login-subtitle">Plataforma Segura de Evaluación y Simulacros</p>
 
                 <button class="google-btn" id="googleLoginBtn">
                     <svg class="google-icon" viewBox="0 0 24 24">
@@ -505,12 +505,30 @@
     <script src="quizData2.js?v=86"></script>
     <script src="quizData3.js?v=86"></script>
 
-    <!-- Supabase CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Firebase CDN (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
 
     <!-- SweetAlert2 -->
     <!-- SweetAlert2 (Fixed CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Firebase Init -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyACS4UGiV7ceM26lQWp9QSadzjkNMxvYOw",
+            authDomain: "evaluaseguro-31c51.firebaseapp.com",
+            projectId: "evaluaseguro-31c51",
+            storageBucket: "evaluaseguro-31c51.firebasestorage.app",
+            messagingSenderId: "95349219387",
+            appId: "1:95349219387:web:65bf5c691ebd916b49bc1e",
+            measurementId: "G-XPPEHFCDQH"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+    </script>
 
     <!-- App Logic -->
     <script src="app.js?v=97" defer></script>

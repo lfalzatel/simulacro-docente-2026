@@ -32,63 +32,43 @@ async function init() {
             console.error("❌ RAW_QUIZ_DATA no definido");
         }
 
-        // Init Supabase
-        if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
-            const { createClient } = window.supabase;
-            supabaseApp = createClient(SUPABASE_URL, SUPABASE_KEY);
-            console.log("✓ Supabase inicializado");
+        // Init Firebase Auth Listener
+        if (typeof auth !== 'undefined') {
+            console.log("✓ Firebase Auth inicializado");
 
-            // Listen for auth changes PRIMERO
-            supabaseApp.auth.onAuthStateChange(async (event, session) => {
-                const email = session?.user?.email || '(sin sesión)';
-                console.log(`🔔 Evento Auth: ${event} ${email}`);
-
-                if (event === 'SIGNED_IN' && session) {
-                    console.log("✓ Usuario autenticado:", session.user.email);
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    const email = user.email || '(sin sesión)';
+                    console.log(`🔔 Evento Auth: SIGNED_IN ${email}`);
+                    
                     if (window.location.hash) {
                         window.history.replaceState(null, '', window.location.pathname);
                     }
 
-                    // Debounce: Si es el mismo usuario, ignorar
-                    if (lastAuthUserId === session.user.id) {
+                    if (lastAuthUserId === user.uid) {
                         console.log("🔄 Usuario ya inicializado, omitiendo recarga dashboard.");
                         return;
                     }
-                    lastAuthUserId = session.user.id;
+                    lastAuthUserId = user.uid;
 
-                    // Solo mostrar dashboard, INITIAL_SESSION cargará los datos
-                    console.log("→ Mostrando dashboard, esperando INITIAL_SESSION para datos...");
-                    await showDashboard(session.user);
-
-                } else if (event === 'SIGNED_OUT') {
-                    console.log("→ Sesión cerrada");
-
-                    // Cleanup realtime channel
-                    if (realtimeChannel) {
-                        console.log("🔌 Desconectando sincronización en tiempo real...");
-                        await supabaseApp.removeChannel(realtimeChannel);
-                        realtimeChannel = null;
-                    }
-
+                    console.log("✓ Sesión inicial:", user.email);
+                    
+                    // Normalize user object for backward compatibility in app.js
+                    const sessionUser = { id: user.uid, email: user.email, ...user };
+                    
+                    await showDashboard(sessionUser);
+                    
+                    // Temporarily disable these until Firestore migration is complete
+                    // await cargarProgreso(sessionUser); 
+                    // await setupRealtimeSync(sessionUser); 
+                } else {
+                    console.log("→ Sesión cerrada / No hay sesión");
+                    lastAuthUserId = null;
                     showLogin();
-                } else if (event === 'INITIAL_SESSION') {
-                    if (session) {
-                        console.log("✓ Sesión inicial:", session.user.email);
-                        await showDashboard(session.user);
-                        await cargarProgreso(session.user); // Pass user from session
-                        await setupRealtimeSync(session.user); // Enable cross-device sync
-                    } else {
-                        console.log("→ No hay sesión inicial");
-                        showLogin();
-                    }
                 }
             });
-
-            // NOTE: Don't manually check session here - onAuthStateChange will fire INITIAL_SESSION
-            // Doing both causes race conditions on reload where session might not be ready yet
-
         } else {
-            console.warn("⚠ Supabase SDK no cargado. Usando modo local.");
+            console.warn("⚠ Firebase Auth no cargado. Usando modo local.");
             showLogin();
         }
 
@@ -2118,49 +2098,31 @@ async function setupRealtimeSync(user) {
         });
 }
 
-// Login con Google - CORREGIDO para PWA
+// Login con Google usando Firebase
 async function loginWithGoogle() {
-    if (!supabaseApp) {
+    if (typeof auth === 'undefined') {
         alert("Sistema de autenticación no disponible. Por favor recarga la página.");
         return;
     }
 
-    console.log("🔐 Iniciando login con Google...");
+    console.log("🔐 Iniciando login con Google (Firebase)...");
 
     try {
-        // Detect if running as installed PWA
+        const provider = new firebase.auth.GoogleAuthProvider();
+        
+        // PWA recommendation: use signInWithRedirect on mobile
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
             window.navigator.standalone ||
             document.referrer.includes('android-app://');
-
-        console.log(`📱 Modo: ${isStandalone ? 'PWA Instalada' : 'Navegador'}`);
-
-        // Use full page redirect for PWA, popup for browser
-        const redirectUrl = `${window.location.origin}${window.location.pathname}`;
-        console.log("🔗 Redirect URL:", redirectUrl);
-
-        const { data, error } = await supabaseApp.auth.signInWithOAuth({
-            provider: 'google',
-            options: {
-                redirectTo: redirectUrl,
-                skipBrowserRedirect: false, // Always use browser redirect (works in PWA)
-                queryParams: {
-                    access_type: 'offline',
-                    prompt: 'select_account',
-                }
-            }
-        });
-
-        if (error) {
-            console.error("❌ Error de login:", error);
-            alert("Error al iniciar sesión: " + error.message);
+            
+        if (isStandalone || window.innerWidth < 768) {
+             await auth.signInWithRedirect(provider);
         } else {
-            console.log("✓ Redirigiendo a Google...");
-            // The redirect happens automatically
+             await auth.signInWithPopup(provider);
         }
     } catch (error) {
         console.error("❌ Error inesperado:", error);
-        alert("Error inesperado. Por favor intenta de nuevo.");
+        alert("Error inesperado: " + error.message);
     }
 }
 
@@ -2179,11 +2141,12 @@ async function logout() {
         console.log("✓ UI limpia y reseteada");
 
         // 3. Intentar cerrar sesión en servidor (Background - No bloqueante)
-        if (supabaseApp) {
-            console.log("📡 Enviando signOut a Supabase (Background)...");
-            supabaseApp.auth.signOut().then(({ error }) => {
-                if (error) console.warn("⚠️ Error en signOut servidor:", error.message);
-                else console.log("✓ Sesión cerrada en servidor");
+        if (typeof auth !== 'undefined') {
+            console.log("📡 Enviando signOut a Firebase (Background)...");
+            auth.signOut().then(() => {
+                 console.log("✓ Sesión cerrada en servidor");
+            }).catch((error) => {
+                 console.warn("⚠️ Error en signOut servidor:", error.message);
             });
         }
     } catch (error) {
@@ -2363,3 +2326,53 @@ function updateAllSimulatorSelectors() {
     });
 
 }
+
+// === SISTEMA ANTI-FRAUDE (PROCTORING) ===
+let infracciones = 0;
+const MAX_INFRACCIONES = 2;
+
+document.addEventListener('visibilitychange', () => {
+    // Solo actuar si hay una sesi�n activa y un examen en curso
+    if (document.visibilityState === 'hidden' && !document.getElementById('quiz-view').classList.contains('hidden')) {
+        infracciones++;
+        console.warn(Infracci�n detectada: Cambio de pesta�a/app (/));
+
+        if (infracciones >= MAX_INFRACCIONES) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Examen Anulado',
+                text: 'Has superado el l�mite de salidas de la aplicaci�n. Tu intento ha sido anulado por motivos de seguridad.',
+                confirmButtonText: 'Entendido',
+                allowOutsideClick: false
+            }).then(() => {
+                switchView('dashboard');
+                infracciones = 0; // Resetear para el pr�ximo intento
+                // TODO: Registrar anulaci�n en la base de datos Firestore
+            });
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia Anti-Fraude',
+                text: 'Has salido de la aplicaci�n durante el examen. Una vez m�s y el examen ser� anulado autom�ticamente.',
+                confirmButtonText: 'Continuar Examen',
+                allowOutsideClick: false
+            });
+        }
+    }
+});
+
+// Bloquear clic derecho y men� de copiar en m�viles
+document.addEventListener('contextmenu', (e) => {
+    // Solo bloquear si est� en el examen
+    if (!document.getElementById('quiz-view').classList.contains('hidden')) {
+        e.preventDefault();
+    }
+});
+
+document.addEventListener('copy', (e) => {
+    if (!document.getElementById('quiz-view').classList.contains('hidden')) {
+        e.preventDefault();
+        Swal.fire('Atenci�n', 'No est� permitido copiar texto durante el examen.', 'warning');
+    }
+});
+
