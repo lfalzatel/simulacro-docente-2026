@@ -1,14 +1,27 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Regla global (temporal): Solo permite lectura y escritura si el usuario inició sesión
-    match /{document=**} {
-      allow read, write: if request.auth != null;
+
+    function getRol() {
+      return get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.rol;
     }
-    
-    // Aquí podemos añadir reglas más específicas luego, por ejemplo:
-    // match /usuarios/{userId} {
-    //   allow read, write: if request.auth != null && request.auth.uid == userId;
-    // }
+
+    match /usuarios/{userId} {
+      allow read: if request.auth != null;
+      allow update: if request.auth.uid == userId
+                    || getRol() == 'admin'
+                    || (getRol() == 'profesor' && request.resource.data.rol == 'estudiante');
+      allow create: if request.auth.uid == userId; // Permitir que un nuevo usuario se cree a sí mismo en el primer login
+    }
+
+    match /examenes/{examenId} {
+      allow read: if request.auth != null;
+      allow create, update: if getRol() in ['profesor', 'admin'];
+
+      match /intentos/{estudianteUid} {
+        allow read: if request.auth.uid == estudianteUid || getRol() in ['profesor','admin'];
+        allow update: if request.auth.uid == estudianteUid || getRol() in ['profesor','admin'];
+      }
+    }
   }
 }
