@@ -21,14 +21,15 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 // Initialize App
 async function init() {
     try {
-        console.log("ð Iniciando aplicaciÃ³n...");
+        console.log("🚀 Iniciando aplicación...");
 
         // Load quiz data FIRST
         if (typeof RAW_QUIZ_DATA !== 'undefined') {
             quizData = RAW_QUIZ_DATA.questions;
+        }
     } catch (error) {
-        console.error("â Error crÃ­tico en logout:", error);
-        // Fallback final: Recargar pÃ¡gina para asegurar limpieza
+        console.error("❌ Error crítico en init:", error);
+        // Fallback final: Recargar página para asegurar limpieza
         window.location.reload();
     }
 }
