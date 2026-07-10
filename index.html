@@ -500,6 +500,25 @@
     <!-- Floating Save Status -->
     <div id="save-status"></div>
 
+    <!-- Menú Inferior (Bottom Nav) -->
+    <nav class="bottom-nav glass hidden" id="bottomNav">
+        <button class="nav-item active" data-view="simulacros" onclick="switchView('dashboard')">
+            <span class="nav-icon">📝</span><span class="nav-label">Simulacros</span>
+        </button>
+
+        <!-- Solo visible si userRole === 'profesor' o 'admin' -->
+        <button class="nav-item nav-profesor" data-view="mis-examenes" onclick="alert('Módulo de exámenes en desarrollo')">
+            <span class="nav-icon">📋</span><span class="nav-label">Mis Exámenes</span>
+        </button>
+        <button class="nav-item nav-profesor" data-view="estudiantes" onclick="alert('Módulo de estudiantes en desarrollo')">
+            <span class="nav-icon">👥</span><span class="nav-label">Estudiantes</span>
+        </button>
+
+        <button class="nav-item" data-view="perfil" onclick="switchView('profile')">
+            <span class="nav-icon">👤</span><span class="nav-label">Perfil</span>
+        </button>
+    </nav>
+
     <!-- Data Scripts -->
     <script src="quizData.js?v=86"></script>
     <script src="quizData2.js?v=86"></script>
