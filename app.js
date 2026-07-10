@@ -78,7 +78,7 @@ async function init() {
                     renderBottomNav(userRole);
                     
                     // Temporarily disable these until Firestore migration is complete
-                    // await cargarProgreso(sessionUser); 
+                    await cargarProgreso(sessionUser); 
                     // await setupRealtimeSync(sessionUser); 
                 } else {
                     console.log("â SesiÃ³n cerrada / No hay sesiÃ³n");
@@ -1888,12 +1888,12 @@ function cargarProgresoLocal() {
             }
 
             const answerCount = Object.keys(userProgress).filter(k => k !== 'totalTime' && k !== 'safeLastIndex').length;
-            console.log(`Ã¢ÂÂ Progreso local (${key}): ${answerCount} respuestas, Score: ${score}`);
+            console.log(`Ã¢ÂœÂ“ Progreso local (${key}): ${answerCount} respuestas, Score: ${score}`);
         } catch (e) {
-            console.error('Ã¢ÂÂ Error al parsear progreso local:', e);
+            console.error('Ã¢Â ÂŒ Error al parsear progreso local:', e);
         }
     } else {
-        console.log(`Ã¢ÂÂ¹Ã¯Â¸Â No hay progreso local en ${key}`);
+        console.log(`Ã¢Â„Â¹Ã¯Â¸Â  No hay progreso local en ${key}`);
         // Reset if starting fresh simulator
         if (currentSimulacroId) {
             userProgress = {};
@@ -1910,25 +1910,13 @@ async function setupRealtimeSync(user) {}
 // Login con Google usando Firebase
 async function loginWithGoogle() {
     if (typeof auth === 'undefined') {
-        alert("Sistema de autenticaciÃÂ³n no disponible. Por favor recarga la pÃÂ¡gina.");
+        alert("Sistema de autenticación no disponible. Por favor recarga la página.");
         return;
     }
-
-    console.log("Ã°ÂÂÂ Iniciando login con Google (Firebase)...");
-
+    console.log("Iniciando login con Google (Firebase)...");
     try {
         const provider = new firebase.auth.GoogleAuthProvider();
-        
-        // PWA recommendation: use signInWithRedirect on mobile
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
-            window.navigator.standalone ||
-            document.referrer.includes('android-app://');
-            
-        if (isStandalone || window.innerWidth < 768) {
-             await auth.signInWithRedirect(provider);
-        } else {
-             await auth.signInWithPopup(provider);
-        }
+        await auth.signInWithPopup(provider);
     } catch (error) {
         console.error("Ã¢ÂÂ Error inesperado:", error);
         alert("Error inesperado: " + error.message);
@@ -2198,5 +2186,6 @@ function renderBottomNav(role) {
     document.querySelectorAll('.nav-profesor')
         .forEach(el => el.style.display = (role === 'profesor' || role === 'admin') ? 'flex' : 'none');
 }
+
 
 
