@@ -526,12 +526,12 @@
             measurementId: "G-XPPEHFCDQH"
         };
         firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-        const auth = firebase.auth();
+        window.db = firebase.firestore();
+        window.auth = firebase.auth();
     </script>
 
     <!-- App Logic -->
-    <script src="app.js?v=97" defer></script>
+    <script src="app.js?v=98" defer></script>
     <script>
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
