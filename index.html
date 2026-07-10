@@ -37,9 +37,12 @@
             </div>
             <div style="position: relative;">
                 <button class="profile-button" id="profileBtn" aria-label="Perfil">
-                    <img id="user-avatar" src="" alt="User" style="display: none;">
-                    <div id="user-initials" class="user-initials" style="display: none;"></div>
-                    <span class="version-tag">Experto v97</span>
+                    <div class="profile-avatar">
+                        <img id="user-avatar" src="" alt="User" style="display: none;">
+                        <div id="user-initials" class="user-initials" style="display: none;"></div>
+                    </div>
+                    <span class="profile-first-name" id="userFirstName">Usuario</span>
+                    <span class="profile-chevron">▾</span>
                 </button>
                 <div class="profile-menu" id="profileMenu">
                     <div class="profile-info" onclick="switchView('profile')" style="cursor: pointer;">
@@ -477,6 +480,37 @@
         </div>
 
         <!-- Documentation View -->
+
+        <!-- Profesor View: Mis Exámenes -->
+        <div id="profesor-examenes-view" class="dashboard hidden">
+            <div class="welcome-section admin-hero">
+                <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h1 class="welcome-title">Mis Exámenes</h1>
+                        <p class="welcome-text">Crea y gestiona exámenes y simulacros para tus grupos.</p>
+                    </div>
+                    <button class="primary-btn" onclick="openCreateExamenModal()">
+                        <span class="btn-icon">+</span> Nuevo Examen
+                    </button>
+                </div>
+            </div>
+
+            <div class="section-container" style="margin-top: 1rem;">
+                <div class="filter-bar" style="margin-bottom: 1rem; display: flex; gap: 1rem;">
+                    <select id="filtroGrupo" class="form-select" onchange="renderProfesorExamenes()">
+                        <option value="todos">Todos los grupos</option>
+                        <option value="7A">Grupo 7A</option>
+                        <option value="8B">Grupo 8B</option>
+                        <option value="10A">Grupo 10A</option>
+                    </select>
+                </div>
+                
+                <div id="profesor-examenes-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="loader-container"><div class="dot-loader"></div></div>
+                </div>
+            </div>
+        </div>
+
         <div id="docs-view" class="dashboard hidden">
             <div class="welcome-section">
                 <h1 class="welcome-title">Documentación Oficial</h1>
@@ -507,7 +541,7 @@
         </button>
 
         <!-- Solo visible si userRole === 'profesor' o 'admin' -->
-        <button class="nav-item nav-profesor" data-view="mis-examenes" onclick="alert('Módulo de exámenes en desarrollo')">
+        <button class="nav-item nav-profesor" data-view="profesor-examenes">
             <span class="nav-icon">📋</span><span class="nav-label">Mis Exámenes</span>
         </button>
         <button class="nav-item nav-profesor" data-view="estudiantes" onclick="alert('Módulo de estudiantes en desarrollo')">
@@ -592,6 +626,58 @@
             });
         }
     </script>
+
+    <!-- Modal: Crear Examen -->
+    <div id="create-examen-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-modal">
+            <div class="modal-header">
+                <h2>Crear Nuevo Examen</h2>
+                <button class="close-modal" onclick="closeCreateExamenModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-crear-examen" onsubmit="event.preventDefault(); submitCrearExamen();">
+                    <div class="form-group">
+                        <label for="new-examen-title">Título del Examen</label>
+                        <input type="text" id="new-examen-title" class="form-input" placeholder="Ej: Simulacro Final 7A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-examen-grupo">Grupo Asignado</label>
+                        <select id="new-examen-grupo" class="form-select" required>
+                            <option value="" disabled selected>Selecciona un grupo</option>
+                            <option value="7A">7A</option>
+                            <option value="8B">8B</option>
+                            <option value="10A">10A</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-examen-banco">Banco de Preguntas</label>
+                        <select id="new-examen-banco" class="form-select" required>
+                            <option value="quizData">Simulador Docente (Principal)</option>
+                            <option value="quizData2">Conocimientos Pedagógicos</option>
+                            <option value="quizData3">Razonamiento Lógico</option>
+                        </select>
+                    </div>
+                    <div class="form-row" style="display: flex; gap: 1rem;">
+                        <div class="form-group" style="flex: 1;">
+                            <label for="new-examen-num-preg">Cant. Preguntas</label>
+                            <input type="number" id="new-examen-num-preg" class="form-input" placeholder="Todas">
+                            <small>Deja vacío para usar el banco completo</small>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label for="new-examen-duracion">Tiempo (Minutos)</label>
+                            <input type="number" id="new-examen-duracion" class="form-input" placeholder="Sin límite">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 1rem;">
+                        <button type="button" class="secondary-btn" onclick="closeCreateExamenModal()">Cancelar</button>
+                        <button type="submit" class="primary-btn">Crear y Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
