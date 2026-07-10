@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Regla global (temporal): Solo permite lectura y escritura si el usuario inició sesión
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Aquí podemos añadir reglas más específicas luego, por ejemplo:
+    // match /usuarios/{userId} {
+    //   allow read, write: if request.auth != null && request.auth.uid == userId;
+    // }
+  }
+}
