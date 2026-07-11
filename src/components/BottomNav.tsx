@@ -24,11 +24,12 @@ export function BottomNav() {
           <Link
             key={item.id}
             to={item.path}
-            className={`nav-item ${isActive ? "active" : ""}`}
+            className={`bottom-nav-item ${isActive ? "active" : ""}`}
             style={{ textDecoration: 'none' }}
           >
-            {item.icon}
-            <span>{item.label}</span>
+            <div className="nav-icon">{item.icon}</div>
+            <span className="nav-label">{item.label}</span>
+            <div className="nav-ripple"></div>
           </Link>
         );
       })}

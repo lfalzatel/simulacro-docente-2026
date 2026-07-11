@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { simulacrosCatalog } from "../data/simulacrosCatalog";
 
 export default function Inicio() {
-  const { currentUser } = useAuth();
+  const { currentUser, appRole } = useAuth();
   const navigate = useNavigate();
   const firstName = currentUser?.displayName?.split(" ")[0] || "Estudiante";
 
@@ -75,29 +75,49 @@ export default function Inicio() {
       {/* Tarjetas de simulacros */}
       <div className="simulacros-section">
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1rem' }}>Selecciona un Simulacro</h2>
-        <div className="simulacros-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          {simulacrosCatalog.map((sim, idx) => (
-            <div 
-              key={sim.id} 
-              onClick={() => navigate('/examenes')}
-              style={{
-                background: 'var(--bg-card)', padding: '1.25rem', borderRadius: '16px',
-                border: '1px solid var(--border)', cursor: 'pointer',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.03)', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
-              }}
-            >
-              <div>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-color)', marginBottom: '0.25rem' }}>{sim.descripcion}</div>
-                <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>{sim.titulo}</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
-                  {sim.preguntas} preguntas • Dificultad: {sim.dificultad}
+        <div className="simulacros-grid">
+          {simulacrosCatalog.map((sim) => {
+            // Check access: ADMIN or FREE? If free, premium is locked.
+            const userRole = appRole || 'FREE';
+            const canAccess = !sim.es_premium || userRole === 'ADMIN';
+            
+            // Mock percentage for now, ideally fetched from localStorage or Firebase
+            const pct = 0;
+            const answered = 0;
+
+            return (
+              <div key={sim.id} className="simulacro-card" style={{ opacity: canAccess ? 1 : 0.8 }}>
+                <div className="simulacro-card-left">
+                  <div className="simulacro-card-emoji">{sim.emoji || '📋'}</div>
+                  <div className="simulacro-card-title">{sim.titulo}</div>
+                  <div className="simulacro-card-desc">{sim.descripcion || ''}</div>
+                  <div className="simulacro-card-desc" style={{ marginTop: '0.35rem', fontSize: '0.72rem' }}>
+                    📝 {sim.preguntas} preguntas
+                    {sim.es_premium ? (
+                      <span> · <span style={{ color: '#f59e0b', fontWeight: 700 }}>PREMIUM</span></span>
+                    ) : (
+                      <span> · <span style={{ color: '#00b894', fontWeight: 700 }}>GRATIS</span></span>
+                    )}
+                  </div>
+                </div>
+                <div className="simulacro-card-progress">
+                  <div className="progress-ring-text">{pct}%</div>
+                  <div className="progress-bar-mini">
+                    <div className="progress-bar-mini-fill" style={{ width: `${pct}%` }}></div>
+                  </div>
+                  {canAccess ? (
+                    <button className="start-btn" onClick={() => navigate('/examenes')}>
+                      {answered > 0 ? 'Continuar' : 'Iniciar'}
+                    </button>
+                  ) : (
+                    <button className="start-btn" style={{ background: '#b2bec3', cursor: 'not-allowed' }} disabled>
+                      🔒 Premium
+                    </button>
+                  )}
                 </div>
               </div>
-              <div style={{ fontSize: '1.5rem', color: 'var(--border)' }}>
-                {idx === 0 ? '📝' : idx === 1 ? '⚖️' : '🎓'}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

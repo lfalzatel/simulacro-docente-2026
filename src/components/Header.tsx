@@ -77,7 +77,7 @@ export function Header() {
             <ChevronDown size={14} />
           </button>
 
-          <div className={`header-dropdown glass ${dropdownOpen ? "open" : ""}`} style={{ display: dropdownOpen ? 'flex' : 'none' }}>
+          <div className={`header-dropdown glass ${dropdownOpen ? "open" : ""}`}>
             <div className="dropdown-user-info" onClick={() => { setDropdownOpen(false); navigate("/perfil"); }}>
               <div className="dropdown-avatar-wrap">
                 {photo ? (
