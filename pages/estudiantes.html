@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaluaSeguro — Estudiantes</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00cec9">
+    <link rel="icon" type="image/png" href="/assets/icon-192-sq.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background: var(--bg-body, #f4f1eb); }
+        .page-content { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; padding-bottom: 100px; }
+        
+        .page-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .page-title { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+        .page-subtitle { font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.2rem; }
+
+        .btn-primary {
+            background: #00cec9; color: white; border: none;
+            padding: 0.75rem 1.25rem; border-radius: 12px;
+            font-weight: 600; cursor: pointer; transition: background 0.2s;
+        }
+        .btn-primary:hover { background: #01b1ad; }
+
+        .data-card {
+            background: var(--bg-card, white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid var(--glass-border, rgba(0,0,0,0.06));
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .student-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .student-table th { text-align: left; padding: 1rem; border-bottom: 2px solid var(--glass-border); color: var(--text-secondary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+        .student-table td { padding: 1rem; border-bottom: 1px solid var(--glass-border); color: var(--text-primary); font-size: 0.9rem; }
+        .student-table tr:hover td { background: rgba(0,0,0,0.02); }
+
+        .empty-state {
+            text-align: center; padding: 3rem 1rem; color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+<script src="/js/components/firebase-init.js"></script>
+<script src="/js/components/header.js"></script>
+<script src="/js/components/bottom-nav.js"></script>
+<script src="/js/components/auth-guard.js"></script>
+
+<div class="page-content" id="page-content" style="display:none;">
+    
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">👥 Estudiantes</h1>
+            <p class="page-subtitle">Gestión de usuarios y resultados de tus alumnos.</p>
+        </div>
+        <button class="btn-primary" onclick="Swal.fire('Próximamente', 'La función de invitar alumnos estará disponible en la próxima versión.', 'info')">
+            + Invitar Alumno
+        </button>
+    </div>
+
+    <div class="data-card">
+        <table class="student-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Progreso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="student-list">
+                <!-- Se llenará con JS -->
+            </tbody>
+        </table>
+        
+        <div id="empty-msg" class="empty-state">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
+            <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Aún no tienes estudiantes</h3>
+            <p>Aquí aparecerán los alumnos registrados bajo tu cargo.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    authGuard(function(user, role) {
+        if (role !== 'profesor' && role !== 'admin') {
+            window.location.href = '/pages/inicio.html';
+            return;
+        }
+
+        if (typeof populateHeader === 'function') populateHeader(user, role);
+        if (typeof renderBottomNav === 'function') renderBottomNav(role);
+        document.getElementById('page-content').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>

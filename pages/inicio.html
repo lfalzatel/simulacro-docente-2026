@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaluaSeguro — Inicio</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00cec9">
+    <link rel="icon" type="image/png" href="/assets/icon-192-sq.png">
+    <link rel="apple-touch-icon" href="/assets/icon-192-sq.png">
+    <meta name="description" content="Simulacros y preparación para el concurso docente 2026.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-body, #f4f1eb); }
+
+        .page-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        /* Bienvenida */
+        .welcome-banner {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .welcome-banner h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary, #2d3436);
+            margin-bottom: 0.4rem;
+        }
+        .welcome-banner h1 span { color: #00cec9; }
+        .welcome-banner p {
+            font-size: 0.85rem;
+            color: var(--text-secondary, #636e72);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .features-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.25rem;
+        }
+        .feature-pill {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-secondary, #636e72);
+            background: rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 20px;
+            padding: 0.25rem 0.65rem;
+            white-space: nowrap;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            text-align: center;
+        }
+        .stat-icon { font-size: 1.5rem; }
+        .stat-value { font-size: 1.4rem; font-weight: 800; color: var(--text-primary, #2d3436); }
+        .stat-label { font-size: 0.72rem; color: var(--text-secondary, #636e72); font-weight: 500; }
+
+        /* Selector simulacro */
+        .selector-section { margin-bottom: 1.5rem; }
+        .selector-label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary, #636e72);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .sim-select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 14px;
+            border: 1.5px solid rgba(0,0,0,0.1);
+            background: white;
+            color: var(--text-primary, #2d3436);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23636e72' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        .sim-select:focus { outline: none; border-color: #00cec9; box-shadow: 0 0 0 3px rgba(0,206,201,0.15); }
+
+        /* Tarjetas de simulacro */
+        .simulacros-section h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary, #2d3436);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .simulacros-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+
+        .simulacro-card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.25rem;
+            border: 1.5px solid rgba(0,0,0,0.07);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+        }
+        .simulacro-card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border-color: #00cec9;
+            transform: translateY(-1px);
+        }
+        .simulacro-card.locked { opacity: 0.7; }
+
+        .simulacro-card-left { flex: 1; min-width: 0; }
+        .simulacro-card-emoji { font-size: 1.5rem; margin-bottom: 0.3rem; }
+        .simulacro-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary, #2d3436);
+            margin-bottom: 0.25rem;
+        }
+        .simulacro-card-desc {
+            font-size: 0.78rem;
+            color: var(--text-secondary, #636e72);
+            line-height: 1.4;
+        }
+        .simulacro-card-progress {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.4rem;
+            flex-shrink: 0;
+        }
+        .progress-ring-text { font-size: 1rem; font-weight: 800; color: #00cec9; }
+        .progress-bar-mini {
+            width: 60px; height: 5px;
+            background: rgba(0,0,0,0.08);
+            border-radius: 4px; overflow: hidden;
+        }
+        .progress-bar-mini-fill {
+            height: 100%; background: #00cec9;
+            border-radius: 4px; transition: width 0.5s ease;
+        }
+        .start-btn {
+            background: #00cec9; color: white;
+            border: none; border-radius: 12px;
+            padding: 0.6rem 1.1rem;
+            font-size: 0.82rem; font-weight: 700;
+            cursor: pointer; white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .start-btn:hover { background: #00b5b0; transform: scale(1.03); }
+        .start-btn:disabled { background: #b2bec3; cursor: not-allowed; transform: none; }
+
+        /* Skeleton loader */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-load 1.2s infinite;
+            border-radius: 12px; height: 80px;
+        }
+        @keyframes skeleton-load {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Quiz */
+        .quiz-header {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1rem; background: white;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            position: sticky; top: 60px; z-index: 10;
+        }
+        .back-btn {
+            background: none; border: none;
+            font-size: 1.3rem; cursor: pointer;
+            padding: 0.25rem; border-radius: 8px;
+        }
+        .back-btn:hover { background: rgba(0,0,0,0.05); }
+        .progress-track {
+            height: 4px; background: rgba(0,0,0,0.08);
+            margin: 0;
+        }
+        .progress-fill {
+            height: 100%; background: #00cec9;
+            transition: width 0.3s ease;
+        }
+        .question-text {
+            padding: 1.5rem 1rem;
+            font-size: 1rem; font-weight: 600;
+            line-height: 1.6;
+            color: var(--text-primary, #2d3436);
+            max-width: 700px; margin: 0 auto;
+        }
+        .options-grid {
+            display: flex; flex-direction: column; gap: 0.6rem;
+            padding: 0 1rem 1rem;
+            max-width: 700px; margin: 0 auto;
+        }
+        .option-btn {
+            width: 100%; text-align: left;
+            padding: 0.9rem 1.1rem;
+            background: white;
+            border: 1.5px solid rgba(0,0,0,0.1);
+            border-radius: 14px;
+            font-size: 0.9rem; font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .option-btn:not(:disabled):hover { border-color: #00cec9; background: rgba(0,206,201,0.04); }
+        .option-btn.correct  { border-color: #00b894; background: rgba(0,184,148,0.1); color: #00b894; font-weight: 600; }
+        .option-btn.incorrect { border-color: #d63031; background: rgba(214,48,49,0.1); color: #d63031; font-weight: 600; }
+        .rationale-box {
+            margin: 0 1rem 1rem;
+            padding: 1rem;
+            background: rgba(0,206,201,0.07);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary, #636e72);
+            line-height: 1.5;
+            border-left: 3px solid #00cec9;
+            max-width: 700px; margin-left: auto; margin-right: auto;
+        }
+        .hint-box {
+            margin: 0 1rem 1rem;
+            padding: 0.75rem 1rem;
+            background: rgba(253,203,110,0.15);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: #636e72;
+            border-left: 3px solid #fdcb6e;
+        }
+        .action-row {
+            display: flex; justify-content: flex-end; gap: 0.75rem;
+            padding: 1rem;
+            max-width: 700px; margin: 0 auto;
+        }
+        .prev-btn, .hint-trigger, .next-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px; border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem; font-weight: 600;
+            cursor: pointer;
+        }
+        .prev-btn { background: white; border: 1px solid rgba(0,0,0,0.1); color: var(--text-secondary, #636e72); }
+        .hint-trigger { background: rgba(253,203,110,0.2); color: #b7860b; }
+        .next-btn { background: #00cec9; color: white; }
+
+        /* Resultados */
+        .results-container {
+            max-width: 500px; margin: 3rem auto;
+            padding: 2rem 1rem; text-align: center;
+        }
+        .score-circle {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            background: #00cec9; color: white;
+            font-size: 2rem; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 24px rgba(0,206,201,0.3);
+        }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- Scripts universales -->
+<script src="/js/components/firebase-init.js"></script>
+<script src="/js/components/header.js"></script>
+<script src="/js/components/bottom-nav.js"></script>
+<script src="/js/components/auth-guard.js"></script>
+
+<!-- Datos del quiz -->
+<script src="/js/data/quizData.js"></script>
+<script src="/js/data/quizData2.js"></script>
+<script src="/js/data/quizData3.js"></script>
+
+<!-- Contenido principal -->
+<div class="page-content" id="page-content" style="display:none;">
+
+    <!-- Banner de bienvenida -->
+    <div class="welcome-banner">
+        <h1>¡Hola, <span id="welcome-name">Estudiante</span>! 👋</h1>
+        <p>Continúa tu preparación para el concurso docente 2026. Tu progreso se guarda automáticamente.</p>
+        <div class="features-pills">
+            <span class="feature-pill">📝 200+ preguntas</span>
+            <span class="feature-pill">🎯 3 Simulacros</span>
+            <span class="feature-pill">☁️ Progreso en la nube</span>
+            <span class="feature-pill">💡 Retroalimentación profunda</span>
+        </div>
+    </div>
+
+    <!-- Estadísticas rápidas -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-value" id="stat-score">-</div>
+            <div class="stat-label">Puntaje Total</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">📈</div>
+            <div class="stat-value" id="stat-questions">0</div>
+            <div class="stat-label">Preguntas Respondidas</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">⏱️</div>
+            <div class="stat-value" id="stat-time">00:00:00</div>
+            <div class="stat-label">Tiempo Estudiado</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-value" id="stat-progress">0%</div>
+            <div class="stat-label">Progreso Total</div>
+        </div>
+    </div>
+
+    <!-- Selector de análisis -->
+    <div class="selector-section">
+        <label class="selector-label" for="dashboard-sim-selector">Analizar progreso de:</label>
+        <select id="dashboard-sim-selector" class="sim-select" onchange="onSelectorChange(this.value)">
+            <option value="" disabled selected>Cargando simulacros...</option>
+        </select>
+    </div>
+
+    <!-- Tarjetas de simulacros -->
+    <div class="simulacros-section">
+        <h2>Selecciona un Simulacro</h2>
+        <div id="simulacro-selector" class="simulacros-grid">
+            <div class="skeleton"></div>
+            <div class="skeleton" style="height:60px; opacity:0.6;"></div>
+            <div class="skeleton" style="height:60px; opacity:0.3;"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Vista del quiz -->
+<div id="quiz-view" class="hidden">
+    <div class="quiz-header">
+        <button class="back-btn" onclick="exitQuiz()" title="Volver">⬅️</button>
+        <span id="quiz-title-display" style="font-weight:700; flex:1;">Simulacro</span>
+        <span id="question-count" style="font-size:0.82rem; color:#636e72;">Pregunta 1 de 1</span>
+    </div>
+    <div class="progress-track">
+        <div class="progress-fill" id="progress-bar" style="width:0%"></div>
+    </div>
+    <div class="question-text" id="q-text">Cargando pregunta...</div>
+    <div class="options-grid" id="options"></div>
+    <div id="rationale-box" class="rationale-box" style="display:none;"></div>
+    <div id="hint-text" class="hint-box" style="display:none;"></div>
+    <div class="action-row">
+        <button id="prev-btn" class="prev-btn" onclick="prevQuestion()" style="display:none;">← Anterior</button>
+        <button id="hint-trigger" class="hint-trigger" onclick="toggleHint()" style="display:none;">💡 Ver Pista</button>
+        <button id="next-btn" class="next-btn" onclick="nextQuestion()" style="display:none;">Siguiente →</button>
+    </div>
+</div>
+
+<!-- Vista de resultados -->
+<div id="results-view" class="results-container hidden">
+    <div class="score-circle" id="final-score">0%</div>
+    <h2 style="font-size:1.4rem; font-weight:800; margin-bottom:0.75rem;">¡Resultados Listos!</h2>
+    <p id="results-text" style="color:#636e72; margin-bottom:1.5rem;">Resumen de tu desempeño.</p>
+    <button class="start-btn" onclick="restartQuiz()" style="width:100%; margin-bottom:0.75rem;">Reiniciar Simulacro</button>
+    <button class="start-btn" onclick="exitQuiz()" style="width:100%; background:#636e72;">Volver al Inicio</button>
+</div>
+
+<!-- Lógica de inicio.js -->
+<script src="/js/pages/inicio.js"></script>
+<script>
+    authGuard(function(user, role) {
+        // Inyectar header y nav
+        if (typeof populateHeader === 'function') populateHeader(user, role);
+        if (typeof renderBottomNav === 'function') renderBottomNav(role);
+
+        // Mostrar página
+        document.getElementById('page-content').style.display = 'block';
+
+        // Nombre de bienvenida
+        const name = (user.displayName || user.email.split('@')[0]).split(' ')[0];
+        document.getElementById('welcome-name').textContent = name;
+
+        // Inicializar simulacros
+        inicioInit(user, role);
+    });
+</script>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+</script>
+
+</body>
+</html>

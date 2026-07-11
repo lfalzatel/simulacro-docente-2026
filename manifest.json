@@ -1,31 +1,37 @@
 {
-    "name": "Simulacro Docente 2026",
-    "short_name": "Simulacro",
-    "description": "Simulador avanzado de preparación para el concurso docente 2026.",
-    "start_url": "./index.html",
+    "name": "EvaluaSeguro",
+    "short_name": "EvaluaSeguro",
+    "description": "Plataforma segura de evaluación y simulacros para el concurso docente 2026.",
+    "start_url": "./pages/login.html",
     "id": "./",
     "display": "standalone",
     "prefer_related_applications": false,
-    "background_color": "#1a2a6c",
-    "theme_color": "#4CAF50",
+    "background_color": "#f4f1eb",
+    "theme_color": "#00cec9",
     "icons": [
         {
-            "src": "icon-192-sq.png",
+            "src": "assets/icon-192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
-            "src": "icon-512-sq.png",
+            "src": "assets/icon-192-sq.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "assets/icon-512.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
-            "src": "app_icon_final.svg",
-            "sizes": "any",
-            "type": "image/svg+xml",
-            "purpose": "any maskable"
+            "src": "assets/icon-512-sq.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ]
 }

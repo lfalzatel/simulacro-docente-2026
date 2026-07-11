@@ -71,32 +71,29 @@
 
 /* Deep Focus Theme */
 [data-theme="deep"] {
-    --bg-body-start: #E6ECEB;
-    --bg-body-end: #D3DCDB;
-    --bg-card: #FAFBFC;
-    --bg-header: rgba(250, 251, 252, 0.95);
-    --bg-overlay-Start: rgba(44, 62, 80, 0.08);
-    --bg-overlay-End: rgba(5, 150, 105, 0.08);
+    --bg-body-start: #0f172a;
+    --bg-body-end: #1e1b4b;
+    --bg-card: #1e293b;
+    --bg-header: rgba(15, 23, 42, 0.95);
+    --bg-overlay-Start: rgba(139, 92, 246, 0.05);
+    --bg-overlay-End: rgba(236, 72, 153, 0.05);
 
-    --text-primary: #1F2937;
-    /* Darker gray for better contrast */
-    --text-secondary: #6B7280;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-inverse: #0f172a;
 
-    --accent-primary: #059669;
-    /* Emerald green for concentration */
-    --accent-secondary: #0891B2;
-    /* Vibrant cyan */
-    --highlight: #F59E0B;
-    --border-color: #D1D5DB;
+    --accent-primary: #8b5cf6; /* Violet */
+    --accent-secondary: #ec4899; /* Pink */
+    --highlight: #f472b6;
+    --border-color: #334155;
 
-    /* Surface and shadows for better depth */
-    --surface: #FFFFFF;
-    --shadow-color: rgba(0, 0, 0, 0.12);
+    --surface: #1e293b;
+    --shadow-color: rgba(0, 0, 0, 0.4);
 
-    --glass-bg: rgba(250, 251, 252, 0.55);
-    --glass-bg-strong: rgba(250, 251, 252, 0.75);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    --glass-bg: rgba(30, 27, 75, 0.55);
+    --glass-bg-strong: rgba(30, 27, 75, 0.82);
+    --glass-border: rgba(139, 92, 246, 0.25);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Night Mode */
@@ -201,6 +198,7 @@ body::before {
 
 .container {
     position: relative;
+    padding-bottom: 100px; /* Evita que el menú inferior tape el contenido */
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
@@ -2004,20 +2002,37 @@ header {
 }
 
 .nav-item {
-    background: none; border: none;
-    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    position: relative;
+    padding: 0.5rem 1.2rem;
     color: var(--text-secondary);
-    padding: 0.4rem 0.8rem;
-    border-radius: var(--r-sm);
-    transition: all 0.25s var(--ease-spring);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
     cursor: pointer;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 20px;
+}
+.nav-item:active {
+    transform: scale(0.92);
 }
 
+
 .nav-item.active {
-    color: var(--text-inverse);
-    background: var(--accent-primary);
-    animation: push-settle 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: var(--accent-color);
+    background: rgba(139, 154, 126, 0.15); /* Flowi style active pill */
+    transform: translateY(-3px);
 }
+.nav-item.active .nav-icon {
+    transform: scale(1.15);
+    color: var(--accent-color);
+}
+
 
 @keyframes push-settle {
     0%   { transform: scale(1); }
@@ -2359,3 +2374,163 @@ header {
 }
 input:checked + .slider { background-color: var(--accent-primary); }
 input:checked + .slider:before { transform: translateX(20px); }
+
+/* =========================================
+   UI ESTILO FLOWI (MENU Y DROPDOWN)
+========================================= */
+
+/* Dropdown Redesign */
+.profile-menu {
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+}
+.profile-header-flowi {
+    background: linear-gradient(135deg, rgba(139,154,126,0.1), rgba(139,154,126,0.3));
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.flowi-menu-list {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+}
+.flowi-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: background 0.2s ease;
+}
+.flowi-menu-item:hover {
+    background: var(--bg-hover);
+}
+.flowi-menu-item svg {
+    flex-shrink: 0;
+}
+
+/* Toggle Switch (Notificaciones) */
+.toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+}
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.toggle-switch label {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+.toggle-switch label:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+.toggle-switch input:checked + label {
+    background-color: var(--accent-color);
+}
+.toggle-switch input:checked + label:before {
+    transform: translateX(20px);
+}
+
+/* Flowi Grid Menu */
+.flowi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 4px;
+}
+.flowi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.flowi-card:active {
+    transform: scale(0.96);
+}
+.flowi-icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flowi-label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+.flowi-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+}
+.flowi-badge.nuevo {
+    background: #00b894;
+    color: white;
+}
+.flowi-badge.pronto {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+/* Glassmorphism Styles Flowi */
+.flowi-glass-header {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0.5rem !important;
+}
+.flowi-dropdown-glass {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.4) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+    border-radius: 24px !important;
+}
+.bottom-nav.glass {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
+}

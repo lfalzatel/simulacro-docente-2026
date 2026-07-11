@@ -59,6 +59,9 @@ async function init() {
                             const userDoc = await userRef.get();
                             if (userDoc.exists) {
                                 userRole = userDoc.data().rol || 'free';
+                            if (userDoc.data().grupoId) {
+                                localStorage.setItem('estudianteGrupo', userDoc.data().grupoId);
+                            }
                             } else {
                                 userRole = 'free';
                                 await userRef.set({
@@ -970,53 +973,68 @@ function showReports() {
 }
 
 function switchView(viewId) {
-    document.getElementById('dashboard').classList.add('hidden');
-    document.getElementById('docs-view').classList.add('hidden');
-    document.getElementById('quiz-view').classList.add('hidden');
-    document.getElementById('results-view').classList.add('hidden');
-    document.getElementById('profile-view').classList.add('hidden');
-    document.getElementById('reports-view').classList.add('hidden');
-    document.getElementById('admin-view').classList.add('hidden');
-
-    if (viewId === 'docs') {
-        document.getElementById('docs-view').classList.remove('hidden');
-    } else if (viewId === 'dashboard') {
-        document.getElementById('dashboard').classList.remove('hidden');
-        updateDashboardStats();
-    } else if (viewId === 'profile') {
-        document.getElementById('profile-view').classList.remove('hidden');
-        renderActivityCalendar();
-        updateDashboardStats(); // Update stats in profile too
-    } else if (viewId === 'reports') {
-        document.getElementById('reports-view').classList.remove('hidden');
-    } else if (viewId === 'admin') {
-        console.log("Ã°ÂÂÂ Ã¯Â¸Â Entrando a Panel Admin");
-        const adminView = document.getElementById('admin-view');
-        if (adminView) {
-            adminView.classList.remove('hidden');
-            loadAllUsers(); // Auto-load user list
-        }
+    console.log("Switching view to:", viewId);
+    if (!auth.currentUser && viewId !== 'login') {
+        showLogin();
+        return;
     }
 
-    // Show/hide back arrow in header
+    // Ocultar todas las vistas principales
+    document.querySelectorAll('.container > div, .container > header').forEach(el => {
+        if (el.id !== 'bottomNav' && el.id !== 'installPrompt' && el.id !== 'toast-container' && !el.classList.contains('glass-modal')) {
+            el.classList.add('hidden');
+        }
+    });
+
+    if (viewId === 'login') {
+        document.getElementById('loginPage').classList.remove('hidden');
+        const bottomNav = document.getElementById('bottomNav');
+        if (bottomNav) bottomNav.classList.add('hidden');
+        return;
+    }
+
+    // Mostrar header
+    const header = document.getElementById('header');
+    if (header) header.classList.remove('hidden');
+
+    // Manejar el botón de regresar del header
     const backBtn = document.getElementById('header-back-btn');
     if (backBtn) {
-        if (viewId === 'profile' || viewId === 'reports' || viewId === 'admin') {
-            backBtn.style.display = 'flex';
-        } else {
-            backBtn.style.display = 'none';
-        }
+        backBtn.style.display = (viewId === 'dashboard') ? 'none' : 'block';
     }
 
-    // Always close profile menu when switching views
-    const profileMenu = document.getElementById('profileMenu');
-    if (profileMenu) profileMenu.classList.remove('active');
+    // Mostrar vista objetivo
+    let targetViewId = viewId;
+    if (viewId === 'admin') {
+        targetViewId = 'admin-view';
+    }
+    const targetView = document.getElementById(targetViewId);
+    if (targetView) targetView.classList.remove('hidden');
 
-    // Handle Timer
-    if (viewId === 'quiz-view') {
-        startTimer();
-    } else {
-        stopTimer();
+    // Actualizar nav inferior
+    document.querySelectorAll('.nav-item').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.view === viewId) btn.classList.add('active');
+    });
+
+    // Lógicas específicas
+    if (viewId === 'profesor-examenes') {
+        const estContainer = document.getElementById('estudiante-mis-examenes-container');
+        const docContainer = document.getElementById('docente-mis-examenes-container');
+        
+        if (userRole === 'admin' || userRole === 'profesor') {
+            if (docContainer) docContainer.style.display = 'block';
+            if (estContainer) estContainer.style.display = 'none';
+            loadProfesorExamenes();
+        } else {
+            if (docContainer) docContainer.style.display = 'none';
+            if (estContainer) estContainer.style.display = 'block';
+            renderEstudianteExamenes();
+        }
+    } else if (viewId === 'dashboard') {
+        renderSimulacroCards();
+    } else if (viewId === 'admin') {
+        loadAllUsers();
     }
 }
 
@@ -2315,5 +2333,49 @@ async function toggleEstadoExamen(examenId, isActive) {
         console.error("Error cambiando estado:", err);
         Swal.fire('Error', 'No se pudo cambiar el estado', 'error');
         renderProfesorExamenes(); // revert toggle visually
+    }
+}
+
+async function renderEstudianteExamenes() {
+    const container = document.getElementById('estudiante-examenes-list');
+    if (!container) return;
+    
+    const grupoId = localStorage.getItem('estudianteGrupo');
+    if (!grupoId) {
+        container.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--text-secondary);">No tienes un grupo asignado.</div>';
+        return;
+    }
+
+    try {
+        const snapshot = await window.db.collection('simulacros')
+            .where('asignadoA', 'array-contains', grupoId)
+            .get();
+
+        if (snapshot.empty) {
+            container.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--text-secondary);">No hay exámenes asignados a tu grupo.</div>';
+            return;
+        }
+
+        let html = '';
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            const examId = doc.id;
+            html += `
+                <div class="simulacro-card ${data.bloqueado ? 'locked' : ''}">
+                    <div class="simulacro-header">
+                        <h3>${data.titulo || 'Examen'}</h3>
+                        ${data.bloqueado ? '<span class="status-badge" style="background:#ff7675;">Bloqueado</span>' : '<span class="status-badge" style="background:#00b894;">Activo</span>'}
+                    </div>
+                    <div class="simulacro-info" style="margin-top: 1rem;">
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">${data.descripcion || 'Sin descripción'}</p>
+                        ${!data.bloqueado ? `<button class="btn-start" onclick="iniciarExamen('${examId}')" style="width: 100%; margin-top: 0.5rem;">Ingresar</button>` : ''}
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    } catch (error) {
+        console.error("Error cargando exámenes del estudiante:", error);
+        container.innerHTML = '<div style="text-align: center; padding: 2rem; color: #d63031;">Error al cargar exámenes.</div>';
     }
 }

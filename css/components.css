@@ -1,0 +1,335 @@
+/* ============================================================
+   COMPONENTES UNIVERSALES — header.js + bottom-nav.js
+   Glass system usa las variables definidas en style.css
+   ============================================================ */
+
+/* ── Header ── */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    gap: 1rem;
+    background: var(--bg-header, rgba(255,255,255,0.92));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.5));
+    box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+}
+
+.header-left { display: flex; align-items: center; gap: 0.6rem; }
+.header-right { display: flex; align-items: center; gap: 0.5rem; position: relative; }
+
+.header-logo {
+    display: flex; align-items: center; gap: 0.5rem;
+    text-decoration: none;
+}
+.header-logo-img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+.header-logo-text {
+    font-size: 1.1rem; font-weight: 800;
+    color: var(--text-primary, #2d3436);
+    letter-spacing: -0.5px;
+}
+.logo-accent { color: #00cec9; }
+
+/* Campanita */
+.header-icon-btn {
+    position: relative;
+    width: 38px; height: 38px;
+    background: var(--bg-card, #fff);
+    border: 1px solid var(--glass-border, rgba(0,0,0,0.08));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary, #636e72);
+    transition: background 0.2s;
+}
+.header-icon-btn:hover { background: rgba(0,0,0,0.05); }
+
+.notif-badge {
+    position: absolute; top: -3px; right: -3px;
+    background: #00cec9; color: white;
+    border-radius: 50%; width: 17px; height: 17px;
+    font-size: 0.6rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--bg-card, white);
+}
+.notif-badge.hidden { display: none; }
+
+/* Botón perfil en header */
+.header-profile-btn {
+    display: flex; align-items: center; gap: 0.45rem;
+    background: var(--bg-card, #fff);
+    border: 1px solid var(--glass-border, rgba(0,0,0,0.08));
+    border-radius: 24px;
+    padding: 0.3rem 0.75rem 0.3rem 0.3rem;
+    cursor: pointer;
+    color: var(--text-primary, #2d3436);
+    font-size: 0.85rem; font-weight: 600;
+    transition: box-shadow 0.2s;
+}
+.header-profile-btn:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+
+.header-avatar {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: #00cec9;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; flex-shrink: 0;
+    font-size: 0.75rem; font-weight: 700; color: white;
+}
+.header-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Dropdown — efecto glass real ── */
+.header-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 290px;
+    border-radius: 20px;
+    padding: 0.6rem 0;
+    z-index: 2000;
+
+    /* Glass principal */
+    background: var(--glass-bg-strong, rgba(255,255,255,0.82));
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.55));
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.18),
+        0 4px 16px rgba(0,0,0,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.96);
+    pointer-events: none;
+    transition: opacity 0.22s var(--ease-smooth, ease), transform 0.22s var(--ease-smooth, ease);
+    overflow: hidden;
+}
+.header-dropdown.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+/* Info del usuario */
+.dropdown-user-info {
+    display: flex; align-items: center; gap: 0.85rem;
+    padding: 0.9rem 1.1rem 0.75rem;
+}
+.dropdown-avatar-wrap {
+    width: 46px; height: 46px; border-radius: 50%;
+    background: #00cec9;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; flex-shrink: 0;
+    font-size: 1rem; font-weight: 700; color: white;
+    border: 2px solid rgba(0,206,201,0.3);
+    box-shadow: 0 2px 8px rgba(0,206,201,0.25);
+}
+.dropdown-avatar-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.dropdown-user-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.dropdown-name {
+    font-weight: 700; font-size: 0.92rem;
+    color: var(--text-primary, #2d3436);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.dropdown-email {
+    font-size: 0.73rem; color: var(--text-secondary, #636e72);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.dropdown-role-badge {
+    display: inline-block; margin-top: 4px;
+    padding: 2px 8px; border-radius: 10px;
+    border: 1px solid #00cec9; color: #00cec9;
+    font-size: 0.6rem; font-weight: 700;
+    background: rgba(0,206,201,0.1);
+    width: fit-content; letter-spacing: 0.05em;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--glass-border, rgba(0,0,0,0.07));
+    margin: 0.3rem 0;
+}
+
+.dropdown-section-label {
+    font-size: 0.68rem; font-weight: 700;
+    color: var(--text-secondary, #636e72);
+    text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 0.4rem 1.1rem 0.2rem;
+}
+
+/* Temas en grid */
+.dropdown-themes {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0.35rem; padding: 0.2rem 1rem 0.6rem;
+}
+.theme-pill {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: rgba(0,0,0,0.04);
+    border: 1.5px solid var(--glass-border, rgba(0,0,0,0.07));
+    border-radius: 12px;
+    padding: 7px 4px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.theme-pill:hover { border-color: #00cec9; background: rgba(0,206,201,0.07); transform: scale(1.04); }
+.theme-pill.active {
+    border-color: #00cec9;
+    background: rgba(0,206,201,0.12);
+    box-shadow: 0 0 0 2px rgba(0,206,201,0.2);
+}
+.theme-icon { font-size: 1.25rem; }
+.theme-name { font-size: 0.6rem; font-weight: 700; color: var(--text-secondary, #636e72); }
+
+/* Items del menú */
+.dropdown-nav { display: flex; flex-direction: column; }
+.dropdown-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.58rem 1.1rem;
+    color: var(--text-primary, #2d3436);
+    font-size: 0.87rem; font-weight: 500;
+    text-decoration: none;
+    background: none; border: none;
+    cursor: pointer; width: 100%; text-align: left;
+    transition: background 0.12s;
+    font-family: inherit;
+}
+.dropdown-item:hover { background: rgba(0,0,0,0.045); }
+.dropdown-logout { color: #d63031 !important; }
+.dropdown-logout svg { stroke: #d63031 !important; }
+
+/* ── Bottom Nav — efecto glass real ── */
+.bottom-nav {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.55rem;
+    border-radius: 24px;
+    z-index: 900;
+    gap: 2px;
+    width: calc(100% - 2rem);
+    max-width: 480px;
+
+    /* Glass real */
+    background: var(--glass-bg-strong, rgba(255,255,255,0.82));
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.55));
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.14),
+        0 2px 8px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.75);
+}
+
+.bottom-nav-item {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 3px;
+    padding: 0.45rem 0;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--text-secondary, #636e72);
+    font-size: 0.6rem; font-weight: 600;
+    transition: color 0.2s;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Icono — contenedor que hace el salto */
+.bottom-nav-item .nav-icon {
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.18s ease;
+    will-change: transform;
+}
+.bottom-nav-item svg { transition: stroke 0.2s; }
+
+/* Label — opacidad suave */
+.bottom-nav-item .nav-label {
+    transition: opacity 0.2s, transform 0.2s;
+    opacity: 0.6;
+}
+.bottom-nav-item.active .nav-label,
+.bottom-nav-item:hover .nav-label {
+    opacity: 1;
+}
+
+/* Estado hover — leve lift */
+.bottom-nav-item:hover .nav-icon {
+    transform: translateY(-2px);
+}
+.bottom-nav-item:hover { color: #00cec9; }
+.bottom-nav-item:hover svg { stroke: #00cec9; }
+
+/* Estado ACTIVO — spring bounce */
+.bottom-nav-item.active {
+    color: #00cec9;
+}
+.bottom-nav-item.active svg { stroke: #00cec9; }
+.bottom-nav-item.active .nav-icon {
+    animation: nav-spring 0.5s var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) forwards;
+}
+
+/* Fondo pill activo */
+.bottom-nav-item.active::before {
+    content: '';
+    position: absolute;
+    inset: 4px 6px;
+    border-radius: 14px;
+    background: rgba(0,206,201,0.13);
+    animation: nav-pill-in 0.35s var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) forwards;
+}
+
+/* Ripple al hacer click */
+.bottom-nav-item .nav-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0,206,201,0.25);
+    width: 60px; height: 60px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: nav-ripple 0.5s ease-out forwards;
+    pointer-events: none;
+}
+
+/* ── Keyframes ── */
+@keyframes nav-spring {
+    0%   { transform: translateY(0) scale(1); }
+    30%  { transform: translateY(-8px) scale(1.15); }
+    55%  { transform: translateY(2px) scale(0.96); }
+    75%  { transform: translateY(-3px) scale(1.06); }
+    90%  { transform: translateY(1px) scale(0.99); }
+    100% { transform: translateY(0) scale(1); }
+}
+@keyframes nav-pill-in {
+    0%   { opacity: 0; transform: scale(0.7); }
+    60%  { transform: scale(1.08); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@keyframes nav-ripple {
+    to { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* Dark mode overrides */
+[data-theme="night"] .bottom-nav,
+[data-theme="night"] .header-dropdown {
+    background: rgba(18,18,18,0.85);
+    border-color: rgba(255,255,255,0.07);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5),
+        0 4px 16px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+}
+[data-theme="night"] .dropdown-item:hover { background: rgba(255,255,255,0.05); }
+[data-theme="night"] .theme-pill { background: rgba(255,255,255,0.04); }
+[data-theme="night"] .bottom-nav-item:hover,
+[data-theme="night"] .bottom-nav-item.active { background: rgba(0,206,201,0.15); }
+
+/* Padding al body para que el contenido no quede bajo el nav */
+body { padding-bottom: 90px; }

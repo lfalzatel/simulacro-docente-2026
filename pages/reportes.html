@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaluaSeguro — Reportes</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00cec9">
+    <link rel="icon" type="image/png" href="/assets/icon-192-sq.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background: var(--bg-body, #f4f1eb); }
+        .page-content { max-width: 800px; margin: 0 auto; padding: 1.5rem 1rem; padding-bottom: 100px; }
+        
+        .page-header { margin-bottom: 1.5rem; }
+        .page-title { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+        .page-subtitle { font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.2rem; }
+
+        .stat-card {
+            background: var(--bg-card, white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--glass-border, rgba(0,0,0,0.06));
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .summary-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0,0,0,0.02);
+            border-radius: 16px;
+        }
+        .summary-val { font-size: 2rem; font-weight: 800; }
+        .summary-label { font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; margin-top: 4px; }
+
+        .cat-list { display: flex; flex-direction: column; gap: 1rem; }
+        .cat-item {
+            background: rgba(0,0,0,0.02);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex; flex-direction: column; gap: 0.5rem;
+        }
+        .cat-header { display: flex; justify-content: space-between; align-items: center; }
+        .cat-name { font-weight: 700; color: var(--text-primary); font-size: 0.95rem; }
+        .cat-score { font-weight: 800; color: #00cec9; }
+        
+        .progress-bar-bg { width: 100%; height: 8px; background: rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: #00cec9; border-radius: 4px; transition: width 0.5s ease; }
+
+        .sim-selector {
+            width: 100%; padding: 0.85rem; border-radius: 14px; 
+            border: 1px solid var(--border-color, #ccc); 
+            background: var(--bg-card); color: var(--text-primary); 
+            font-size: 1rem; font-weight: 600; outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<script src="/js/components/firebase-init.js"></script>
+<script src="/js/components/header.js"></script>
+<script src="/js/components/bottom-nav.js"></script>
+<script src="/js/components/auth-guard.js"></script>
+
+<div class="page-content" id="page-content" style="display:none;">
+    
+    <div class="page-header">
+        <h1 class="page-title">📈 Reportes Detallados</h1>
+        <p class="page-subtitle">Análisis de rendimiento por categorías temáticas.</p>
+    </div>
+
+    <!-- Selector de simulacro -->
+    <div style="margin-bottom: 2rem;">
+        <label style="display: block; color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600;">
+            Selecciona el simulacro:
+        </label>
+        <select id="reports-sim-selector" class="sim-selector" onchange="generateReport()">
+            <option value="simulacro_docente_2024">Simulacro Docente 2024</option>
+            <option value="simulacro_directivo">Simulacro Directivo Docente</option>
+            <option value="simulacro_orientador">Simulacro Orientador</option>
+        </select>
+    </div>
+
+    <!-- Resumen General -->
+    <div class="stat-card" style="background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0,206,201,0.05) 100%);">
+        <h3 style="font-size: 1.1rem; margin-bottom: 1.25rem; color: var(--text-primary);">📊 Resumen General</h3>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <div class="summary-val" style="color: var(--text-primary);" id="rep-answered">0</div>
+                <div class="summary-label">Respondidas</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-val" style="color: #00cec9;" id="rep-accuracy">0%</div>
+                <div class="summary-label">Precisión</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-val" style="color: #00b894;" id="rep-correct">0</div>
+                <div class="summary-label">Correctas</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-val" style="color: #d63031;" id="rep-incorrect">0</div>
+                <div class="summary-label">Incorrectas</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desglose por categorías -->
+    <div class="stat-card">
+        <h3 style="font-size: 1.1rem; margin-bottom: 1.25rem; color: var(--text-primary);">🎯 Rendimiento por Categoría</h3>
+        <div class="cat-list" id="cat-list-container">
+            <div style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; padding: 2rem;">
+                Aún no hay datos suficientes para este simulacro.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let appUser = null;
+
+    authGuard(function(user, role) {
+        appUser = user;
+        if (typeof populateHeader === 'function') populateHeader(user, role);
+        if (typeof renderBottomNav === 'function') renderBottomNav(role);
+
+        document.getElementById('page-content').style.display = 'block';
+        generateReport();
+    });
+
+    function generateReport() {
+        const simId = document.getElementById('reports-sim-selector').value;
+        const storageKey = `progreso_${appUser.uid}_${simId}`;
+        
+        let data = {};
+        try {
+            data = JSON.parse(localStorage.getItem(storageKey)) || {};
+        } catch(e) {}
+
+        const answeredKeys = Object.keys(data).filter(k => k !== 'safeLastIndex' && k !== 'totalTime');
+        
+        let correct = 0;
+        let incorrect = 0;
+        let cats = {};
+
+        answeredKeys.forEach(k => {
+            const ans = data[k];
+            if (ans.isCorrect) correct++;
+            else incorrect++;
+
+            // Mapear categorías
+            const c = ans.category || 'General';
+            if (!cats[c]) cats[c] = { total: 0, correct: 0 };
+            cats[c].total++;
+            if (ans.isCorrect) cats[c].correct++;
+        });
+
+        const total = correct + incorrect;
+        const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+        document.getElementById('rep-answered').textContent = total;
+        document.getElementById('rep-correct').textContent = correct;
+        document.getElementById('rep-incorrect').textContent = incorrect;
+        document.getElementById('rep-accuracy').textContent = `${accuracy}%`;
+
+        const catContainer = document.getElementById('cat-list-container');
+        catContainer.innerHTML = '';
+
+        if (total === 0) {
+            catContainer.innerHTML = `<div style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; padding: 1rem;">No has respondido ninguna pregunta en este simulacro aún.</div>`;
+            return;
+        }
+
+        for (const [catName, stats] of Object.entries(cats)) {
+            const catAcc = Math.round((stats.correct / stats.total) * 100);
+            
+            let color = '#00cec9';
+            if (catAcc < 50) color = '#d63031';
+            else if (catAcc > 80) color = '#00b894';
+
+            catContainer.innerHTML += `
+                <div class="cat-item">
+                    <div class="cat-header">
+                        <div class="cat-name">${catName}</div>
+                        <div class="cat-score" style="color: ${color}">${catAcc}%</div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 2px;">
+                        ${stats.correct} correctas de ${stats.total} respondidas
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: ${catAcc}%; background: ${color}"></div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+</script>
+
+</body>
+</html>

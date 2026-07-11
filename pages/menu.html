@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaluaSeguro — Menú</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00cec9">
+    <link rel="icon" type="image/png" href="/assets/icon-192-sq.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background: var(--bg-body, #f4f1eb); }
+        .page-content { max-width: 700px; margin: 0 auto; padding: 1.5rem 1rem; padding-bottom: 100px; }
+        
+        .page-header { margin-bottom: 1.5rem; }
+        .page-title { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .menu-card {
+            background: var(--bg-card, white);
+            border-radius: 20px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+            border: 1px solid var(--glass-border, rgba(0,0,0,0.06));
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+        .menu-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,206,201,0.15);
+            border-color: #00cec9;
+        }
+
+        .menu-icon {
+            font-size: 2rem;
+            background: rgba(0, 206, 201, 0.1);
+            width: 60px; height: 60px;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .menu-label {
+            font-size: 0.95rem; font-weight: 700; color: var(--text-primary);
+        }
+        .menu-desc {
+            font-size: 0.75rem; color: var(--text-secondary); line-height: 1.3;
+        }
+
+        /* Tema toggle card - extra space */
+        .theme-card { grid-column: span 2; }
+    </style>
+</head>
+<body>
+
+<script src="/js/components/firebase-init.js"></script>
+<script src="/js/components/header.js"></script>
+<script src="/js/components/bottom-nav.js"></script>
+<script src="/js/components/auth-guard.js"></script>
+
+<div class="page-content" id="page-content" style="display:none;">
+    <div class="page-header">
+        <h1 class="page-title">Menú Principal</h1>
+    </div>
+
+    <div class="menu-grid">
+        <a href="/pages/perfil.html" class="menu-card">
+            <div class="menu-icon">👤</div>
+            <div class="menu-label">Mi Perfil</div>
+            <div class="menu-desc">Información de tu cuenta</div>
+        </a>
+
+        <a href="/pages/perfil.html" class="menu-card">
+            <div class="menu-icon">📊</div>
+            <div class="menu-label">Estadísticas</div>
+            <div class="menu-desc">Resumen de tu actividad</div>
+        </a>
+        
+        <a href="/pages/reportes.html" class="menu-card">
+            <div class="menu-icon">📈</div>
+            <div class="menu-label">Reportes</div>
+            <div class="menu-desc">Rendimiento por categoría</div>
+        </a>
+
+        <a href="javascript:void(0)" onclick="Swal.fire('Configuración', 'Opciones de cuenta próximas a integrarse', 'info')" class="menu-card">
+            <div class="menu-icon">⚙️</div>
+            <div class="menu-label">Configuración</div>
+            <div class="menu-desc">Ajustes de la aplicación</div>
+        </a>
+
+        <a href="javascript:void(0)" onclick="Swal.fire('Próximamente', 'Soporte estará disponible en breve', 'info')" class="menu-card">
+            <div class="menu-icon">🎧</div>
+            <div class="menu-label">Soporte</div>
+            <div class="menu-desc">Ayuda y contacto</div>
+        </a>
+
+        <a href="javascript:void(0)" onclick="auth.signOut()" class="menu-card">
+            <div class="menu-icon" style="background: rgba(239, 68, 68, 0.1);">🚪</div>
+            <div class="menu-label" style="color: #ef4444;">Cerrar sesión</div>
+            <div class="menu-desc">Salir de tu cuenta</div>
+        </a>
+    </div>
+
+</div>
+
+<script>
+    authGuard(function(user, role) {
+        if (typeof populateHeader === 'function') populateHeader(user, role);
+        if (typeof renderBottomNav === 'function') renderBottomNav(role);
+        document.getElementById('page-content').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
