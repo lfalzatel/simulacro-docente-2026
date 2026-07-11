@@ -22,7 +22,7 @@ export function Header() {
 
   const themesMap: Record<string, {name: string, icon: string}> = {
     dia: { name: 'Día', icon: '☀️' },
-    original: { name: 'Original', icon: '🌙' },
+    night: { name: 'Noche', icon: '🌙' },
     glass: { name: 'Glass', icon: '💠' },
     cyber: { name: 'Cyber', icon: '🖥️' },
     kilo: { name: 'Kilo', icon: '>_' },

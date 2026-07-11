@@ -10,7 +10,7 @@ export default function GestionTemasModal({ onClose }: { onClose: () => void }) 
 
   const themes = [
     { id: "dia", name: "Día", icon: Sun },
-    { id: "original", name: "Original", icon: Moon },
+    { id: "night", name: "Noche", icon: Moon },
     { id: "glass", name: "Glass", icon: Layers },
     { id: "cyber", name: "Cyber", icon: Terminal },
     { id: "kilo", name: "Kilo", icon: Zap },
