@@ -1,67 +1,106 @@
+import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { simulacrosCatalog } from "../data/simulacrosCatalog";
 
 export default function Inicio() {
-  const { currentUser, appRole } = useAuth();
-  const firstName = currentUser?.displayName?.split(" ")[0] || "Usuario";
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  const firstName = currentUser?.displayName?.split(" ")[0] || "Estudiante";
+
+  // Mock stats - in the future this will load from localStorage/Firebase
+  const [stats] = useState({
+    score: '-',
+    answered: 0,
+    time: '00:00:00',
+    progress: '0%'
+  });
 
   return (
-    <div className="container slide-up" style={{ padding: "1.5rem" }}>
-      <div className="welcome-banner glass">
-        <h2>Hola, {firstName} 👋</h2>
-        <p>Bienvenido a EvaluaSeguro. Tu rol actual es <strong>{appRole.toUpperCase()}</strong>.</p>
-      </div>
+    <div className="page-content fade-in">
       
-      <div className="dashboard-grid">
-        <Link to="/examenes" className="dash-card glass" style={{ textDecoration: 'none' }}>
-          <div className="dash-icon">📝</div>
-          <h3>Exámenes</h3>
-          <p>Gestiona y resuelve cuestionarios</p>
-        </Link>
-        <Link to="/gestion" className="dash-card glass" style={{ textDecoration: 'none' }}>
-          <div className="dash-icon">👥</div>
-          <h3>Gestión</h3>
-          <p>Administra usuarios y roles</p>
-        </Link>
-        <Link to="/reportes" className="dash-card glass" style={{ textDecoration: 'none' }}>
-          <div className="dash-icon">📊</div>
-          <h3>Reportes</h3>
-          <p>Visualiza estadísticas</p>
-        </Link>
+      {/* Banner de bienvenida */}
+      <div className="welcome-banner">
+        <h1 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-primary)' }}>
+          ¡Hola, <span>{firstName}</span>! 👋
+        </h1>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+          Continúa tu preparación para el concurso docente 2026. Tu progreso se guarda automáticamente.
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <span className="feature-pill">📝 200+ preguntas</span>
+          <span className="feature-pill">🎯 3 Simulacros</span>
+          <span className="feature-pill">☁️ Progreso en la nube</span>
+          <span className="feature-pill">💡 Retroalimentación profunda</span>
+        </div>
       </div>
 
-      <style>{`
-        .welcome-banner {
-          padding: 2rem;
-          border-radius: 20px;
-          margin-bottom: 2rem;
-          background: linear-gradient(135deg, rgba(0,206,201,0.1), rgba(255,255,255,0.05));
-          border-left: 4px solid var(--accent-color);
-        }
-        .dashboard-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 1.5rem;
-        }
-        .dash-card {
-          padding: 1.5rem;
-          border-radius: 20px;
-          transition: all 0.3s ease;
-          color: var(--text-primary);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-        .dash-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .dash-icon {
-          font-size: 2.5rem;
-          margin-bottom: 1rem;
-        }
-      `}</style>
+      {/* Estadísticas rápidas */}
+      <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+        <div className="stat-card" style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
+            <div style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>🎯</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-color)' }}>{stats.score}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Puntaje Total</div>
+        </div>
+        <div className="stat-card" style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
+            <div style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>📈</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-color)' }}>{stats.answered}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Preguntas Respondidas</div>
+        </div>
+        <div className="stat-card" style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
+            <div style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>⏱️</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-color)' }}>{stats.time}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Tiempo Estudiado</div>
+        </div>
+        <div className="stat-card" style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: '16px', textAlign: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
+            <div style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>📊</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-color)' }}>{stats.progress}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Progreso Total</div>
+        </div>
+      </div>
+
+      {/* Selector de análisis */}
+      <div style={{ marginBottom: '2rem' }}>
+        <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Analizar progreso de:</label>
+        <select 
+          className="sim-select" 
+          style={{ width: '100%', padding: '0.75rem', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-card)', color: 'var(--text-primary)' }}
+        >
+          {simulacrosCatalog.map(sim => (
+            <option key={sim.id} value={sim.id}>{sim.titulo}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Tarjetas de simulacros */}
+      <div className="simulacros-section">
+        <h2 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1rem' }}>Selecciona un Simulacro</h2>
+        <div className="simulacros-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {simulacrosCatalog.map((sim, idx) => (
+            <div 
+              key={sim.id} 
+              onClick={() => navigate('/examenes')}
+              style={{
+                background: 'var(--bg-card)', padding: '1.25rem', borderRadius: '16px',
+                border: '1px solid var(--border)', cursor: 'pointer',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.03)', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+              }}
+            >
+              <div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-color)', marginBottom: '0.25rem' }}>{sim.descripcion}</div>
+                <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>{sim.titulo}</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
+                  {sim.preguntas} preguntas • Dificultad: {sim.dificultad}
+                </div>
+              </div>
+              <div style={{ fontSize: '1.5rem', color: 'var(--border)' }}>
+                {idx === 0 ? '📝' : idx === 1 ? '⚖️' : '🎓'}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }
