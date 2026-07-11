@@ -1,0 +1,272 @@
+/* 
+   Estilos Específicos para la Página de Gestión de Usuarios
+   Diseño Claro Premium (Light Theme)
+*/
+
+:root {
+    --bg-light: #f4f6f8;
+    --bg-card: #ffffff;
+    --border-light: rgba(0, 0, 0, 0.05);
+    
+    --text-primary: #1e2532;
+    --text-secondary: #8b95a5;
+    
+    --accent-cyan: #008ba3; /* Un cyan un poco más oscuro para contraste en fondo blanco */
+    --accent-cyan-hover: #007a8f;
+    --accent-cyan-glow: rgba(0, 139, 163, 0.2);
+    
+    --badge-bg: #f0f2f5;
+}
+
+body.admin-page {
+    background: var(--bg-light) !important;
+    color: var(--text-primary);
+}
+
+.admin-page .page-title {
+    color: var(--text-primary);
+}
+
+.admin-page .page-subtitle {
+    color: var(--text-secondary);
+}
+
+/* --- TABS --- */
+.tabs-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem; /* Separación con el header */
+    background: var(--bg-card);
+    padding: 0.4rem;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.admin-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.7rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-secondary);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border: none;
+    background: transparent;
+}
+
+.admin-tab.active {
+    background: var(--accent-cyan);
+    color: white;
+    box-shadow: 0 4px 15px var(--accent-cyan-glow);
+}
+
+/* --- FILTROS --- */
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .filters-container {
+        flex-direction: row;
+    }
+    .filter-search {
+        flex: 1;
+    }
+}
+
+.filter-select, .filter-search {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    border-radius: 20px;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    outline: none;
+    width: 100%;
+    transition: all 0.2s;
+    appearance: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.filter-select {
+    color: var(--accent-cyan);
+}
+
+/* Flecha personalizada para select */
+.select-wrapper {
+    position: relative;
+}
+.select-wrapper::after {
+    content: '↓';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-cyan);
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.filter-search {
+    grid-column: 1 / -1; 
+}
+
+.filter-search::placeholder {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.filter-select:focus, .filter-search:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 4px 15px var(--accent-cyan-glow);
+}
+
+
+/* --- TARJETAS DE USUARIOS --- */
+.user-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 28px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.user-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 22px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--bg-body);
+}
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    overflow: hidden;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-name {
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.user-email {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.user-group-badge {
+    display: inline-block;
+    background: var(--bg-body);
+    color: var(--text-secondary);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 6px;
+    width: fit-content;
+    margin-top: 4px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+}
+
+.btn-actividad {
+    background: #0D8ABC;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 0 1rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    flex: 1;
+    box-shadow: 0 4px 12px rgba(13,138,188,0.2);
+}
+
+.btn-role-badge {
+    background: #f4f7ff;
+    color: #4a6ee0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 0.35rem 0.7rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.btn-role-badge .role-icon {
+    width: 16px; height: 16px;
+}
+
+.btn-download {
+    background: #ecf9f1;
+    color: #1a9e52;
+    border: none;
+    border-radius: 12px;
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Empty State */
+.empty-state-light {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+}
+.empty-state-light svg {
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+.empty-state-light h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}

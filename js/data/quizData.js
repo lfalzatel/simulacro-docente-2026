@@ -1,4 +1,5 @@
 const RAW_QUIZ_DATA = {
+  "asignatura": "Pedagogía y Didáctica",
   "quizTitle": "Cuestionario de Preparación Docente - Luis Fernando",
   "questions": [
     {

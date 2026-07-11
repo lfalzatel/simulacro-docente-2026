@@ -1,4 +1,5 @@
 const RAW_QUIZ_DATA_3 = {
+    "asignatura": "Componente Disciplinar",
     "quizTitle": "Simulacro 3: Desempeño Avanzado (Nivel Experto)",
     "questions": [
         {

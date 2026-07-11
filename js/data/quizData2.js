@@ -1,4 +1,5 @@
 const RAW_QUIZ_DATA_2 = {
+    "asignatura": "Legislación Educativa",
     "quizTitle": "Simulacro 2: Ascenso y Reubicación (Experto)",
     "questions": [
         {
