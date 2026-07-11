@@ -2,8 +2,9 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LogOut, ChevronDown, Bell, User, Download, Share2, Settings, Plus } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
-import { auth } from "../firebase";
 import { signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
+import { db, auth } from "../firebase";
 import Swal from "sweetalert2";
 
 export function Header() {
@@ -12,6 +13,18 @@ export function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [savedAccounts, setSavedAccounts] = useState<any[]>([]);
+  const [notificaciones, setNotificaciones] = useState<any[]>([]);
+  const [showNotifs, setShowNotifs] = useState(false);
+
+  useEffect(() => {
+    const q = query(collection(db, "notificaciones"), orderBy("createdAt", "desc"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const notifs: any[] = [];
+      snapshot.forEach(doc => notifs.push({ id: doc.id, ...doc.data() }));
+      setNotificaciones(notifs);
+    });
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     if (dropdownOpen) {
@@ -94,10 +107,32 @@ export function Header() {
       </div>
 
       <div className="header-right">
-        <button className="header-icon-btn" aria-label="Notificaciones">
-          <Bell size={20} />
-          <span className="notif-badge hidden">0</span>
-        </button>
+        <div style={{ position: 'relative' }}>
+          <button className="header-icon-btn" aria-label="Notificaciones" onClick={() => setShowNotifs(!showNotifs)}>
+            <Bell size={20} />
+            {notificaciones.length > 0 && (
+              <span className="notif-badge">{notificaciones.length}</span>
+            )}
+          </button>
+          
+          {showNotifs && (
+            <div className="header-dropdown open" style={{ width: '300px', right: 0, padding: '1rem', background: 'var(--bg-card)' }}>
+              <h4 style={{ marginBottom: '1rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>Notificaciones</h4>
+              {notificaciones.length === 0 ? (
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>No tienes notificaciones.</p>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', maxHeight: '300px', overflowY: 'auto' }}>
+                  {notificaciones.map(n => (
+                    <div key={n.id} style={{ background: 'var(--bg-body)', padding: '0.8rem', borderRadius: '12px' }}>
+                      <p style={{ fontSize: '0.8rem', fontWeight: 700, margin: 0, color: 'var(--accent-color)' }}>{n.title}</p>
+                      <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', margin: '0.2rem 0 0 0' }}>{n.message}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
         <div className="header-profile-container" ref={dropdownRef}>
           <button 
