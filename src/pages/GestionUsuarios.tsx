@@ -54,24 +54,21 @@ export default function GestionUsuarios() {
       admin: "ADMINISTRADOR",
     };
 
-    let groupHtml = "";
-    if (user.role === "estudiante" || user.grupo) {
-      groupHtml = `
-        <div style="margin-top: 15px; text-align: left;">
-          <label style="font-size: 0.85rem; color: #666; font-weight: 600; margin-bottom: 5px; display: block;">
-            GRUPO DEL ESTUDIANTE
-          </label>
-          <select id="swal-grupo" class="swal2-select" style="width: 100%; font-size: 14px; padding: 10px; border-radius: 12px; border: 2px solid #e0e0e0;">
-            <option value="">Selecciona un grupo</option>
-            <option value="6A" ${user.grupo === '6A' ? 'selected' : ''}>6A</option>
-            <option value="6B" ${user.grupo === '6B' ? 'selected' : ''}>6B</option>
-            <option value="7A" ${user.grupo === '7A' ? 'selected' : ''}>7A</option>
-            <option value="11A" ${user.grupo === '11A' ? 'selected' : ''}>11A</option>
-            <option value="11B" ${user.grupo === '11B' ? 'selected' : ''}>11B</option>
-          </select>
-        </div>
-      `;
-    }
+    const groupHtml = `
+      <div id="swal-grupo-container" style="margin-top: 15px; text-align: left; display: ${user.role === 'estudiante' || user.grupo ? 'block' : 'none'};">
+        <label style="font-size: 0.85rem; color: #666; font-weight: 600; margin-bottom: 5px; display: block;">
+          GRUPO DEL ESTUDIANTE
+        </label>
+        <select id="swal-grupo" class="swal2-select" style="width: 100%; font-size: 14px; padding: 10px; border-radius: 12px; border: 2px solid #e0e0e0;">
+          <option value="">Selecciona un grupo</option>
+          <option value="6A" ${user.grupo === '6A' ? 'selected' : ''}>6A</option>
+          <option value="6B" ${user.grupo === '6B' ? 'selected' : ''}>6B</option>
+          <option value="7A" ${user.grupo === '7A' ? 'selected' : ''}>7A</option>
+          <option value="11A" ${user.grupo === '11A' ? 'selected' : ''}>11A</option>
+          <option value="11B" ${user.grupo === '11B' ? 'selected' : ''}>11B</option>
+        </select>
+      </div>
+    `;
 
     const { value: formValues } = await Swal.fire({
       title: "Editar Rol de Usuario",
@@ -94,6 +91,15 @@ export default function GestionUsuarios() {
       confirmButtonText: "Guardar Cambios",
       cancelButtonText: "Cancelar",
       confirmButtonColor: "#00cec9",
+      didOpen: () => {
+        const rolSelect = document.getElementById('swal-rol') as HTMLSelectElement;
+        const grupoContainer = document.getElementById('swal-grupo-container');
+        if (rolSelect && grupoContainer) {
+          rolSelect.addEventListener('change', (e: any) => {
+            grupoContainer.style.display = e.target.value === 'estudiante' ? 'block' : 'none';
+          });
+        }
+      },
       preConfirm: () => {
         const rolSelect = document.getElementById('swal-rol') as HTMLSelectElement;
         const grupoSelect = document.getElementById('swal-grupo') as HTMLSelectElement;
