@@ -55,7 +55,7 @@ export default function Perfil() {
     }
   };
 
-  if (!currentUser) return <div className="container" style={{padding: '2rem'}}>Cargando...</div>;
+  if (!currentUser) return <div className="page-content" style={{padding: '2rem'}}>Cargando...</div>;
 
   const name = currentUser.displayName || currentUser.email?.split('@')[0] || "Usuario";
   
@@ -65,10 +65,10 @@ export default function Perfil() {
   ));
 
   return (
-    <div className="container fade-in" style={{ paddingBottom: '90px' }}>
+    <div className="page-content fade-in">
       
       {/* Header */}
-      <div className="page-header" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', marginTop: '1rem' }}>
+      <div className="page-header" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
         <div style={{
           width: '60px', height: '60px', borderRadius: '50%', background: '#00cec9', 
           display: 'flex', alignItems: 'center', justifyContent: 'center', 
@@ -79,13 +79,13 @@ export default function Perfil() {
           ) : name.charAt(0).toUpperCase()}
         </div>
         <div>
-          <h1 className="page-title" style={{ margin: 0, fontSize: '1.5rem', fontWeight: 800 }}>Mi Perfil</h1>
-          <p className="page-subtitle" style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{currentUser.email}</p>
+          <h1 className="section-title" style={{ margin: 0 }}>Mi Perfil</h1>
+          <p className="section-label" style={{ margin: 0 }}>{currentUser.email}</p>
         </div>
       </div>
 
       {/* Total Score */}
-      <div className="stat-card score-card" style={{ background: 'var(--glass-bg)', padding: '1.5rem', borderRadius: '16px', marginBottom: '1.5rem', boxShadow: 'var(--glass-shadow)' }}>
+      <div className="stat-card" style={{ marginBottom: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <div style={{ fontSize: '3rem' }}>🏆</div>
           <div>

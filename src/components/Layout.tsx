@@ -30,7 +30,7 @@ export function Layout() {
     <>
       {currentUser && <Header />}
       
-      <main className="app-content" style={{ paddingBottom: currentUser ? '100px' : '0' }}>
+      <main className="app-content">
         <Outlet />
       </main>
 

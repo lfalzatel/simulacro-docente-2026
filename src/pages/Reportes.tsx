@@ -50,24 +50,20 @@ export default function Reportes() {
   };
 
   return (
-    <div className="container fade-in" style={{ paddingBottom: '90px' }}>
+    <div className="page-content fade-in">
       
-      <div className="page-header" style={{ marginBottom: '1.5rem', marginTop: '1rem' }}>
-        <h1 className="page-title" style={{ fontSize: '1.5rem', fontWeight: 800 }}>📊 Reportes</h1>
-        <p className="page-subtitle" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+      <div className="page-header" style={{ marginBottom: '1.5rem' }}>
+        <h1 className="section-title">📊 Reportes</h1>
+        <p className="section-label">
           Análisis de rendimiento y estadísticas.
         </p>
       </div>
 
       {/* Tabs */}
-      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border)' }}>
+      <div className="tabs-container">
         <button 
           onClick={() => setActiveTab("student")}
-          style={{
-            padding: '0.75rem 1rem', background: 'transparent', border: 'none', fontWeight: 600,
-            borderBottom: activeTab === 'student' ? '2px solid #00cec9' : '2px solid transparent',
-            color: activeTab === 'student' ? '#00cec9' : 'var(--text-secondary)', cursor: 'pointer'
-          }}
+          className={`tab-btn ${activeTab === 'student' ? 'active' : ''}`}
         >
           {appRole === 'admin' ? 'Personales' : 'Mis Reportes'}
         </button>
@@ -75,11 +71,7 @@ export default function Reportes() {
         {(appRole === 'profesor' || appRole === 'admin') && (
           <button 
             onClick={() => setActiveTab("teacher")}
-            style={{
-              padding: '0.75rem 1rem', background: 'transparent', border: 'none', fontWeight: 600,
-              borderBottom: activeTab === 'teacher' ? '2px solid #00cec9' : '2px solid transparent',
-              color: activeTab === 'teacher' ? '#00cec9' : 'var(--text-secondary)', cursor: 'pointer'
-            }}
+            className={`tab-btn ${activeTab === 'teacher' ? 'active' : ''}`}
           >
             {appRole === 'admin' ? 'Por Grupo' : 'Reportes de Grupo'}
           </button>
@@ -88,11 +80,7 @@ export default function Reportes() {
         {appRole === 'admin' && (
           <button 
             onClick={() => setActiveTab("admin")}
-            style={{
-              padding: '0.75rem 1rem', background: 'transparent', border: 'none', fontWeight: 600,
-              borderBottom: activeTab === 'admin' ? '2px solid #00cec9' : '2px solid transparent',
-              color: activeTab === 'admin' ? '#00cec9' : 'var(--text-secondary)', cursor: 'pointer'
-            }}
+            className={`tab-btn ${activeTab === 'admin' ? 'active' : ''}`}
           >
             Globales
           </button>
@@ -101,15 +89,15 @@ export default function Reportes() {
 
       {/* Tab 1: Student */}
       {activeTab === 'student' && (
-        <div className="stat-card fade-in" style={{ background: 'var(--glass-bg)', padding: '1.5rem', borderRadius: '16px' }}>
-          <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)', fontWeight: 700 }}>Mis Exámenes Presentados</h3>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+        <div className="stat-card fade-in">
+          <h3 className="section-title">Mis Exámenes Presentados</h3>
+          <p className="section-label" style={{ marginBottom: '1.5rem' }}>
             Selecciona una asignatura para ver tu historial de notas.
           </p>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             {/* Dummy subject item */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', background: 'var(--glass-bg-strong)', borderRadius: '12px', border: '1px solid var(--border)' }}>
+            <div className="list-item-card">
               <div>
                 <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>Pedagogía y Didáctica</div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>3 intentos registrados</div>
@@ -117,7 +105,7 @@ export default function Reportes() {
               <div style={{ fontSize: '1.25rem', color: 'var(--text-secondary)' }}>›</div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', background: 'var(--glass-bg-strong)', borderRadius: '12px', border: '1px solid var(--border)' }}>
+            <div className="list-item-card">
               <div>
                 <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>Legislación Educativa</div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>1 intento registrado</div>
@@ -125,7 +113,7 @@ export default function Reportes() {
               <div style={{ fontSize: '1.25rem', color: 'var(--text-secondary)' }}>›</div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', background: 'var(--glass-bg-strong)', borderRadius: '12px', border: '1px solid var(--border)' }}>
+            <div className="list-item-card">
               <div>
                 <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>Componente Disciplinar</div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>0 intentos</div>
@@ -138,15 +126,15 @@ export default function Reportes() {
 
       {/* Tab 2: Teacher */}
       {activeTab === 'teacher' && (
-        <div className="stat-card fade-in" style={{ background: 'var(--glass-bg)', padding: '1.5rem', borderRadius: '16px' }}>
-          <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)', fontWeight: 700 }}>Estadísticas del Grupo</h3>
+        <div className="stat-card fade-in">
+          <h3 className="section-title">Estadísticas del Grupo</h3>
           
-          <select style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--glass-bg-strong)', color: 'var(--text-primary)', marginBottom: '1rem', fontWeight: 500 }}>
+          <select className="form-input" style={{ marginBottom: '1rem', fontWeight: 500 }}>
             <option>Grupo 11-A (Mañana)</option>
             <option>Grupo 11-B (Mañana)</option>
           </select>
           
-          <select style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--glass-bg-strong)', color: 'var(--text-primary)', marginBottom: '1rem', fontWeight: 500 }}>
+          <select className="form-input" style={{ marginBottom: '1rem', fontWeight: 500 }}>
             <option>Simulacro Docente 2024 - Pedagogía</option>
             <option>Evaluación Diagnóstica Inicial</option>
           </select>
@@ -207,13 +195,13 @@ export default function Reportes() {
 
       {/* Tab 3: Admin */}
       {activeTab === 'admin' && (
-        <div className="stat-card fade-in" style={{ background: 'var(--glass-bg)', padding: '1.5rem', borderRadius: '16px' }}>
-          <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)', fontWeight: 700 }}>Visión Global Institucional</h3>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+        <div className="stat-card fade-in">
+          <h3 className="section-title">Visión Global Institucional</h3>
+          <p className="section-label" style={{ marginBottom: '1rem' }}>
             Aquí el administrador podrá filtrar por profesor, grupo o asignatura sin restricciones.
           </p>
           
-          <div style={{ padding: '2rem', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: '12px', border: '1px dashed #ccc', color: 'var(--text-secondary)' }}>
+          <div className="list-item-card" style={{ justifyContent: 'center', borderStyle: 'dashed', color: 'var(--text-secondary)' }}>
             <em>Panel de filtros avanzados y métricas globales de la institución. En construcción...</em>
           </div>
         </div>

@@ -215,11 +215,11 @@ export default function Notas() {
   );
 
   return (
-    <div className="page-content fade-in" style={{ paddingBottom: '100px', minHeight: '100vh' }}>
+    <div className="page-content fade-in" style={{ minHeight: '100vh' }}>
       
       {/* Header & Search */}
       <div style={{ position: 'sticky', top: 0, zIndex: 10, background: 'var(--bg-app)', paddingTop: '1rem', paddingBottom: '1rem' }}>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1rem' }}>Notas y Recordatorios</h1>
+        <h1 className="section-title">Notas y Recordatorios</h1>
         
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           <div style={{ 

@@ -104,9 +104,9 @@ export default function Configuracion() {
   );
 
   return (
-    <div className="container fade-in" style={{ paddingBottom: '90px' }}>
+    <div className="page-content fade-in">
       
-      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.5rem', marginTop: '1rem' }}>
+      <div className="page-header" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.5rem' }}>
         <button 
           onClick={() => navigate(-1)}
           style={{ 
@@ -117,10 +117,10 @@ export default function Configuracion() {
           <ArrowLeft size={24} />
         </button>
         <div>
-          <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>
+          <div className="section-label" style={{ textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>
             Centro de Control
           </div>
-          <h1 style={{ margin: 0, fontSize: '2rem', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
+          <h1 className="section-title" style={{ margin: 0, letterSpacing: '-0.02em' }}>
             Configuración
           </h1>
         </div>
