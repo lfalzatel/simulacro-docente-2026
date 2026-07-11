@@ -14,6 +14,13 @@ function initUsersAdmin() {
             e.target.classList.add('active');
             
             currentTab = e.target.dataset.tab;
+            
+            // Mostrar/ocultar filtro de grupos
+            const groupFilter = document.getElementById('filter-group-container');
+            if (groupFilter) {
+                groupFilter.style.display = (currentTab === 'estudiantes') ? 'block' : 'none';
+            }
+            
             renderUsers();
         });
     });
@@ -29,7 +36,7 @@ function loadUsers() {
     const db = firebase.firestore();
     
     // Escuchar cambios en tiempo real
-    db.collection('users').onSnapshot((snapshot) => {
+    db.collection('usuarios').onSnapshot((snapshot) => {
         allUsers = [];
         snapshot.forEach(doc => {
             const data = doc.data();
@@ -200,7 +207,7 @@ function updateUserRole(userId, newRole, newGroup) {
         updateData.grupo = firebase.firestore.FieldValue.delete();
     }
 
-    db.collection('users').doc(userId).update(updateData)
+    db.collection('usuarios').doc(userId).update(updateData)
     .then(() => {
         Swal.fire({
             icon: 'success',
