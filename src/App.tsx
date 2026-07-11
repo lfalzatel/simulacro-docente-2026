@@ -9,6 +9,7 @@ import Examenes from "./pages/Examenes";
 import Inicio from "./pages/Inicio";
 import Perfil from "./pages/Perfil";
 import Reportes from "./pages/Reportes";
+import Notas from "./pages/Notas";
 import Documentacion from "./pages/Documentacion";
 import Configuracion from "./pages/Configuracion";
 import GestionUsuarios from "./pages/GestionUsuarios";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/reportes" element={<Reportes />} />
             <Route path="/documentacion" element={<Documentacion />} />
             <Route path="/configuracion" element={<Configuracion />} />
+            <Route path="/notas" element={<Notas />} />
             
             <Route path="/" element={<Inicio />} />
             <Route path="*" element={<Navigate to="/" replace />} />
