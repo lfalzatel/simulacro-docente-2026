@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" href="/css/estudiantes.css">
 </head>
-<body class="dark-admin">
+<body class="admin-page">
 
 <script src="/js/components/firebase-init.js"></script>
 <script src="/js/components/header.js"></script>
@@ -44,41 +44,23 @@
     </div>
 
     <!-- FILTROS -->
-    <div class="filters-container">
-        <div class="select-wrapper">
+        <div class="select-wrapper" style="flex: 1;">
             <select class="filter-select">
-                <option value="sede">SEDE PRINCIPAL</option>
+                <option value="todos">TODOS LOS ROLES</option>
             </select>
         </div>
-        <div class="select-wrapper">
+        <div class="select-wrapper" style="flex: 1;">
             <select class="filter-select">
                 <option value="grupos">GRUPOS</option>
             </select>
         </div>
-        <input type="text" class="filter-search" placeholder="🔍 Buscar..." id="search-input">
-        <div class="select-wrapper" style="grid-column: 1 / -1;">
-            <select class="filter-select">
-                <option value="30d">ÚLTIMOS 30 DÍAS</option>
-            </select>
-        </div>
-    </div>
-
-    <!-- ESTADÍSTICAS -->
-    <div class="stats-container">
-        <div class="stat-card">
-            <h2 class="stat-number" id="stat-total">0</h2>
-            <div class="stat-label">Total Estudiantes</div>
-        </div>
-        <div class="stat-card">
-            <h2 class="stat-number" id="stat-cobertura">0% <span style="font-size:0.8rem; font-weight:normal">ⓘ</span></h2>
-            <div class="stat-label">Cobertura Real (30D)</div>
-        </div>
+        <input type="text" class="filter-search" placeholder="🔍 Buscar por nombre o email..." id="search-input">
     </div>
 
     <!-- CONTENEDOR DE LISTA DE USUARIOS -->
     <div id="users-list-container">
         <!-- Las tarjetas se insertarán aquí dinámicamente -->
-        <div class="empty-state-dark" id="empty-state">
+        <div class="empty-state-light" id="empty-state">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <h3>Cargando usuarios...</h3>
         </div>
@@ -92,6 +74,7 @@
         <div class="user-header">
             <div class="user-info">
                 <h3 class="user-name">NOMBRE AQUI</h3>
+                <p class="user-email">correo@ejemplo.com</p>
                 <div class="user-badges">
                     <span class="badge user-code">000000</span>
                     <span class="badge group user-group" style="display:none;">GRUPO</span>

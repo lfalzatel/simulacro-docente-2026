@@ -46,7 +46,7 @@ function loadUsers() {
     }, (error) => {
         console.error("Error cargando usuarios: ", error);
         document.getElementById('users-list-container').innerHTML = `
-            <div class="empty-state-dark">
+            <div class="empty-state-light">
                 <p>Error al cargar los usuarios. Verifica tus permisos.</p>
             </div>
         `;
@@ -78,21 +78,11 @@ function renderUsers() {
         );
     }
 
-    // Actualizar Estadísticas
-    if (currentTab === 'estudiantes') {
-        document.getElementById('stat-total').innerText = filteredUsers.length;
-        // Mock de cobertura
-        document.getElementById('stat-cobertura').innerHTML = `0% <span style="font-size:0.8rem; font-weight:normal">ⓘ</span>`;
-    } else {
-        document.getElementById('stat-total').innerText = filteredUsers.length;
-        document.getElementById('stat-cobertura').innerHTML = `-`;
-    }
-
     container.innerHTML = '';
 
     if (filteredUsers.length === 0) {
         container.innerHTML = `
-            <div class="empty-state-dark">
+            <div class="empty-state-light">
                 <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
                 <h3>No hay resultados</h3>
                 <p>No se encontraron usuarios en esta categoría.</p>
@@ -106,6 +96,7 @@ function renderUsers() {
         const card = clone.querySelector('.user-card');
         
         clone.querySelector('.user-name').innerText = user.name;
+        clone.querySelector('.user-email').innerText = user.email;
         // Usar los primeros 6 caracteres del ID como código (o un campo código si existe)
         clone.querySelector('.user-code').innerText = user.id.substring(0, 6).toUpperCase();
         
