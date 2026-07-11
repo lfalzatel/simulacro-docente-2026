@@ -17,6 +17,13 @@ export default function Configuracion() {
   const [notifPush, setNotifPush] = useState(true);
   const [notifInApp, setNotifInApp] = useState(true);
   const [soundEffect, setSoundEffect] = useState(true);
+  const [selectedSound, setSelectedSound] = useState("notification.mp3");
+
+  const playSound = (soundFile: string) => {
+    if (!soundEffect) return;
+    const audio = new Audio(`/assets/sounds/${soundFile}`);
+    audio.play().catch(e => console.log("Error playing audio", e));
+  };
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
@@ -159,12 +166,39 @@ export default function Configuracion() {
           <ItemRow 
             icon={Volume2} iconBg="transparent" iconColor="#d35400"
             title="Efecto de Sonido" subtitle="Reproducir tonos"
-            rightElement={<ToggleSwitch checked={soundEffect} onChange={() => setSoundEffect(!soundEffect)} />}
+            rightElement={<ToggleSwitch checked={soundEffect} onChange={() => {
+              const newValue = !soundEffect;
+              setSoundEffect(newValue);
+              if (newValue) {
+                // Play immediately for preview
+                const audio = new Audio(`/assets/sounds/${selectedSound}`);
+                audio.play().catch(e => console.log(e));
+              }
+            }} />}
           />
           <ItemRow 
             icon={Music} iconBg="transparent" iconColor="#d35400"
             title="Tono de Alerta" subtitle="Elige tu tono preferido"
-            rightElement={<div style={{display:'flex', alignItems:'center', gap:'0.25rem'}}>Suave (Burbuja) <ChevronDown size={14} /></div>}
+            rightElement={
+              <div style={{display:'flex', alignItems:'center', gap:'0.25rem', position: 'relative'}}>
+                <select 
+                  value={selectedSound}
+                  onChange={(e) => {
+                    setSelectedSound(e.target.value);
+                    playSound(e.target.value);
+                  }}
+                  style={{
+                    appearance: 'none', background: 'transparent', border: 'none', 
+                    fontSize: '0.85rem', color: 'var(--text-secondary)', cursor: 'pointer',
+                    outline: 'none', paddingRight: '1rem', fontWeight: 500
+                  }}
+                >
+                  <option value="notification.mp3">Suave (Burbuja)</option>
+                  <option value="notification-sound.mp3">Clásico (Campana)</option>
+                </select>
+                <ChevronDown size={14} style={{ position: 'absolute', right: 0, pointerEvents: 'none', color: 'var(--text-secondary)' }} />
+              </div>
+            }
             isLast={true}
           />
         </Accordion>
