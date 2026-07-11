@@ -42,10 +42,11 @@ function loadUsers() {
             const data = doc.data();
             allUsers.push({
                 id: doc.id,
-                name: data.displayName || data.name || 'Sin nombre',
+                name: data.nombre || data.displayName || data.name || 'Sin nombre',
                 email: data.email || '',
-                role: data.role || 'free',
-                grupo: data.grupo || '',
+                role: data.rol || data.role || 'free',
+                grupo: data.grupo || data.grupoId || '',
+                foto: data.foto || data.photoURL || null,
                 active: data.active !== false // Por defecto true
             });
         });
@@ -108,7 +109,11 @@ function renderUsers() {
         // Configurar Avatar
         const avatarImg = clone.querySelector('.avatar-img');
         if (avatarImg) {
-            avatarImg.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=0D8ABC&color=fff&size=100`;
+            if (user.foto) {
+                avatarImg.src = user.foto;
+            } else {
+                avatarImg.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=0D8ABC&color=fff&size=100`;
+            }
         }
         
         // Configurar Badge de Rol

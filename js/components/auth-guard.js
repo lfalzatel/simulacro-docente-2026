@@ -51,6 +51,10 @@ function authGuard(onReady) {
                 if (userDoc.data().grupoId) {
                     sessionStorage.setItem('estudianteGrupo', userDoc.data().grupoId);
                 }
+                // Actualizar foto silenciosamente si el usuario de Auth tiene foto pero no está en BD
+                if (user.photoURL && userDoc.data().foto !== user.photoURL) {
+                    userRef.update({ foto: user.photoURL }).catch(()=>console.log("No se pudo actualizar foto"));
+                }
             } else {
                 // Primer ingreso: crear registro
                 window.appRole = 'free';
@@ -58,6 +62,7 @@ function authGuard(onReady) {
                     email: user.email,
                     nombre: user.displayName || '',
                     rol: 'free',
+                    foto: user.photoURL || null,
                     creadoEn: firebase.firestore.FieldValue.serverTimestamp()
                 });
             }
