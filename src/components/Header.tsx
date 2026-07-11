@@ -15,6 +15,18 @@ export function Header() {
   const [savedAccounts, setSavedAccounts] = useState<any[]>([]);
   const [notificaciones, setNotificaciones] = useState<any[]>([]);
   const [showNotifs, setShowNotifs] = useState(false);
+  const [activeTheme, setActiveTheme] = useState(localStorage.getItem('evaluaseguro_theme') || 'dia');
+  
+  const savedQuick = localStorage.getItem('evaluaseguro_quick_themes');
+  const quickThemes: string[] = savedQuick ? JSON.parse(savedQuick) : ["dia", "cyber", "kilo"];
+
+  const themesMap: Record<string, {name: string, icon: string}> = {
+    dia: { name: 'Día', icon: '☀️' },
+    original: { name: 'Original', icon: '🌙' },
+    glass: { name: 'Glass', icon: '💠' },
+    cyber: { name: 'Cyber', icon: '🖥️' },
+    kilo: { name: 'Kilo', icon: '>_' }
+  };
 
   useEffect(() => {
     const q = query(collection(db, "notificaciones"), orderBy("createdAt", "desc"));
@@ -172,19 +184,31 @@ export function Header() {
 
             <div className="dropdown-divider"></div>
 
-            <div className="dropdown-themes" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', padding: '0.5rem 1rem' }}>
-              <button className="theme-pill" style={{ background: '#00cec9', color: 'white', border: 'none', borderRadius: '12px', padding: '0.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer' }}>
-                <span style={{ fontSize: '1.2rem' }}>☀️</span>
-                <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>Día</span>
-              </button>
-              <button className="theme-pill" style={{ background: 'transparent', border: '1px solid var(--border)', borderRadius: '12px', padding: '0.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', color: 'var(--text-secondary)' }}>
-                <span style={{ fontSize: '1.2rem' }}>🖥️</span>
-                <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>Cyber</span>
-              </button>
-              <button className="theme-pill" style={{ background: 'transparent', border: '1px solid var(--border)', borderRadius: '12px', padding: '0.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', color: 'var(--text-secondary)' }}>
-                <span style={{ fontSize: '1.2rem', fontWeight: 800 }}>{`>_`}</span>
-                <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>Kilo</span>
-              </button>
+            <div className="dropdown-themes" style={{ display: 'grid', gridTemplateColumns: `repeat(${quickThemes.length}, 1fr)`, gap: '0.5rem', padding: '0.5rem 1rem' }}>
+              {quickThemes.map(themeId => {
+                const isActive = activeTheme === themeId;
+                const theme = themesMap[themeId] || themesMap['dia'];
+                return (
+                  <button 
+                    key={themeId}
+                    onClick={() => {
+                      localStorage.setItem('evaluaseguro_theme', themeId);
+                      setActiveTheme(themeId);
+                      document.documentElement.setAttribute('data-theme', themeId);
+                    }}
+                    className="theme-pill" 
+                    style={{ 
+                      background: isActive ? '#00cec9' : 'transparent', 
+                      color: isActive ? 'white' : 'var(--text-secondary)', 
+                      border: isActive ? 'none' : '1px solid var(--border)', 
+                      borderRadius: '12px', padding: '0.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer' 
+                    }}
+                  >
+                    <span style={{ fontSize: '1.2rem', fontWeight: themeId === 'kilo' ? 800 : 'normal' }}>{theme.icon}</span>
+                    <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>{theme.name}</span>
+                  </button>
+                );
+              })}
             </div>
 
             <div className="dropdown-divider"></div>
