@@ -117,7 +117,7 @@ export default function GestionUsuarios() {
       }
       
       try {
-        const updateData: any = { role: formValues.rol };
+        const updateData: any = { rol: formValues.rol, role: formValues.rol };
         if (formValues.rol === 'estudiante' && formValues.grupoId) {
           updateData.grupo = formValues.grupoId;
         } else {
@@ -125,6 +125,16 @@ export default function GestionUsuarios() {
         }
         
         await updateDoc(doc(db, 'usuarios', user.id), updateData);
+        
+        // Mover a la pestaña correspondiente
+        if (formValues.rol === 'estudiante') {
+          setCurrentTab('estudiantes');
+        } else if (formValues.rol === 'docente') {
+          setCurrentTab('docentes');
+        } else {
+          setCurrentTab('usuarios');
+        }
+
         Swal.fire({
           icon: 'success',
           title: 'Rol actualizado',
