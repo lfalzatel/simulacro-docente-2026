@@ -61,11 +61,9 @@ export default function GestionUsuarios() {
         </label>
         <select id="swal-grupo" class="swal2-select" style="width: 100%; font-size: 14px; padding: 10px; border-radius: 12px; border: 2px solid #e0e0e0;">
           <option value="">Selecciona un grupo</option>
-          <option value="6A" ${user.grupo === '6A' ? 'selected' : ''}>6A</option>
-          <option value="6B" ${user.grupo === '6B' ? 'selected' : ''}>6B</option>
-          <option value="7A" ${user.grupo === '7A' ? 'selected' : ''}>7A</option>
-          <option value="11A" ${user.grupo === '11A' ? 'selected' : ''}>11A</option>
-          <option value="11B" ${user.grupo === '11B' ? 'selected' : ''}>11B</option>
+          ${['6A', '6B', '6C', '6D', '7A', '7B', '7C', '8A', '8B', '9A', '9B', '10A', '10B', '11A', '11B'].map(g => 
+            `<option value="${g}" ${user.grupo === g ? 'selected' : ''}>${g}</option>`
+          ).join('')}
         </select>
       </div>
     `;
@@ -118,11 +116,11 @@ export default function GestionUsuarios() {
       }
       
       try {
-        const updateData: any = { rol: formValues.rol };
+        const updateData: any = { role: formValues.rol };
         if (formValues.rol === 'estudiante' && formValues.grupoId) {
-          updateData.grupoId = formValues.grupoId;
-        } else if (formValues.rol !== 'estudiante') {
-          updateData.grupoId = null;
+          updateData.grupo = formValues.grupoId;
+        } else {
+          updateData.grupo = "";
         }
         
         await updateDoc(doc(db, 'usuarios', user.id), updateData);
@@ -159,7 +157,7 @@ export default function GestionUsuarios() {
   });
 
   return (
-    <div className="container slide-up">
+    <div className="container slide-up" style={{ padding: "0 1.5rem" }}>
       <h2 className="section-title">Gestión de Usuarios</h2>
       
       <div className="admin-tabs" style={{ marginTop: '1.5rem' }}>
@@ -172,12 +170,10 @@ export default function GestionUsuarios() {
         {currentTab === "estudiantes" && (
           <div className="select-wrapper" style={{ flex: 1 }}>
             <select className="filter-select" value={groupFilter} onChange={(e) => setGroupFilter(e.target.value)}>
-              <option value="grupos">GRUPOS</option>
-              <option value="6A">6A</option>
-              <option value="6B">6B</option>
-              <option value="7A">7A</option>
-              <option value="11A">11A</option>
-              <option value="11B">11B</option>
+              <option value="grupos">TODOS LOS GRUPOS</option>
+              {['6A', '6B', '6C', '6D', '7A', '7B', '7C', '8A', '8B', '9A', '9B', '10A', '10B', '11A', '11B'].map(g => (
+                <option key={g} value={g}>{g}</option>
+              ))}
             </select>
           </div>
         )}
