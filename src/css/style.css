@@ -162,6 +162,7 @@
 body {
     font-family: 'Work Sans', sans-serif;
     background: linear-gradient(135deg, var(--bg-body-start) 0%, var(--bg-body-end) 100%);
+    background-attachment: fixed;
     min-height: 100vh;
     color: var(--text-primary);
     position: relative;

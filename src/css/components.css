@@ -92,9 +92,9 @@
     border-radius: 16px;
     z-index: 2000;
     
-    background: rgba(255, 255, 255, 0.7); /* default to light theme */
-    backdrop-filter: blur(20px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    background: rgba(255, 255, 255, 0.95); /* default to light theme */
+    backdrop-filter: blur(25px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
     border: 1px solid var(--glass-border, rgba(255,255,255,0.55));
     box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
     transform-origin: top right;
@@ -319,13 +319,9 @@
     to { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
 }
 
-[data-theme="light"] .header-dropdown {
-    background: rgba(255,255,255,0.7);
-}
-[data-theme="night"] .header-dropdown {
-    background: rgba(26,26,46,0.6);
-    border-color: rgba(255,255,255,0.07);
-}
+/* Theming overrides para .header-dropdown */
+[data-theme="light"] .header-dropdown { background: rgba(255, 255, 255, 0.95); }
+[data-theme="night"] .header-dropdown { background: rgba(15, 23, 42, 0.95); border-color: rgba(255,255,255,0.07); }
 [data-theme="night"] .dropdown-item:hover { background: rgba(255,255,255,0.05); }
 [data-theme="night"] .theme-pill { background: rgba(255,255,255,0.04); }
 [data-theme="night"] .bottom-nav-item:hover,

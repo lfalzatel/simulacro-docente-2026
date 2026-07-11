@@ -5,6 +5,13 @@ import type { User } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
+export interface SavedAccount {
+  uid: string;
+  email: string;
+  displayName: string;
+  photoURL: string;
+}
+
 interface AuthContextType {
   currentUser: User | null;
   appRole: string;
@@ -66,6 +73,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         } catch (error) {
           console.error("Error loading user data:", error);
         }
+
+        // Guardar cuenta en localStorage para multi-cuenta
+        try {
+          const savedStr = localStorage.getItem('evaluaseguro_accounts');
+          const saved: SavedAccount[] = savedStr ? JSON.parse(savedStr) : [];
+          const accountIndex = saved.findIndex(acc => acc.uid === user.uid);
+          
+          const newAccount: SavedAccount = {
+            uid: user.uid,
+            email: user.email || '',
+            displayName: user.displayName || user.email?.split('@')[0] || 'Usuario',
+            photoURL: user.photoURL || ''
+          };
+          
+          if (accountIndex >= 0) {
+            saved[accountIndex] = newAccount;
+          } else {
+            saved.push(newAccount);
+          }
+          localStorage.setItem('evaluaseguro_accounts', JSON.stringify(saved));
+        } catch (e) {
+          console.error("Error saving account to local storage", e);
+        }
+
       } else {
         setAppRole("free");
       }

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { LogOut, ChevronDown, Bell, User, Download, Share2, Settings, Plus } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { auth } from "../firebase";
-import { signOut } from "firebase/auth";
+import { signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Swal from "sweetalert2";
 
 export function Header() {
@@ -11,6 +11,45 @@ export function Header() {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [savedAccounts, setSavedAccounts] = useState<any[]>([]);
+
+  useEffect(() => {
+    if (dropdownOpen) {
+      try {
+        const savedStr = localStorage.getItem('evaluaseguro_accounts');
+        if (savedStr) {
+          const accounts = JSON.parse(savedStr);
+          // Omitir la cuenta actual
+          setSavedAccounts(accounts.filter((acc: any) => acc.uid !== currentUser?.uid));
+        }
+      } catch (e) {}
+    }
+  }, [dropdownOpen, currentUser]);
+
+  const handleSwitchAccount = async (email: string) => {
+    try {
+      const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({
+        login_hint: email
+      });
+      await signInWithPopup(auth, provider);
+      setDropdownOpen(false);
+      window.location.reload();
+    } catch (error: any) {
+      console.error(error);
+      Swal.fire('Error', 'No se pudo cambiar de cuenta', 'error');
+    }
+  };
+
+  const handleAddAccount = async () => {
+    try {
+      await signOut(auth);
+      setDropdownOpen(false);
+      navigate("/login");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const displayName = currentUser?.displayName || currentUser?.email?.split("@")[0] || "Usuario";
   const initials = displayName.substring(0, 2).toUpperCase();
@@ -160,7 +199,19 @@ export function Header() {
             <div className="dropdown-divider"></div>
 
             <nav className="dropdown-nav">
-              <button className="dropdown-item" onClick={() => Swal.fire('Añadir cuenta', 'Función disponible próximamente', 'info')}>
+              {savedAccounts.map((acc, index) => (
+                <button key={index} className="dropdown-item" onClick={() => handleSwitchAccount(acc.email)}>
+                  <div className="header-avatar" style={{ width: '24px', height: '24px', marginRight: '8px' }}>
+                    {acc.photoURL ? <img src={acc.photoURL} alt="Foto" /> : <span>{acc.displayName.substring(0,2).toUpperCase()}</span>}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                    <span style={{ fontSize: '0.85rem' }}>{acc.displayName}</span>
+                    <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>{acc.email}</span>
+                  </div>
+                </button>
+              ))}
+
+              <button className="dropdown-item" onClick={handleAddAccount}>
                 <Plus size={18} />
                 <span>Añadir Cuenta</span>
               </button>
