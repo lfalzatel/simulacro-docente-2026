@@ -49,13 +49,14 @@ export default function GestionUsuarios() {
     // Exact same logic as before for Swal
     const roles = {
       free: "FREE (Básico)",
+      premium: "PREMIUM",
       estudiante: "ESTUDIANTE",
       docente: "DOCENTE",
       admin: "ADMINISTRADOR",
     };
 
     const groupHtml = `
-      <div id="swal-grupo-container" style="margin-top: 15px; text-align: left; display: ${user.role === 'estudiante' || user.grupo ? 'block' : 'none'};">
+      <div id="swal-grupo-container" style="margin-top: 15px; text-align: left; display: ${user.role === 'estudiante' ? 'block' : 'none'};">
         <label style="font-size: 0.85rem; color: #666; font-weight: 600; margin-bottom: 5px; display: block;">
           GRUPO DEL ESTUDIANTE
         </label>
