@@ -88,11 +88,11 @@
     right: 0; 
     top: 100%; 
     margin-top: 10px;
-    width: 272px;
+    width: 320px;
     border-radius: 16px;
     z-index: 2000;
     
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.7); /* default to light theme */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
     border: 1px solid var(--glass-border, rgba(255,255,255,0.55));
