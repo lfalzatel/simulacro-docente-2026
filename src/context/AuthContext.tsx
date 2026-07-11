@@ -10,6 +10,7 @@ export interface SavedAccount {
   email: string;
   displayName: string;
   photoURL: string;
+  rol?: string;
 }
 
 interface AuthContextType {
@@ -80,19 +81,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           const saved: SavedAccount[] = savedStr ? JSON.parse(savedStr) : [];
           const accountIndex = saved.findIndex(acc => acc.uid === user.uid);
           
-          const newAccount: SavedAccount = {
-            uid: user.uid,
-            email: user.email || '',
-            displayName: user.displayName || user.email?.split('@')[0] || 'Usuario',
-            photoURL: user.photoURL || ''
-          };
-          
-          if (accountIndex >= 0) {
-            saved[accountIndex] = newAccount;
-          } else {
-            saved.push(newAccount);
+          let accountRole = "free";
+          // Get role from existing data to avoid race condition with state
+          if (user.uid) {
+            import("firebase/firestore").then(async ({ doc, getDoc }) => {
+               const docSnap = await getDoc(doc(db, "usuarios", user.uid));
+               if (docSnap.exists()) {
+                 accountRole = docSnap.data().rol || docSnap.data().role || "free";
+               }
+               
+               const newAccount: SavedAccount = {
+                 uid: user.uid,
+                 email: user.email || '',
+                 displayName: user.displayName || user.email?.split('@')[0] || 'Usuario',
+                 photoURL: user.photoURL || '',
+                 rol: accountRole
+               };
+               
+               if (accountIndex >= 0) {
+                 saved[accountIndex] = newAccount;
+               } else {
+                 saved.push(newAccount);
+               }
+               localStorage.setItem('evaluaseguro_accounts', JSON.stringify(saved));
+            });
           }
-          localStorage.setItem('evaluaseguro_accounts', JSON.stringify(saved));
         } catch (e) {
           console.error("Error saving account to local storage", e);
         }

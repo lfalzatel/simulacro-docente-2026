@@ -269,6 +269,7 @@ export function Header() {
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                     <span style={{ fontSize: '0.85rem' }}>{acc.displayName}</span>
                     <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>{acc.email}</span>
+                    {acc.rol && <span style={{ fontSize: '0.55rem', color: 'var(--accent-color)', textTransform: 'uppercase', fontWeight: 900, background: 'rgba(0,206,201,0.1)', padding: '1px 4px', borderRadius: '4px', marginTop: '2px' }}>{acc.rol}</span>}
                   </div>
                 </button>
               ))}

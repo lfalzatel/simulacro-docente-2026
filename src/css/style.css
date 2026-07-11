@@ -2376,6 +2376,152 @@ header {
 input:checked + .slider { background-color: var(--accent-primary); }
 input:checked + .slider:before { transform: translateX(20px); }
 
+/* ==========================================================================
+   PAGE LAYOUT CONTAINERS
+   ========================================================================== */
+.app-content {
+    padding-bottom: 100px;
+}
+
+.page-content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.fade-in {
+    animation: pageFadeIn 0.4s ease-out both;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 768px) {
+    .page-content { padding-top: 2rem; }
+}
+
+/* ==========================================================================
+   COMMON COMPONENTS
+   ========================================================================== */
+.welcome-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.welcome-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur, 10px)) saturate(var(--glass-saturate, 150%));
+    -webkit-backdrop-filter: blur(var(--glass-blur, 10px)) saturate(var(--glass-saturate, 150%));
+    padding: 1rem;
+    border-radius: var(--r-md, 16px);
+    text-align: center;
+    box-shadow: var(--glass-shadow, 0 4px 12px rgba(0,0,0,0.03));
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+/* Delay escalonado para tarjetas (stagger effect) */
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-family: 'Crimson Pro', serif;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.section-container {
+    margin-bottom: 2rem;
+}
+
+.section-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+.simulacro-card.locked {
+    opacity: 0.8;
+}
+
+.simulacro-card-meta {
+    margin-top: 0.35rem;
+    font-size: 0.72rem;
+}
+
+.badge-premium {
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+.badge-free {
+    color: #00b894;
+    font-weight: 700;
+}
+
+.start-btn.locked-btn {
+    background: #b2bec3;
+    cursor: not-allowed;
+}
+
 /* =========================================
    UI ESTILO FLOWI (MENU Y DROPDOWN)
 ========================================= */
