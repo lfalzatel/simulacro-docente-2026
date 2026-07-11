@@ -23,83 +23,103 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/components.css?v=2">
 
-    <style>
-        body { font-family: 'Inter', sans-serif; background: var(--bg-body, #f4f1eb); }
-        .page-content { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; padding-bottom: 100px; }
-        
-        .page-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .page-title { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 0; }
-        .page-subtitle { font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.2rem; }
-
-        .btn-primary {
-            background: #00cec9; color: white; border: none;
-            padding: 0.75rem 1.25rem; border-radius: 12px;
-            font-weight: 600; cursor: pointer; transition: background 0.2s;
-        }
-        .btn-primary:hover { background: #01b1ad; }
-
-        .data-card {
-            background: var(--bg-card, white);
-            border-radius: 20px;
-            padding: 1.5rem;
-            border: 1px solid var(--glass-border, rgba(0,0,0,0.06));
-            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-        }
-
-        .student-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        .student-table th { text-align: left; padding: 1rem; border-bottom: 2px solid var(--glass-border); color: var(--text-secondary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
-        .student-table td { padding: 1rem; border-bottom: 1px solid var(--glass-border); color: var(--text-primary); font-size: 0.9rem; }
-        .student-table tr:hover td { background: rgba(0,0,0,0.02); }
-
-        .empty-state {
-            text-align: center; padding: 3rem 1rem; color: var(--text-secondary);
-        }
-    </style>
+    <link rel="stylesheet" href="/css/estudiantes.css">
 </head>
-<body>
+<body class="dark-admin">
 
 <script src="/js/components/firebase-init.js"></script>
 <script src="/js/components/header.js"></script>
 <script src="/js/components/bottom-nav.js"></script>
 <script src="/js/components/auth-guard.js"></script>
 
-<div class="page-content" id="page-content" style="display:none;">
+<div class="page-content" id="page-content" style="display:none; padding-bottom: 120px;">
     
-    <div class="page-header">
-        <div>
-            <h1 class="page-title">👥 Estudiantes</h1>
-            <p class="page-subtitle">Gestión de usuarios y resultados de tus alumnos.</p>
-        </div>
-        <button class="btn-primary" onclick="Swal.fire('Próximamente', 'La función de invitar alumnos estará disponible en la próxima versión.', 'info')">
-            + Invitar Alumno
-        </button>
+    <!-- PESTAÑAS -->
+    <div class="tabs-container">
+        <div class="admin-tab active" data-tab="estudiantes">Estudiantes</div>
+        <div class="admin-tab" data-tab="docentes">Docentes</div>
+        <div class="admin-tab" data-tab="usuarios">Usuarios</div>
     </div>
 
-    <div class="data-card">
-        <table class="student-table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Progreso</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="student-list">
-                <!-- Se llenará con JS -->
-            </tbody>
-        </table>
-        
-        <div id="empty-msg" class="empty-state">
-            <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
-            <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Aún no tienes estudiantes</h3>
-            <p>Aquí aparecerán los alumnos registrados bajo tu cargo.</p>
+    <!-- FILTROS -->
+    <div class="filters-container">
+        <div class="select-wrapper">
+            <select class="filter-select">
+                <option value="sede">SEDE PRINCIPAL</option>
+            </select>
+        </div>
+        <div class="select-wrapper">
+            <select class="filter-select">
+                <option value="grupos">GRUPOS</option>
+            </select>
+        </div>
+        <input type="text" class="filter-search" placeholder="🔍 Buscar..." id="search-input">
+        <div class="select-wrapper" style="grid-column: 1 / -1;">
+            <select class="filter-select">
+                <option value="30d">ÚLTIMOS 30 DÍAS</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- ESTADÍSTICAS -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <h2 class="stat-number" id="stat-total">0</h2>
+            <div class="stat-label">Total Estudiantes</div>
+        </div>
+        <div class="stat-card">
+            <h2 class="stat-number" id="stat-cobertura">0% <span style="font-size:0.8rem; font-weight:normal">ⓘ</span></h2>
+            <div class="stat-label">Cobertura Real (30D)</div>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR DE LISTA DE USUARIOS -->
+    <div id="users-list-container">
+        <!-- Las tarjetas se insertarán aquí dinámicamente -->
+        <div class="empty-state-dark" id="empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <h3>Cargando usuarios...</h3>
         </div>
     </div>
 
 </div>
+
+<!-- Template oculto para clonar tarjetas en JS -->
+<template id="user-card-template">
+    <div class="user-card">
+        <div class="user-header">
+            <div class="user-info">
+                <h3 class="user-name">NOMBRE AQUI</h3>
+                <div class="user-badges">
+                    <span class="badge user-code">000000</span>
+                    <span class="badge group user-group" style="display:none;">GRUPO</span>
+                </div>
+            </div>
+            <div class="toggle-switch-container">
+                <div class="toggle-switch active">
+                    <div class="toggle-circle"></div>
+                </div>
+                <div class="toggle-label">ACTIVO</div>
+            </div>
+        </div>
+        <div class="user-actions">
+            <button class="btn-history">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                HISTORIAL
+            </button>
+            <button class="btn-icon btn-edit" title="Cambiar Rol">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </button>
+            <button class="btn-icon btn-download" title="Descargar Reporte">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+        </div>
+    </div>
+</template>
+
+<script src="/js/pages/estudiantes-admin.js"></script>
 
 <script>
     authGuard(function(user, role) {
@@ -110,6 +130,12 @@
 
         if (typeof populateHeader === 'function') populateHeader(user, role);
         if (typeof renderBottomNav === 'function') renderBottomNav(role);
+        
+        // Inicializar el administrador de usuarios
+        if (typeof initUsersAdmin === 'function') {
+            initUsersAdmin();
+        }
+        
         document.getElementById('page-content').style.display = 'block';
     });
 </script>

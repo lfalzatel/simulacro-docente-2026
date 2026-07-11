@@ -1,0 +1,320 @@
+/* 
+   Estilos Específicos para la Página de Gestión de Estudiantes/Usuarios
+   Diseño Oscuro Premium 
+*/
+
+:root {
+    --bg-dark: #121820;
+    --bg-card: #1e2632;
+    --bg-card-lighter: #26303d;
+    --border-dark: rgba(255, 255, 255, 0.08);
+    
+    --text-primary-dark: #ffffff;
+    --text-secondary-dark: #8b95a5;
+    
+    --accent-cyan: #00cec9;
+    --accent-cyan-hover: #01b1ad;
+    --accent-cyan-glow: rgba(0, 206, 201, 0.35);
+    
+    --badge-bg: #2a3441;
+}
+
+/* Modificadores de body para forzar modo oscuro en esta página */
+body.dark-admin {
+    background: var(--bg-dark) !important;
+    color: var(--text-primary-dark);
+}
+
+.dark-admin .page-title {
+    color: var(--text-primary-dark);
+}
+
+.dark-admin .page-subtitle {
+    color: var(--text-secondary-dark);
+}
+
+/* --- TABS --- */
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.admin-tab {
+    flex: 1;
+    background: var(--bg-card);
+    color: var(--text-secondary-dark);
+    border: 1px solid var(--border-dark);
+    padding: 0.75rem 1rem;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.admin-tab.active {
+    background: var(--accent-cyan);
+    color: white;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 8px 25px var(--accent-cyan-glow);
+}
+
+/* --- FILTROS --- */
+.filters-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    background: var(--bg-card);
+    padding: 1.25rem;
+    border-radius: 24px;
+    border: 1px solid var(--border-dark);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.filter-select, .filter-search {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-dark);
+    color: var(--text-primary-dark);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s;
+    appearance: none; /* para ocultar flecha nativa */
+}
+
+/* Flecha personalizada para select */
+.select-wrapper {
+    position: relative;
+}
+.select-wrapper::after {
+    content: '↓';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-cyan);
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.filter-search {
+    grid-column: 1 / -1; /* Ocupa el ancho completo */
+}
+
+.filter-search::placeholder {
+    color: var(--text-secondary-dark);
+}
+
+.filter-select:focus, .filter-search:focus {
+    border-color: var(--accent-cyan);
+}
+
+
+/* --- ESTADÍSTICAS --- */
+.stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 24px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    margin: 0 0 0.25rem 0;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-secondary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- TARJETA DE USUARIO --- */
+.user-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.2s;
+}
+
+.user-card:active {
+    transform: scale(0.98);
+}
+
+.user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-primary-dark);
+    margin: 0 0 0.4rem 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.user-badges {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.badge {
+    background: var(--badge-bg);
+    color: var(--text-secondary-dark);
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.badge.group {
+    color: var(--accent-cyan);
+}
+
+/* Toggle Switch calcado de la imagen */
+.toggle-switch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0,0,0,0.2);
+    padding: 0.4rem 0.6rem;
+    border-radius: 14px;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    background: var(--accent-cyan);
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 0.2rem;
+}
+
+.toggle-circle {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.toggle-label {
+    font-size: 0.55rem;
+    font-weight: 800;
+    color: var(--text-secondary-dark);
+    text-transform: uppercase;
+}
+
+/* Estado Inactivo (ejemplo) */
+.toggle-switch.inactive {
+    background: var(--badge-bg);
+}
+.toggle-switch.inactive .toggle-circle {
+    right: auto;
+    left: 2px;
+}
+
+/* Botones de acción inferiores */
+.user-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.btn-history {
+    flex: 1;
+    background: var(--accent-cyan);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 0.75rem;
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px var(--accent-cyan-glow);
+    cursor: pointer;
+}
+
+.btn-icon {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.btn-edit {
+    background: #FFF9E6; /* Amarillo pastel */
+    color: #F59E0B;
+}
+
+.btn-download {
+    background: #ECFDF5; /* Verde pastel */
+    color: #10B981;
+}
+
+.btn-edit svg, .btn-download svg {
+    stroke-width: 2.5;
+}
+
+/* Estado vacío */
+.empty-state-dark {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary-dark);
+}
+
+.empty-state-dark svg {
+    margin-bottom: 1rem;
+    stroke: var(--text-secondary-dark);
+}
