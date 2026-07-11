@@ -20,7 +20,7 @@ export default function Inicio() {
     <div className="page-content fade-in">
       
       {/* Banner de bienvenida */}
-      <div className="welcome-banner" style={{ marginBottom: '2rem' }}>
+      <div className="welcome-banner">
         <h1 className="welcome-title">
           ¡Hola, <span>{firstName}</span>! 👋
         </h1>

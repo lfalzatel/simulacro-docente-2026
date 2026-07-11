@@ -168,8 +168,10 @@ export default function GestionUsuarios() {
   });
 
   return (
-    <div className="container slide-up" style={{ padding: "0 1.5rem" }}>
-      <h2 className="section-title">Gestión de Usuarios</h2>
+    <div className="page-content fade-in">
+      <div className="page-header" style={{ marginBottom: '1.5rem' }}>
+        <h1 className="section-title" style={{ margin: 0 }}>Gestión de Usuarios</h1>
+      </div>
       
       <div className="admin-tabs" style={{ marginTop: '1.5rem' }}>
         <button className={`admin-tab ${currentTab === "estudiantes" ? "active" : ""}`} onClick={() => setCurrentTab("estudiantes")}>ESTUDIANTES</button>

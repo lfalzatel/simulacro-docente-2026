@@ -225,8 +225,12 @@ export function Header() {
               </button>
               
               <button className="dropdown-item" onClick={() => {
+                const shareText = (appRole === 'profesor' || appRole === 'admin')
+                  ? 'Te invito a EvaluaSeguro: gestiona exámenes por grupo y simulacros para el concurso docente.'
+                  : '¡Prepárate para el concurso docente 2026 con EvaluaSeguro!';
+
                 if (navigator.share) {
-                  navigator.share({ title: 'EvaluaSeguro', text: '¡Prepárate para el concurso docente 2026!', url: 'https://evaluaseguro-31c51.web.app/' });
+                  navigator.share({ title: 'EvaluaSeguro', text: shareText, url: 'https://evaluaseguro-31c51.web.app/' });
                 } else {
                   navigator.clipboard.writeText('https://evaluaseguro-31c51.web.app/');
                   Swal.fire('¡Copiado!', 'Enlace copiado al portapapeles', 'success');
