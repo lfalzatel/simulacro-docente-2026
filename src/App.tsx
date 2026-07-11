@@ -7,6 +7,10 @@ import Login from "./pages/Login";
 import Menu from "./pages/Menu";
 import Examenes from "./pages/Examenes";
 import Inicio from "./pages/Inicio";
+import Perfil from "./pages/Perfil";
+import Reportes from "./pages/Reportes";
+import Documentacion from "./pages/Documentacion";
+import Configuracion from "./pages/Configuracion";
 import GestionUsuarios from "./pages/GestionUsuarios";
 
 // CSS Global (Manteniendo el tuyo)
@@ -22,15 +26,14 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/login" element={<Login />} />
             <Route path="/examenes" element={<Examenes />} />
+            <Route path="/gestion" element={<GestionUsuarios />} />
             <Route path="/menu" element={<Menu />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/reportes" element={<Reportes />} />
+            <Route path="/documentacion" element={<Documentacion />} />
+            <Route path="/configuracion" element={<Configuracion />} />
             
             <Route path="/" element={<Inicio />} />
-            <Route path="/gestion" element={<GestionUsuarios />} />
-            
-            {/* Fallback routes */}
-            <Route path="/reportes" element={<div className="container" style={{padding: '2rem'}}><h2>Reportes en construcción...</h2></div>} />
-            <Route path="/perfil" element={<div className="container" style={{padding: '2rem'}}><h2>Perfil en construcción...</h2></div>} />
-            
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

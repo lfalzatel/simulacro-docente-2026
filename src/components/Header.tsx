@@ -151,7 +151,7 @@ export function Header() {
             <div className="dropdown-divider"></div>
 
             <nav className="dropdown-nav">
-              <button className="dropdown-item" onClick={() => Swal.fire('Próximamente', 'Configuración de cuenta', 'info')}>
+              <button className="dropdown-item" onClick={() => { setDropdownOpen(false); navigate("/configuracion"); }}>
                 <Settings size={18} />
                 <span>Configuración</span>
               </button>

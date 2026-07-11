@@ -68,7 +68,21 @@ export default function Menu() {
         </div>
 
         <div 
-          onClick={() => showSoon('Configuración')} 
+          onClick={() => navigate('/documentacion')} 
+          className="menu-card"
+          style={{
+            background: 'var(--bg-card, white)', borderRadius: '20px', padding: '1.5rem 1rem', textAlign: 'center', 
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', 
+            border: '1px solid var(--glass-border, rgba(0,0,0,0.06))', boxShadow: '0 4px 16px rgba(0,0,0,0.04)', cursor: 'pointer'
+          }}
+        >
+          <div className="menu-icon" style={{ fontSize: '2rem', background: 'rgba(0, 184, 148, 0.1)', width: '60px', height: '60px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>📚</div>
+          <div className="menu-label" style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>Documentación</div>
+          <div className="menu-desc" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.3 }}>Material de estudio</div>
+        </div>
+
+        <div 
+          onClick={() => navigate('/configuracion')} 
           className="menu-card"
           style={{
             background: 'var(--bg-card, white)', borderRadius: '20px', padding: '1.5rem 1rem', textAlign: 'center', 
