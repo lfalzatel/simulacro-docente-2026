@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { LogOut, ChevronDown, Bell } from "lucide-react";
+import { LogOut, ChevronDown, Bell, User, Download, Share2, Settings, Plus } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
@@ -95,15 +95,34 @@ export function Header() {
 
             <div className="dropdown-divider"></div>
 
+            <div className="dropdown-themes" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', padding: '0.5rem 1rem' }}>
+              <button className="theme-pill" style={{ background: '#00cec9', color: 'white', border: 'none', borderRadius: '12px', padding: '0.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer' }}>
+                <span style={{ fontSize: '1.2rem' }}>☀️</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>Día</span>
+              </button>
+              <button className="theme-pill" style={{ background: 'transparent', border: '1px solid var(--border)', borderRadius: '12px', padding: '0.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', color: 'var(--text-secondary)' }}>
+                <span style={{ fontSize: '1.2rem' }}>🖥️</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>Cyber</span>
+              </button>
+              <button className="theme-pill" style={{ background: 'transparent', border: '1px solid var(--border)', borderRadius: '12px', padding: '0.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', color: 'var(--text-secondary)' }}>
+                <span style={{ fontSize: '1.2rem', fontWeight: 800 }}>{`>_`}</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>Kilo</span>
+              </button>
+            </div>
+
+            <div className="dropdown-divider"></div>
+
             <nav className="dropdown-nav">
-              <button className="dropdown-item" onClick={() => Swal.fire('Próximamente', 'Notificaciones estarán disponibles pronto', 'info')}>
-                <Bell size={18} />
-                <span>Notificaciones</span>
+              <button className="dropdown-item" onClick={() => { setDropdownOpen(false); navigate("/perfil"); }}>
+                <User size={18} />
+                <span>Mi perfil</span>
               </button>
-              <button className="dropdown-item" onClick={() => Swal.fire('Próximamente', 'Configuración de cuenta', 'info')}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg>
-                <span>Configuración</span>
+              
+              <button className="dropdown-item" style={{ color: '#00cec9' }} onClick={() => Swal.fire('Instalar', 'La instalación PWA estará disponible pronto', 'info')}>
+                <Download size={18} color="#00cec9" />
+                <span>Instalar app</span>
               </button>
+              
               <button className="dropdown-item" onClick={() => {
                 if (navigator.share) {
                   navigator.share({ title: 'EvaluaSeguro', text: '¡Prepárate para el concurso docente 2026!', url: 'https://evaluaseguro-31c51.web.app/' });
@@ -112,15 +131,45 @@ export function Header() {
                   Swal.fire('¡Copiado!', 'Enlace copiado al portapapeles', 'success');
                 }
               }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-                <span>Compartir App</span>
+                <Share2 size={18} />
+                <span>Compartir app</span>
+              </button>
+              
+              <div className="dropdown-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'default' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div style={{ background: 'rgba(0,206,201,0.2)', padding: '6px', borderRadius: '8px', display: 'flex', color: '#00cec9' }}>
+                    <Bell size={18} />
+                  </div>
+                  <span>Notificaciones</span>
+                </div>
+                <div style={{ width: '40px', height: '22px', background: '#00cec9', borderRadius: '11px', position: 'relative', cursor: 'pointer' }}>
+                  <div style={{ width: '18px', height: '18px', background: 'white', borderRadius: '50%', position: 'absolute', top: '2px', right: '2px', boxShadow: '0 2px 4px rgba(0,0,0,0.2)' }}></div>
+                </div>
+              </div>
+            </nav>
+
+            <div className="dropdown-divider"></div>
+
+            <nav className="dropdown-nav">
+              <button className="dropdown-item" onClick={() => Swal.fire('Próximamente', 'Configuración de cuenta', 'info')}>
+                <Settings size={18} />
+                <span>Configuración</span>
               </button>
             </nav>
 
             <div className="dropdown-divider"></div>
 
-            <button className="dropdown-item dropdown-logout" onClick={handleLogout}>
-              <LogOut size={18} />
+            <nav className="dropdown-nav">
+              <button className="dropdown-item" onClick={() => Swal.fire('Añadir cuenta', 'Función disponible próximamente', 'info')}>
+                <Plus size={18} />
+                <span>Añadir Cuenta</span>
+              </button>
+            </nav>
+
+            <div className="dropdown-divider"></div>
+
+            <button className="dropdown-item dropdown-logout" style={{ color: '#ff7675' }} onClick={handleLogout}>
+              <LogOut size={18} color="#ff7675" />
               <span>Cerrar sesión</span>
             </button>
           </div>

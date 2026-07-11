@@ -1,9 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { Home, FileText, Users, BarChart2, Menu } from "lucide-react";
 
+import { useAuth } from "../context/AuthContext";
+
 export function BottomNav() {
   const location = useLocation();
   const path = location.pathname;
+  const { appRole } = useAuth();
 
   const navItems = [
     { path: "/", id: "nav-inicio", label: "Inicio", icon: <Home size={22} /> },
@@ -11,7 +14,13 @@ export function BottomNav() {
     { path: "/gestion", id: "nav-estudiantes", label: "Gestión", icon: <Users size={22} /> },
     { path: "/reportes", id: "nav-reportes", label: "Reportes", icon: <BarChart2 size={22} /> },
     { path: "/menu", id: "nav-menu", label: "Menú", icon: <Menu size={22} /> },
-  ];
+  ].filter(item => {
+    // Only ADMIN can see Examenes and Gestion
+    if ((item.path === '/examenes' || item.path === '/gestion') && appRole !== 'admin' && appRole !== 'ADMIN') {
+      return false;
+    }
+    return true;
+  });
 
   // We hide bottom nav on login page
   if (path === "/login") return null;

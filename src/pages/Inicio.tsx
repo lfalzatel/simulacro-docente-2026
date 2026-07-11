@@ -78,8 +78,8 @@ export default function Inicio() {
         <div className="simulacros-grid">
           {simulacrosCatalog.map((sim) => {
             // Check access: ADMIN or FREE? If free, premium is locked.
-            const userRole = appRole || 'FREE';
-            const canAccess = !sim.es_premium || userRole === 'ADMIN';
+            const userRole = (appRole || 'free').toLowerCase();
+            const canAccess = !sim.es_premium || userRole === 'admin' || userRole === 'premium';
             
             // Mock percentage for now, ideally fetched from localStorage or Firebase
             const pct = 0;

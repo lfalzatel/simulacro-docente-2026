@@ -82,42 +82,43 @@
 }
 .header-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-/* ── Dropdown — efecto glass real ── */
+/* ── Dropdown — estilo Flowi glass ── */
 .header-dropdown {
     position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    min-width: 290px;
-    border-radius: 20px;
-    padding: 0.6rem 0;
+    right: 0; 
+    top: 100%; 
+    margin-top: 10px;
+    width: 272px;
+    border-radius: 16px;
     z-index: 2000;
-
-    /* Glass principal */
-    background: var(--glass-bg-strong, rgba(255,255,255,0.82));
-    backdrop-filter: blur(28px) saturate(200%);
-    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
     border: 1px solid var(--glass-border, rgba(255,255,255,0.55));
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.18),
-        0 4px 16px rgba(0,0,0,0.1),
-        inset 0 1px 0 rgba(255,255,255,0.8);
-
-    opacity: 0;
-    transform: translateY(-10px) scale(0.96);
-    pointer-events: none;
-    transition: opacity 0.22s var(--ease-smooth, ease), transform 0.22s var(--ease-smooth, ease);
-    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+    transform-origin: top right;
+    transition: background 0.2s, border-color 0.2s;
+    
+    display: none; /* hidden by default */
 }
 .header-dropdown.open {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: all;
+    display: block;
+    animation: slideDown 0.2s ease-out forwards;
 }
 
-/* Info del usuario */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Info del usuario (Con el fondo gradiente de la imagen) */
 .dropdown-user-info {
     display: flex; align-items: center; gap: 0.85rem;
-    padding: 0.9rem 1.1rem 0.75rem;
+    padding: 1.25rem 1.1rem 0.75rem;
+    background: linear-gradient(to bottom, rgba(0, 206, 201, 0.15), rgba(255,255,255,0));
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
 .dropdown-avatar-wrap {
     width: 46px; height: 46px; border-radius: 50%;
@@ -318,15 +319,12 @@
     to { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
 }
 
-/* Dark mode overrides */
-[data-theme="night"] .bottom-nav,
+[data-theme="light"] .header-dropdown {
+    background: rgba(255,255,255,0.7);
+}
 [data-theme="night"] .header-dropdown {
-    background: rgba(18,18,18,0.85);
+    background: rgba(26,26,46,0.6);
     border-color: rgba(255,255,255,0.07);
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.5),
-        0 4px 16px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.05);
 }
 [data-theme="night"] .dropdown-item:hover { background: rgba(255,255,255,0.05); }
 [data-theme="night"] .theme-pill { background: rgba(255,255,255,0.04); }
