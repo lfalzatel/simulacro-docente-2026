@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Sun, Moon, Layers, Terminal, Zap, Check, Palette } from "lucide-react";
+import { X, Sun, Moon, Layers, Terminal, Zap, Check, Palette, Sparkles } from "lucide-react";
 
 export default function GestionTemasModal({ onClose }: { onClose: () => void }) {
   const [activeTheme, setActiveTheme] = useState(localStorage.getItem("evaluaseguro_theme") || "dia");
@@ -13,7 +13,8 @@ export default function GestionTemasModal({ onClose }: { onClose: () => void }) 
     { id: "original", name: "Original", icon: Moon },
     { id: "glass", name: "Glass", icon: Layers },
     { id: "cyber", name: "Cyber", icon: Terminal },
-    { id: "kilo", name: "Kilo", icon: Zap }
+    { id: "kilo", name: "Kilo", icon: Zap },
+    { id: "aurora", name: "Aurora", icon: Sparkles }
   ];
 
   return (

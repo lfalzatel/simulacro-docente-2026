@@ -25,7 +25,8 @@ export function Header() {
     original: { name: 'Original', icon: '🌙' },
     glass: { name: 'Glass', icon: '💠' },
     cyber: { name: 'Cyber', icon: '🖥️' },
-    kilo: { name: 'Kilo', icon: '>_' }
+    kilo: { name: 'Kilo', icon: '>_' },
+    aurora: { name: 'Aurora', icon: '✨' }
   };
 
   useEffect(() => {

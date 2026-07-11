@@ -151,6 +151,125 @@
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
+/* Glass Theme */
+[data-theme="glass"] {
+    --bg-body-start: #0A0A0F;
+    --bg-body-end: #12121A;
+    --bg-card: #1A1A2E;
+    --bg-header: rgba(10, 10, 15, 0.9);
+    --bg-overlay-Start: rgba(0, 229, 160, 0.05);
+    --bg-overlay-End: rgba(59, 130, 246, 0.04);
+
+    --text-primary: rgba(255,255,255,0.95);
+    --text-secondary: rgba(255,255,255,0.55);
+    --text-inverse: #0A0A0F;
+
+    --accent-primary: #00E5A0;
+    --accent-secondary: #00B37E;
+    --highlight: #F5A623;
+    --border-color: rgba(255,255,255,0.10);
+
+    --success-bg: rgba(0,229,160,0.1); --success-text: #00E5A0;
+    --error-bg: rgba(255,91,91,0.1); --error-text: #FF5B5B;
+    --shadow-color: rgba(0,0,0,0.4);
+
+    --glass-bg: rgba(255,255,255,0.06);
+    --glass-bg-strong: rgba(255,255,255,0.12);
+    --glass-border: rgba(255,255,255,0.10);
+    --glass-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+/* Cyber Theme */
+[data-theme="cyber"] {
+    --bg-body-start: #070714;
+    --bg-body-end: #0A0A16;
+    --bg-card: #0A0A16;
+    --bg-header: rgba(7,7,20,0.9);
+    --bg-overlay-Start: rgba(0,255,178,0.08);
+    --bg-overlay-End: rgba(0,255,178,0.04);
+
+    --text-primary: #E0E0FF;
+    --text-secondary: #8A8AC2;
+    --text-inverse: #070714;
+
+    --accent-primary: #00FFB2;
+    --accent-secondary: #00CC8E;
+    --highlight: #FFE600;
+    --border-color: rgba(0,255,178,0.2);
+
+    --success-bg: rgba(0,255,178,0.1); --success-text: #00FFB2;
+    --error-bg: rgba(255,45,120,0.1); --error-text: #FF2D78;
+    --shadow-color: rgba(0,255,178,0.15);
+
+    --glass-bg: transparent;
+    --glass-bg-strong: rgba(0,255,178,0.05);
+    --glass-border: rgba(0,255,178,0.2);
+    --glass-shadow: 0 0 30px rgba(0,255,178,0.15), 0 0 60px rgba(0,255,178,0.06);
+}
+
+/* Kilo Theme */
+[data-theme="kilo"] {
+    --bg-body-start: #0A0A0A;
+    --bg-body-end: #121212;
+    --bg-card: rgba(255,255,255,0.04);
+    --bg-header: rgba(10,10,10,0.9);
+    --bg-overlay-Start: rgba(250,204,21,0.08);
+    --bg-overlay-End: rgba(250,204,21,0.04);
+
+    --text-primary: rgba(255,255,255,0.95);
+    --text-secondary: rgba(255,255,255,0.6);
+    --text-inverse: #0A0A0A;
+
+    --accent-primary: #FACC15;
+    --accent-secondary: #EAB308;
+    --highlight: #FACC15;
+    --border-color: rgba(255,255,255,0.1);
+
+    --success-bg: rgba(250,204,21,0.1); --success-text: #FACC15;
+    --error-bg: rgba(255,91,91,0.1); --error-text: #FF5B5B;
+    --shadow-color: rgba(0,0,0,0.5);
+
+    --glass-bg: rgba(255,255,255,0.03);
+    --glass-bg-strong: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.1);
+    --glass-shadow: 0 4px 24px -1px rgba(0,0,0,0.2);
+}
+
+/* Aurora Theme */
+[data-theme="aurora"] {
+    --bg-body-start: #0f172a;
+    --bg-body-end: #1e1b4b;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-header: rgba(15,23,42,0.85);
+    --bg-overlay-Start: rgba(0,206,201,0.08);
+    --bg-overlay-End: rgba(142,45,226,0.08);
+
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255,255,255,0.7);
+    --text-inverse: #0f172a;
+
+    --accent-primary: #00cec9;
+    --accent-secondary: #8e2de2;
+    --highlight: #4a00e0;
+    --border-color: rgba(255,255,255,0.15);
+
+    --success-bg: rgba(0,206,201,0.12); --success-text: #00cec9;
+    --error-bg: rgba(255,91,91,0.12); --error-text: #FF5B5B;
+    --shadow-color: rgba(0,0,0,0.3);
+
+    --glass-bg: rgba(255,255,255,0.03);
+    --glass-bg-strong: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.1);
+    --glass-blur: 25px;
+    --glass-shadow: 0 25px 45px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+[data-theme="aurora"] body {
+    background: linear-gradient(-45deg, #0f172a, #1e1b4b, #311b5e, #0f172a);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -2638,6 +2757,12 @@ input:checked + .slider:before { transform: translateX(20px); }
     background: var(--accent-primary);
     color: white;
     transform: translateY(-2px);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* =========================================
