@@ -101,8 +101,7 @@ export default function Menu() {
           style={{
             background: 'var(--bg-card, white)', borderRadius: '20px', padding: '1.5rem 1rem', textAlign: 'center', 
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', 
-            border: '1px solid var(--glass-border, rgba(0,0,0,0.06))', boxShadow: '0 4px 16px rgba(0,0,0,0.04)', cursor: 'pointer',
-            gridColumn: 'span 2'
+            border: '1px solid var(--glass-border, rgba(0,0,0,0.06))', boxShadow: '0 4px 16px rgba(0,0,0,0.04)', cursor: 'pointer'
           }}
         >
           <div className="menu-icon" style={{ fontSize: '2rem', background: 'rgba(241, 196, 15, 0.1)', width: '60px', height: '60px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>📌</div>
