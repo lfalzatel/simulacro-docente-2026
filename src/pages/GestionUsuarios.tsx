@@ -217,7 +217,7 @@ export default function GestionUsuarios() {
 }
 
 function UserCard({ user, onEdit }: { user: UserData; onEdit: () => void }) {
-  const avatarSrc = user.foto || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=0D8ABC&color=fff&size=100`;
+  const avatarSrc = user.foto || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=00cec9&color=fff&size=100`;
 
   return (
     <div className="user-card">

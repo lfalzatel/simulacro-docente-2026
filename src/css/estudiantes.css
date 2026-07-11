@@ -211,7 +211,7 @@ body.admin-page {
 }
 
 .btn-actividad {
-    background: #0D8ABC;
+    background: #00cec9;
     color: white;
     font-size: 0.7rem;
     font-weight: 900;
@@ -221,7 +221,7 @@ body.admin-page {
     cursor: pointer;
     text-transform: uppercase;
     flex: 1;
-    box-shadow: 0 4px 12px rgba(13,138,188,0.2);
+    box-shadow: 0 4px 12px rgba(0,206,201,0.2);
 }
 
 .btn-role-badge {
