@@ -104,32 +104,37 @@ function renderUsers() {
         
         clone.querySelector('.user-name').innerText = user.name;
         clone.querySelector('.user-email').innerText = user.email;
-        // Usar los primeros 6 caracteres del ID como código (o un campo código si existe)
-        clone.querySelector('.user-code').innerText = user.id.substring(0, 6).toUpperCase();
+        
+        // Configurar Avatar
+        const avatarImg = clone.querySelector('.avatar-img');
+        if (avatarImg) {
+            avatarImg.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=0D8ABC&color=fff&size=100`;
+        }
+        
+        // Configurar Badge de Rol
+        const roleText = clone.querySelector('.role-text');
+        if (roleText) {
+            roleText.innerText = user.role.toUpperCase();
+        }
         
         // Mostrar grupo si es estudiante
-        const groupBadge = clone.querySelector('.user-group');
+        const groupBadge = clone.querySelector('.user-group-badge');
         if (user.role === 'estudiante' && user.grupo) {
             groupBadge.innerText = user.grupo;
             groupBadge.style.display = 'inline-block';
         }
 
-        // Toggle Activo/Inactivo visual (Sin backend por ahora, pero preparado)
-        const toggleSwitch = clone.querySelector('.toggle-switch');
-        const toggleLabel = clone.querySelector('.toggle-label');
-        if (!user.active) {
-            toggleSwitch.classList.remove('active');
-            toggleSwitch.classList.add('inactive');
-            toggleLabel.innerText = 'INACTIVO';
-        }
-
         // Botón Editar -> Cambiar Rol
         const btnEdit = clone.querySelector('.btn-edit');
-        btnEdit.addEventListener('click', () => openRoleEditor(user));
+        if (btnEdit) {
+            btnEdit.addEventListener('click', () => openRoleEditor(user));
+        }
         
         // También hacer clic en el nombre abre el editor
         const nameLabel = clone.querySelector('.user-name');
-        nameLabel.addEventListener('click', () => openRoleEditor(user));
+        if (nameLabel) {
+            nameLabel.addEventListener('click', () => openRoleEditor(user));
+        }
 
         container.appendChild(clone);
     });

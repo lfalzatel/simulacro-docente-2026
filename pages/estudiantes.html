@@ -44,12 +44,8 @@
     </div>
 
     <!-- FILTROS -->
-        <div class="select-wrapper" style="flex: 1;">
-            <select class="filter-select">
-                <option value="todos">TODOS LOS ROLES</option>
-            </select>
-        </div>
-        <div class="select-wrapper" style="flex: 1;" id="filter-group-container">
+    <div class="filters-container">
+        <div class="select-wrapper" style="flex: 1; display:none;" id="filter-group-container">
             <select class="filter-select">
                 <option value="grupos">GRUPOS</option>
             </select>
@@ -71,33 +67,25 @@
 <!-- Template oculto para clonar tarjetas en JS -->
 <template id="user-card-template">
     <div class="user-card">
-        <div class="user-header">
+        <div class="user-avatar">
+            <img src="" class="avatar-img" alt="Avatar">
+        </div>
+        <div class="user-content">
             <div class="user-info">
                 <h3 class="user-name">NOMBRE AQUI</h3>
                 <p class="user-email">correo@ejemplo.com</p>
-                <div class="user-badges">
-                    <span class="badge user-code">000000</span>
-                    <span class="badge group user-group" style="display:none;">GRUPO</span>
-                </div>
+                <div class="user-group-badge" style="display:none;">GRUPO</div>
             </div>
-            <div class="toggle-switch-container">
-                <div class="toggle-switch active">
-                    <div class="toggle-circle"></div>
-                </div>
-                <div class="toggle-label">ACTIVO</div>
+            <div class="user-actions">
+                <button class="btn-actividad">ACTIVIDAD</button>
+                <button class="btn-role-badge btn-edit" title="Cambiar Rol">
+                    <svg class="role-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="role-text">DOCENTE</span>
+                </button>
+                <button class="btn-icon btn-download" title="Descargar Reporte">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </button>
             </div>
-        </div>
-        <div class="user-actions">
-            <button class="btn-history">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                HISTORIAL
-            </button>
-            <button class="btn-icon btn-edit" title="Cambiar Rol">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-            </button>
-            <button class="btn-icon btn-download" title="Descargar Reporte">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            </button>
         </div>
     </div>
 </template>
