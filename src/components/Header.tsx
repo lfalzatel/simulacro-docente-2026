@@ -147,7 +147,10 @@ export function Header() {
                 <span>{initials}</span>
               )}
             </div>
-            <span className="header-username">{firstName}</span>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center' }}>
+              <span className="header-username" style={{ lineHeight: 1.2 }}>{firstName}</span>
+              <span style={{ fontSize: '0.55rem', color: 'var(--accent-color)', textTransform: 'uppercase', fontWeight: 900, background: 'rgba(0,206,201,0.1)', padding: '1px 4px', borderRadius: '4px', marginTop: '1px' }}>{appRole}</span>
+            </div>
             <ChevronDown size={14} />
           </button>
 

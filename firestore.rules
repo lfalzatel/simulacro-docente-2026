@@ -18,7 +18,7 @@ service cloud.firestore {
     }
 
     function esProfesor() {
-      return estaAutenticado() && getRol() == 'profesor';
+      return estaAutenticado() && (getRol() == 'profesor' || getRol() == 'docente' || getRol() == 'DOCENTE' || getRol() == 'admin' || getRol() == 'ADMIN');
     }
 
     function esCreadorDelExamen(profesorId) {
@@ -36,6 +36,24 @@ service cloud.firestore {
       allow update: if request.auth.uid == userId
                     || esAdmin()
                     || (esProfesor() && request.resource.data.rol == 'estudiante');
+    }
+
+    // ============================================
+    // NOTIFICACIONES
+    // ============================================
+    match /notificaciones/{notifId} {
+      allow read: if estaAutenticado();
+      allow create: if esProfesor() || esAdmin();
+      allow update: if estaAutenticado();
+      allow delete: if esAdmin() || esProfesor();
+    }
+
+    // ============================================
+    // NOTAS
+    // ============================================
+    match /notas/{notaId} {
+      allow read, update, delete: if estaAutenticado() && request.auth.uid == resource.data.userId;
+      allow create: if estaAutenticado() && request.resource.data.userId == request.auth.uid;
     }
 
     // ============================================
