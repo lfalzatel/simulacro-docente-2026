@@ -8,9 +8,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background: linear-gradient(-45deg, #0b1120, #131b2f, #1e0b2d, #0b1120);
+    background: linear-gradient(-45deg, #0f172a, #1e1b4b, #311b5e, #0f172a);
     background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    animation: gradientBG 10s ease infinite;
     overflow: hidden;
     padding: 20px;
 }
@@ -27,8 +27,8 @@
     border-radius: 50%;
     filter: blur(80px);
     z-index: 0;
-    opacity: 0.6;
-    animation: float 20s infinite ease-in-out;
+    opacity: 0.8;
+    animation: float 10s infinite ease-in-out alternate;
 }
 
 .blob-1 {

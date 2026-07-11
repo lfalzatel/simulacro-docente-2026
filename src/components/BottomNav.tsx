@@ -15,8 +15,9 @@ export function BottomNav() {
     { path: "/reportes", id: "nav-reportes", label: "Reportes", icon: <BarChart2 size={22} /> },
     { path: "/menu", id: "nav-menu", label: "Menú", icon: <Menu size={22} /> },
   ].filter(item => {
-    // Only ADMIN can see Examenes and Gestion
-    if ((item.path === '/examenes' || item.path === '/gestion') && appRole !== 'admin' && appRole !== 'ADMIN') {
+    // Only ADMIN and DOCENTE can see Examenes and Gestion
+    if ((item.path === '/examenes' || item.path === '/gestion') && 
+        !['admin', 'ADMIN', 'docente', 'DOCENTE'].includes(appRole)) {
       return false;
     }
     return true;
