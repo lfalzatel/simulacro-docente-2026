@@ -2,11 +2,14 @@ import { Link, useLocation } from "react-router-dom";
 import { Home, FileText, Users, BarChart2, Menu } from "lucide-react";
 
 import { useAuth } from "../context/AuthContext";
+import { useTheme } from "../context/ThemeContext";
 
 export function BottomNav() {
   const location = useLocation();
   const path = location.pathname;
   const { appRole } = useAuth();
+  const { theme } = useTheme();
+  const isTechTheme = theme === 'cyber' || theme === 'kilo';
 
   const navItems = [
     { path: "/", id: "nav-inicio", label: "Inicio", icon: <Home size={22} /> },
@@ -29,18 +32,18 @@ export function BottomNav() {
   if (path === "/login") return null;
 
   return (
-    <nav className="bottom-nav">
+    <nav className={`bottom-nav ${isTechTheme ? 'bottom-nav-tech' : ''}`}>
       {navItems.map((item) => {
         const isActive = path === item.path || (path.startsWith(item.path) && item.path !== "/");
         return (
           <Link
             key={item.id}
             to={item.path}
-            className={`bottom-nav-item ${isActive ? "active" : ""}`}
+            className={`bottom-nav-item ${isActive ? "active" : ""} ${isTechTheme ? 'bottom-nav-item-tech' : ''}`}
             style={{ textDecoration: 'none' }}
           >
             <div className="nav-icon">{item.icon}</div>
-            <span className="nav-label">{item.label}</span>
+            <span className="nav-label">{isTechTheme ? item.label.toUpperCase() : item.label}</span>
             <div className="nav-ripple"></div>
           </Link>
         );

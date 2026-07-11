@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LogOut, ChevronDown, Bell, User, Download, Share2, Settings, Plus } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import { useTheme } from "../context/ThemeContext";
 import { signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db, auth } from "../firebase";
@@ -15,7 +16,7 @@ export function Header() {
   const [savedAccounts, setSavedAccounts] = useState<any[]>([]);
   const [notificaciones, setNotificaciones] = useState<any[]>([]);
   const [showNotifs, setShowNotifs] = useState(false);
-  const [activeTheme, setActiveTheme] = useState(localStorage.getItem('evaluaseguro_theme') || 'dia');
+  const { theme: activeTheme, setTheme: setActiveTheme } = useTheme();
   
   const savedQuick = localStorage.getItem('evaluaseguro_quick_themes');
   const quickThemes: string[] = savedQuick ? JSON.parse(savedQuick) : ["dia", "cyber", "kilo"];
@@ -193,9 +194,7 @@ export function Header() {
                   <button 
                     key={themeId}
                     onClick={() => {
-                      localStorage.setItem('evaluaseguro_theme', themeId);
                       setActiveTheme(themeId);
-                      document.documentElement.setAttribute('data-theme', themeId);
                     }}
                     className="theme-pill" 
                     style={{ 

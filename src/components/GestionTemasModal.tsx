@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { X, Sun, Moon, Layers, Terminal, Zap, Check, Palette, Sparkles } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 export default function GestionTemasModal({ onClose }: { onClose: () => void }) {
-  const [activeTheme, setActiveTheme] = useState(localStorage.getItem("evaluaseguro_theme") || "dia");
+  const { theme: activeTheme, setTheme: setActiveTheme } = useTheme();
   
   const savedQuick = localStorage.getItem("evaluaseguro_quick_themes");
   const initialQuick = savedQuick ? JSON.parse(savedQuick) : ["dia", "cyber", "kilo"];
@@ -145,11 +146,9 @@ export default function GestionTemasModal({ onClose }: { onClose: () => void }) 
             Cancelar
           </button>
           <button onClick={() => {
-            if (quickThemes.length === 0) return;
+            setActiveTheme(activeTheme);
             localStorage.setItem("evaluaseguro_quick_themes", JSON.stringify(quickThemes));
-            localStorage.setItem("evaluaseguro_theme", activeTheme);
-            onClose();
-            window.location.reload(); // Para que el Header tome los cambios
+            window.location.reload();
           }} style={{ flex: 2, padding: '1rem', background: '#00b894', borderRadius: '12px', border: 'none', color: '#fff', fontWeight: 600, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', opacity: quickThemes.length === 0 ? 0.5 : 1 }}>
             <Check size={18} /> Guardar Cambios
           </button>
