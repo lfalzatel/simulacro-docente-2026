@@ -53,7 +53,7 @@
         });
 
         const buttons = items.map(item => {
-            const isActive = currentPage && currentPage.endsWith(item.href);
+            const isActive = currentPage && item.href.endsWith(currentPage);
             return `
             <a href="${item.href}" class="bottom-nav-item ${isActive ? 'active' : ''}" id="${item.id}" title="${item.label}">
                 <span class="nav-icon">${item.icon}</span>
