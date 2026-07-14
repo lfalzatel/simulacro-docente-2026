@@ -414,7 +414,6 @@ export default function TeacherExamsView() {
           const completedResponses = examResponses.filter(r => r.estado === 'completado' || r.score !== undefined);
           const averageScore = completedResponses.length > 0 ? Math.round(completedResponses.reduce((acc, curr) => acc + (curr.score || 0), 0) / completedResponses.length) : 0;
           const totalEvaluated = completedResponses.length;
-          const totalEnCursoOBloqueado = examResponses.length - totalEvaluated;
           
           return (
             <>

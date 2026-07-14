@@ -75,7 +75,7 @@ export default function StudentExamsView() {
     return { text: `EN ${diffDays} DÍAS`, color: "#2ecc71" };
   };
 
-  const handleStartExam = (exam: any) => {
+  const handleStartExam = async (exam: any) => {
     if (!exam.questions || exam.questions.length === 0) {
       Swal.fire('Error', 'Este examen no tiene preguntas configuradas.', 'error');
       return;
