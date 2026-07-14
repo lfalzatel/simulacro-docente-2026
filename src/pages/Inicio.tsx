@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { simulacrosCatalog } from "../data/simulacrosCatalog";
 
 export default function Inicio() {
-  const { currentUser, appRole } = useAuth();
+  const { appRole } = useAuth();
   const navigate = useNavigate();
 
   // Mock stats - in the future this will load from localStorage/Firebase
