@@ -29,10 +29,15 @@ export default function TeacherExamsView() {
   // Fetch Exams
   useEffect(() => {
     if (!currentUser) return;
-    const q = query(collection(db, "examenes"), where("teacherId", "==", currentUser.uid), orderBy("createdAt", "desc"));
+    const q = query(collection(db, "examenes"), where("teacherId", "==", currentUser.uid));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const exams: any[] = [];
       snapshot.forEach((doc) => exams.push({ id: doc.id, ...doc.data() }));
+      exams.sort((a, b) => {
+        const timeA = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0;
+        const timeB = b.createdAt?.toMillis ? b.createdAt.toMillis() : 0;
+        return timeB - timeA;
+      });
       setMyExams(exams);
       setLoading(false);
     });
