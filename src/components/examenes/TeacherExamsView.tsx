@@ -271,7 +271,7 @@ export default function TeacherExamsView() {
 
   if (activeTab === 'create') {
     return (
-      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '100px' }}>
         <button className="flowi-btn-secondary" onClick={() => setActiveTab('dashboard')} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
           <ChevronLeft size={18} /> VOLVER
         </button>
@@ -405,7 +405,7 @@ export default function TeacherExamsView() {
 
   if (activeTab === 'results' && selectedExam) {
     return (
-      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '100px' }}>
         <button className="flowi-btn-secondary" onClick={() => setActiveTab('dashboard')} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
           <ChevronLeft size={18} /> VOLVER A EXÁMENES
         </button>
@@ -484,7 +484,7 @@ export default function TeacherExamsView() {
 
   // DEFAULT DASHBOARD
   return (
-    <div className="page-content fade-in" style={{ padding: '2rem' }}>
+    <div className="page-content fade-in" style={{ padding: '2rem', paddingBottom: '100px' }}>
       
       <div className="flowi-header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
