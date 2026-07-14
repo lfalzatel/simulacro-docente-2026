@@ -216,7 +216,7 @@ export default function StudentExamsView() {
   // VISTA DEL EXAMEN ACTIVO o REVISIÓN
   if (activeExam) {
     return (
-      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '120px' }}>
         
         {estadoIntento === 'bloqueado' && !isReviewing && (
           <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.95)', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', textAlign: 'center' }}>
@@ -338,7 +338,7 @@ export default function StudentExamsView() {
           })}
         </div>
 
-        <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
+        <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', position: 'sticky', bottom: '90px', zIndex: 10, background: '#121212', padding: '1rem 0' }}>
           {isReviewing ? (
             <button className="start-btn" onClick={() => { setActiveExam(null); setIsReviewing(false); }} style={{ width: '100%' }}>
               VOLVER AL INICIO
