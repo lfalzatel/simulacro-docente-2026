@@ -16,6 +16,7 @@ export default function TeacherExamsView() {
   
   // Data states
   const [myExams, setMyExams] = useState<any[]>([]);
+  const [examStats, setExamStats] = useState<Record<string, { total: number, approved: number, failed: number }>>({});
   const [selectedExam, setSelectedExam] = useState<any>(null);
   const [examResponses, setExamResponses] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -40,6 +41,26 @@ export default function TeacherExamsView() {
       });
       setMyExams(exams);
       setLoading(false);
+      
+      // Fetch stats for each exam (for the mini summary)
+      exams.forEach(exam => {
+        const statsQ = query(collection(db, "respuestas_examenes"), where("examId", "==", exam.id));
+        onSnapshot(statsQ, (statsSnap) => {
+          let approved = 0;
+          let failed = 0;
+          let total = 0;
+          statsSnap.forEach(doc => {
+            const data = doc.data();
+            if (data.estado === 'completado' || data.score !== undefined) {
+              total++;
+              if ((data.score || 0) >= 60) approved++;
+              else failed++;
+            }
+          });
+          setExamStats(prev => ({ ...prev, [exam.id]: { total, approved, failed } }));
+        });
+      });
+
     });
     return () => unsubscribe();
   }, [currentUser]);
@@ -515,29 +536,55 @@ export default function TeacherExamsView() {
             </div>
           </div>
         ) : (
-          myExams.map(exam => (
-            <div key={exam.id} className="flowi-sim-card" style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
-              <div className="flowi-sim-content">
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                  <h3 className="flowi-sim-title">{exam.title}</h3>
-                  <span className="flowi-badge" style={{ background: 'rgba(250,204,21,0.1)', color: 'var(--accent-primary)' }}>{exam.group}</span>
+          myExams.map(exam => {
+            const stats = examStats[exam.id] || { total: 0, approved: 0, failed: 0 };
+            const qCount = exam.questions ? exam.questions.length : 0;
+            const totalPts = exam.questions ? exam.questions.reduce((acc: number, q: any) => acc + (q.points !== undefined ? Number(q.points) : 10), 0) : 0;
+            
+            return (
+              <div key={exam.id} className="flowi-sim-card" style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="flowi-sim-content">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                    <h3 className="flowi-sim-title">{exam.title}</h3>
+                    <span className="flowi-badge" style={{ background: 'rgba(250,204,21,0.1)', color: 'var(--accent-primary)', height: 'fit-content' }}>GRUPO {exam.group}</span>
+                  </div>
+                  
+                  <div className="flowi-sim-meta" style={{ gap: '1rem', color: 'var(--text-secondary)', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Calendar size={14} /> {exam.date}</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Clock size={14} /> {exam.time}</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><List size={14} /> {qCount} Preguntas ({totalPts} pts)</span>
+                  </div>
+
+                  <div style={{ background: 'rgba(0,0,0,0.2)', padding: '0.75rem', borderRadius: '6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>EVALUADOS</span>
+                      <span style={{ fontWeight: 'bold', fontFamily: 'monospace', fontSize: '1.1rem' }}>{stats.total} <Users size={12} style={{ display: 'inline', opacity: 0.5 }}/></span>
+                    </div>
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <span style={{ fontSize: '0.7rem', color: '#00b894' }}>APROBADOS</span>
+                        <span style={{ fontWeight: 'bold', color: '#00b894' }}>{stats.approved}</span>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <span style={{ fontSize: '0.7rem', color: '#d63031' }}>REPROBADOS</span>
+                        <span style={{ fontWeight: 'bold', color: '#d63031' }}>{stats.failed}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
                 </div>
-                <div className="flowi-sim-meta" style={{ gap: '1rem', color: 'var(--text-secondary)' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Calendar size={14} /> {exam.date}</span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Clock size={14} /> {exam.time}</span>
+                <div className="flowi-sim-action" style={{ display: 'flex', gap: '0.5rem', padding: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                  <button 
+                    className="flowi-btn-primary" 
+                    style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem' }}
+                    onClick={() => { setSelectedExam(exam); setActiveTab('results'); }}
+                  >
+                    <List size={16} /> VER RESULTADOS
+                  </button>
                 </div>
               </div>
-              <div className="flowi-sim-action" style={{ display: 'flex', gap: '0.5rem', padding: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                <button 
-                  className="flowi-btn-primary" 
-                  style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem' }}
-                  onClick={() => { setSelectedExam(exam); setActiveTab('results'); }}
-                >
-                  <List size={16} /> VER RESULTADOS
-                </button>
-              </div>
-            </div>
-          ))
+            );
+          })
         )}
       </div>
 
