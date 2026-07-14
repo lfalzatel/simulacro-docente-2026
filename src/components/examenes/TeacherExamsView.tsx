@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft, ImagePlus, X } from "lucide-react";
+import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft, ImagePlus, X, Copy, Edit2 } from "lucide-react";
 import Swal from "sweetalert2";
-import { collection, addDoc, serverTimestamp, query, where, onSnapshot, orderBy, doc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, query, where, onSnapshot, orderBy, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 
@@ -18,6 +18,7 @@ export default function TeacherExamsView() {
   const [myExams, setMyExams] = useState<any[]>([]);
   const [examStats, setExamStats] = useState<Record<string, { total: number, approved: number, failed: number }>>({});
   const [selectedExam, setSelectedExam] = useState<any>(null);
+  const [editingExamId, setEditingExamId] = useState<string | null>(null);
   const [examResponses, setExamResponses] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -228,34 +229,87 @@ export default function TeacherExamsView() {
     }
 
     try {
-      await addDoc(collection(db, "examenes"), {
-        title: form.title,
-        date: form.date,
-        time: form.time,
-        group: form.group,
-        teacherId: currentUser?.uid,
-        randomizeOptions: form.randomizeOptions,
-        questions: questions,
-        createdAt: serverTimestamp()
-      });
-
-      Swal.fire({
-        title: '¡Examen Creado!',
-        text: 'El examen se ha programado correctamente.',
-        icon: 'success',
-        background: '#121212', color: '#fff', confirmButtonColor: '#FACC15'
-      });
+      if (editingExamId) {
+        await updateDoc(doc(db, "examenes", editingExamId), {
+          title: form.title,
+          date: form.date,
+          time: form.time,
+          group: form.group,
+          randomizeOptions: form.randomizeOptions,
+          questions: questions,
+        });
+        Swal.fire({ title: '¡Examen Actualizado!', text: 'Los cambios se han guardado.', icon: 'success', background: '#121212', color: '#fff', confirmButtonColor: '#FACC15' });
+      } else {
+        await addDoc(collection(db, "examenes"), {
+          title: form.title,
+          date: form.date,
+          time: form.time,
+          group: form.group,
+          teacherId: currentUser?.uid,
+          randomizeOptions: form.randomizeOptions,
+          questions: questions,
+          createdAt: serverTimestamp()
+        });
+        Swal.fire({ title: '¡Examen Creado!', text: 'El examen se ha programado correctamente.', icon: 'success', background: '#121212', color: '#fff', confirmButtonColor: '#FACC15' });
+      }
       
       setActiveTab('dashboard');
+      setEditingExamId(null);
       setForm({ title: "", date: "", time: "", group: "6A", randomizeOptions: false });
       setQuestions([{ id: Date.now(), text: "", type: 'radio', options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }]);
 
     } catch (error) {
       console.error(error);
-      Swal.fire('Error', 'No se pudo crear el examen', 'error');
+      Swal.fire('Error', 'No se pudo guardar el examen', 'error');
     }
   };
 
+  const handleEditExam = (exam: any) => {
+    setEditingExamId(exam.id);
+    setForm({
+      title: exam.title,
+      date: exam.date,
+      time: exam.time,
+      group: exam.group || "6A",
+      randomizeOptions: exam.randomizeOptions || false
+    });
+    setQuestions(exam.questions || []);
+    setActiveTab('create');
+  };
+
+  const handleDuplicateExam = async (exam: any) => {
+    try {
+      await addDoc(collection(db, "examenes"), {
+        ...exam,
+        id: undefined,
+        title: exam.title + " (Copia)",
+        createdAt: serverTimestamp()
+      });
+      Swal.fire({ title: '¡Examen Duplicado!', icon: 'success', background: '#121212', color: '#fff', confirmButtonColor: '#FACC15', timer: 1500, showConfirmButton: false });
+    } catch (error) {
+      Swal.fire('Error', 'No se pudo duplicar', 'error');
+    }
+  };
+
+  const handleDeleteExam = async (examId: string) => {
+    const result = await Swal.fire({
+      title: '¿Eliminar examen?',
+      text: "No podrás revertir esto. También se perderán los accesos de los estudiantes.",
+      icon: 'warning',
+      showCancelButton: true,
+      background: '#121212', color: '#fff', confirmButtonColor: '#d33', cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    });
+    if (result.isConfirmed) {
+      try {
+        await deleteDoc(doc(db, "examenes", examId));
+        Swal.fire({ title: 'Eliminado', icon: 'success', background: '#121212', color: '#fff', timer: 1500, showConfirmButton: false });
+      } catch (e) {
+        Swal.fire('Error', 'No se pudo eliminar', 'error');
+      }
+    }
+  };
 
   // ---- EXPORT LOGIC ----
   const exportToCSV = () => {
@@ -298,10 +352,10 @@ export default function TeacherExamsView() {
   if (activeTab === 'create') {
     return (
       <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '150px' }}>
-        <button className="flowi-btn-secondary" onClick={() => setActiveTab('dashboard')} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
+        <button className="flowi-btn-secondary" onClick={() => { setActiveTab('dashboard'); setEditingExamId(null); }} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
           <ChevronLeft size={18} /> VOLVER
         </button>
-        <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Constructor de Examen</h2>
+        <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>{editingExamId ? 'Editar Examen' : 'Constructor de Examen'}</h2>
         
         {/* Generales */}
         <div className="examen-card" style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(255,255,255,0.02)' }}>
@@ -427,7 +481,9 @@ export default function TeacherExamsView() {
         </div>
 
         <div style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2.5rem' }}>
-          <button className="start-btn" onClick={handleCreateExam} style={{ width: '100%', padding: '1rem' }}>GUARDAR Y PUBLICAR EXAMEN</button>
+          <button className="start-btn" onClick={handleCreateExam} style={{ width: '100%', padding: '1rem' }}>
+            {editingExamId ? 'ACTUALIZAR EXAMEN' : 'GUARDAR Y PUBLICAR EXAMEN'}
+          </button>
         </div>
       </div>
     );
@@ -546,7 +602,7 @@ export default function TeacherExamsView() {
                 <div className="flowi-sim-content">
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                     <h3 className="flowi-sim-title">{exam.title}</h3>
-                    <span className="flowi-badge" style={{ background: 'rgba(250,204,21,0.1)', color: 'var(--accent-primary)', height: 'fit-content' }}>GRUPO {exam.group}</span>
+                    {/* The grade badge has been removed as requested */}
                   </div>
                   
                   <div className="flowi-sim-meta" style={{ gap: '1rem', color: 'var(--text-secondary)', marginBottom: '1rem', flexWrap: 'wrap' }}>
@@ -576,10 +632,34 @@ export default function TeacherExamsView() {
                 <div className="flowi-sim-action" style={{ display: 'flex', gap: '0.5rem', padding: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                   <button 
                     className="flowi-btn-primary" 
-                    style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem' }}
+                    style={{ flex: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem' }}
                     onClick={() => { setSelectedExam(exam); setActiveTab('results'); }}
                   >
-                    <List size={16} /> VER RESULTADOS
+                    <List size={16} /> RESULTADOS
+                  </button>
+                  <button 
+                    className="flowi-btn-secondary" 
+                    title="Editar"
+                    style={{ flex: 1, padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                    onClick={() => handleEditExam(exam)}
+                  >
+                    <Edit2 size={16} />
+                  </button>
+                  <button 
+                    className="flowi-btn-secondary" 
+                    title="Duplicar"
+                    style={{ flex: 1, padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                    onClick={() => handleDuplicateExam(exam)}
+                  >
+                    <Copy size={16} />
+                  </button>
+                  <button 
+                    className="flowi-btn-secondary" 
+                    title="Eliminar"
+                    style={{ flex: 1, padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ff7675' }}
+                    onClick={() => handleDeleteExam(exam.id)}
+                  >
+                    <Trash2 size={16} />
                   </button>
                 </div>
               </div>
