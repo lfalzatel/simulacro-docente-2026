@@ -235,6 +235,94 @@
     --glass-shadow: 0 4px 24px -1px rgba(0,0,0,0.2);
 }
 
+/* Scanlines para el tema Kilo */
+[data-theme="kilo"] body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.08),
+        rgba(0, 0, 0, 0.08) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Universal Kilo Overrides (Flowi Style) for all secondary pages */
+[data-theme="kilo"] .page-header {
+    border-bottom: 1px dashed rgba(250, 204, 21, 0.3);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+[data-theme="kilo"] .section-title {
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-weight: 900;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+}
+[data-theme="kilo"] .section-label {
+    font-family: 'Courier New', ui-monospace, monospace;
+    color: var(--accent-secondary);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+[data-theme="kilo"] .menu-card,
+[data-theme="kilo"] .stat-card,
+[data-theme="kilo"] .examen-card {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px;
+    font-family: 'Courier New', ui-monospace, monospace;
+    box-shadow: none;
+}
+[data-theme="kilo"] .menu-label,
+[data-theme="kilo"] .examen-title {
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+[data-theme="kilo"] .menu-desc,
+[data-theme="kilo"] .examen-meta {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+[data-theme="kilo"] .form-input,
+[data-theme="kilo"] .form-select,
+[data-theme="kilo"] .filter-search {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 4px !important;
+    font-family: 'Courier New', ui-monospace, monospace !important;
+    color: var(--text-primary) !important;
+    padding: 0.75rem 1rem !important;
+}
+[data-theme="kilo"] .theme-btn.active,
+[data-theme="kilo"] .start-btn {
+    background: var(--accent-primary) !important;
+    color: #000 !important;
+    font-family: 'Courier New', ui-monospace, monospace !important;
+    font-weight: bold !important;
+    border: none !important;
+    border-radius: 8px !important;
+    text-transform: uppercase !important;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1) !important;
+}
+[data-theme="kilo"] .theme-btn:not(.active) {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    font-family: 'Courier New', ui-monospace, monospace !important;
+    border: 1px dashed var(--glass-border) !important;
+    border-radius: 8px !important;
+    text-transform: uppercase !important;
+}
+
 /* Aurora Theme */
 [data-theme="aurora"] {
     --bg-body-start: #0f172a;
@@ -253,7 +341,7 @@
     --highlight: #4a00e0;
     --border-color: rgba(255,255,255,0.15);
 
-    --success-bg: rgba(0,206,201,0.12); --success-text: #00cec9;
+    --success-bg: rgba(0,206,201,0.12); --success-text: var(--accent-primary);
     --error-bg: rgba(255,91,91,0.12); --error-text: #FF5B5B;
     --shadow-color: rgba(0,0,0,0.3);
 
@@ -282,10 +370,15 @@ body {
     font-family: 'Work Sans', sans-serif;
     background: linear-gradient(135deg, var(--bg-body-start) 0%, var(--bg-body-end) 100%);
     background-attachment: fixed;
-    min-height: 100vh;
+    height: 100dvh;
     color: var(--text-primary);
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden; /* Lock scroll to prevent bottom nav shift */
+}
+
+html {
+    height: 100dvh;
+    overflow: hidden;
 }
 
 body::before {
@@ -2505,9 +2598,13 @@ input:checked + .slider:before { transform: translateX(20px); }
 .page-content {
     max-width: 640px;
     margin: 0 auto;
-    padding: 1.25rem 1rem 1.5rem;
+    padding: 1.25rem 1rem 120px; /* Ensure space for bottom nav */
     width: 100%;
     box-sizing: border-box;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .fade-in {
@@ -2659,8 +2756,8 @@ input:checked + .slider:before { transform: translateX(20px); }
 }
 
 .tab-btn.active {
-    border-bottom: 2px solid #00cec9;
-    color: #00cec9;
+    border-bottom: 2px solid var(--accent-primary);
+    color: var(--accent-primary);
 }
 
 .list-item-card {
@@ -2923,4 +3020,238 @@ input:checked + .slider:before { transform: translateX(20px); }
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid rgba(0,0,0,0.05);
     box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
+}
+
+/* ========================================================= */
+/* ESTILOS FLOWI - HOME PAGE (KILO/CYBER THEMES) */
+/* ========================================================= */
+
+.flowi-header-container {
+    margin-bottom: 2rem;
+}
+.flowi-title {
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+}
+.flowi-subtitle {
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: var(--accent-secondary);
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+.flowi-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+.flowi-tabs::-webkit-scrollbar { display: none; }
+.flowi-tab {
+    background: transparent;
+    border: none;
+    color: var(--accent-secondary);
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-radius: 2px;
+}
+.flowi-tab.active {
+    background: var(--accent-primary);
+    color: #000;
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
+}
+
+.flowi-search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Courier New', ui-monospace, monospace;
+}
+.flowi-search-icon {
+    color: var(--text-secondary);
+    margin-right: 0.75rem;
+    display: flex;
+}
+.flowi-search-prefix {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+.flowi-select {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-size: 0.85rem;
+    flex: 1;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+.flowi-select option {
+    background-color: #121212;
+    color: #FACC15;
+}
+
+.flowi-total-card {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.flowi-total-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.flowi-trend-icon {
+    color: #ef4444; /* Rojo para acento */
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 50%;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold;
+}
+.flowi-total-label {
+    color: var(--accent-secondary);
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.flowi-total-value {
+    color: #ef4444; /* Rojo estilo flowi */
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+.flowi-total-currency {
+    font-size: 1.5rem;
+    margin-right: 0.25rem;
+}
+.flowi-total-sub {
+    color: var(--accent-secondary);
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.flowi-simulacros-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.flowi-sim-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.flowi-sim-card.locked {
+    opacity: 0.7;
+    filter: grayscale(1);
+}
+.flowi-sim-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+.flowi-sim-icon {
+    font-size: 1.5rem;
+}
+.flowi-sim-title {
+    font-family: 'Courier New', ui-monospace, monospace;
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin: 0;
+}
+.flowi-sim-desc {
+    font-family: 'Courier New', ui-monospace, monospace;
+    color: var(--accent-secondary);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+.flowi-sim-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+.flowi-sim-questions {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-family: 'Courier New', ui-monospace, monospace;
+}
+.flowi-badge {
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.flowi-badge-premium {
+    color: #000;
+    background: var(--accent-primary);
+}
+.flowi-badge-free {
+    color: var(--accent-secondary);
+    background: rgba(250, 204, 21, 0.1);
+}
+
+.flowi-btn-primary {
+    width: 100%;
+    background: var(--accent-primary);
+    color: #000;
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+    transition: filter 0.2s;
+}
+.flowi-btn-primary:hover {
+    filter: brightness(1.1);
+}
+.flowi-btn-locked {
+    width: 100%;
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: 1px dashed var(--glass-border);
+    border-radius: 8px;
+    cursor: not-allowed;
 }

@@ -17,9 +17,12 @@ export function Header() {
   const [notificaciones, setNotificaciones] = useState<any[]>([]);
   const [showNotifs, setShowNotifs] = useState(false);
   const { theme: activeTheme, setTheme: setActiveTheme } = useTheme();
+  const isTechTheme = activeTheme === 'cyber' || activeTheme === 'kilo';
   
   const savedQuick = localStorage.getItem('evaluaseguro_quick_themes');
   const quickThemes: string[] = savedQuick ? JSON.parse(savedQuick) : ["dia", "cyber", "kilo"];
+
+  const termLabel = (label: string) => activeTheme === 'kilo' ? '>_ ' + label.toUpperCase().replace(/\s+/g, '_') : label;
 
   const themesMap: Record<string, {name: string, icon: string}> = {
     dia: { name: 'Día', icon: '☀️' },
@@ -93,7 +96,7 @@ export function Header() {
         icon: "error",
         title: "Error",
         text: "No se pudo cerrar sesión",
-        confirmButtonColor: "#00cec9",
+        confirmButtonColor: "var(--accent-primary)",
       });
     }
   };
@@ -112,11 +115,14 @@ export function Header() {
   }, []);
 
   return (
-    <header className="app-header glass">
+    <header className={`app-header glass ${isTechTheme ? 'header-tech' : ''}`}>
       <div className="header-left">
         <Link to="/" className="header-logo" style={{ textDecoration: 'none' }}>
-          <img src="/assets/icon-192-sq.png" alt="EvaluaSeguro" className="header-logo-img" />
-          <span className="header-logo-text">Evalua<span className="logo-accent">Seguro</span></span>
+          <img src="/assets/icon-192-sq.png" alt="EvaluaSeguro" className={`header-logo-img ${isTechTheme ? 'tech-rounded' : ''}`} />
+          <span className={`header-logo-text ${isTechTheme ? 'tech-text-uppercase' : ''}`}>
+            {isTechTheme ? 'EVALUA' : 'Evalua'}
+            <span className="logo-accent">{isTechTheme ? 'SEGURO' : 'Seguro'}</span>
+          </span>
         </Link>
       </div>
 
@@ -130,18 +136,32 @@ export function Header() {
           </button>
           
           {showNotifs && (
-            <div className="header-dropdown open" style={{ width: '300px', right: 0, padding: '1rem', background: 'var(--bg-card)' }}>
-              <h4 style={{ marginBottom: '1rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>Notificaciones</h4>
+            <div className={`header-dropdown open ${isTechTheme ? 'notif-dropdown-tech' : ''}`} style={{ position: 'fixed', top: '70px', left: '0', right: '0', margin: '0 auto', width: '90vw', maxWidth: '340px', padding: '1rem', zIndex: 1000 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '1rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>
+                <h4 style={{ margin: 0, fontFamily: isTechTheme ? 'monospace' : 'inherit' }}>{isTechTheme ? 'Notificaciones' : 'Notificaciones'}</h4>
+                <span style={{ fontSize: '0.7rem', color: 'var(--accent-primary)', fontWeight: 'bold', cursor: 'pointer', fontFamily: isTechTheme ? 'monospace' : 'inherit' }}>VER AJUSTES</span>
+              </div>
               {notificaciones.length === 0 ? (
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>No tienes notificaciones.</p>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', maxHeight: '300px', overflowY: 'auto' }}>
+                  {isTechTheme && (
+                    <div style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'monospace' }}>Próximos 7 días</div>
+                  )}
                   {notificaciones.map(n => (
-                    <div key={n.id} style={{ background: 'var(--bg-body)', padding: '0.8rem', borderRadius: '12px' }}>
-                      <p style={{ fontSize: '0.8rem', fontWeight: 700, margin: 0, color: 'var(--accent-color)' }}>{n.title}</p>
-                      <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', margin: '0.2rem 0 0 0' }}>{n.message}</p>
+                    <div key={n.id} style={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}>
+                      <div style={{ width: '32px', height: '32px', borderRadius: isTechTheme ? '2px' : '50%', background: isTechTheme ? 'rgba(250,204,21,0.15)' : 'var(--bg-body)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                         <Clock size={16} color={isTechTheme ? 'var(--accent-primary)' : 'var(--text-primary)'} />
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <p style={{ fontSize: '0.8rem', fontWeight: 700, margin: 0, color: isTechTheme ? 'var(--text-primary)' : 'var(--accent-color)', fontFamily: isTechTheme ? 'monospace' : 'inherit' }}>
+                          {isTechTheme ? `>_ ${n.title}` : n.title}
+                        </p>
+                        <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', margin: '0.2rem 0 0 0', fontFamily: isTechTheme ? 'monospace' : 'inherit' }}>{n.message}</p>
+                      </div>
                     </div>
                   ))}
+
                 </div>
               )}
             </div>
@@ -150,11 +170,11 @@ export function Header() {
 
         <div className="header-profile-container" ref={dropdownRef}>
           <button 
-            className="header-profile-btn" 
+            className={`header-profile-btn ${dropdownOpen ? 'active' : ''} ${isTechTheme ? 'header-profile-btn-tech' : ''}`} 
             onClick={() => setDropdownOpen(!dropdownOpen)}
             aria-label="Menú de usuario"
           >
-            <div className="header-avatar">
+            <div className="header-avatar" style={{ border: isTechTheme ? '2px solid var(--accent-primary)' : 'none', borderRadius: isTechTheme ? '2px' : '50%' }}>
               {photo ? (
                 <img src={photo} alt="Foto" />
               ) : (
@@ -162,8 +182,10 @@ export function Header() {
               )}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center' }}>
-              <span className="header-username" style={{ lineHeight: 1.2 }}>{firstName}</span>
-              <span style={{ fontSize: '0.55rem', color: 'var(--accent-color)', textTransform: 'uppercase', fontWeight: 900, background: 'rgba(0,206,201,0.1)', padding: '1px 4px', borderRadius: '4px', marginTop: '1px' }}>{appRole}</span>
+              <span className={`header-username ${isTechTheme ? 'tech-text-uppercase' : ''}`} style={{ lineHeight: 1.2 }}>
+                {isTechTheme ? firstName.toUpperCase() : firstName}
+              </span>
+              <span style={{ fontSize: '0.55rem', color: isTechTheme ? '#000' : 'var(--accent-primary)', textTransform: 'uppercase', fontWeight: 900, background: isTechTheme ? 'var(--accent-primary)' : 'var(--success-bg)', padding: '1px 4px', borderRadius: isTechTheme ? '2px' : '4px', marginTop: '1px' }}>{appRole}</span>
             </div>
             <ChevronDown size={14} />
           </button>
@@ -186,42 +208,50 @@ export function Header() {
 
             <div className="dropdown-divider"></div>
 
-            <div className="dropdown-themes" style={{ display: 'grid', gridTemplateColumns: `repeat(${quickThemes.length}, 1fr)`, gap: '0.5rem', padding: '0.5rem 1rem' }}>
-              {quickThemes.map(themeId => {
-                const isActive = activeTheme === themeId;
-                const theme = themesMap[themeId] || themesMap['dia'];
-                return (
-                  <button 
-                    key={themeId}
-                    onClick={() => {
-                      setActiveTheme(themeId);
-                    }}
-                    className="theme-pill" 
-                    style={{ 
-                      background: isActive ? '#00cec9' : 'transparent', 
-                      color: isActive ? 'white' : 'var(--text-secondary)', 
-                      border: isActive ? 'none' : '1px solid var(--border)', 
-                      borderRadius: '12px', padding: '0.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer' 
-                    }}
-                  >
-                    <span style={{ fontSize: '1.2rem', fontWeight: themeId === 'kilo' ? 800 : 'normal' }}>{theme.icon}</span>
-                    <span style={{ fontSize: '0.7rem', fontWeight: 700 }}>{theme.name}</span>
-                  </button>
-                );
-              })}
+            <div className="dropdown-themes" style={{ display: 'block', padding: '0.5rem 1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', gap: '4px', padding: '4px', background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '12px' }}>
+                {quickThemes.map(themeId => {
+                  const isActive = activeTheme === themeId;
+                  const theme = themesMap[themeId] || themesMap['dia'];
+                  return (
+                    <button 
+                      key={themeId}
+                      onClick={() => {
+                        setActiveTheme(themeId);
+                      }}
+                      className={`theme-pill ${isActive ? 'active' : ''}`}
+                      style={{ 
+                        flex: 1,
+                        background: isActive ? 'var(--accent-primary)' : 'transparent', 
+                        color: isActive ? 'white' : 'var(--text-secondary)', 
+                        border: 'none', 
+                        borderRadius: '8px', padding: '0.5rem 0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      <span style={{ fontSize: '1rem', marginBottom: '4px', fontWeight: themeId === 'kilo' ? 800 : 'normal' }}>{theme.icon}</span>
+                      <span style={{ fontSize: '9px', fontWeight: 600 }}>{theme.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             <div className="dropdown-divider"></div>
 
             <nav className="dropdown-nav">
               <button className="dropdown-item" onClick={() => { setDropdownOpen(false); navigate("/perfil"); }}>
-                <User size={18} />
-                <span>Mi perfil</span>
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'var(--glass-bg-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <User size={14} />
+                </div>
+                <span className={activeTheme === 'kilo' ? 'tech-text-uppercase' : ''}>{termLabel('Mi perfil')}</span>
               </button>
               
-              <button className="dropdown-item" style={{ color: '#00cec9' }} onClick={() => Swal.fire('Instalar', 'La instalación PWA estará disponible pronto', 'info')}>
-                <Download size={18} color="#00cec9" />
-                <span>Instalar app</span>
+              <button className="dropdown-item" onClick={() => Swal.fire('Instalar', 'La instalación PWA estará disponible pronto', 'info')}>
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'var(--glass-bg-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Download size={14} color="var(--accent-primary)" />
+                </div>
+                <span className={activeTheme === 'kilo' ? 'tech-text-uppercase' : ''}>{termLabel('Instalar app')}</span>
               </button>
               
               <button className="dropdown-item" onClick={() => {
@@ -236,18 +266,20 @@ export function Header() {
                   Swal.fire('¡Copiado!', 'Enlace copiado al portapapeles', 'success');
                 }
               }}>
-                <Share2 size={18} />
-                <span>Compartir app</span>
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'var(--glass-bg-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Share2 size={14} />
+                </div>
+                <span className={activeTheme === 'kilo' ? 'tech-text-uppercase' : ''}>{termLabel('Compartir app')}</span>
               </button>
               
               <div className="dropdown-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'default' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div style={{ background: 'rgba(0,206,201,0.2)', padding: '6px', borderRadius: '8px', display: 'flex', color: '#00cec9' }}>
-                    <Bell size={18} />
+                  <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'var(--success-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', flexShrink: 0 }}>
+                    <Bell size={14} />
                   </div>
-                  <span>Notificaciones</span>
+                  <span className={activeTheme === 'kilo' ? 'tech-text-uppercase' : ''}>{termLabel('Notificaciones')}</span>
                 </div>
-                <div style={{ width: '40px', height: '22px', background: '#00cec9', borderRadius: '11px', position: 'relative', cursor: 'pointer' }}>
+                <div style={{ width: '40px', height: '22px', background: 'var(--accent-primary)', borderRadius: '11px', position: 'relative', cursor: 'pointer' }}>
                   <div style={{ width: '18px', height: '18px', background: 'white', borderRadius: '50%', position: 'absolute', top: '2px', right: '2px', boxShadow: '0 2px 4px rgba(0,0,0,0.2)' }}></div>
                 </div>
               </div>
@@ -257,8 +289,10 @@ export function Header() {
 
             <nav className="dropdown-nav">
               <button className="dropdown-item" onClick={() => { setDropdownOpen(false); navigate("/configuracion"); }}>
-                <Settings size={18} />
-                <span>Configuración</span>
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'var(--glass-bg-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Settings size={14} />
+                </div>
+                <span className={activeTheme === 'kilo' ? 'tech-text-uppercase' : ''}>{termLabel('Configuración')}</span>
               </button>
             </nav>
 
@@ -273,22 +307,26 @@ export function Header() {
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                     <span style={{ fontSize: '0.85rem' }}>{acc.displayName}</span>
                     <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>{acc.email}</span>
-                    {acc.rol && <span style={{ fontSize: '0.55rem', color: 'var(--accent-color)', textTransform: 'uppercase', fontWeight: 900, background: 'rgba(0,206,201,0.1)', padding: '1px 4px', borderRadius: '4px', marginTop: '2px' }}>{acc.rol}</span>}
+                    {acc.rol && <span style={{ fontSize: '0.55rem', color: 'var(--accent-primary)', textTransform: 'uppercase', fontWeight: 900, background: 'var(--success-bg)', padding: '1px 4px', borderRadius: '4px', marginTop: '2px' }}>{acc.rol}</span>}
                   </div>
                 </button>
               ))}
 
               <button className="dropdown-item" onClick={handleAddAccount}>
-                <Plus size={18} />
-                <span>Añadir Cuenta</span>
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'var(--glass-bg-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Plus size={14} />
+                </div>
+                <span className={activeTheme === 'kilo' ? 'tech-text-uppercase' : ''}>{termLabel('Añadir Cuenta')}</span>
               </button>
             </nav>
 
             <div className="dropdown-divider"></div>
 
-            <button className="dropdown-item dropdown-logout" style={{ color: '#ff7675' }} onClick={handleLogout}>
-              <LogOut size={18} color="#ff7675" />
-              <span>Cerrar sesión</span>
+            <button className="dropdown-item dropdown-logout" style={{ color: 'var(--error-text)' }} onClick={handleLogout}>
+              <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'var(--error-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <LogOut size={14} color="var(--error-text)" />
+              </div>
+              <span className={activeTheme === 'kilo' ? 'tech-text-uppercase' : ''} style={{ fontWeight: isTechTheme ? 700 : 500 }}>{termLabel('Cerrar sesión')}</span>
             </button>
           </div>
         </div>

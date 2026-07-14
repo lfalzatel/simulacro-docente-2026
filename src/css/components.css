@@ -342,7 +342,44 @@
     border-radius: 2px !important;
 }
 
+/* ── ESTILOS CYBER/KILO EN HEADER ── */
+.tech-rounded {
+    border-radius: 2px !important;
+}
+
+.tech-text-uppercase {
+    text-transform: uppercase;
+    font-family: 'Courier New', ui-monospace, monospace;
+    letter-spacing: 0.05em;
+}
+
+[data-theme="kilo"] .header-profile-btn,
+[data-theme="cyber"] .header-profile-btn,
+[data-theme="kilo"] .header-profile-btn.active,
+[data-theme="cyber"] .header-profile-btn.active {
+    border-radius: 2px !important;
+    border: 1px solid var(--accent-primary) !important;
+    background: transparent !important;
+}
+
+[data-theme="kilo"] .header-username,
+[data-theme="cyber"] .header-username {
+    color: var(--accent-primary) !important;
+}
+
 /* Theming overrides para .header-dropdown */
+.header-dropdown {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+.header-dropdown::-webkit-scrollbar {
+    display: none;
+}
+.header-dropdown {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 [data-theme="light"] .header-dropdown { background: rgba(255, 255, 255, 0.95); }
 [data-theme="night"] .header-dropdown { background: rgba(15, 23, 42, 0.95); border-color: rgba(255,255,255,0.07); }
 [data-theme="night"] .dropdown-item:hover { background: rgba(255,255,255,0.05); }
@@ -350,5 +387,109 @@
 [data-theme="night"] .bottom-nav-item:hover,
 [data-theme="night"] .bottom-nav-item.active { background: rgba(0,206,201,0.15); }
 
+/* Textos e iconos negros sobre fondo primario en Kilo (Ej: fondo amarillo -> negro) */
+[data-theme="kilo"] .bottom-nav-item.active {
+    color: var(--text-inverse) !important;
+}
+[data-theme="kilo"] .bottom-nav-item.active svg {
+    stroke: var(--text-inverse) !important;
+}
+[data-theme="kilo"] .theme-pill.active,
+[data-theme="cyber"] .theme-pill.active {
+    background: var(--accent-primary) !important;
+    color: var(--text-inverse) !important;
+}
+[data-theme="kilo"] .theme-pill.active span,
+[data-theme="cyber"] .theme-pill.active span,
+[data-theme="kilo"] .theme-pill.active svg,
+[data-theme="cyber"] .theme-pill.active svg {
+    color: var(--text-inverse) !important;
+    stroke: var(--text-inverse) !important;
+}
+
 /* Padding al body para que el contenido no quede bajo el nav */
 body { padding-bottom: 90px; }
+
+[data-theme="kilo"] .header-icon-btn,
+[data-theme="cyber"] .header-icon-btn {
+    border-radius: 2px;
+    background: transparent;
+    border: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+/* Fix backdrop-filter bug for Kilo dropdown */
+[data-theme="kilo"] .app-header,
+[data-theme="cyber"] .app-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--bg-body-start) !important;
+}
+
+[data-theme="kilo"] .header-dropdown,
+[data-theme="cyber"] .header-dropdown {
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="kilo"] .notif-dropdown-tech,
+[data-theme="cyber"] .notif-dropdown-tech {
+    /* Eliminamos el fondo y borde personalizados para que herede el mismo estilo glass del dropdown principal */
+}
+
+[data-theme="kilo"] .dropdown-user-info,
+[data-theme="cyber"] .dropdown-user-info {
+    background: #0A0A0A !important;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+[data-theme="kilo"] .dropdown-avatar-wrap,
+[data-theme="cyber"] .dropdown-avatar-wrap {
+    border-radius: 2px;
+    border: 2px solid var(--accent-primary);
+}
+
+[data-theme="kilo"] .dropdown-name,
+[data-theme="cyber"] .dropdown-name {
+    font-family: 'Courier New', ui-monospace, monospace;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+[data-theme="kilo"] .dropdown-email,
+[data-theme="cyber"] .dropdown-email {
+    font-family: 'Courier New', ui-monospace, monospace;
+    color: var(--accent-primary);
+    opacity: 0.5;
+}
+
+[data-theme="kilo"] .dropdown-role-badge,
+[data-theme="cyber"] .dropdown-role-badge {
+    background: var(--accent-primary);
+    color: #000;
+    border-radius: 2px;
+    font-family: monospace;
+}
+
+[data-theme="kilo"] .dropdown-item,
+[data-theme="cyber"] .dropdown-item {
+    font-family: 'Courier New', ui-monospace, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-primary);
+}
+
+[data-theme="kilo"] .header-logo-text,
+[data-theme="cyber"] .header-logo-text {
+    color: var(--accent-primary);
+}
+
+[data-theme="kilo"] .header-icon-btn,
+[data-theme="cyber"] .header-icon-btn {
+    color: var(--accent-primary);
+}
+

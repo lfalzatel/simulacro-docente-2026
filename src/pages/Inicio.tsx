@@ -19,96 +19,111 @@ export default function Inicio() {
   return (
     <div className="page-content fade-in">
       
-      {/* Banner de bienvenida */}
-      <div className="welcome-banner">
-        <h1 className="welcome-title">
-          ¡Hola, <span>{firstName}</span>! 👋
-        </h1>
-        <p className="welcome-subtitle">
-          Continúa tu preparación para el concurso docente 2026. Tu progreso se guarda automáticamente.
-        </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-          <span className="feature-pill">📝 200+ preguntas</span>
-          <span className="feature-pill">🎯 3 Simulacros</span>
-          <span className="feature-pill">☁️ Progreso en la nube</span>
-          <span className="feature-pill">💡 Retroalimentación profunda</span>
-        </div>
+      {/* Banner de bienvenida estilo Flowi */}
+      <div className="flowi-header-container">
+        <h1 className="flowi-title">MIS SIMULACROS</h1>
+        <p className="flowi-subtitle">HISTORIAL COMPLETO DE TUS PRÁCTICAS</p>
       </div>
 
-      {/* Estadísticas rápidas */}
-      <div className="stats-grid">
-        <div className="stat-card">
-            <div className="stat-icon">🎯</div>
-            <div className="stat-value">{stats.score}</div>
-            <div className="stat-label">Puntaje Total</div>
-        </div>
-        <div className="stat-card">
-            <div className="stat-icon">📈</div>
-            <div className="stat-value">{stats.answered}</div>
-            <div className="stat-label">Preguntas Respondidas</div>
-        </div>
-        <div className="stat-card">
-            <div className="stat-icon">⏱️</div>
-            <div className="stat-value">{stats.time}</div>
-            <div className="stat-label">Tiempo Estudiado</div>
-        </div>
-        <div className="stat-card">
-            <div className="stat-icon">📊</div>
-            <div className="stat-value">{stats.progress}</div>
-            <div className="stat-label">Progreso Total</div>
-        </div>
+      {/* Tabs estilo Flowi */}
+      <div className="flowi-tabs">
+        <button className="flowi-tab active">TODO</button>
+        <button className="flowi-tab">NUEVOS</button>
+        <button className="flowi-tab">EN CURSO</button>
+        <button className="flowi-tab">COMPLETADOS</button>
       </div>
 
-      {/* Selector de análisis */}
-      <div className="section-container">
-        <label className="section-label">Analizar progreso de:</label>
-        <select className="sim-select form-input">
+      {/* Selector de análisis estilo Flowi */}
+      <div className="flowi-search-bar">
+        <span className="flowi-search-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <span className="flowi-search-prefix">SIM_QUERY &gt;</span>
+        <select className="flowi-select">
+          <option value="">TODOS LOS SIMULACROS</option>
           {simulacrosCatalog.map(sim => (
-            <option key={sim.id} value={sim.id}>{sim.titulo}</option>
+            <option key={sim.id} value={sim.id}>{sim.titulo.toUpperCase()}</option>
           ))}
         </select>
       </div>
 
+      {/* Estadísticas rápidas estilo Flowi */}
+      <div className="stats-grid" style={{ marginBottom: '2rem' }}>
+        <div className="flowi-total-card">
+          <div className="flowi-total-header">
+            <span className="flowi-trend-icon">🎯</span>
+            <span className="flowi-total-label">PUNTAJE</span>
+          </div>
+          <div className="flowi-total-value">{stats.score}</div>
+          <div className="flowi-total-sub">ACUMULADO</div>
+        </div>
+        
+        <div className="flowi-total-card">
+          <div className="flowi-total-header">
+            <span className="flowi-trend-icon">📈</span>
+            <span className="flowi-total-label">PREGUNTAS</span>
+          </div>
+          <div className="flowi-total-value">{stats.answered}</div>
+          <div className="flowi-total-sub">RESPONDIDAS</div>
+        </div>
+        
+        <div className="flowi-total-card">
+          <div className="flowi-total-header">
+            <span className="flowi-trend-icon">⏱️</span>
+            <span className="flowi-total-label">TIEMPO</span>
+          </div>
+          <div className="flowi-total-value" style={{ fontSize: '1.8rem' }}>{stats.time}</div>
+          <div className="flowi-total-sub">ESTUDIADO</div>
+        </div>
+        
+        <div className="flowi-total-card">
+          <div className="flowi-total-header">
+            <span className="flowi-trend-icon">📊</span>
+            <span className="flowi-total-label">PROGRESO</span>
+          </div>
+          <div className="flowi-total-value">
+            {stats.progress.replace('%','')} <span className="flowi-total-currency">%</span>
+          </div>
+          <div className="flowi-total-sub">TOTAL</div>
+        </div>
+      </div>
+
       {/* Tarjetas de simulacros */}
-      <div className="simulacros-section">
-        <h2 className="section-title">Selecciona un Simulacro</h2>
-        <div className="simulacros-grid">
+      <div className="simulacros-section" style={{ marginTop: '2rem' }}>
+        <div className="flowi-simulacros-grid">
           {simulacrosCatalog.map((sim) => {
-            // Check access: ADMIN or FREE? If free, premium is locked.
             const userRole = (appRole || 'free').toLowerCase();
             const canAccess = !sim.es_premium || userRole === 'admin' || userRole === 'premium';
-            
-            // Mock percentage for now, ideally fetched from localStorage or Firebase
             const pct = 0;
             const answered = 0;
 
             return (
-              <div key={sim.id} className={`simulacro-card ${!canAccess ? 'locked' : ''}`}>
-                <div className="simulacro-card-left">
-                  <div className="simulacro-card-emoji">{sim.emoji || '📋'}</div>
-                  <div className="simulacro-card-title">{sim.titulo}</div>
-                  <div className="simulacro-card-desc">{sim.descripcion || ''}</div>
-                  <div className="simulacro-card-meta">
-                    📝 {sim.preguntas} preguntas
+              <div key={sim.id} className={`flowi-sim-card ${!canAccess ? 'locked' : ''}`}>
+                <div className="flowi-sim-content">
+                  <div className="flowi-sim-header">
+                    <span className="flowi-sim-icon">{sim.emoji || '📋'}</span>
+                    <h3 className="flowi-sim-title">{sim.titulo.toUpperCase()}</h3>
+                  </div>
+                  <div className="flowi-sim-desc">{sim.descripcion.toUpperCase()}</div>
+                  
+                  <div className="flowi-sim-meta">
+                    <span className="flowi-sim-questions">📝 {sim.preguntas} PREGUNTAS</span>
                     {sim.es_premium ? (
-                      <span> · <span className="badge-premium">PREMIUM</span></span>
+                      <span className="flowi-badge flowi-badge-premium">PREMIUM</span>
                     ) : (
-                      <span> · <span className="badge-free">GRATIS</span></span>
+                      <span className="flowi-badge flowi-badge-free">GRATIS</span>
                     )}
                   </div>
                 </div>
-                <div className="simulacro-card-progress">
-                  <div className="progress-ring-text">{pct}%</div>
-                  <div className="progress-bar-mini">
-                    <div className="progress-bar-mini-fill" style={{ width: `${pct}%` }}></div>
-                  </div>
+                
+                <div className="flowi-sim-action">
                   {canAccess ? (
-                    <button className="start-btn" onClick={() => navigate('/examenes')}>
-                      {answered > 0 ? 'Continuar' : 'Iniciar'}
+                    <button className="flowi-btn-primary" onClick={() => navigate('/simulacro/' + sim.id)}>
+                      {answered > 0 ? 'CONTINUAR' : 'INICIAR'}
                     </button>
                   ) : (
-                    <button className="start-btn locked-btn" disabled>
-                      🔒 Premium
+                    <button className="flowi-btn-locked" disabled>
+                      🔒 BLOQUEADO
                     </button>
                   )}
                 </div>

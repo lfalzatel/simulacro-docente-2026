@@ -54,7 +54,7 @@ export default function Documentacion() {
               onClick={() => handleDownload(doc.name)}
               style={{
                 width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(0,206,201,0.1)',
-                color: '#00cec9', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'var(--accent-primary)', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center',
                 cursor: 'pointer', flexShrink: 0
               }}
             >

@@ -141,7 +141,7 @@ export default function Reportes() {
 
           <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', marginBottom: '1.5rem' }}>
             <div style={{ flex: 1, background: 'rgba(0,206,201,0.1)', padding: '1rem', borderRadius: '12px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#00cec9' }}>3.8 / 5.0</div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-primary)' }}>3.8 / 5.0</div>
               <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)' }}>Promedio del Grupo</div>
             </div>
             <div style={{ flex: 1, background: 'rgba(0,184,148,0.1)', padding: '1rem', borderRadius: '12px', textAlign: 'center' }}>

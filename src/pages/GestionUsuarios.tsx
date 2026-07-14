@@ -89,7 +89,7 @@ export default function GestionUsuarios() {
       showCancelButton: true,
       confirmButtonText: "Guardar Cambios",
       cancelButtonText: "Cancelar",
-      confirmButtonColor: "#00cec9",
+      confirmButtonColor: "var(--accent-primary)",
       didOpen: () => {
         const rolSelect = document.getElementById('swal-rol') as HTMLSelectElement;
         const grupoContainer = document.getElementById('swal-grupo-container');

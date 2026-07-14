@@ -211,7 +211,7 @@ body.admin-page {
 }
 
 .btn-actividad {
-    background: #00cec9;
+    background: var(--accent-primary);
     color: white;
     font-size: 0.7rem;
     font-weight: 900;

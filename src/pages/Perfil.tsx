@@ -70,7 +70,7 @@ export default function Perfil() {
       {/* Header */}
       <div className="page-header" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
         <div style={{
-          width: '60px', height: '60px', borderRadius: '50%', background: '#00cec9', 
+          width: '60px', height: '60px', borderRadius: '50%', background: 'var(--accent-primary)', 
           display: 'flex', alignItems: 'center', justifyContent: 'center', 
           color: 'white', fontSize: '1.5rem', fontWeight: 700
         }}>
@@ -99,8 +99,8 @@ export default function Perfil() {
       </div>
 
       {/* Scoring System */}
-      <div className="stat-card system-info" style={{ background: 'var(--glass-bg)', padding: '1.5rem', borderRadius: '16px', marginBottom: '1.5rem', borderLeft: '4px solid #00cec9' }}>
-        <h3 style={{ fontSize: '1rem', marginBottom: '1rem', color: '#00cec9', fontWeight: 700 }}>ℹ️ Sistema de Puntuación</h3>
+      <div className="stat-card system-info" style={{ background: 'var(--glass-bg)', padding: '1.5rem', borderRadius: '16px', marginBottom: '1.5rem', borderLeft: '4px solid var(--accent-primary)' }}>
+        <h3 style={{ fontSize: '1rem', marginBottom: '1rem', color: 'var(--accent-primary)', fontWeight: 700 }}>ℹ️ Sistema de Puntuación</h3>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
           <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(0, 184, 148, 0.1)', borderRadius: '12px', color: '#00b894' }}>
             <div style={{ fontSize: '1.2rem', fontWeight: 800 }}>+1</div>

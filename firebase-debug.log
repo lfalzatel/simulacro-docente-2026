@@ -60,3 +60,61 @@
 [debug] [2026-07-11T16:47:21.979Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases/cloud.firestore [none]
 [debug] [2026-07-11T16:47:21.979Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases/cloud.firestore {"release":{"name":"projects/evaluaseguro-31c51/releases/cloud.firestore","rulesetName":"projects/evaluaseguro-31c51/rulesets/5deece3f-4443-4eb7-a524-c3567c51c4d7"}}
 [debug] [2026-07-11T16:47:22.390Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases/cloud.firestore 200
+[debug] [2026-07-14T12:47:23.614Z] ----------------------------------------------------------------------
+[debug] [2026-07-14T12:47:23.616Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lfalz\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only firestore:rules --debug
+[debug] [2026-07-14T12:47:23.616Z] CLI Version:   15.23.0
+[debug] [2026-07-14T12:47:23.616Z] Platform:      win32
+[debug] [2026-07-14T12:47:23.616Z] Node Version:  v24.13.0
+[debug] [2026-07-14T12:47:23.616Z] Detected Agent: unknown
+[debug] [2026-07-14T12:47:23.616Z] Time:          Tue Jul 14 2026 07:47:23 GMT-0500 (hora estándar de Colombia)
+[debug] [2026-07-14T12:47:23.616Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-14T12:47:23.626Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-07-14T12:47:26.704Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-14T12:47:26.706Z] > authorizing via signed-in user (lfalzatel@gmail.com)
+[debug] [2026-07-14T12:47:26.706Z] [iam] checking project evaluaseguro-31c51 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2026-07-14T12:47:26.708Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:26.708Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:26.709Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/evaluaseguro-31c51:testIamPermissions [none]
+[debug] [2026-07-14T12:47:26.709Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/evaluaseguro-31c51:testIamPermissions  x-goog-user-project=evaluaseguro-31c51
+[debug] [2026-07-14T12:47:26.709Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/evaluaseguro-31c51:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2026-07-14T12:47:27.239Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-07-14T12:47:27.240Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-07-14T12:47:27.332Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/evaluaseguro-31c51:testIamPermissions 200
+[debug] [2026-07-14T12:47:27.332Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/evaluaseguro-31c51:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'evaluaseguro-31c51'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-07-14T12:47:27.339Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:27.339Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:27.339Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/evaluaseguro-31c51/databases/(default) [none]
+[debug] [2026-07-14T12:47:28.241Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/evaluaseguro-31c51/databases/(default) 200
+[debug] [2026-07-14T12:47:28.242Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/evaluaseguro-31c51/databases/(default) {"name":"projects/evaluaseguro-31c51/databases/(default)","uid":"80b9c84c-e143-418f-95ad-16c1375c415b","createTime":"2026-07-10T20:43:53.195812Z","updateTime":"2026-07-10T20:43:53.195812Z","locationId":"nam5","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-07-14T11:47:32.907218Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"s","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IJipuuKZ0pUDMNaB3tSayZUD"}
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-07-14T12:47:28.245Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:28.245Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:28.245Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51:test [none]
+[debug] [2026-07-14T12:47:28.245Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51:test [omitted]
+[debug] [2026-07-14T12:47:28.699Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51:test 200
+[debug] [2026-07-14T12:47:28.699Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51:test {}
+[info] +  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2026-07-14T12:47:28.700Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:28.701Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:28.701Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases pageSize=10&pageToken=
+[debug] [2026-07-14T12:47:28.874Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases 200
+[debug] [2026-07-14T12:47:28.875Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases {"releases":[{"name":"projects/evaluaseguro-31c51/releases/cloud.firestore","rulesetName":"projects/evaluaseguro-31c51/rulesets/5deece3f-4443-4eb7-a524-c3567c51c4d7","createTime":"2026-07-10T20:43:54.495437Z","updateTime":"2026-07-11T16:47:23.852933Z"}]}
+[debug] [2026-07-14T12:47:28.875Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:28.876Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:28.876Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/rulesets/5deece3f-4443-4eb7-a524-c3567c51c4d7 [none]
+[debug] [2026-07-14T12:47:29.033Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/rulesets/5deece3f-4443-4eb7-a524-c3567c51c4d7 200
+[debug] [2026-07-14T12:47:29.033Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/rulesets/5deece3f-4443-4eb7-a524-c3567c51c4d7 [omitted]
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
+[debug] [2026-07-14T12:47:29.035Z] [rules] releasing cloud.firestore with ruleset projects/evaluaseguro-31c51/rulesets/5deece3f-4443-4eb7-a524-c3567c51c4d7
+[debug] [2026-07-14T12:47:29.035Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:29.035Z] Checked if tokens are valid: true, expires at: 1784036816784
+[debug] [2026-07-14T12:47:29.035Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases/cloud.firestore [none]
+[debug] [2026-07-14T12:47:29.036Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases/cloud.firestore {"release":{"name":"projects/evaluaseguro-31c51/releases/cloud.firestore","rulesetName":"projects/evaluaseguro-31c51/rulesets/5deece3f-4443-4eb7-a524-c3567c51c4d7"}}
+[debug] [2026-07-14T12:47:29.407Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/evaluaseguro-31c51/releases/cloud.firestore 200

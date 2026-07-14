@@ -14,6 +14,7 @@ import Notas from "./pages/Notas";
 import Documentacion from "./pages/Documentacion";
 import Configuracion from "./pages/Configuracion";
 import GestionUsuarios from "./pages/GestionUsuarios";
+import Simulacro from "./pages/Simulacro";
 
 // CSS Global (Manteniendo el tuyo)
 import "./css/style.css";
@@ -36,6 +37,7 @@ function App() {
               <Route path="/documentacion" element={<Documentacion />} />
               <Route path="/configuracion" element={<Configuracion />} />
               <Route path="/notas" element={<Notas />} />
+              <Route path="/simulacro/:id" element={<Simulacro />} />
               
               <Route path="/" element={<Inicio />} />
               <Route path="*" element={<Navigate to="/" replace />} />
