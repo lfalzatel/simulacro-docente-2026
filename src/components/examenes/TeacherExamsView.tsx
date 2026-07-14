@@ -16,7 +16,7 @@ export default function TeacherExamsView() {
   
   // Data states
   const [myExams, setMyExams] = useState<any[]>([]);
-  const [examStats, setExamStats] = useState<Record<string, { total: number, approved: number, failed: number }>>({});
+  const [examStats, setExamStats] = useState<Record<string, { total: number, approved: number, failed: number, assigned: number }>>({});
   const [selectedExam, setSelectedExam] = useState<any>(null);
   const [editingExamId, setEditingExamId] = useState<string | null>(null);
   const [examResponses, setExamResponses] = useState<any[]>([]);
@@ -45,6 +45,17 @@ export default function TeacherExamsView() {
       
       // Fetch stats for each exam (for the mini summary)
       exams.forEach(exam => {
+        // Fetch how many students are assigned to this group
+        const assignedQ = query(collection(db, "usuarios"), where("rol", "==", "estudiante"), where("grupo", "==", exam.group || "6A"));
+        onSnapshot(assignedQ, (assignedSnap) => {
+          const assigned = assignedSnap.docs.length;
+          setExamStats(prev => {
+            const current = prev[exam.id] || { total: 0, approved: 0, failed: 0, assigned: 0 };
+            return { ...prev, [exam.id]: { ...current, assigned } };
+          });
+        });
+
+        // Fetch how many students have taken the exam
         const statsQ = query(collection(db, "respuestas_examenes"), where("examId", "==", exam.id));
         onSnapshot(statsQ, (statsSnap) => {
           let approved = 0;
@@ -58,7 +69,10 @@ export default function TeacherExamsView() {
               else failed++;
             }
           });
-          setExamStats(prev => ({ ...prev, [exam.id]: { total, approved, failed } }));
+          setExamStats(prev => {
+            const current = prev[exam.id] || { total: 0, approved: 0, failed: 0, assigned: 0 };
+            return { ...prev, [exam.id]: { ...current, total, approved, failed } };
+          });
         });
       });
 
@@ -378,7 +392,7 @@ export default function TeacherExamsView() {
               <div style={{ display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.03)', padding: '0 1rem', borderRadius: '4px' }}>
                 <Users size={18} color="var(--accent-secondary)" style={{ marginRight: '0.5rem' }} />
                 <select className="form-select" style={{ border: 'none', background: 'transparent' }} value={form.group} onChange={e => setForm({...form, group: e.target.value})}>
-                  {['6A', '6B', '7A', '7B', '8A', '9A'].map(g => <option key={g} value={g}>GRUPO {g}</option>)}
+                  {['6A', '6B', '6C', '6D', '7A', '7B', '7C', '8A', '8B', '9A', '9B', '10A', '10B', '11A', '11B'].map(g => <option key={g} value={g}>GRUPO {g}</option>)}
                 </select>
               </div>
             </div>
@@ -602,7 +616,7 @@ export default function TeacherExamsView() {
                 <div className="flowi-sim-content">
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                     <h3 className="flowi-sim-title">{exam.title}</h3>
-                    {/* The grade badge has been removed as requested */}
+                    <span className="flowi-badge" style={{ background: 'rgba(250,204,21,0.1)', color: 'var(--accent-primary)', height: 'fit-content' }}>GRUPO {exam.group}</span>
                   </div>
                   
                   <div className="flowi-sim-meta" style={{ gap: '1rem', color: 'var(--text-secondary)', marginBottom: '1rem', flexWrap: 'wrap' }}>
@@ -613,10 +627,14 @@ export default function TeacherExamsView() {
 
                   <div style={{ background: 'rgba(0,0,0,0.2)', padding: '0.75rem', borderRadius: '6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>EVALUADOS</span>
-                      <span style={{ fontWeight: 'bold', fontFamily: 'monospace', fontSize: '1.1rem' }}>{stats.total} <Users size={12} style={{ display: 'inline', opacity: 0.5 }}/></span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>ASIGNADOS</span>
+                      <span style={{ fontWeight: 'bold', fontFamily: 'monospace', fontSize: '1.1rem' }}>{stats.assigned || 0} <Users size={12} style={{ display: 'inline', opacity: 0.5 }}/></span>
                     </div>
                     <div style={{ display: 'flex', gap: '1rem' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <span style={{ fontSize: '0.7rem', color: 'var(--accent-secondary)' }}>EVALUADOS</span>
+                        <span style={{ fontWeight: 'bold', color: 'var(--accent-secondary)' }}>{stats.total}</span>
+                      </div>
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <span style={{ fontSize: '0.7rem', color: '#00b894' }}>APROBADOS</span>
                         <span style={{ fontWeight: 'bold', color: '#00b894' }}>{stats.approved}</span>
