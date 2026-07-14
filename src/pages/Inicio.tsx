@@ -6,7 +6,7 @@ import { simulacrosCatalog } from "../data/simulacrosCatalog";
 export default function Inicio() {
   const { currentUser, appRole } = useAuth();
   const navigate = useNavigate();
-  const firstName = currentUser?.displayName?.split(" ")[0] || "Estudiante";
+  const userName = currentUser?.displayName || currentUser?.email?.split("@")[0] || "Usuario";
 
   // Mock stats - in the future this will load from localStorage/Firebase
   const [stats] = useState({
@@ -94,7 +94,6 @@ export default function Inicio() {
           {simulacrosCatalog.map((sim) => {
             const userRole = (appRole || 'free').toLowerCase();
             const canAccess = !sim.es_premium || userRole === 'admin' || userRole === 'premium';
-            const pct = 0;
             const answered = 0;
 
             return (
