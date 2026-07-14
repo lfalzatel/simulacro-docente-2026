@@ -12,7 +12,7 @@ export default function StudentExamsView() {
   
   // State for exam taking and review
   const [activeExam, setActiveExam] = useState<any>(null);
-  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [answers, setAnswers] = useState<Record<number, any>>({});
   const [isReviewing, setIsReviewing] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   const [pointsStats, setPointsStats] = useState({ earned: 0, total: 0 });
@@ -67,9 +67,20 @@ export default function StudentExamsView() {
     setIsReviewing(false);
   };
 
-  const handleSelectOption = (qId: number, oId: number) => {
+  const handleSelectOption = (q: any, oId: number) => {
     if (isReviewing) return;
-    setAnswers(prev => ({ ...prev, [qId]: oId }));
+    if (q.type === 'checkbox') {
+      setAnswers(prev => {
+        const current = Array.isArray(prev[q.id]) ? prev[q.id] : [];
+        if (current.includes(oId)) {
+          return { ...prev, [q.id]: current.filter((id: number) => id !== oId) };
+        } else {
+          return { ...prev, [q.id]: [...current, oId] };
+        }
+      });
+    } else {
+      setAnswers(prev => ({ ...prev, [q.id]: oId }));
+    }
   };
 
   const handleSubmitExam = async () => {
@@ -88,8 +99,15 @@ export default function StudentExamsView() {
     activeExam.questions.forEach((q: any) => {
       const qPts = q.points !== undefined ? Number(q.points) : 10;
       totalPts += qPts;
-      if (answers[q.id] === q.correctOption) {
-        earnedPts += qPts;
+      if (q.type === 'checkbox') {
+        const studentAns = Array.isArray(answers[q.id]) ? answers[q.id] : [];
+        const correctAns = Array.isArray(q.correctOption) ? q.correctOption : [q.correctOption];
+        const isCorrect = studentAns.length === correctAns.length && studentAns.every((val: number) => correctAns.includes(val));
+        if (isCorrect) earnedPts += qPts;
+      } else {
+        if (answers[q.id] === q.correctOption) {
+          earnedPts += qPts;
+        }
       }
     });
     
@@ -162,8 +180,12 @@ export default function StudentExamsView() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {activeExam.questions.map((q: any, index: number) => {
-            const userAnswer = answers[q.id];
-            const isCorrect = userAnswer === q.correctOption;
+            const studentAns = Array.isArray(answers[q.id]) ? answers[q.id] : (answers[q.id] !== undefined ? [answers[q.id]] : []);
+            const correctAns = Array.isArray(q.correctOption) ? q.correctOption : [q.correctOption];
+            
+            const isCorrect = q.type === 'checkbox' 
+              ? studentAns.length === correctAns.length && studentAns.every((val: number) => correctAns.includes(val))
+              : answers[q.id] === q.correctOption;
 
             return (
               <div key={q.id} className="examen-card" style={{ 
@@ -188,8 +210,8 @@ export default function StudentExamsView() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {q.options.map((opt: any, optIndex: number) => {
-                    const isSelected = userAnswer === opt.id;
-                    const isActuallyCorrect = q.correctOption === opt.id;
+                    const isSelected = q.type === 'checkbox' ? studentAns.includes(opt.id) : answers[q.id] === opt.id;
+                    const isActuallyCorrect = q.type === 'checkbox' ? correctAns.includes(opt.id) : q.correctOption === opt.id;
                     
                     let bgStyle = 'transparent';
                     let borderStyle = '1px solid var(--glass-border)';
@@ -216,7 +238,7 @@ export default function StudentExamsView() {
                     return (
                       <div 
                         key={opt.id}
-                        onClick={() => handleSelectOption(q.id, opt.id)}
+                        onClick={() => handleSelectOption(q, opt.id)}
                         style={{ 
                           display: 'flex', alignItems: 'center', gap: '1rem', 
                           padding: '1rem', borderRadius: '8px', 
@@ -227,14 +249,16 @@ export default function StudentExamsView() {
                         }}
                       >
                         <div style={{
-                          width: '20px', height: '20px', borderRadius: '50%',
+                          width: '20px', height: '20px', 
+                          borderRadius: q.type === 'checkbox' ? '4px' : '50%',
                           border: `2px solid ${isReviewing ? colorStyle : (isSelected ? 'var(--accent-primary)' : 'var(--text-secondary)')}`,
                           display: 'flex', alignItems: 'center', justifyContent: 'center'
                         }}>
-                          {isSelected && <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: isReviewing ? colorStyle : 'var(--accent-primary)' }} />}
+                          {isSelected && q.type === 'checkbox' && <CheckCircle2 size={14} color={isReviewing ? colorStyle : 'var(--accent-primary)'} />}
+                          {isSelected && q.type !== 'checkbox' && <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: isReviewing ? colorStyle : 'var(--accent-primary)' }} />}
                         </div>
                         <span style={{ fontFamily: 'monospace', color: colorStyle }}>
-                          {['A', 'B', 'C', 'D'][optIndex]}) {opt.text}
+                          {String.fromCharCode(65 + optIndex)}) {opt.text}
                         </span>
                       </div>
                     )

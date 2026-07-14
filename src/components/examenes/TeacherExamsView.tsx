@@ -6,7 +6,7 @@ import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 
 type Option = { id: number; text: string };
-type Question = { id: number; text: string; options: Option[]; correctOption: number; points: number; imageBase64?: string };
+type Question = { id: number; text: string; options: Option[]; correctOption: number | number[]; points: number; imageBase64?: string; type: 'radio' | 'checkbox' };
 
 export default function TeacherExamsView() {
   const { currentUser } = useAuth();
@@ -23,7 +23,7 @@ export default function TeacherExamsView() {
   // Form states
   const [form, setForm] = useState({ title: "", date: "", time: "", group: "6A", randomizeOptions: false });
   const [questions, setQuestions] = useState<Question[]>([
-    { id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }
+    { id: Date.now(), text: "", type: 'radio', options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }
   ]);
 
   // Fetch Exams
@@ -64,7 +64,7 @@ export default function TeacherExamsView() {
   const handleAddQuestion = () => {
     setQuestions([
       ...questions,
-      { id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }
+      { id: Date.now(), text: "", type: 'radio', options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }
     ]);
   };
 
@@ -87,7 +87,50 @@ export default function TeacherExamsView() {
   };
 
   const setCorrectOption = (qId: number, oId: number) => {
-    setQuestions(questions.map(q => q.id === qId ? { ...q, correctOption: oId } : q));
+    setQuestions(questions.map(q => {
+      if (q.id === qId) {
+        if (q.type === 'checkbox') {
+          const current = Array.isArray(q.correctOption) ? q.correctOption : [q.correctOption];
+          if (current.includes(oId)) {
+            return { ...q, correctOption: current.filter(id => id !== oId) };
+          } else {
+            return { ...q, correctOption: [...current, oId] };
+          }
+        } else {
+          return { ...q, correctOption: oId };
+        }
+      }
+      return q;
+    }));
+  };
+
+  const updateQuestionType = (qId: number, type: 'radio' | 'checkbox') => {
+    setQuestions(questions.map(q => {
+      if (q.id === qId) {
+        // Reset correctOption when switching types
+        return { ...q, type, correctOption: type === 'checkbox' ? [1] : 1 };
+      }
+      return q;
+    }));
+  };
+
+  const addOption = (qId: number) => {
+    setQuestions(questions.map(q => {
+      if (q.id === qId) {
+        const newOptionId = q.options.length > 0 ? Math.max(...q.options.map(o => o.id)) + 1 : 1;
+        return { ...q, options: [...q.options, { id: newOptionId, text: "" }] };
+      }
+      return q;
+    }));
+  };
+
+  const removeOption = (qId: number, oId: number) => {
+    setQuestions(questions.map(q => {
+      if (q.id === qId) {
+        return { ...q, options: q.options.filter(o => o.id !== oId) };
+      }
+      return q;
+    }));
   };
 
   const updateQuestionPoints = (qId: number, points: number) => {
@@ -167,7 +210,7 @@ export default function TeacherExamsView() {
       
       setActiveTab('dashboard');
       setForm({ title: "", date: "", time: "", group: "6A", randomizeOptions: false });
-      setQuestions([{ id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }]);
+      setQuestions([{ id: Date.now(), text: "", type: 'radio', options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }]);
 
     } catch (error) {
       console.error(error);
@@ -259,8 +302,17 @@ export default function TeacherExamsView() {
           {questions.map((q, index) => (
             <div key={q.id} className="examen-card" style={{ padding: '1.5rem', position: 'relative', borderLeft: '4px solid var(--accent-primary)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
                   <h3 className="section-label" style={{ color: 'var(--text-primary)', margin: 0 }}>PREGUNTA {index + 1}</h3>
+                  <select 
+                    className="form-input" 
+                    value={q.type || 'radio'} 
+                    onChange={(e) => updateQuestionType(q.id, e.target.value as 'radio' | 'checkbox')}
+                    style={{ padding: '0.2rem 0.5rem', fontSize: '0.8rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', borderRadius: '4px', cursor: 'pointer' }}
+                  >
+                    <option value="radio" style={{ color: '#000' }}>Varias opciones (1 correcta)</option>
+                    <option value="checkbox" style={{ color: '#000' }}>Casillas (Varias correctas)</option>
+                  </select>
                   <div style={{ display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', padding: '0.2rem 0.5rem' }}>
                     <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginRight: '0.5rem' }}>PUNTOS:</span>
                     <input type="number" min="0" className="form-input" style={{ width: '60px', padding: '0.2rem', textAlign: 'center', fontSize: '0.9rem', border: 'none', borderBottom: '1px solid var(--accent-primary)', borderRadius: 0, background: 'transparent' }} value={q.points || 0} onChange={(e) => updateQuestionPoints(q.id, parseInt(e.target.value) || 0)} />
@@ -289,17 +341,42 @@ export default function TeacherExamsView() {
                   </button>
                 </div>
               )}
-
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingLeft: '1rem' }}>
-                {q.options.map((opt, optIndex) => (
-                  <div key={opt.id} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <div onClick={() => setCorrectOption(q.id, opt.id)} style={{ width: '24px', height: '24px', borderRadius: '50%', border: q.correctOption === opt.id ? '2px solid var(--accent-primary)' : '2px solid var(--text-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', background: q.correctOption === opt.id ? 'var(--accent-primary)' : 'transparent' }}>
-                      {q.correctOption === opt.id && <CheckCircle2 size={16} color="#000" />}
+                {q.options.map((opt, optIndex) => {
+                  const isChecked = q.type === 'checkbox' 
+                    ? (Array.isArray(q.correctOption) && q.correctOption.includes(opt.id))
+                    : q.correctOption === opt.id;
+                    
+                  return (
+                    <div key={opt.id} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.02)', padding: '0.5rem', borderRadius: '4px' }}>
+                      <div 
+                        onClick={() => setCorrectOption(q.id, opt.id)}
+                        style={{ 
+                          width: '20px', height: '20px', 
+                          borderRadius: q.type === 'checkbox' ? '4px' : '50%', 
+                          border: '2px solid var(--accent-primary)',
+                          background: isChecked ? 'var(--accent-primary)' : 'transparent',
+                          cursor: 'pointer',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center'
+                        }}
+                      >
+                        {isChecked && <CheckCircle2 size={14} color="#000" />}
+                      </div>
+                      <input type="text" placeholder={`Opción ${optIndex + 1}`} className="form-input" style={{ flex: 1, padding: '0.5rem', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.1)', borderRadius: 0, background: 'transparent' }} value={opt.text} onChange={(e) => updateOptionText(q.id, opt.id, e.target.value)} />
+                      {q.options.length > 2 && (
+                        <button onClick={() => removeOption(q.id, opt.id)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.2rem' }}>
+                          <X size={16} />
+                        </button>
+                      )}
                     </div>
-                    <span style={{ fontFamily: 'monospace', color: 'var(--text-secondary)' }}>{['A','B','C','D'][optIndex]})</span>
-                    <input type="text" placeholder={`Opción ${['A','B','C','D'][optIndex]}`} className="form-input" style={{ flex: 1, padding: '0.5rem', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.1)', borderRadius: 0, background: 'transparent' }} value={opt.text} onChange={(e) => updateOptionText(q.id, opt.id, e.target.value)} />
-                  </div>
-                ))}
+                  );
+                })}
+                <button 
+                  onClick={() => addOption(q.id)} 
+                  style={{ alignSelf: 'flex-start', background: 'transparent', border: '1px dashed rgba(255,255,255,0.2)', color: 'var(--text-secondary)', padding: '0.5rem 1rem', borderRadius: '4px', cursor: 'pointer', marginTop: '0.5rem', fontSize: '0.8rem' }}
+                >
+                  + Añadir opción
+                </button>
               </div>
             </div>
           ))}
