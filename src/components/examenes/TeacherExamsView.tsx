@@ -172,7 +172,7 @@ export default function TeacherExamsView() {
   if (activeTab === 'create') {
     return (
       <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-        <button className="theme-btn" onClick={() => setActiveTab('dashboard')} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
+        <button className="flowi-btn-secondary" onClick={() => setActiveTab('dashboard')} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
           <ChevronLeft size={18} /> VOLVER
         </button>
         <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Constructor de Examen</h2>
@@ -247,7 +247,7 @@ export default function TeacherExamsView() {
   if (activeTab === 'results' && selectedExam) {
     return (
       <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-        <button className="theme-btn" onClick={() => setActiveTab('dashboard')} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
+        <button className="flowi-btn-secondary" onClick={() => setActiveTab('dashboard')} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
           <ChevronLeft size={18} /> VOLVER A EXÁMENES
         </button>
         

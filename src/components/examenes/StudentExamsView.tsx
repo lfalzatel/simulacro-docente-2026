@@ -220,7 +220,7 @@ export default function StudentExamsView() {
             </button>
           ) : (
             <>
-              <button className="theme-btn" onClick={() => setActiveExam(null)} style={{ flex: 1 }}>
+              <button className="flowi-btn-secondary" onClick={() => setActiveExam(null)} style={{ flex: 1 }}>
                 ABANDONAR
               </button>
               <button className="start-btn" onClick={handleSubmitExam} style={{ flex: 2 }}>

@@ -3243,6 +3243,23 @@ input:checked + .slider:before { transform: translateX(20px); }
 .flowi-btn-primary:hover {
     filter: brightness(1.1);
 }
+
+.flowi-btn-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: 'Courier New', ui-monospace, monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: 1px dashed var(--glass-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.flowi-btn-secondary:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
 .flowi-btn-locked {
     width: 100%;
     background: transparent;
