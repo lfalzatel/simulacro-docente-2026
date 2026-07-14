@@ -45,10 +45,8 @@ export default function StudentExamsView() {
   };
 
   const handleStartExam = (exam: any) => {
-    // Verificar si ya lo presentó
-    const alreadyTaken = examResponses.find((r: any) => r.examId === exam.id);
-    if (alreadyTaken) {
-      Swal.fire('Atención', 'Ya presentaste este examen', 'info');
+    if (!exam.questions || exam.questions.length === 0) {
+      Swal.fire('Error', 'Este examen no tiene preguntas configuradas.', 'error');
       return;
     }
     
