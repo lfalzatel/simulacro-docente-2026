@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft, ImagePlus, X } from "lucide-react";
 import Swal from "sweetalert2";
-import { collection, addDoc, serverTimestamp, query, where, onSnapshot, orderBy } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, query, where, onSnapshot, orderBy, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 
@@ -58,6 +58,18 @@ export default function TeacherExamsView() {
     });
     return () => unsubscribe();
   }, [selectedExam]);
+
+  const handleUnlockStudent = async (responseId: string) => {
+    try {
+      await updateDoc(doc(db, "respuestas_examenes", responseId), {
+        estado: 'en_curso'
+      });
+      Swal.fire({ title: 'Desbloqueado', text: 'El estudiante puede continuar.', icon: 'success', toast: true, position: 'top-end', showConfirmButton: false, timer: 3000, background: '#121212', color: '#fff' });
+    } catch (e) {
+      console.error(e);
+      Swal.fire('Error', 'No se pudo desbloquear', 'error');
+    }
+  };
 
 
   // ---- CREATION LOGIC ----
@@ -399,8 +411,10 @@ export default function TeacherExamsView() {
         </button>
         
         {(() => {
-          const averageScore = examResponses.length > 0 ? Math.round(examResponses.reduce((acc, curr) => acc + curr.score, 0) / examResponses.length) : 0;
-          const totalEvaluated = examResponses.length;
+          const completedResponses = examResponses.filter(r => r.estado === 'completado' || r.score !== undefined);
+          const averageScore = completedResponses.length > 0 ? Math.round(completedResponses.reduce((acc, curr) => acc + (curr.score || 0), 0) / completedResponses.length) : 0;
+          const totalEvaluated = completedResponses.length;
+          const totalEnCursoOBloqueado = examResponses.length - totalEvaluated;
           
           return (
             <>
@@ -440,11 +454,23 @@ export default function TeacherExamsView() {
               {examResponses.map((res, i) => (
                 <div key={res.id} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', padding: '1rem', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.03)', borderRadius: '8px', alignItems: 'center', fontFamily: 'monospace' }}>
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ color: 'var(--text-primary)', fontWeight: 'bold' }}>{res.studentLastName || ""}</span>
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>{res.studentName || ""}</span>
+                    <span style={{ color: 'var(--text-primary)', fontWeight: 'bold' }}>{res.studentLastName || ""} {res.studentName || ""}</span>
+                    <span style={{ color: res.estado === 'bloqueado' ? '#e74c3c' : 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                      {res.estado === 'completado' || res.score !== undefined ? 'Completado' : res.estado === 'bloqueado' ? `¡BLOQUEADO! (${res.infracciones || 0} avisos)` : 'En curso...'}
+                    </span>
                   </div>
                   <span style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>{res.group}</span>
-                  <span style={{ textAlign: 'right', color: res.score >= 60 ? '#00b894' : '#d63031', fontWeight: 'bold', fontSize: '1.2rem' }}>{res.score}%</span>
+                  <div style={{ textAlign: 'right' }}>
+                    {res.estado === 'bloqueado' ? (
+                      <button onClick={() => handleUnlockStudent(res.id)} style={{ background: '#e74c3c', color: '#fff', border: 'none', padding: '0.4rem 0.8rem', borderRadius: '4px', cursor: 'pointer', fontSize: '0.75rem', fontWeight: 'bold' }}>
+                        DESBLOQUEAR
+                      </button>
+                    ) : res.estado === 'en_curso' ? (
+                      <span style={{ color: '#EAB308', fontWeight: 'bold' }}>--</span>
+                    ) : (
+                      <span style={{ color: (res.score || 0) >= 60 ? '#00b894' : '#d63031', fontWeight: 'bold', fontSize: '1.2rem' }}>{res.score || 0}%</span>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>

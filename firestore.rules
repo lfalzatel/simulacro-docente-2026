@@ -57,45 +57,42 @@ service cloud.firestore {
     }
 
     // ============================================
-    // EXAMENES
+    // EXAMENES (Soporta esquema antiguo y nuevo)
     // ============================================
     match /examenes/{examenId} {
       allow read: if estaAutenticado();
 
-      // Crear examen: solo profesor/admin, y el documento debe traer los
-      // campos mínimos con tipos y rangos válidos (Fase 3).
       allow create: if (esProfesor() || esAdmin())
-                    && request.resource.data.profesorId == request.auth.uid
-                    && request.resource.data.titulo is string
-                    && request.resource.data.titulo.size() > 0
-                    && request.resource.data.titulo.size() <= 120
-                    && request.resource.data.grupoId is string
-                    && request.resource.data.bancoPreguntas in ['quizData', 'quizData2', 'quizData3']
-                    && request.resource.data.estado == 'inactivo'   // todo examen nace inactivo
                     && (
-                         !('numPreguntas' in request.resource.data)
-                         || request.resource.data.numPreguntas == null
-                         || (request.resource.data.numPreguntas is int
-                             && request.resource.data.numPreguntas > 0
-                             && request.resource.data.numPreguntas <= 360)
-                       )
-                    && (
-                         !('duracionMinutos' in request.resource.data)
-                         || request.resource.data.duracionMinutos == null
-                         || (request.resource.data.duracionMinutos is int
-                             && request.resource.data.duracionMinutos > 0
-                             && request.resource.data.duracionMinutos <= 240)
-                       );
+                      // Esquema antiguo
+                      (
+                        request.resource.data.profesorId == request.auth.uid
+                        && request.resource.data.titulo is string
+                        && request.resource.data.titulo.size() > 0
+                        && request.resource.data.titulo.size() <= 120
+                        && request.resource.data.grupoId is string
+                        && request.resource.data.bancoPreguntas in ['quizData', 'quizData2', 'quizData3']
+                        && request.resource.data.estado == 'inactivo'
+                      )
+                      ||
+                      // Esquema nuevo
+                      (
+                        request.resource.data.teacherId == request.auth.uid
+                        && request.resource.data.title is string
+                        && request.resource.data.group is string
+                      )
+                    );
 
-      // Actualizar examen (activar/desactivar/cerrar, editar título, etc.):
-      // solo el profesor dueño o un admin, y el estado debe seguir siendo válido.
-      allow update: if (esAdmin() || esCreadorDelExamen(resource.data.profesorId))
-                    && request.resource.data.estado in ['inactivo', 'activo', 'cerrado'];
-
-      allow delete: if esAdmin() || esCreadorDelExamen(resource.data.profesorId);
+      allow update: if esAdmin() 
+                    || (('profesorId' in resource.data) && esCreadorDelExamen(resource.data.profesorId))
+                    || (('teacherId' in resource.data) && esCreadorDelExamen(resource.data.teacherId));
+                    
+      allow delete: if esAdmin() 
+                    || (('profesorId' in resource.data) && esCreadorDelExamen(resource.data.profesorId))
+                    || (('teacherId' in resource.data) && esCreadorDelExamen(resource.data.teacherId));
 
       // ============================================
-      // INTENTOS (subcolección: un doc por estudiante)
+      // INTENTOS (subcolección: un doc por estudiante) - Esquema Antiguo
       // ============================================
       match /intentos/{estudianteUid} {
         allow read: if request.auth.uid == estudianteUid || esProfesor() || esAdmin();
@@ -111,6 +108,21 @@ service cloud.firestore {
                       || esProfesor()
                       || esAdmin();
       }
+    }
+
+    // ============================================
+    // RESPUESTAS EXAMENES
+    // ============================================
+    match /respuestas_examenes/{respuestaId} {
+      // El profesor puede leer todas, el estudiante solo las suyas
+      allow read: if esProfesor() || esAdmin() || (estaAutenticado() && resource.data.studentId == request.auth.uid);
+
+      // El estudiante puede crear su respuesta al iniciar o al terminar
+      allow create: if estaAutenticado() && request.resource.data.studentId == request.auth.uid;
+
+      // El estudiante puede actualizar su respuesta (ej. marcar infracciones, auto-guardado, finalizar)
+      // El profesor puede actualizar para calificar manualmente o desbloquear
+      allow update: if (estaAutenticado() && resource.data.studentId == request.auth.uid) || esProfesor() || esAdmin();
     }
   }
 }

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { collection, query, onSnapshot, orderBy, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, query, onSnapshot, orderBy, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 import { FileText, Clock, Calendar, CheckCircle2, XCircle } from "lucide-react";
 import Swal from "sweetalert2";
+import { Lock } from "lucide-react";
 
 export default function StudentExamsView() {
   const { currentUser } = useAuth();
@@ -16,6 +17,9 @@ export default function StudentExamsView() {
   const [isReviewing, setIsReviewing] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   const [pointsStats, setPointsStats] = useState({ earned: 0, total: 0 });
+  const [activeResponseId, setActiveResponseId] = useState<string | null>(null);
+  const [estadoIntento, setEstadoIntento] = useState<'en_curso' | 'bloqueado' | 'completado'>('en_curso');
+  const [infracciones, setInfracciones] = useState(0);
 
   useEffect(() => {
     const q = query(collection(db, "examenes"), orderBy("createdAt", "desc"));
@@ -27,6 +31,33 @@ export default function StudentExamsView() {
     });
     return () => unsubscribe();
   }, []);
+
+  // Listen to active response for unblocking
+  useEffect(() => {
+    if (!activeResponseId) return;
+    const unsubscribe = onSnapshot(doc(db, "respuestas_examenes", activeResponseId), (docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setEstadoIntento(data.estado);
+        setInfracciones(data.infracciones || 0);
+      }
+    });
+    return () => unsubscribe();
+  }, [activeResponseId]);
+
+  // Anti-fraud visibility listener
+  useEffect(() => {
+    const handleVisibilityChange = async () => {
+      if (document.hidden && activeExam && activeResponseId && estadoIntento === 'en_curso' && !isReviewing) {
+        await updateDoc(doc(db, "respuestas_examenes", activeResponseId), {
+          estado: 'bloqueado',
+          infracciones: infracciones + 1
+        });
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, [activeExam, activeResponseId, estadoIntento, infracciones, isReviewing]);
 
   const calculateUrgency = (dateStr: string) => {
     const examDate = new Date(dateStr);
@@ -62,9 +93,36 @@ export default function StudentExamsView() {
       });
     }
 
-    setActiveExam(processedExam);
-    setAnswers({});
-    setIsReviewing(false);
+    Swal.fire({
+      title: 'Iniciando Examen...',
+      allowOutsideClick: false,
+      didOpen: () => Swal.showLoading()
+    });
+
+    try {
+      const attemptData = {
+        examId: processedExam.id,
+        examTitle: processedExam.title,
+        studentId: currentUser?.uid,
+        studentEmail: currentUser?.email,
+        studentName: currentUser?.displayName || currentUser?.email?.split('@')[0] || "Estudiante",
+        studentLastName: currentUser?.displayName?.split(' ').slice(1).join(' ') || "Sin Apellido",
+        group: processedExam.group,
+        estado: 'en_curso',
+        infracciones: 0,
+        answers: {},
+        startedAt: serverTimestamp()
+      };
+      const docRef = await addDoc(collection(db, "respuestas_examenes"), attemptData);
+      setActiveResponseId(docRef.id);
+      setActiveExam(processedExam);
+      setAnswers({});
+      setIsReviewing(false);
+      Swal.close();
+    } catch (e) {
+      console.error(e);
+      Swal.fire('Error', 'No se pudo iniciar el examen.', 'error');
+    }
   };
 
   const handleSelectOption = (q: any, oId: number) => {
@@ -124,19 +182,14 @@ export default function StudentExamsView() {
     });
 
     try {
-      // Guardar en Firebase
-      await addDoc(collection(db, "respuestas_examenes"), {
-        examId: activeExam.id,
-        examTitle: activeExam.title,
-        studentId: currentUser?.uid,
-        studentEmail: currentUser?.email,
-        studentName: currentUser?.displayName || currentUser?.email?.split('@')[0] || "Estudiante",
-        studentLastName: currentUser?.displayName?.split(' ').slice(1).join(' ') || "Sin Apellido", // Simple fallback
-        group: activeExam.group,
-        score: score,
-        answers: answers,
-        submittedAt: serverTimestamp()
-      });
+      if (activeResponseId) {
+        await updateDoc(doc(db, "respuestas_examenes", activeResponseId), {
+          estado: 'completado',
+          score: score,
+          answers: answers,
+          submittedAt: serverTimestamp()
+        });
+      }
 
       Swal.fire({
         title: '¡Examen Enviado!',
@@ -163,7 +216,23 @@ export default function StudentExamsView() {
   // VISTA DEL EXAMEN ACTIVO o REVISIÓN
   if (activeExam) {
     return (
-      <div className="page-content fade-in" style={{ padding: '1rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '100px' }}>
+      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+        
+        {estadoIntento === 'bloqueado' && !isReviewing && (
+          <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.95)', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', textAlign: 'center' }}>
+            <Lock size={64} color="#e74c3c" style={{ marginBottom: '2rem' }} />
+            <h1 style={{ color: '#e74c3c', fontFamily: 'monospace', fontSize: '2.5rem', marginBottom: '1rem' }}>EXAMEN BLOQUEADO</h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px' }}>
+              Se detectó un cambio de pestaña o ventana. Esta es tu infracción número {infracciones}. <br/><br/>
+              Levanta la mano y espera a que el profesor te desbloquee desde su panel para continuar.
+            </p>
+          </div>
+        )}
+
+        <button className="flowi-btn-secondary" onClick={() => { setActiveExam(null); setActiveResponseId(null); }} style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          Volver a Mis Exámenes
+        </button>
+
         <div className="examen-card" style={{ borderTop: '8px solid var(--accent-primary)', marginBottom: '2rem' }}>
           <h1 className="flowi-title">{activeExam.title}</h1>
           <p className="flowi-subtitle" style={{ marginTop: '0.5rem' }}>{activeExam.date} · {activeExam.group}</p>
