@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft } from "lucide-react";
+import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft, ImagePlus, X } from "lucide-react";
 import Swal from "sweetalert2";
 import { collection, addDoc, serverTimestamp, query, where, onSnapshot, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 
 type Option = { id: number; text: string };
-type Question = { id: number; text: string; options: Option[]; correctOption: number };
+type Question = { id: number; text: string; options: Option[]; correctOption: number; points: number; imageBase64?: string };
 
 export default function TeacherExamsView() {
   const { currentUser } = useAuth();
@@ -21,9 +21,9 @@ export default function TeacherExamsView() {
   const [loading, setLoading] = useState(true);
 
   // Form states
-  const [form, setForm] = useState({ title: "", date: "", time: "", group: "6A" });
+  const [form, setForm] = useState({ title: "", date: "", time: "", group: "6A", randomizeOptions: false });
   const [questions, setQuestions] = useState<Question[]>([
-    { id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1 }
+    { id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }
   ]);
 
   // Fetch Exams
@@ -64,7 +64,7 @@ export default function TeacherExamsView() {
   const handleAddQuestion = () => {
     setQuestions([
       ...questions,
-      { id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1 }
+      { id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }
     ]);
   };
 
@@ -90,6 +90,50 @@ export default function TeacherExamsView() {
     setQuestions(questions.map(q => q.id === qId ? { ...q, correctOption: oId } : q));
   };
 
+  const updateQuestionPoints = (qId: number, points: number) => {
+    setQuestions(questions.map(q => q.id === qId ? { ...q, points } : q));
+  };
+
+  const handleImageUpload = (qId: number, file: File) => {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 600;
+        const MAX_HEIGHT = 600;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx?.drawImage(img, 0, 0, width, height);
+        // Compress to base64 JPEG
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.6);
+        setQuestions(questions.map(q => q.id === qId ? { ...q, imageBase64: dataUrl } : q));
+      };
+      img.src = e.target?.result as string;
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const removeImage = (qId: number) => {
+    setQuestions(questions.map(q => q.id === qId ? { ...q, imageBase64: undefined } : q));
+  };
+
   const handleCreateExam = async () => {
     if (!form.title || !form.date || !form.time) {
       Swal.fire('Error', 'Completa los detalles del examen', 'error');
@@ -109,6 +153,7 @@ export default function TeacherExamsView() {
         time: form.time,
         group: form.group,
         teacherId: currentUser?.uid,
+        randomizeOptions: form.randomizeOptions,
         questions: questions,
         createdAt: serverTimestamp()
       });
@@ -121,8 +166,8 @@ export default function TeacherExamsView() {
       });
       
       setActiveTab('dashboard');
-      setForm({ title: "", date: "", time: "", group: "6A" });
-      setQuestions([{ id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1 }]);
+      setForm({ title: "", date: "", time: "", group: "6A", randomizeOptions: false });
+      setQuestions([{ id: Date.now(), text: "", options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }]);
 
     } catch (error) {
       console.error(error);
@@ -202,6 +247,10 @@ export default function TeacherExamsView() {
                 </select>
               </div>
             </div>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', cursor: 'pointer', marginTop: '1rem' }}>
+              <input type="checkbox" checked={form.randomizeOptions} onChange={(e) => setForm({ ...form, randomizeOptions: e.target.checked })} style={{ width: '18px', height: '18px', accentColor: 'var(--accent-primary)' }} />
+              <span>Mezclar orden de las opciones para los estudiantes</span>
+            </label>
           </div>
         </div>
 
@@ -210,7 +259,13 @@ export default function TeacherExamsView() {
           {questions.map((q, index) => (
             <div key={q.id} className="examen-card" style={{ padding: '1.5rem', position: 'relative', borderLeft: '4px solid var(--accent-primary)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                <h3 className="section-label" style={{ color: 'var(--text-primary)' }}>PREGUNTA {index + 1}</h3>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <h3 className="section-label" style={{ color: 'var(--text-primary)', margin: 0 }}>PREGUNTA {index + 1}</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', padding: '0.2rem 0.5rem' }}>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginRight: '0.5rem' }}>PUNTOS:</span>
+                    <input type="number" min="0" className="form-input" style={{ width: '60px', padding: '0.2rem', textAlign: 'center', fontSize: '0.9rem', border: 'none', borderBottom: '1px solid var(--accent-primary)', borderRadius: 0, background: 'transparent' }} value={q.points || 0} onChange={(e) => updateQuestionPoints(q.id, parseInt(e.target.value) || 0)} />
+                  </div>
+                </div>
                 {questions.length > 1 && (
                   <button onClick={() => handleRemoveQuestion(q.id)} style={{ background: 'transparent', border: 'none', color: '#ef4444', cursor: 'pointer' }}>
                     <Trash2 size={18} />
@@ -218,7 +273,22 @@ export default function TeacherExamsView() {
                 )}
               </div>
               
-              <input type="text" placeholder="Escribe la pregunta aquí..." className="form-input" style={{ marginBottom: '1rem', fontSize: '1.1rem' }} value={q.text} onChange={(e) => updateQuestionText(q.id, e.target.value)} />
+              <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', alignItems: 'flex-start' }}>
+                <input type="text" placeholder="Escribe la pregunta aquí..." className="form-input" style={{ flex: 1, fontSize: '1.1rem' }} value={q.text} onChange={(e) => updateQuestionText(q.id, e.target.value)} />
+                <label style={{ cursor: 'pointer', background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', border: '1px solid var(--border-color)', transition: 'all 0.2s' }}>
+                  <ImagePlus size={20} />
+                  <input type="file" accept="image/*" style={{ display: 'none' }} onChange={(e) => { if(e.target.files && e.target.files[0]) handleImageUpload(q.id, e.target.files[0]) }} />
+                </label>
+              </div>
+
+              {q.imageBase64 && (
+                <div style={{ position: 'relative', marginBottom: '1rem', display: 'inline-block' }}>
+                  <img src={q.imageBase64} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }} />
+                  <button onClick={() => removeImage(q.id)} style={{ position: 'absolute', top: '0.5rem', right: '0.5rem', background: 'rgba(0,0,0,0.7)', color: '#fff', border: 'none', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                    <X size={14} />
+                  </button>
+                </div>
+              )}
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingLeft: '1rem' }}>
                 {q.options.map((opt, optIndex) => (
@@ -251,15 +321,33 @@ export default function TeacherExamsView() {
           <ChevronLeft size={18} /> VOLVER A EXÁMENES
         </button>
         
-        <div className="flowi-header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div>
-            <h2 className="flowi-title">{selectedExam.title}</h2>
-            <p className="flowi-subtitle">RESPUESTAS DEL GRUPO {selectedExam.group}</p>
-          </div>
-          <button className="start-btn" onClick={exportToCSV} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
-            <FileSpreadsheet size={16} /> EXPORTAR CSV
-          </button>
-        </div>
+        {(() => {
+          const averageScore = examResponses.length > 0 ? Math.round(examResponses.reduce((acc, curr) => acc + curr.score, 0) / examResponses.length) : 0;
+          const totalEvaluated = examResponses.length;
+          
+          return (
+            <>
+              <div className="flowi-header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div>
+                  <h2 className="flowi-title">{selectedExam.title}</h2>
+                  <p className="flowi-subtitle">RESPUESTAS DEL GRUPO {selectedExam.group}</p>
+                </div>
+                <button className="start-btn" onClick={exportToCSV} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
+                  <FileSpreadsheet size={16} /> EXPORTAR CSV
+                </button>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '2rem' }}>
+                <div className="examen-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(0,184,148,0.1)', border: '1px solid rgba(0,184,148,0.3)' }}>
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Promedio General</span>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: averageScore >= 60 ? '#00b894' : '#d63031', fontFamily: 'monospace' }}>{averageScore}%</span>
+                </div>
+                <div className="examen-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(250,204,21,0.1)', border: '1px solid rgba(250,204,21,0.3)' }}>
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Estudiantes Evaluados</span>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--accent-primary)', fontFamily: 'monospace' }}>{totalEvaluated}</span>
+                </div>
+              </div>
+
 
         <div className="examen-card" style={{ marginTop: '2rem', background: 'rgba(255,255,255,0.02)', padding: '1rem' }}>
           {examResponses.length === 0 ? (
@@ -285,6 +373,9 @@ export default function TeacherExamsView() {
             </div>
           )}
         </div>
+        </>
+        );
+        })()}
       </div>
     );
   }

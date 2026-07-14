@@ -15,6 +15,7 @@ export default function StudentExamsView() {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [isReviewing, setIsReviewing] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
+  const [pointsStats, setPointsStats] = useState({ earned: 0, total: 0 });
 
   useEffect(() => {
     const q = query(collection(db, "examenes"), orderBy("createdAt", "desc"));
@@ -44,11 +45,26 @@ export default function StudentExamsView() {
   };
 
   const handleStartExam = (exam: any) => {
-    if (!exam.questions || exam.questions.length === 0) {
-      Swal.fire('Error', 'Este examen no tiene preguntas configuradas.', 'error');
+    // Verificar si ya lo presentó
+    const alreadyTaken = examResponses.find((r: any) => r.examId === exam.id);
+    if (alreadyTaken) {
+      Swal.fire('Atención', 'Ya presentaste este examen', 'info');
       return;
     }
-    setActiveExam(exam);
+    
+    let processedExam = { ...exam };
+    if (processedExam.randomizeOptions && processedExam.questions) {
+      processedExam.questions = processedExam.questions.map((q: any) => {
+        let shuffledOptions = [...q.options];
+        for (let i = shuffledOptions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+        }
+        return { ...q, options: shuffledOptions };
+      });
+    }
+
+    setActiveExam(processedExam);
     setAnswers({});
     setIsReviewing(false);
   };
@@ -67,15 +83,23 @@ export default function StudentExamsView() {
       return;
     }
 
-    // Calcular nota
-    let correctCount = 0;
+    // Calcular nota con puntos
+    let earnedPts = 0;
+    let totalPts = 0;
+
     activeExam.questions.forEach((q: any) => {
+      const qPts = q.points !== undefined ? Number(q.points) : 10;
+      totalPts += qPts;
       if (answers[q.id] === q.correctOption) {
-        correctCount++;
+        earnedPts += qPts;
       }
     });
-    const score = Math.round((correctCount / totalQuestions) * 100);
+    
+    // Prevent division by zero if totalPts is 0 for some reason
+    const score = totalPts > 0 ? Math.round((earnedPts / totalPts) * 100) : 0;
+    
     setFinalScore(score);
+    setPointsStats({ earned: earnedPts, total: totalPts });
 
     Swal.fire({
       title: 'Enviando respuestas...',
@@ -130,7 +154,10 @@ export default function StudentExamsView() {
           
           {isReviewing && (
             <div style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(250,204,21,0.1)', borderRadius: '8px', border: '1px solid var(--accent-primary)' }}>
-              <h2 style={{ color: 'var(--accent-primary)', fontFamily: 'monospace', fontSize: '1.5rem', margin: 0 }}>Calificación: {finalScore}/100</h2>
+              <h2 style={{ color: 'var(--accent-primary)', fontFamily: 'monospace', fontSize: '1.5rem', margin: 0, display: 'flex', justifyContent: 'space-between' }}>
+                <span>Calificación: {finalScore}%</span>
+                <span style={{ fontSize: '1rem', opacity: 0.8 }}>({pointsStats.earned}/{pointsStats.total} pts)</span>
+              </h2>
             </div>
           )}
         </div>
@@ -148,12 +175,19 @@ export default function StudentExamsView() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <p style={{ fontFamily: 'monospace', fontSize: '1.1rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>
                     {index + 1}. {q.text}
+                    <span style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>Valor: {q.points !== undefined ? q.points : 10} puntos</span>
                   </p>
                   {isReviewing && (
                     isCorrect ? <CheckCircle2 color="#00b894" /> : <XCircle color="#d63031" />
                   )}
                 </div>
-                
+
+                {q.imageBase64 && (
+                  <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
+                    <img src={q.imageBase64} alt={`Imagen para pregunta ${index + 1}`} style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }} />
+                  </div>
+                )}
+
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {q.options.map((opt: any, optIndex: number) => {
                     const isSelected = userAnswer === opt.id;
