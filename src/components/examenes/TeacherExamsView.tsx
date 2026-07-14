@@ -271,7 +271,7 @@ export default function TeacherExamsView() {
 
   if (activeTab === 'create') {
     return (
-      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '100px' }}>
+      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '150px' }}>
         <button className="flowi-btn-secondary" onClick={() => setActiveTab('dashboard')} style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: 'none', padding: '0.5rem 1rem', width: 'fit-content' }}>
           <ChevronLeft size={18} /> VOLVER
         </button>
@@ -394,9 +394,13 @@ export default function TeacherExamsView() {
           ))}
         </div>
 
-        <button className="theme-btn" onClick={handleAddQuestion} style={{ width: '100%', marginTop: '2rem', padding: '1rem' }}>+ AÑADIR PREGUNTA</button>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+          <button className="theme-btn" onClick={handleAddQuestion} style={{ padding: '0.75rem 2rem', borderRadius: '50px', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', width: 'fit-content' }}>
+            <PlusCircle size={18} /> AÑADIR PREGUNTA
+          </button>
+        </div>
 
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem' }}>
+        <div style={{ display: 'flex', gap: '1rem', marginTop: '2.5rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2.5rem' }}>
           <button className="start-btn" onClick={handleCreateExam} style={{ width: '100%', padding: '1rem' }}>GUARDAR Y PUBLICAR EXAMEN</button>
         </div>
       </div>
