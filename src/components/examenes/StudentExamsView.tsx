@@ -20,8 +20,10 @@ export default function StudentExamsView() {
   const [activeResponseId, setActiveResponseId] = useState<string | null>(null);
   const [estadoIntento, setEstadoIntento] = useState<'en_curso' | 'bloqueado' | 'completado'>('en_curso');
   const [infracciones, setInfracciones] = useState(0);
+  const [myAttempts, setMyAttempts] = useState<Record<string, any>>({});
 
   useEffect(() => {
+    if (!currentUser) return;
     const q = query(collection(db, "examenes"), orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const exams: any[] = [];
@@ -29,8 +31,21 @@ export default function StudentExamsView() {
       setExamenes(exams);
       setLoading(false);
     });
-    return () => unsubscribe();
-  }, []);
+
+    const attemptsQ = query(collection(db, "respuestas_examenes"), where("studentId", "==", currentUser.uid));
+    const unsubscribeAttempts = onSnapshot(attemptsQ, (snapshot) => {
+      const attempts: Record<string, any> = {};
+      snapshot.forEach(doc => {
+        attempts[doc.data().examId] = { id: doc.id, ...doc.data() };
+      });
+      setMyAttempts(attempts);
+    });
+
+    return () => {
+      unsubscribe();
+      unsubscribeAttempts();
+    };
+  }, [currentUser]);
 
   // Listen to active response for unblocking
   useEffect(() => {
@@ -100,6 +115,37 @@ export default function StudentExamsView() {
     });
 
     try {
+      const existingAttempt = myAttempts[processedExam.id];
+      if (existingAttempt) {
+        // Resume or review existing attempt
+        setActiveResponseId(existingAttempt.id);
+        setActiveExam(processedExam);
+        setAnswers(existingAttempt.answers || {});
+        if (existingAttempt.estado === 'completado') {
+          setIsReviewing(true);
+          setFinalScore(existingAttempt.score || 0);
+          
+          let earnedPts = 0;
+          let totalPts = 0;
+          processedExam.questions?.forEach((q: any) => {
+            const qPts = q.points !== undefined ? Number(q.points) : 10;
+            totalPts += qPts;
+            if (q.type === 'checkbox') {
+              const studentAns = Array.isArray(existingAttempt.answers?.[q.id]) ? existingAttempt.answers[q.id] : [];
+              const correctAns = Array.isArray(q.correctOption) ? q.correctOption : [q.correctOption];
+              if (studentAns.length === correctAns.length && studentAns.every((val: number) => correctAns.includes(val))) earnedPts += qPts;
+            } else {
+              if (existingAttempt.answers?.[q.id] === q.correctOption) earnedPts += qPts;
+            }
+          });
+          setPointsStats({ earned: earnedPts, total: totalPts });
+        } else {
+          setIsReviewing(false);
+        }
+        Swal.close();
+        return;
+      }
+
       const attemptData = {
         examId: processedExam.id,
         examTitle: processedExam.title,
@@ -406,9 +452,15 @@ export default function StudentExamsView() {
                 </div>
                 
                 <div className="flowi-sim-action">
-                  <button className="flowi-btn-primary" onClick={() => handleStartExam(exam)}>
-                    INICIAR EXAMEN
-                  </button>
+                  {myAttempts[exam.id]?.estado === 'completado' ? (
+                    <button className="flowi-btn-primary" onClick={() => handleStartExam(exam)}>
+                      VER RESULTADOS
+                    </button>
+                  ) : (
+                    <button className="flowi-btn-primary" onClick={() => handleStartExam(exam)}>
+                      {myAttempts[exam.id] ? 'REANUDAR EXAMEN' : 'INICIAR EXAMEN'}
+                    </button>
+                  )}
                 </div>
               </div>
             );

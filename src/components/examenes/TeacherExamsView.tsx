@@ -457,18 +457,21 @@ export default function TeacherExamsView() {
                     <div key={opt.id} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.02)', padding: '0.5rem', borderRadius: '4px' }}>
                       <div 
                         onClick={() => setCorrectOption(q.id, opt.id)}
+                        title="Marcar como respuesta correcta"
                         style={{ 
-                          width: '20px', height: '20px', 
+                          width: '24px', height: '24px', 
                           borderRadius: q.type === 'checkbox' ? '4px' : '50%', 
-                          border: '2px solid var(--accent-primary)',
-                          background: isChecked ? 'var(--accent-primary)' : 'transparent',
+                          border: isChecked ? '2px solid var(--accent-primary)' : '2px solid rgba(255,255,255,0.3)',
+                          background: isChecked ? 'var(--accent-primary)' : 'rgba(0,0,0,0.2)',
                           cursor: 'pointer',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center'
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          flexShrink: 0
                         }}
                       >
-                        {isChecked && <CheckCircle2 size={14} color="#000" />}
+                        {isChecked && <CheckCircle2 size={16} color="#000" />}
                       </div>
-                      <input type="text" placeholder={`Opción ${optIndex + 1}`} className="form-input" style={{ flex: 1, padding: '0.5rem', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.1)', borderRadius: 0, background: 'transparent' }} value={opt.text} onChange={(e) => updateOptionText(q.id, opt.id, e.target.value)} />
+                      <input type="text" placeholder={`Opción ${optIndex + 1}`} className="form-input" style={{ flex: 1, padding: '0.5rem', border: 'none', borderBottom: isChecked ? '2px solid var(--accent-primary)' : '1px solid rgba(255,255,255,0.1)', borderRadius: 0, background: isChecked ? 'rgba(250,204,21,0.05)' : 'transparent', fontWeight: isChecked ? 'bold' : 'normal', color: isChecked ? 'var(--accent-primary)' : 'var(--text-primary)' }} value={opt.text} onChange={(e) => updateOptionText(q.id, opt.id, e.target.value)} />
+                      {isChecked && <span style={{ fontSize: '0.7rem', color: 'var(--accent-primary)', background: 'rgba(250,204,21,0.1)', padding: '0.2rem 0.4rem', borderRadius: '4px', whiteSpace: 'nowrap' }}>✔️ CORRECTA</span>}
                       {q.options.length > 2 && (
                         <button onClick={() => removeOption(q.id, opt.id)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.2rem' }}>
                           <X size={16} />
