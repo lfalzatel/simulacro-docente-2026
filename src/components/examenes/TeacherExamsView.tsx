@@ -112,6 +112,28 @@ export default function TeacherExamsView() {
     }
   };
 
+  const handleDeleteResponse = async (responseId: string, studentName: string) => {
+    const result = await Swal.fire({
+      title: '¿Eliminar intento?',
+      text: `Se borrará el examen de ${studentName} y podrá volver a tomarlo.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+      background: '#121212', color: '#fff', confirmButtonColor: '#e74c3c'
+    });
+    
+    if (result.isConfirmed) {
+      try {
+        await deleteDoc(doc(db, "respuestas_examenes", responseId));
+        Swal.fire({ title: 'Eliminado', icon: 'success', toast: true, position: 'top-end', showConfirmButton: false, timer: 2000, background: '#121212', color: '#fff' });
+      } catch (e) {
+        console.error(e);
+        Swal.fire('Error', 'No se pudo eliminar', 'error');
+      }
+    }
+  };
+
 
   // ---- CREATION LOGIC ----
   const handleAddQuestion = () => {
@@ -555,14 +577,15 @@ export default function TeacherExamsView() {
             <p style={{ textAlign: 'center', color: 'var(--text-secondary)', padding: '2rem 0', fontFamily: 'monospace' }}>Aún no hay respuestas para este examen.</p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', padding: '0.5rem 1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: 'var(--accent-secondary)', fontWeight: 'bold', fontSize: '0.8rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 40px', padding: '0.5rem 1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: 'var(--accent-secondary)', fontWeight: 'bold', fontSize: '0.8rem' }}>
                 <span>ESTUDIANTE</span>
                 <span style={{ textAlign: 'center' }}>GRUPO</span>
                 <span style={{ textAlign: 'right' }}>CALIFICACIÓN</span>
+                <span></span>
               </div>
               
               {examResponses.map((res, i) => (
-                <div key={res.id} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', padding: '1rem', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.03)', borderRadius: '8px', alignItems: 'center', fontFamily: 'monospace' }}>
+                <div key={res.id} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 40px', padding: '1rem', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.03)', borderRadius: '8px', alignItems: 'center', fontFamily: 'monospace' }}>
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <span style={{ color: 'var(--text-primary)', fontWeight: 'bold' }}>{res.studentLastName || ""} {res.studentName || ""}</span>
                     <span style={{ color: res.estado === 'bloqueado' ? '#e74c3c' : 'var(--text-secondary)', fontSize: '0.85rem' }}>
@@ -580,6 +603,11 @@ export default function TeacherExamsView() {
                     ) : (
                       <span style={{ color: (res.score || 0) >= 60 ? '#00b894' : '#d63031', fontWeight: 'bold', fontSize: '1.2rem' }}>{res.score || 0}%</span>
                     )}
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <button onClick={() => handleDeleteResponse(res.id, `${res.studentLastName || ""} ${res.studentName || ""}`)} style={{ background: 'transparent', border: 'none', color: '#e74c3c', cursor: 'pointer', padding: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Eliminar intento para que lo repita">
+                      <Trash2 size={16} />
+                    </button>
                   </div>
                 </div>
               ))}
