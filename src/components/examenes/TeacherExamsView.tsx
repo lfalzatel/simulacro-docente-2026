@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft, ImagePlus, X, Copy, Edit2 } from "lucide-react";
 import Swal from "sweetalert2";
-import { collection, addDoc, serverTimestamp, query, where, onSnapshot, orderBy, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, query, where, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 
