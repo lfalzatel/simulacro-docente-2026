@@ -609,38 +609,34 @@ export default function TeacherExamsView() {
           {examResponses.length === 0 ? (
             <p style={{ textAlign: 'center', color: 'var(--text-secondary)', padding: '2rem 0', fontFamily: 'monospace' }}>Aún no hay respuestas para este examen.</p>
           ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 40px', padding: '0.5rem 1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', color: 'var(--accent-secondary)', fontWeight: 'bold', fontSize: '0.8rem' }}>
-                <span>ESTUDIANTE</span>
-                <span style={{ textAlign: 'center' }}>GRUPO</span>
-                <span style={{ textAlign: 'right' }}>CALIFICACIÓN</span>
-                <span></span>
-              </div>
-              
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
               {examResponses.map((res, i) => (
-                <div key={res.id} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 40px', padding: '1rem', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.03)', borderRadius: '8px', alignItems: 'center', fontFamily: 'monospace' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ color: 'var(--text-primary)', fontWeight: 'bold' }}>{res.studentLastName || ""} {res.studentName || ""}</span>
-                    <span style={{ color: res.estado === 'bloqueado' ? '#e74c3c' : 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                      {res.estado === 'completado' || res.score !== undefined ? 'Completado' : res.estado === 'bloqueado' ? `¡BLOQUEADO! (${res.infracciones || 0} avisos)` : 'En curso...'}
-                    </span>
-                  </div>
-                  <span style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>{res.group}</span>
-                  <div style={{ textAlign: 'right' }}>
-                    {res.estado === 'bloqueado' ? (
-                      <button onClick={() => handleUnlockStudent(res.id)} style={{ background: '#e74c3c', color: '#fff', border: 'none', padding: '0.4rem 0.8rem', borderRadius: '4px', cursor: 'pointer', fontSize: '0.75rem', fontWeight: 'bold' }}>
-                        DESBLOQUEAR
-                      </button>
-                    ) : res.estado === 'en_curso' ? (
-                      <span style={{ color: '#EAB308', fontWeight: 'bold' }}>--</span>
-                    ) : (
-                      <span style={{ color: (res.score || 0) >= 60 ? '#00b894' : '#d63031', fontWeight: 'bold', fontSize: '1.2rem' }}>{res.score || 0}%</span>
-                    )}
-                  </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <button onClick={() => handleDeleteResponse(res.id, `${res.studentLastName || ""} ${res.studentName || ""}`)} style={{ background: 'transparent', border: 'none', color: '#e74c3c', cursor: 'pointer', padding: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Eliminar intento para que lo repita">
-                      <Trash2 size={16} />
+                <div key={res.id} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: '1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', fontFamily: 'monospace' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ color: 'var(--text-primary)', fontWeight: 'bold' }}>{res.studentLastName || ""} {res.studentName || ""}</span>
+                      <span style={{ color: res.estado === 'bloqueado' ? '#e74c3c' : 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                        {res.estado === 'completado' || res.score !== undefined ? 'Completado' : res.estado === 'bloqueado' ? `¡BLOQUEADO! (${res.infracciones || 0} avisos)` : 'En curso...'}
+                      </span>
+                    </div>
+                    <button onClick={() => handleDeleteResponse(res.id, `${res.studentLastName || ""} ${res.studentName || ""}`)} style={{ background: 'transparent', border: 'none', color: '#e74c3c', cursor: 'pointer', padding: '0' }} title="Eliminar intento">
+                      <Trash2 size={18} />
                     </button>
+                  </div>
+                  
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                    <span style={{ color: 'var(--text-secondary)' }}>{res.group}</span>
+                    <div style={{ textAlign: 'right' }}>
+                      {res.estado === 'bloqueado' ? (
+                        <button onClick={() => handleUnlockStudent(res.id)} style={{ background: '#e74c3c', color: '#fff', border: 'none', padding: '0.4rem 0.8rem', borderRadius: '4px', cursor: 'pointer', fontSize: '0.75rem', fontWeight: 'bold' }}>
+                          DESBLOQUEAR
+                        </button>
+                      ) : res.estado === 'en_curso' ? (
+                        <span style={{ color: '#EAB308', fontWeight: 'bold' }}>--</span>
+                      ) : (
+                        <span style={{ color: (res.score || 0) >= 60 ? '#00b894' : '#d63031', fontWeight: 'bold', fontSize: '1.2rem' }}>{res.score || 0}%</span>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -668,7 +664,7 @@ export default function TeacherExamsView() {
         </button>
       </div>
       
-      <div className="flowi-simulacros-grid" style={{ marginTop: '2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '1rem' }}>
+      <div className="flowi-simulacros-grid" style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         {loading ? (
           <p style={{ color: 'var(--text-secondary)' }}>Cargando...</p>
         ) : myExams.length === 0 ? (
