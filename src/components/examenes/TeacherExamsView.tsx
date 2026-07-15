@@ -726,34 +726,34 @@ export default function TeacherExamsView() {
                   <button 
                     className="flowi-btn-secondary" 
                     title="Editar"
-                    style={{ flex: 1, padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                    style={{ flex: '1 1 auto', padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', fontWeight: 'bold' }}
                     onClick={() => handleEditExam(exam)}
                   >
-                    <Edit2 size={16} />
+                    <Edit2 size={16} /> EDITAR
                   </button>
                   <button 
                     className="flowi-btn-secondary" 
                     title="Duplicar"
-                    style={{ flex: 1, padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                    style={{ flex: '1 1 auto', padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', fontWeight: 'bold' }}
                     onClick={() => handleDuplicateExam(exam)}
                   >
-                    <Copy size={16} />
+                    <Copy size={16} /> DUPLICAR
                   </button>
                   <button 
                     className="flowi-btn-secondary" 
                     title={exam.isLocked ? "Desbloquear" : "Bloquear"}
-                    style={{ flex: 1, padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center', color: exam.isLocked ? '#e74c3c' : '#00b894' }}
+                    style={{ flex: '1 1 auto', padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', fontWeight: 'bold', color: exam.isLocked ? '#e74c3c' : '#00b894' }}
                     onClick={() => handleToggleLockExam(exam)}
                   >
-                    {exam.isLocked ? <Lock size={16} /> : <Unlock size={16} />}
+                    {exam.isLocked ? <><Lock size={16} /> DESBLOQUEAR</> : <><Unlock size={16} /> BLOQUEAR</>}
                   </button>
                   <button 
                     className="flowi-btn-secondary" 
                     title="Eliminar"
-                    style={{ flex: 1, padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ff7675' }}
+                    style={{ flex: '1 1 auto', padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.4rem', fontSize: '0.7rem', fontWeight: 'bold', color: '#ff7675' }}
                     onClick={() => handleDeleteExam(exam.id)}
                   >
-                    <Trash2 size={16} />
+                    <Trash2 size={16} /> ELIMINAR
                   </button>
                 </div>
               </div>
