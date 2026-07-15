@@ -635,7 +635,7 @@ export default function TeacherExamsView() {
         </button>
       </div>
       
-      <div className="flowi-simulacros-grid" style={{ marginTop: '2rem' }}>
+      <div className="flowi-simulacros-grid" style={{ marginTop: '2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '1rem' }}>
         {loading ? (
           <p style={{ color: 'var(--text-secondary)' }}>Cargando...</p>
         ) : myExams.length === 0 ? (
@@ -664,7 +664,7 @@ export default function TeacherExamsView() {
                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><List size={14} /> {qCount} Preguntas ({totalPts} pts)</span>
                   </div>
 
-                  <div style={{ background: 'rgba(0,0,0,0.2)', padding: '0.75rem', borderRadius: '6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ background: 'rgba(0,0,0,0.2)', padding: '0.75rem', borderRadius: '6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                       <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>ASIGNADOS</span>
                       <span style={{ fontWeight: 'bold', fontFamily: 'monospace', fontSize: '1.1rem' }}>{stats.assigned || 0} <Users size={12} style={{ display: 'inline', opacity: 0.5 }}/></span>
