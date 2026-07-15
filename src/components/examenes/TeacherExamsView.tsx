@@ -652,7 +652,7 @@ export default function TeacherExamsView() {
 
   // DEFAULT DASHBOARD
   return (
-    <div className="page-content fade-in" style={{ padding: '2rem', paddingBottom: '100px' }}>
+    <div className="page-content fade-in" style={{ padding: '2rem', paddingBottom: '160px' }}>
       
       <div className="flowi-header-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
@@ -715,7 +715,7 @@ export default function TeacherExamsView() {
                   </div>
                   
                 </div>
-                <div className="flowi-sim-action" style={{ display: 'flex', gap: '0.5rem', padding: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                <div className="flowi-sim-action" style={{ display: 'flex', gap: '0.5rem', padding: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)', flexWrap: 'wrap' }}>
                   <button 
                     className="flowi-btn-primary" 
                     style={{ flex: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem' }}

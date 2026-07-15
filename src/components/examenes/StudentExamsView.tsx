@@ -411,7 +411,7 @@ export default function StudentExamsView() {
 
   // VISTA DEL LISTADO DE EXÁMENES
   return (
-    <div className="page-content fade-in" style={{ padding: '1.5rem', paddingBottom: '100px' }}>
+    <div className="page-content fade-in" style={{ padding: '1.5rem', paddingBottom: '160px' }}>
       <div className="flowi-header-container">
         <h1 className="flowi-title">MIS EXÁMENES</h1>
         <p className="flowi-subtitle">EVALUACIONES ASIGNADAS Y PENDIENTES</p>
