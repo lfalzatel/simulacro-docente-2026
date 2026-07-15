@@ -530,14 +530,22 @@ export default function TeacherExamsView() {
                 </button>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '2rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginTop: '2rem' }}>
                 <div className="examen-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(0,184,148,0.1)', border: '1px solid rgba(0,184,148,0.3)' }}>
                   <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Promedio General</span>
                   <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: averageScore >= 60 ? '#00b894' : '#d63031', fontFamily: 'monospace' }}>{averageScore}%</span>
                 </div>
                 <div className="examen-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(250,204,21,0.1)', border: '1px solid rgba(250,204,21,0.3)' }}>
-                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Estudiantes Evaluados</span>
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Evaluados</span>
                   <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--accent-primary)', fontFamily: 'monospace' }}>{totalEvaluated}</span>
+                </div>
+                <div className="examen-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(0,184,148,0.05)', border: '1px solid rgba(0,184,148,0.2)' }}>
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Aprobados</span>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#00b894', fontFamily: 'monospace' }}>{completedResponses.filter(r => (r.score || 0) >= 60).length}</span>
+                </div>
+                <div className="examen-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(214,48,49,0.05)', border: '1px solid rgba(214,48,49,0.2)' }}>
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Reprobados</span>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#d63031', fontFamily: 'monospace' }}>{completedResponses.filter(r => (r.score || 0) < 60).length}</span>
                 </div>
               </div>
 
