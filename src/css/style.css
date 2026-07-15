@@ -216,8 +216,8 @@
     --bg-overlay-Start: rgba(250,204,21,0.08);
     --bg-overlay-End: rgba(250,204,21,0.04);
 
-    --text-primary: rgba(255,255,255,0.95);
-    --text-secondary: rgba(255,255,255,0.6);
+    --text-primary: #FACC15;
+    --text-secondary: rgba(250, 204, 21, 0.7);
     --text-inverse: #0A0A0A;
 
     --accent-primary: #FACC15;
