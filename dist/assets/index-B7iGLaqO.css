@@ -443,7 +443,10 @@
 }
 [data-theme="kilo"] .menu-card,
 [data-theme="kilo"] .stat-card,
-[data-theme="kilo"] .examen-card {
+[data-theme="kilo"] .examen-card,
+[data-theme="kilo"] .flowi-total-card,
+[data-theme="kilo"] .flowi-sim-card,
+[data-theme="kilo"] .user-card {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 16px;
