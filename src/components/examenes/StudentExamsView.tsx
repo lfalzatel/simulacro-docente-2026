@@ -389,7 +389,7 @@ export default function StudentExamsView() {
           })}
         </div>
 
-        <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', position: 'sticky', bottom: '90px', zIndex: 10, background: '#121212', padding: '1rem 0' }}>
+        <div style={{ marginTop: '3rem', display: 'flex', gap: '1rem', padding: '1rem 0' }}>
           {isReviewing ? (
             <button className="start-btn" onClick={() => { setActiveExam(null); setIsReviewing(false); }} style={{ width: '100%' }}>
               VOLVER AL INICIO
