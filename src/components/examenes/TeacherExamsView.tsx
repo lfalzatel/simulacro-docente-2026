@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft, ImagePlus, X, Copy, Edit2 } from "lucide-react";
+import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft, ImagePlus, X, Copy, Edit2, Lock, Unlock } from "lucide-react";
 import Swal from "sweetalert2";
 import { collection, addDoc, serverTimestamp, query, where, onSnapshot, doc, updateDoc, deleteDoc, or } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -291,6 +291,7 @@ export default function TeacherExamsView() {
           teacherId: currentUser?.uid,
           collaborators: form.collaboratorsText ? form.collaboratorsText.split(',').map(e => e.trim().toLowerCase()).filter(e => e) : [],
           randomizeOptions: form.randomizeOptions,
+          isLocked: true,
           questions: questions,
           createdAt: serverTimestamp()
         });
@@ -353,6 +354,17 @@ export default function TeacherExamsView() {
       } catch (e) {
         Swal.fire('Error', 'No se pudo eliminar', 'error');
       }
+    }
+  };
+
+  const handleToggleLockExam = async (exam: any) => {
+    try {
+      await updateDoc(doc(db, "examenes", exam.id), {
+        isLocked: exam.isLocked === undefined ? false : !exam.isLocked // Default to false if missing, so toggle makes it false
+      });
+      Swal.fire({ title: exam.isLocked ? 'Examen Desbloqueado' : 'Examen Bloqueado', icon: 'success', toast: true, position: 'top-end', showConfirmButton: false, timer: 1500, background: '#121212', color: '#fff' });
+    } catch (error) {
+      Swal.fire('Error', 'No se pudo cambiar el estado', 'error');
     }
   };
 
@@ -730,6 +742,14 @@ export default function TeacherExamsView() {
                     onClick={() => handleDuplicateExam(exam)}
                   >
                     <Copy size={16} />
+                  </button>
+                  <button 
+                    className="flowi-btn-secondary" 
+                    title={exam.isLocked ? "Desbloquear" : "Bloquear"}
+                    style={{ flex: 1, padding: '0.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center', color: exam.isLocked ? '#e74c3c' : '#00b894' }}
+                    onClick={() => handleToggleLockExam(exam)}
+                  >
+                    {exam.isLocked ? <Lock size={16} /> : <Unlock size={16} />}
                   </button>
                   <button 
                     className="flowi-btn-secondary" 

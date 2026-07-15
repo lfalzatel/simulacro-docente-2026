@@ -461,6 +461,11 @@ export default function StudentExamsView() {
                     <button className="flowi-btn-primary" onClick={() => handleStartExam(exam)}>
                       VER RESULTADOS
                     </button>
+                  ) : exam.isLocked ? (
+                    <button className="flowi-btn-primary" style={{ background: 'var(--bg-secondary)', color: 'var(--text-secondary)', cursor: 'not-allowed', opacity: 0.7 }} disabled>
+                      <Lock size={16} style={{ display: 'inline', marginRight: '0.5rem', verticalAlign: 'text-bottom' }} />
+                      BLOQUEADO
+                    </button>
                   ) : (
                     <button className="flowi-btn-primary" onClick={() => handleStartExam(exam)}>
                       {myAttempts[exam.id] ? 'REANUDAR EXAMEN' : 'INICIAR EXAMEN'}
