@@ -24,10 +24,15 @@ export default function StudentExamsView() {
 
   useEffect(() => {
     if (!currentUser) return;
-    const q = query(collection(db, "examenes"), orderBy("createdAt", "desc"));
+    const q = collection(db, "examenes");
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const exams: any[] = [];
+      let exams: any[] = [];
       snapshot.forEach((doc) => exams.push({ id: doc.id, ...doc.data() }));
+      exams.sort((a, b) => {
+        const timeA = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0;
+        const timeB = b.createdAt?.toMillis ? b.createdAt.toMillis() : 0;
+        return timeB - timeA;
+      });
       setExamenes(exams);
       setLoading(false);
     });
@@ -262,7 +267,7 @@ export default function StudentExamsView() {
   // VISTA DEL EXAMEN ACTIVO o REVISIÓN
   if (activeExam) {
     return (
-      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '120px' }}>
+      <div className="page-content fade-in" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto', paddingBottom: '200px' }}>
         
         {estadoIntento === 'bloqueado' && !isReviewing && (
           <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.95)', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', textAlign: 'center' }}>
