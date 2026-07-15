@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { PlusCircle, Users, Clock, Calendar, CheckCircle2, Trash2, FileSpreadsheet, List, ChevronLeft, ImagePlus, X, Copy, Edit2 } from "lucide-react";
 import Swal from "sweetalert2";
-import { collection, addDoc, serverTimestamp, query, where, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, query, where, onSnapshot, doc, updateDoc, deleteDoc, or } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 
@@ -23,7 +23,7 @@ export default function TeacherExamsView() {
   const [loading, setLoading] = useState(true);
 
   // Form states
-  const [form, setForm] = useState({ title: "", date: "", time: "", group: "6A", randomizeOptions: false });
+  const [form, setForm] = useState({ title: "", date: "", time: "", group: "6A", randomizeOptions: false, collaboratorsText: "" });
   const [questions, setQuestions] = useState<Question[]>([
     { id: Date.now(), text: "", type: 'radio', options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }
   ]);
@@ -31,7 +31,13 @@ export default function TeacherExamsView() {
   // Fetch Exams
   useEffect(() => {
     if (!currentUser) return;
-    const q = query(collection(db, "examenes"), where("teacherId", "==", currentUser.uid));
+    const q = query(
+      collection(db, "examenes"), 
+      or(
+        where("teacherId", "==", currentUser.uid),
+        where("collaborators", "array-contains", currentUser.email || "")
+      )
+    );
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const exams: any[] = [];
       snapshot.forEach((doc) => exams.push({ id: doc.id, ...doc.data() }));
@@ -271,6 +277,7 @@ export default function TeacherExamsView() {
           date: form.date,
           time: form.time,
           group: form.group,
+          collaborators: form.collaboratorsText ? form.collaboratorsText.split(',').map(e => e.trim().toLowerCase()).filter(e => e) : [],
           randomizeOptions: form.randomizeOptions,
           questions: questions,
         });
@@ -282,6 +289,7 @@ export default function TeacherExamsView() {
           time: form.time,
           group: form.group,
           teacherId: currentUser?.uid,
+          collaborators: form.collaboratorsText ? form.collaboratorsText.split(',').map(e => e.trim().toLowerCase()).filter(e => e) : [],
           randomizeOptions: form.randomizeOptions,
           questions: questions,
           createdAt: serverTimestamp()
@@ -291,7 +299,7 @@ export default function TeacherExamsView() {
       
       setActiveTab('dashboard');
       setEditingExamId(null);
-      setForm({ title: "", date: "", time: "", group: "6A", randomizeOptions: false });
+      setForm({ title: "", date: "", time: "", group: "6A", randomizeOptions: false, collaboratorsText: "" });
       setQuestions([{ id: Date.now(), text: "", type: 'radio', options: [{ id: 1, text: "" }, { id: 2, text: "" }, { id: 3, text: "" }, { id: 4, text: "" }], correctOption: 1, points: 10 }]);
 
     } catch (error) {
@@ -307,7 +315,8 @@ export default function TeacherExamsView() {
       date: exam.date,
       time: exam.time,
       group: exam.group || "6A",
-      randomizeOptions: exam.randomizeOptions || false
+      randomizeOptions: exam.randomizeOptions || false,
+      collaboratorsText: exam.collaborators ? exam.collaborators.join(', ') : ""
     });
     setQuestions(exam.questions || []);
     setActiveTab('create');
@@ -422,6 +431,18 @@ export default function TeacherExamsView() {
               <input type="checkbox" checked={form.randomizeOptions} onChange={(e) => setForm({ ...form, randomizeOptions: e.target.checked })} style={{ width: '18px', height: '18px', accentColor: 'var(--accent-primary)' }} />
               <span>Mezclar orden de las opciones para los estudiantes</span>
             </label>
+            <div style={{ marginTop: '1rem', background: 'rgba(255,255,255,0.03)', padding: '0.75rem 1rem', borderRadius: '4px', border: '1px solid var(--border-color)' }}>
+              <label style={{ display: 'block', color: 'var(--accent-secondary)', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>ASIGNAR COLABORADORES (Opcional)</label>
+              <input 
+                type="text" 
+                placeholder="Correos electrónicos separados por coma" 
+                className="form-input"
+                style={{ border: 'none', background: 'transparent', padding: 0 }}
+                value={form.collaboratorsText} 
+                onChange={e => setForm({...form, collaboratorsText: e.target.value})}
+              />
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.5rem', marginBottom: 0 }}>Los docentes invitados podrán ver este examen y duplicarlo para sus propios grupos.</p>
+            </div>
           </div>
         </div>
 

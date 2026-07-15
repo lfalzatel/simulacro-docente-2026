@@ -123,6 +123,9 @@ service cloud.firestore {
       // El estudiante puede actualizar su respuesta (ej. marcar infracciones, auto-guardado, finalizar)
       // El profesor puede actualizar para calificar manualmente o desbloquear
       allow update: if (estaAutenticado() && resource.data.studentId == request.auth.uid) || esProfesor() || esAdmin();
+      
+      // Permitir al profesor eliminar la respuesta para que el estudiante repita
+      allow delete: if esProfesor() || esAdmin();
     }
   }
 }
