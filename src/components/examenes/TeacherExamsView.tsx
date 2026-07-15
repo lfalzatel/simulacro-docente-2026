@@ -610,7 +610,7 @@ export default function TeacherExamsView() {
             <p style={{ textAlign: 'center', color: 'var(--text-secondary)', padding: '2rem 0', fontFamily: 'monospace' }}>Aún no hay respuestas para este examen.</p>
           ) : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-              {examResponses.map((res, i) => (
+              {examResponses.map((res) => (
                 <div key={res.id} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', padding: '1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', fontFamily: 'monospace' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
